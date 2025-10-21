@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
@@ -11,6 +12,18 @@ const Index = () => {
     email: '',
     message: ''
   });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: '#hero', label: 'Главная' },
+    { href: '#portfolio', label: 'Портфолио' },
+    { href: '#services', label: 'Услуги' },
+    { href: '#team', label: 'Команда' },
+    { href: '#process', label: 'Процесс' },
+    { href: '#tech', label: 'Технологии' },
+    { href: '#reviews', label: 'Отзывы' },
+    { href: '#contact', label: 'Контакты' }
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,16 +38,41 @@ const Index = () => {
             AI Creative
           </div>
           <div className="hidden md:flex gap-8">
-            <a href="#hero" className="text-sm font-medium hover:text-primary transition-colors">Главная</a>
-            <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">Портфолио</a>
-            <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">Услуги</a>
-            <a href="#team" className="text-sm font-medium hover:text-primary transition-colors">Команда</a>
-            <a href="#process" className="text-sm font-medium hover:text-primary transition-colors">Процесс</a>
-            <a href="#tech" className="text-sm font-medium hover:text-primary transition-colors">Технологии</a>
-            <a href="#reviews" className="text-sm font-medium hover:text-primary transition-colors">Отзывы</a>
-            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Контакты</a>
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="text-sm font-medium hover:text-primary transition-colors">
+                {link.label}
+              </a>
+            ))}
           </div>
           <Button className="hidden md:block">Связаться</Button>
+          
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <SheetTrigger asChild className="md:hidden">
+              <Button variant="ghost" size="icon">
+                <Icon name="Menu" size={24} />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[280px]">
+              <div className="flex flex-col gap-6 mt-8">
+                <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
+                  AI Creative
+                </div>
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <Button className="mt-4" onClick={() => setMobileMenuOpen(false)}>
+                  Связаться
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </nav>
 
@@ -249,6 +287,18 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Контакты</h2>
             <p className="text-xl text-muted-foreground">Начнём ваш проект сегодня</p>
           </div>
+          
+          <div className="flex justify-center gap-4 mb-8 animate-fade-in">
+            <Button
+              size="lg"
+              className="text-lg"
+              onClick={() => window.open('https://t.me/your_username', '_blank')}
+            >
+              <Icon name="MessageCircle" size={20} className="mr-2" />
+              Написать в Telegram
+            </Button>
+          </div>
+
           <Card className="p-8 md:p-12 animate-scale-in">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
@@ -318,9 +368,24 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4">Контакты</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>info@aicreative.ru</li>
-                <li>+7 (999) 123-45-67</li>
-                <li>Москва, Россия</li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Mail" size={16} />
+                  info@aicreative.ru
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="Phone" size={16} />
+                  +7 (999) 123-45-67
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="MessageCircle" size={16} />
+                  <a href="https://t.me/your_username" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    @your_username
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Icon name="MapPin" size={16} />
+                  Москва, Россия
+                </li>
               </ul>
             </div>
           </div>
