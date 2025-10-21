@@ -32,6 +32,15 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <a
+        href="https://t.me/your_username"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300 animate-scale-in"
+        aria-label="Написать в Telegram"
+      >
+        <Icon name="MessageCircle" size={28} className="text-white" />
+      </a>
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -389,8 +398,21 @@ const Index = () => {
               </ul>
             </div>
           </div>
-          <div className="pt-8 border-t text-center text-sm text-muted-foreground">
-            © 2024 AI Creative Agency. Все права защищены.
+          <div className="pt-8 border-t text-center">
+            <div className="flex justify-center gap-6 mb-4">
+              <a href="https://t.me/your_username" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                <Icon name="MessageCircle" size={20} />
+              </a>
+              <a href="mailto:info@aicreative.ru" className="text-muted-foreground hover:text-primary transition-colors">
+                <Icon name="Mail" size={20} />
+              </a>
+              <a href="tel:+79991234567" className="text-muted-foreground hover:text-primary transition-colors">
+                <Icon name="Phone" size={20} />
+              </a>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              © 2024 AI Creative Agency. Все права защищены.
+            </p>
           </div>
         </div>
       </footer>
