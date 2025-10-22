@@ -51,7 +51,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            AI Creative
+            AI MUSELAB
           </div>
           <div className="hidden md:flex gap-8">
             {navLinks.map((link) => (
@@ -71,7 +71,7 @@ const Index = () => {
             <SheetContent side="right" className="w-[280px]">
               <div className="flex flex-col gap-6 mt-8">
                 <div className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
-                  AI Creative
+                  AI MUSELAB
                 </div>
                 {navLinks.map((link) => (
                   <a
@@ -359,7 +359,7 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                AI Creative
+                AI MUSELAB
               </h3>
               <p className="text-sm text-muted-foreground">
                 Создаём будущее контента с помощью искусственного интеллекта
@@ -418,7 +418,7 @@ const Index = () => {
               </a>
             </div>
             <p className="text-sm text-muted-foreground">
-              © 2024 AI Creative Agency. Все права защищены.
+              © 2024 AI MUSELAB. Все права защищены.
             </p>
           </div>
         </div>
