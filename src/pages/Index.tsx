@@ -33,7 +33,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <a
-        href="https://t.me/your_username"
+        href="https://t.me/izmailova8888"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300 animate-scale-in"
