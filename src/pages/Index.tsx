@@ -386,7 +386,7 @@ const Index = () => {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <Icon name="Mail" size={16} />
-                  info@aicreative.ru
+                  info@aimuselab.ru
                 </li>
                 <li className="flex items-center gap-2">
                   <Icon name="Phone" size={16} />
@@ -410,7 +410,7 @@ const Index = () => {
               <a href="https://t.me/izmailova8888" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="MessageCircle" size={20} />
               </a>
-              <a href="mailto:info@aicreative.ru" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="mailto:info@aimuselab.ru" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="Mail" size={20} />
               </a>
               <a href="tel:+79818636699" className="text-muted-foreground hover:text-primary transition-colors">
