@@ -387,8 +387,8 @@ const Index = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Icon name="MessageCircle" size={16} />
-                  <a href="https://t.me/your_username" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                    @your_username
+                  <a href="https://t.me/izmailova8888" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    @izmailova8888
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
@@ -400,7 +400,7 @@ const Index = () => {
           </div>
           <div className="pt-8 border-t text-center">
             <div className="flex justify-center gap-6 mb-4">
-              <a href="https://t.me/your_username" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://t.me/izmailova8888" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="MessageCircle" size={20} />
               </a>
               <a href="mailto:info@aicreative.ru" className="text-muted-foreground hover:text-primary transition-colors">
