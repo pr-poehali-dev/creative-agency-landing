@@ -383,7 +383,7 @@ const Index = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Icon name="Phone" size={16} />
-                  +7 (999) 123-45-67
+                  +7 (981) 863-66-99
                 </li>
                 <li className="flex items-center gap-2">
                   <Icon name="MessageCircle" size={16} />
@@ -406,7 +406,7 @@ const Index = () => {
               <a href="mailto:info@aicreative.ru" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="Mail" size={20} />
               </a>
-              <a href="tel:+79991234567" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="tel:+79818636699" className="text-muted-foreground hover:text-primary transition-colors">
                 <Icon name="Phone" size={20} />
               </a>
             </div>
