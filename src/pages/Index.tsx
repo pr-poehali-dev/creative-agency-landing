@@ -95,22 +95,22 @@ const Index = () => {
       <section id="hero" className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-fade-in">
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+            <div className="space-y-6 md:space-y-8 animate-fade-in">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
                 Создаём контент будущего с помощью{' '}
                 <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                   AI
                 </span>
               </h1>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-lg md:text-xl text-muted-foreground">
                 Производство музыки и видео с использованием передовых нейросетей. Уникальный контент для вашего бренда.
               </p>
-              <div className="flex gap-4">
-                <Button size="lg" className="text-lg">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="text-lg w-full sm:w-auto">
                   Начать проект
                   <Icon name="ArrowRight" size={20} className="ml-2" />
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg">
+                <Button size="lg" variant="outline" className="text-lg w-full sm:w-auto">
                   Посмотреть работы
                 </Button>
               </div>
@@ -129,10 +129,10 @@ const Index = () => {
       <section id="portfolio" className="py-20 px-6 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Портфолио</h2>
-            <p className="text-xl text-muted-foreground">Наши лучшие работы</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Портфолио</h2>
+            <p className="text-lg md:text-xl text-muted-foreground">Наши лучшие работы</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <Card key={item} className="group overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 animate-fade-in-up">
                 <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 relative overflow-hidden">
@@ -153,10 +153,10 @@ const Index = () => {
       <section id="services" className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Услуги</h2>
-            <p className="text-xl text-muted-foreground">Полный цикл производства контента</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Услуги</h2>
+            <p className="text-lg md:text-xl text-muted-foreground">Полный цикл производства контента</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
             <Card className="p-8 hover:shadow-xl transition-shadow animate-fade-in-up">
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Icon name="Music" size={32} className="text-primary" />
@@ -191,10 +191,10 @@ const Index = () => {
       <section id="team" className="py-20 px-6 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Команда</h2>
-            <p className="text-xl text-muted-foreground">Эксперты AI и креатива</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Команда</h2>
+            <p className="text-lg md:text-xl text-muted-foreground">Эксперты AI и креатива</p>
           </div>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {['Алексей', 'Мария', 'Дмитрий', 'Анна'].map((name, idx) => (
               <Card key={name} className="p-6 text-center hover:shadow-xl transition-shadow animate-fade-in-up">
                 <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-secondary mx-auto mb-4"></div>
@@ -209,10 +209,10 @@ const Index = () => {
       <section id="process" className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Процесс работы</h2>
-            <p className="text-xl text-muted-foreground">От идеи до результата</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Процесс работы</h2>
+            <p className="text-lg md:text-xl text-muted-foreground">От идеи до результата</p>
           </div>
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { icon: 'Lightbulb', title: 'Идея', desc: 'Обсуждаем концепцию проекта' },
               { icon: 'Cpu', title: 'AI Анализ', desc: 'Подбираем оптимальные модели' },
@@ -239,10 +239,10 @@ const Index = () => {
       <section id="tech" className="py-20 px-6 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Технологии и AI-инструменты</h2>
-            <p className="text-xl text-muted-foreground">Используем передовые нейросети</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Технологии и AI-инструменты</h2>
+            <p className="text-lg md:text-xl text-muted-foreground">Используем передовые нейросети</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
               {[
                 { name: 'GPT-4', desc: 'Генерация текстов и сценариев' },
@@ -271,10 +271,10 @@ const Index = () => {
       <section id="reviews" className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Отзывы клиентов</h2>
-            <p className="text-xl text-muted-foreground">Что говорят о нас</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Отзывы клиентов</h2>
+            <p className="text-lg md:text-xl text-muted-foreground">Что говорят о нас</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
             {[
               { name: 'Иван Петров', company: 'Tech Startup', text: 'Невероятное качество AI-музыки! Использовали для нашего продукта.' },
               { name: 'Елена Смирнова', company: 'Media Agency', text: 'Быстро, профессионально, инновационно. Рекомендуем!' },
@@ -300,14 +300,14 @@ const Index = () => {
       <section id="contact" className="py-20 px-6 bg-muted/30">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Контакты</h2>
-            <p className="text-xl text-muted-foreground">Начнём ваш проект сегодня</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Контакты</h2>
+            <p className="text-lg md:text-xl text-muted-foreground">Начнём ваш проект сегодня</p>
           </div>
           
-          <div className="flex justify-center gap-4 mb-8 animate-fade-in">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 animate-fade-in">
             <Button
               size="lg"
-              className="text-lg"
+              className="text-lg w-full sm:w-auto"
               onClick={() => window.open('https://t.me/your_username', '_blank')}
             >
               <Icon name="MessageCircle" size={20} className="mr-2" />
@@ -315,9 +315,9 @@ const Index = () => {
             </Button>
           </div>
 
-          <Card className="p-8 md:p-12 animate-scale-in">
+          <Card className="p-6 md:p-8 lg:p-12 animate-scale-in">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">Имя</label>
                   <Input 
