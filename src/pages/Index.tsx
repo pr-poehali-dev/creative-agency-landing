@@ -133,16 +133,24 @@ const Index = () => {
             <p className="text-lg md:text-xl text-muted-foreground">Наши лучшие работы</p>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <Card key={item} className="group overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 animate-fade-in-up">
-                <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Icon name="Play" size={48} className="text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+            {[
+              { img: 'https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/909586fc-a7de-4316-aa27-d4d34bd8ac42.jpg', title: 'Музыкальный альбом', desc: 'AI-генерация музыки' },
+              { img: 'https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/ce682f68-dcf3-430f-bf19-c506378dacdd.jpg', title: 'Подкаст-шоу', desc: 'Озвучка AI-голосом' },
+              { img: 'https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/20f648d1-a653-4bdd-8042-410b76d2a2e1.jpg', title: 'Видеопродукция', desc: 'AI-монтаж и эффекты' },
+              { img: 'https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/66895e27-5607-4d06-95e6-80b7191ae2d1.jpg', title: 'Голосовой синтез', desc: 'Создание уникальных голосов' },
+              { img: 'https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/d38af0e6-ba19-4602-b265-3b2881edb729.jpg', title: 'Рекламная кампания', desc: 'AI-генерация контента' },
+              { img: 'https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/2a96ffb2-1cac-44e6-9e77-bf4207dd5559.jpg', title: 'Контент-студия', desc: 'Полный цикл производства' }
+            ].map((item, idx) => (
+              <Card key={idx} className="group overflow-hidden cursor-pointer hover:shadow-xl transition-all duration-300 animate-fade-in-up">
+                <div className="aspect-video relative overflow-hidden">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Icon name="Play" size={48} className="text-white" />
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-semibold text-lg mb-2">Проект {item}</h3>
-                  <p className="text-sm text-muted-foreground">AI-генерация музыки</p>
+                  <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
                 </div>
               </Card>
             ))}
