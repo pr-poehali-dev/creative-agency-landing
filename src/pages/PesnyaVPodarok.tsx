@@ -211,59 +211,66 @@ export default function PesnyaVPodarok() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMG})` }}
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(30,15,5,0.82) 50%, rgba(30,15,5,0.3))" }} />
-        <div className="relative z-10 container mx-auto max-w-6xl px-6 py-24">
-          <div className="max-w-2xl">
-            {/* Artist badge */}
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.25)" }}>
-                <Icon name="Star" size={14} style={{ color: "#f5c97a" }} />
-                <span className="text-sm font-semibold text-white">Профессиональный артист</span>
-                <span className="font-extrabold text-sm" style={{ color: "#f5c97a" }}>GALAKTIKA</span>
-              </div>
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(20,10,3,0.95) 45%, rgba(20,10,3,0.5) 75%, rgba(20,10,3,0.15))" }} />
+
+        <div className="relative z-10 container mx-auto max-w-6xl px-6 py-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
+
+          {/* ── Левая колонка: текст ── */}
+          <div className="flex-1 max-w-xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.22)" }}>
+              <Icon name="Star" size={13} style={{ color: "#f5c97a" }} />
+              <span className="text-sm font-semibold text-white">Артист и автор песен</span>
+              <span className="font-extrabold text-sm" style={{ color: "#f5c97a" }}>GALAKTIKA</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-              Песня о Вас<br />и для Вас
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-5">
+              Авторская песня<br />
+              <span style={{ color: "#f5c97a" }}>лично для вас</span>
             </h1>
-            <p className="text-xl md:text-2xl font-semibold mb-4" style={{ color: "#f5c97a" }}>
-              Уникальный подарок, который вызовет слёзы счастья
+
+            <p className="text-lg text-white/80 mb-3 leading-relaxed">
+              Меня зовут <strong className="text-white">Юлия Измайлова</strong> — я профессиональный автор-исполнитель. Пишу тексты, музыку и пою сама.
             </p>
             <p className="text-lg text-white/80 mb-8 leading-relaxed">
-              Расскажите вашу историю — я лично напишу текст на основе ваших смыслов и создам уникальный трек за 2–3 дня. Хотите живой вокал? Это тоже возможно.
+              Расскажите мне вашу историю — и я создам уникальный трек специально для вас или вашего близкого. Готово за <strong className="text-white">2–3 дня</strong>.
             </p>
-            {/* Artist links */}
+
+            {/* Платформы артиста */}
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#7a5c44" }}>Послушать моё творчество:</p>
             <div className="flex flex-wrap gap-3 mb-10">
               <a
-                href="https://vk.ru/club235584480"
+                href="https://music.yandex.com/artist/2948671"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
-                style={{ background: "rgba(0,119,255,0.25)", color: "#fff", border: "1px solid rgba(0,119,255,0.5)" }}
+                style={{ background: "rgba(255,204,0,0.18)", color: "#fff", border: "1px solid rgba(255,204,0,0.4)" }}
               >
-                <Icon name="Users" size={15} />
-                Сообщество ВКонтакте
+                <Icon name="Headphones" size={15} />
+                Яндекс Музыка
               </a>
               <a
                 href="https://vk.ru/artist/galaktika_mtuyntc0odg0mw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
-                style={{ background: "rgba(0,119,255,0.15)", color: "#fff", border: "1px solid rgba(0,119,255,0.35)" }}
+                style={{ background: "rgba(0,119,255,0.18)", color: "#fff", border: "1px solid rgba(0,119,255,0.4)" }}
               >
                 <Icon name="Music2" size={15} />
-                Карточка артиста ВК
+                ВК Музыка
               </a>
               <a
-                href="https://music.yandex.com/artist/2948671"
+                href="https://vk.ru/club235584480"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
-                style={{ background: "rgba(255,204,0,0.2)", color: "#fff", border: "1px solid rgba(255,204,0,0.4)" }}
+                style={{ background: "rgba(255,255,255,0.10)", color: "#fff", border: "1px solid rgba(255,255,255,0.25)" }}
               >
-                <Icon name="Headphones" size={15} />
-                Яндекс Музыка
+                <Icon name="Users" size={15} />
+                Сообщество ВКонтакте
               </a>
             </div>
+
             <Button
               onClick={scrollToForm}
               size="lg"
@@ -271,10 +278,36 @@ export default function PesnyaVPodarok() {
               style={{ background: "#c2410c", color: "#fff" }}
             >
               <Icon name="Music" size={20} className="mr-2" />
-              Рассказать историю и получить трек
+              Заказать песню
             </Button>
           </div>
+
+          {/* ── Правая колонка: фото ── */}
+          <div className="flex-shrink-0 flex flex-col items-center lg:ml-auto">
+            <div className="relative">
+              {/* Glow за фото */}
+              <div
+                className="absolute -inset-4 rounded-3xl blur-2xl opacity-40"
+                style={{ background: "radial-gradient(ellipse, #7c3aed 0%, transparent 70%)" }}
+              />
+              <img
+                src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/344bf7da-4f0c-4b6b-ab42-6cc2b9daded2.jpeg"
+                alt="Юлия Измайлова — автор-исполнитель GALAKTIKA"
+                className="relative w-72 md:w-80 lg:w-96 rounded-3xl object-cover shadow-2xl"
+                style={{ border: "2px solid rgba(255,255,255,0.15)", aspectRatio: "3/4", objectPosition: "top" }}
+              />
+              {/* Плашка-подпись */}
+              <div
+                className="absolute bottom-4 left-4 right-4 rounded-2xl px-4 py-3 backdrop-blur-sm"
+                style={{ background: "rgba(20,10,3,0.75)", border: "1px solid rgba(255,255,255,0.15)" }}
+              >
+                <p className="text-white font-bold text-sm">Юлия Измайлова</p>
+                <p className="text-xs mt-0.5" style={{ color: "#f5c97a" }}>Автор-исполнитель · GALAKTIKA</p>
+              </div>
+            </div>
+          </div>
         </div>
+
         {/* Scroll hint */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 flex flex-col items-center gap-1 animate-bounce">
           <Icon name="ChevronDown" size={24} />
