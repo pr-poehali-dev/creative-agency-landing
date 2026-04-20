@@ -14,22 +14,44 @@ const COVER3_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8
 const COVER4_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/63cbba21-6de2-47e5-b294-4f527f9a0329.jpg";
 const COVER5_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/a26a653d-418e-4648-8a8e-fd98fe7a9976.jpg";
 
+const artistServiceItems = [
+  {
+    icon: "Sparkles",
+    title: "Публикация трека на площадках",
+    desc: "Размещу вашу песню на Spotify, Apple Music, VK Музыке, Яндекс.Музыке и других стриминговых сервисах.",
+  },
+  {
+    icon: "UserCircle",
+    title: "Оформление профиля артиста",
+    desc: "Создам карточку исполнителя: фото, биография, ссылки, обложки. Ваш профиль будет выглядеть профессионально.",
+  },
+  {
+    icon: "GraduationCap",
+    title: "Обучение созданию песен с ИИ",
+    desc: "Научу создавать музыку с нуля с помощью нейросетей — от идеи до готового трека. Без специального образования.",
+  },
+];
+
 const faqItems = [
   {
+    q: "Как создаётся песня — это живой музыкант или нейросеть?",
+    a: "Музыка и текст создаются с помощью современных ИИ-инструментов — это позволяет делать треки быстро и доступно. Если вы хотите живой вокал вместо синтезированного — это возможно, выберите пакет «Хит». Результат в любом случае звучит профессионально.",
+  },
+  {
+    q: "Могу ли я использовать песню в бизнесе, рекламе, соцсетях?",
+    a: "Базовый пакет — для личного использования. Если планируете использовать трек коммерчески (реклама, монетизация, продажа), выберите пакет с передачей коммерческих авторских прав — он специально создан для этого.",
+  },
+  {
     q: "А если песня не понравится?",
-    a: "Мы даём гарантию на доработки. Вы услышите демо-версию текста и музыки ещё до чистовой записи. Мы не остановимся, пока вы не скажете «Вау!».",
+    a: "Вы услышите черновой вариант текста и музыки ещё до финальной сборки. Мы вносим правки — до 3 раз в базовом пакете и до 5 раз в пакете «Хит». Не остановимся, пока не скажете «это оно».",
   },
   {
     q: "Я стесняюсь рассказывать личные истории.",
-    a: "Мы подписываем соглашение о неразглашении (NDA). Ваша история — только между нами и микрофоном.",
-  },
-  {
-    q: "Это будет звучать как робот?",
-    a: "Мы работаем только с живыми вокалистами и профессиональными музыкантами. Финальный трек записывается на студии звукозаписи — никакого «бубнежа».",
+    a: "Всё конфиденциально. Ваша история используется только для создания песни и никуда не передаётся. Мы можем подписать соглашение о неразглашении (NDA) по запросу.",
   },
   {
     q: "Сколько времени занимает создание?",
-    a: "Пакет «Душевный» — 3–5 дней. Пакет «Хит для любимых» — 5–7 дней. Срочный заказ обсуждается отдельно.",
+    a: "Пакет «Подарок с душой» — 2–3 дня. «Хит» с живым вокалом — 5–7 дней. Срочный заказ обсуждается индивидуально — пишите в Telegram.",
   },
 ];
 
@@ -42,22 +64,22 @@ const steps = [
   },
   {
     num: "02",
-    icon: "Music",
-    title: "Мы пишем текст и музыку",
-    desc: "Наши авторы создают уникальный сценарий, а музыканты — аранжировку специально для вашей истории.",
+    icon: "Cpu",
+    title: "ИИ создаёт текст и музыку",
+    desc: "Нейросеть пишет уникальный текст и аранжировку по вашей истории. При желании — добавляем живой вокал исполнителя.",
     img: STUDIO_IMG,
   },
   {
     num: "03",
     icon: "Play",
     title: "Вы слушаете демо",
-    desc: "Присылаем черновой вариант. Вы можете внести до 3 правок бесплатно — добавить слова, изменить темп.",
+    desc: "Присылаем черновой вариант. Вы можете внести правки бесплатно — добавить слова, изменить темп, скорректировать настроение.",
   },
   {
     num: "04",
     icon: "Gift",
-    title: "Получаете готовый трек + бонус",
-    desc: "Качественный аудиофайл + красивое видео-слайдшоу из ваших фото в подарок!",
+    title: "Получаете готовый трек",
+    desc: "Качественный аудиофайл + видео-слайдшоу из ваших фото в подарок. Файл ваш навсегда.",
   },
 ];
 
@@ -200,7 +222,7 @@ export default function PesnyaVPodarok() {
               Уникальный подарок, который вызовет слёзы счастья
             </p>
             <p className="text-lg text-white/80 mb-10 leading-relaxed">
-              Расскажите вашу историю, а мы превратим её в профессиональный трек с живым вокалом за 3–5 дней.
+              Расскажите вашу историю — мы создадим уникальный трек с помощью ИИ за 2–3 дня. Хотите живой вокал? Это тоже возможно.
             </p>
             <Button
               onClick={scrollToForm}
@@ -376,55 +398,114 @@ export default function PesnyaVPodarok() {
 
       {/* ─── PRICING ──────────────────────────────────────────── */}
       <section className="py-20 px-6" style={{ background: "#faf7f4" }}>
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#2d2016" }}>
             Цены и пакеты
           </h2>
           <p className="text-center text-lg mb-14" style={{ color: "#7a5c44" }}>
             Никаких скрытых платежей — всё включено
           </p>
-          <div className="grid md:grid-cols-2 gap-6 items-start">
-            {/* Package 1 */}
-            <Card className="p-8 border-2" style={{ borderColor: "#e5c9b5", background: "#fff" }}>
-              <h3 className="font-extrabold text-2xl mb-2" style={{ color: "#2d2016" }}>Душевный подарок</h3>
-              <p className="text-sm mb-6" style={{ color: "#9a7a65" }}>Идеально для тёплого личного подарка</p>
-              <div className="text-4xl font-extrabold mb-1" style={{ color: "#c2410c" }}>9 900 ₽</div>
-              <p className="text-xs mb-8" style={{ color: "#9a7a65" }}>Дешевле, чем букет из 101 розы</p>
-              <ul className="space-y-3 mb-8">
-                {["Текст + мелодия под гитару / клавиши", "Запись вокала (исполнитель студии)", "До 3 правок бесплатно", "Срок: 3–5 дней"].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm" style={{ color: "#5a3d2b" }}>
-                    <Icon name="Check" size={16} style={{ color: "#c2410c" }} /> {f}
+          <div className="grid md:grid-cols-3 gap-6 items-start">
+
+            {/* Package 1 — базовый */}
+            <Card className="p-7 border-2 flex flex-col" style={{ borderColor: "#e5c9b5", background: "#fff" }}>
+              <div className="mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#fef3c7", color: "#92400e" }}>
+                  Подарок с душой
+                </span>
+              </div>
+              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#2d2016" }}>Личное использование</h3>
+              <p className="text-sm mb-5" style={{ color: "#9a7a65" }}>Для семьи, друзей и близких</p>
+              <div className="text-4xl font-extrabold mb-1" style={{ color: "#c2410c" }}>5 000 ₽</div>
+              <p className="text-xs mb-6" style={{ color: "#9a7a65" }}>Без передачи авторских прав</p>
+              <ul className="space-y-3 mb-8 flex-1">
+                {[
+                  "Текст + музыка на основе ИИ",
+                  "ИИ-вокал (синтезированный)",
+                  "До 3 правок бесплатно",
+                  "Срок: 2–3 дня",
+                  "Файл MP3 навсегда ваш",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#5a3d2b" }}>
+                    <Icon name="Check" size={15} style={{ color: "#c2410c", flexShrink: 0, marginTop: 2 }} /> {f}
                   </li>
                 ))}
               </ul>
-              <Button onClick={scrollToForm} className="w-full py-5 rounded-full font-bold" variant="outline" style={{ borderColor: "#c2410c", color: "#c2410c" }}>
-                Заказать «Душевный»
+              <Button onClick={scrollToForm} className="w-full py-4 rounded-full font-bold" variant="outline" style={{ borderColor: "#c2410c", color: "#c2410c" }}>
+                Заказать
               </Button>
             </Card>
 
-            {/* Package 2 — recommended */}
-            <Card className="p-8 border-2 relative" style={{ borderColor: "#c2410c", background: "#fff4ec" }}>
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+            {/* Package 2 — с правами */}
+            <Card className="p-7 border-2 relative flex flex-col" style={{ borderColor: "#c2410c", background: "#fff4ec" }}>
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
                 <Badge className="px-4 py-1 text-sm font-bold rounded-full" style={{ background: "#c2410c", color: "#fff" }}>
-                  Рекомендуем
+                  Популярный выбор
                 </Badge>
               </div>
-              <h3 className="font-extrabold text-2xl mb-2 mt-2" style={{ color: "#2d2016" }}>Хит для любимых</h3>
-              <p className="text-sm mb-6" style={{ color: "#9a7a65" }}>Для особенных событий и самых близких</p>
-              <div className="text-4xl font-extrabold mb-1" style={{ color: "#c2410c" }}>19 900 ₽</div>
-              <p className="text-xs mb-8" style={{ color: "#9a7a65" }}>Впечатления на всю жизнь</p>
-              <ul className="space-y-3 mb-8">
-                {["Профессиональная аранжировка (полный инструментал)", "Профессиональный вокал + бэк-вокал", "Видео-слайдшоу из ваших фото — в подарок!", "До 5 правок бесплатно", "Срок: 5–7 дней"].map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm font-medium" style={{ color: "#5a3d2b" }}>
-                    <Icon name="Check" size={16} style={{ color: "#c2410c" }} /> {f}
+              <div className="mb-4 mt-2">
+                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#fed7aa", color: "#7a2e0e" }}>
+                  С авторскими правами
+                </span>
+              </div>
+              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#2d2016" }}>Коммерческое использование</h3>
+              <p className="text-sm mb-5" style={{ color: "#9a7a65" }}>Для бизнеса, соцсетей, рекламы</p>
+              <div className="text-4xl font-extrabold mb-1" style={{ color: "#c2410c" }}>9 900 ₽</div>
+              <p className="text-xs mb-6" style={{ color: "#9a7a65" }}>С передачей коммерческих авторских прав</p>
+              <ul className="space-y-3 mb-8 flex-1">
+                {[
+                  "Текст + музыка на основе ИИ",
+                  "ИИ-вокал (синтезированный)",
+                  "Передача коммерческих прав",
+                  "До 5 правок бесплатно",
+                  "Срок: 2–3 дня",
+                  "Файл MP3 + договор об уступке прав",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm font-medium" style={{ color: "#5a3d2b" }}>
+                    <Icon name="Check" size={15} style={{ color: "#c2410c", flexShrink: 0, marginTop: 2 }} /> {f}
                   </li>
                 ))}
               </ul>
-              <Button onClick={scrollToForm} className="w-full py-5 rounded-full font-bold text-white" style={{ background: "#c2410c" }}>
+              <Button onClick={scrollToForm} className="w-full py-4 rounded-full font-bold text-white" style={{ background: "#c2410c" }}>
+                Заказать
+              </Button>
+            </Card>
+
+            {/* Package 3 — хит с живым вокалом */}
+            <Card className="p-7 border-2 flex flex-col" style={{ borderColor: "#7c3aed", background: "#faf5ff" }}>
+              <div className="mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#ede9fe", color: "#5b21b6" }}>
+                  Живой вокал
+                </span>
+              </div>
+              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#2d2016" }}>Хит — максимум</h3>
+              <p className="text-sm mb-5" style={{ color: "#9a7a65" }}>Для особых событий и сильных впечатлений</p>
+              <div className="text-4xl font-extrabold mb-1" style={{ color: "#7c3aed" }}>19 000 ₽</div>
+              <p className="text-xs mb-6" style={{ color: "#9a7a65" }}>Живой вокалист + коммерческие права</p>
+              <ul className="space-y-3 mb-8 flex-1">
+                {[
+                  "Профессиональная ИИ-аранжировка",
+                  "Живой вокал — запись в студии",
+                  "Бэк-вокал и сведение",
+                  "Передача коммерческих прав",
+                  "До 5 правок бесплатно",
+                  "Срок: 5–7 дней",
+                  "Видео-слайдшоу из фото — в подарок",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm font-medium" style={{ color: "#3b0764" }}>
+                    <Icon name="Check" size={15} style={{ color: "#7c3aed", flexShrink: 0, marginTop: 2 }} /> {f}
+                  </li>
+                ))}
+              </ul>
+              <Button onClick={scrollToForm} className="w-full py-4 rounded-full font-bold text-white" style={{ background: "#7c3aed" }}>
                 Заказать «Хит»
               </Button>
             </Card>
+
           </div>
+          <p className="text-center mt-8 text-sm" style={{ color: "#9a7a65" }}>
+            Не уверены какой пакет подходит? Напишите нам — поможем выбрать за 5 минут.
+          </p>
         </div>
       </section>
 
@@ -511,6 +592,47 @@ export default function PesnyaVPodarok() {
                 )}
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ARTIST SERVICE ───────────────────────────────────── */}
+      <section className="py-20 px-6" style={{ background: "#1a0f07" }}>
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-4">
+            <span className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full" style={{ background: "rgba(245,201,122,0.15)", color: "#f5c97a", border: "1px solid rgba(245,201,122,0.3)" }}>
+              Дополнительная услуга
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mt-4 mb-4 text-white">
+            Хотите стать артистом?
+          </h2>
+          <p className="text-center text-lg mb-14" style={{ color: "#c9a882" }}>
+            Помогу вам выйти на музыкальный рынок — от нуля до собственного имени на стриминговых площадках
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {artistServiceItems.map((item, i) => (
+              <Card key={i} className="p-7 border-0" style={{ background: "#2d2016" }}>
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5" style={{ background: "rgba(245,201,122,0.15)" }}>
+                  <Icon name={item.icon as "Sparkles"} size={24} style={{ color: "#f5c97a" }} />
+                </div>
+                <h3 className="font-extrabold text-lg text-white mb-3">{item.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#c9a882" }}>{item.desc}</p>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center">
+            <a
+              href="https://t.me/izmailova8888"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-base transition-transform hover:scale-105"
+              style={{ background: "rgba(245,201,122,0.15)", color: "#f5c97a", border: "1px solid rgba(245,201,122,0.4)" }}
+            >
+              <Icon name="Send" size={18} />
+              Узнать подробнее в Telegram
+            </a>
+            <p className="text-sm mt-4" style={{ color: "#5a3d2b" }}>Стоимость обсуждается индивидуально</p>
           </div>
         </div>
       </section>
