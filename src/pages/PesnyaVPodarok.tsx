@@ -212,18 +212,56 @@ export default function PesnyaVPodarok() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(30,15,5,0.82) 50%, rgba(30,15,5,0.3))" }} />
         <div className="relative z-10 container mx-auto max-w-6xl px-6 py-24">
           <div className="max-w-2xl">
-            <Badge className="mb-6 text-sm px-4 py-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.15)", color: "#fff", border: "1px solid rgba(255,255,255,0.3)" }}>
-              Уже подарили 100+ незабываемых эмоций
-            </Badge>
+            {/* Artist badge */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.25)" }}>
+                <Icon name="Star" size={14} style={{ color: "#f5c97a" }} />
+                <span className="text-sm font-semibold text-white">Профессиональный артист</span>
+                <span className="font-extrabold text-sm" style={{ color: "#f5c97a" }}>GALAKTIKA</span>
+              </div>
+            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
               Песня о Вас<br />и для Вас
             </h1>
             <p className="text-xl md:text-2xl font-semibold mb-4" style={{ color: "#f5c97a" }}>
               Уникальный подарок, который вызовет слёзы счастья
             </p>
-            <p className="text-lg text-white/80 mb-10 leading-relaxed">
+            <p className="text-lg text-white/80 mb-8 leading-relaxed">
               Расскажите вашу историю — мы создадим уникальный трек с помощью ИИ за 2–3 дня. Хотите живой вокал? Это тоже возможно.
             </p>
+            {/* Artist links */}
+            <div className="flex flex-wrap gap-3 mb-10">
+              <a
+                href="https://vk.ru/club235584480"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
+                style={{ background: "rgba(0,119,255,0.25)", color: "#fff", border: "1px solid rgba(0,119,255,0.5)" }}
+              >
+                <Icon name="Users" size={15} />
+                Сообщество ВКонтакте
+              </a>
+              <a
+                href="https://vk.ru/artist/galaktika_mtuyntc0odg0mw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
+                style={{ background: "rgba(0,119,255,0.15)", color: "#fff", border: "1px solid rgba(0,119,255,0.35)" }}
+              >
+                <Icon name="Music2" size={15} />
+                Карточка артиста ВК
+              </a>
+              <a
+                href="https://music.yandex.com/artist/2948671"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
+                style={{ background: "rgba(255,204,0,0.2)", color: "#fff", border: "1px solid rgba(255,204,0,0.4)" }}
+              >
+                <Icon name="Headphones" size={15} />
+                Яндекс Музыка
+              </a>
+            </div>
             <Button
               onClick={scrollToForm}
               size="lg"
