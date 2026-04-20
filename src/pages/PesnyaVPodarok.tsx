@@ -8,9 +8,11 @@ const HERO_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a2
 const VINYL_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/1b51b62f-525c-42f3-ac36-5114e5d51e17.jpg";
 const STUDIO_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/add1436d-d6f3-42b3-bc70-66cf247e9536.jpg";
 const WEDDING_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/0a89312a-7bdc-4e0f-958a-d1062ca38446.jpg";
-const COVER1_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/a130246d-ea42-4eb8-8ae2-92336d9788ca.jpg";
-const COVER2_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/9bcd938c-ad7b-4602-b091-03abf5f5f978.jpg";
-const COVER3_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/2b9bc1d0-00ba-4a89-a687-94bdb34df3ac.jpg";
+const COVER1_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/7f709c21-11a6-43c8-a3cf-b64d5c8b338c.jpg";
+const COVER2_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/94eafe8e-96cd-4ff9-b42b-e7a85c4d84d9.jpg";
+const COVER3_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/f6343e46-9ca1-436a-bb15-e903c89a11c2.jpg";
+const COVER4_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/63cbba21-6de2-47e5-b294-4f527f9a0329.jpg";
+const COVER5_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/a26a653d-418e-4648-8a8e-fd98fe7a9976.jpg";
 
 const faqItems = [
   {
@@ -62,21 +64,43 @@ const steps = [
 const portfolioTracks = [
   {
     img: COVER1_IMG,
-    title: "Маме от дочери на 60-летие",
+    title: "Зрячее сердце",
+    occasion: "Юбилей бабушки 85 лет",
+    desc: "Семья поздравляла свою слепую бабушку. В её памяти живы картинки из прошлого — и эта песня стала талисманом любви всей семьи к своему любимому человеку.",
     genre: "Душевная лирика",
     icon: "Heart",
   },
   {
     img: COVER2_IMG,
-    title: "Любимому мужу на годовщину",
-    genre: "Поп-рок",
-    icon: "Music2",
+    title: "Мирный воин",
+    occasion: "Папе на 23 февраля",
+    desc: "Отец-добытчик, который сражается не на войне, а в ежедневной жизни. Защищает семью, помогает внуку расти и создаёт наследие для своих близких.",
+    genre: "Авторская песня",
+    icon: "Shield",
   },
   {
     img: COVER3_IMG,
-    title: "Гимн семьи Ивановых",
-    genre: "Авторская песня",
-    icon: "Users",
+    title: "Обнимаю всей Вселенной",
+    occasion: "Песня для мамы",
+    desc: "Песня стала настоящим хитом — показала самые нежные и добрые чувства между ребёнком и родной матерью. Дочь пишет маме о любви размером со Вселенную.",
+    genre: "Лирика",
+    icon: "Heart",
+  },
+  {
+    img: COVER4_IMG,
+    title: "Гимн выпускников",
+    occasion: "Колледж психологии",
+    desc: "Песня в стиле старинного гимна Кембриджской академии. Утончённый, умный гимн с именами сокурсников и преподавателей — подарок студентки, ставший взрывом курса.",
+    genre: "Академический гимн",
+    icon: "GraduationCap",
+  },
+  {
+    img: COVER5_IMG,
+    title: "Диско для подруги",
+    occasion: "День рождения",
+    desc: "Танцевали всю ночь под эту песню! Зажигательный диско-трек в честь именинницы — теперь все друзья поют её на каждом празднике.",
+    genre: "Диско",
+    icon: "Music2",
   },
 ];
 
@@ -276,34 +300,41 @@ export default function PesnyaVPodarok() {
       <section className="py-20 px-6" style={{ background: "#2d2016" }}>
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-white">
-            Слушайте сами
+            Реальные истории — реальные треки
           </h2>
           <p className="text-center text-lg mb-14" style={{ color: "#c9a882" }}>
-            Работы для частных клиентов — живой вокал, настоящие истории
+            Живой вокал, профессиональная запись, настоящие эмоции
           </p>
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolioTracks.map((track, i) => (
-              <Card key={i} className="overflow-hidden border-0 group cursor-pointer hover:shadow-2xl transition-all" style={{ background: "#3d2c1c" }}>
-                <div className="relative aspect-square overflow-hidden">
-                  <img src={track.img} alt={track.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-                  <div className="absolute inset-0 flex items-center justify-center" style={{ background: "rgba(0,0,0,0.45)" }}>
-                    <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ background: "rgba(194,65,12,0.9)" }}>
-                      <Icon name="Play" size={24} className="text-white ml-1" />
+              <Card key={i} className="overflow-hidden border-0 hover:shadow-2xl transition-all" style={{ background: "#3d2c1c" }}>
+                <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                  <img src={track.img} alt={track.title} className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(30,15,5,0.85) 40%, transparent)" }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <span className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full" style={{ background: "rgba(194,65,12,0.85)", color: "#fff" }}>
+                      {track.occasion}
+                    </span>
+                  </div>
+                  <div className="absolute top-3 right-3">
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "rgba(194,65,12,0.85)" }}>
+                      <Icon name="Music" size={18} className="text-white" />
                     </div>
                   </div>
                 </div>
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-2">
-                    <Icon name={track.icon as "Heart"} size={16} style={{ color: "#f5c97a" }} />
+                    <Icon name={track.icon as "Heart"} size={14} style={{ color: "#f5c97a" }} />
                     <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#f5c97a" }}>{track.genre}</span>
                   </div>
-                  <p className="font-semibold text-white text-sm">{track.title}</p>
+                  <h3 className="font-extrabold text-white text-lg mb-2">«{track.title}»</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#c9a882" }}>{track.desc}</p>
                 </div>
               </Card>
             ))}
           </div>
           <p className="text-center mt-8 text-sm" style={{ color: "#9a7a65" }}>
-            * Треки воспроизводятся после отправки заявки — менеджер пришлёт подборку в удобном формате
+            Прослушать треки можно написав нам — пришлём ссылки сразу в Telegram
           </p>
         </div>
       </section>
