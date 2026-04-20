@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import CookieBanner from "@/components/CookieBanner";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -717,9 +719,40 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── FOOTER ───────────────────────────────────────────── */}
-      <footer className="py-8 px-6 text-center text-sm" style={{ background: "#1a0f07", color: "#7a5c44" }}>
-        <p>© 2025 AI Muse Lab · <a href="/" className="hover:underline">Главная страница</a></p>
+      <footer className="py-10 px-6" style={{ background: "#110a04", color: "#7a5c44" }}>
+        <div className="container mx-auto max-w-4xl">
+          <div className="flex flex-col md:flex-row justify-between gap-6 mb-6 text-xs">
+            <div>
+              <p className="font-semibold mb-1" style={{ color: "#c9a882" }}>ИП Измайлова Юлия Александровна</p>
+              <p>ИНН: 665895132301</p>
+              <p>198207, г. Санкт-Петербург, пр-кт Ленинский, д 117, корп 1, кв 234</p>
+              <p>Без НДС (УСН)</p>
+            </div>
+            <div className="flex flex-col gap-2 text-xs md:text-right">
+              <Link to="/public-offer" className="hover:underline" style={{ color: "#c9a882" }}>
+                Договор-оферта
+              </Link>
+              <Link to="/privacy-policy" className="hover:underline" style={{ color: "#c9a882" }}>
+                Политика конфиденциальности
+              </Link>
+              <a href="https://t.me/izmailova8888" className="hover:underline" style={{ color: "#c9a882" }}>
+                Telegram: @izmailova8888
+              </a>
+            </div>
+          </div>
+          <div className="border-t pt-4 text-center text-xs" style={{ borderColor: "#2a1a0e" }}>
+            <p>© 2026 ИП Измайлова Юлия Александровна · Все права защищены</p>
+            <p className="mt-1">
+              Нажимая «Оставить заявку», вы принимаете условия{" "}
+              <Link to="/public-offer" className="hover:underline" style={{ color: "#c9a882" }}>договора-оферты</Link>
+              {" "}и соглашаетесь с{" "}
+              <Link to="/privacy-policy" className="hover:underline" style={{ color: "#c9a882" }}>политикой конфиденциальности</Link>
+            </p>
+          </div>
+        </div>
       </footer>
+
+      <CookieBanner />
     </div>
   );
 }

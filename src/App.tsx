@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import PesnyaVPodarok from "./pages/PesnyaVPodarok";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PublicOffer from "./pages/PublicOffer";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,6 +21,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/pesnya-v-podarok" element={<PesnyaVPodarok />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/public-offer" element={<PublicOffer />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
