@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Submit lead success",
+      "method": "POST",
+      "path": "/",
+      "body": { "name": "Тест", "contact": "@test_user" },
+      "expectedStatus": 200
+    },
+    {
+      "name": "Missing fields returns 400",
+      "method": "POST",
+      "path": "/",
+      "body": { "name": "" },
+      "expectedStatus": 400
+    }
+  ]
+}
