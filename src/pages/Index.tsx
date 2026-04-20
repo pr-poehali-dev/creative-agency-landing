@@ -60,7 +60,9 @@ const Index = () => {
               </a>
             ))}
           </div>
-          <Button className="hidden md:block">Связаться</Button>
+          <a href="/pesnya-v-podarok" className="hidden md:block">
+            <Button style={{ background: "#c2410c", color: "#fff" }}>🎵 Песня в подарок</Button>
+          </a>
           
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild className="md:hidden">
@@ -83,9 +85,11 @@ const Index = () => {
                     {link.label}
                   </a>
                 ))}
-                <Button className="mt-4" onClick={() => setMobileMenuOpen(false)}>
-                  Связаться
-                </Button>
+                <a href="/pesnya-v-podarok" className="mt-4">
+                  <Button className="w-full" style={{ background: "#c2410c", color: "#fff" }} onClick={() => setMobileMenuOpen(false)}>
+                    🎵 Песня в подарок
+                  </Button>
+                </a>
               </div>
             </SheetContent>
           </Sheet>
