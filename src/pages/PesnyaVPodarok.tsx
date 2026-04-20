@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 
@@ -122,9 +121,6 @@ const calcQuestions = [
 ];
 
 export default function PesnyaVPodarok() {
-  const [formData, setFormData] = useState({ name: "", contact: "" });
-  const [formSent, setFormSent] = useState(false);
-  const [formLoading, setFormLoading] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [calcStep, setCalcStep] = useState(0);
   const [calcAnswers, setCalcAnswers] = useState<string[]>([]);
@@ -142,30 +138,6 @@ export default function PesnyaVPodarok() {
 
   const scrollToForm = () => {
     document.getElementById("form-section")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.contact) return;
-    setFormLoading(true);
-    try {
-      await fetch("https://functions.poehali.dev/1da8aa11-ec15-4134-82ec-7826c554f737", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          contact: formData.contact,
-          answers: calcDone
-            ? { who: calcAnswers[0], occasion: calcAnswers[1], genre: calcAnswers[2] }
-            : {}
-        })
-      });
-      setFormSent(true);
-    } catch {
-      setFormSent(true);
-    } finally {
-      setFormLoading(false);
-    }
   };
 
   return (
@@ -467,13 +439,16 @@ export default function PesnyaVPodarok() {
                 <p style={{ color: "#c9a882" }} className="mb-6 leading-relaxed">
                   Мы уже начали придумывать припев! Оставьте номер ниже — получите вариант первой строчки песни в подарок к расчёту.
                 </p>
-                <Button
-                  onClick={scrollToForm}
-                  className="px-8 py-5 rounded-full font-bold text-white"
+                <a
+                  href="https://t.me/AIMusalab_bot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-5 rounded-full font-bold text-white transition-transform hover:scale-105"
                   style={{ background: "#c2410c" }}
                 >
+                  <Icon name="Bot" size={18} />
                   Получить первую строчку
-                </Button>
+                </a>
               </div>
             )}
           </Card>
@@ -509,7 +484,7 @@ export default function PesnyaVPodarok() {
         </div>
       </section>
 
-      {/* ─── FORM ─────────────────────────────────────────────── */}
+      {/* ─── CTA SECTION ──────────────────────────────────────── */}
       <section id="form-section" className="py-24 px-6 relative overflow-hidden" style={{ background: "#2d2016" }}>
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -520,47 +495,33 @@ export default function PesnyaVPodarok() {
             Готовы подарить эмоции,<br />которые не купить в магазине?
           </h2>
           <p className="text-lg mb-10" style={{ color: "#c9a882" }}>
-            Расскажите идею — и мы свяжемся в течение 15 минут
+            Напишите нам — и мы свяжемся в течение 15 минут
           </p>
-          {!formSent ? (
-            <Card className="p-8 border-0 shadow-2xl" style={{ background: "rgba(255,255,255,0.06)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.12)" }}>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <Input
-                  placeholder="Ваше имя"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="h-12 text-base rounded-xl border-0"
-                  style={{ background: "rgba(255,255,255,0.1)", color: "#fff" }}
-                  required
-                />
-                <Input
-                  placeholder="Телефон или Telegram (@username)"
-                  value={formData.contact}
-                  onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                  className="h-12 text-base rounded-xl border-0"
-                  style={{ background: "rgba(255,255,255,0.1)", color: "#fff" }}
-                  required
-                />
-                <Button
-                  type="submit"
-                  disabled={formLoading}
-                  className="w-full py-6 text-base font-bold rounded-xl text-white"
-                  style={{ background: "#c2410c" }}
-                >
-                  {formLoading ? "Отправляем..." : "Обсудить идею и получить расчёт"}
-                </Button>
-              </form>
-              <p className="mt-4 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
-                Менеджер свяжется в течение 15 минут в рабочее время. Никакого спама — только обсуждение вашего будущего хита.
-              </p>
-            </Card>
-          ) : (
-            <Card className="p-10 border-0" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }}>
-              <div className="text-5xl mb-4">🎉</div>
-              <h3 className="text-2xl font-bold text-white mb-3">Заявка принята!</h3>
-              <p style={{ color: "#c9a882" }}>Менеджер свяжется с вами в течение 15 минут и обсудит все детали вашей будущей песни.</p>
-            </Card>
-          )}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://t.me/AIMusalab_bot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 px-8 py-5 rounded-2xl font-bold text-lg text-white transition-transform hover:scale-105 shadow-xl"
+              style={{ background: "#c2410c" }}
+            >
+              <Icon name="Bot" size={22} />
+              Оставить заявку через бота
+            </a>
+            <a
+              href="https://t.me/izmailova8888"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 px-8 py-5 rounded-2xl font-bold text-lg transition-transform hover:scale-105 shadow-xl"
+              style={{ background: "rgba(255,255,255,0.1)", color: "#fff", border: "1px solid rgba(255,255,255,0.25)" }}
+            >
+              <Icon name="Send" size={22} />
+              Написать лично
+            </a>
+          </div>
+          <p className="mt-6 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
+            Отвечаем в течение 15 минут в рабочее время
+          </p>
         </div>
       </section>
 
