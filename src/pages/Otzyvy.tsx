@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import CookieBanner from "@/components/CookieBanner";
 import NavBar from "@/components/NavBar";
+import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import Icon from "@/components/ui/icon";
 
 const reviews = [
@@ -78,6 +79,11 @@ const stats = [
 ];
 
 export default function Otzyvy() {
+  useBreadcrumb([
+    { name: "Главная", item: "https://aimuselab.ru/" },
+    { name: "Отзывы", item: "https://aimuselab.ru/otzyvy" },
+  ]);
+
   return (
     <div style={{ background: "#0d0702", minHeight: "100vh" }}>
 

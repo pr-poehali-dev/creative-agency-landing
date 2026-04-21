@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import CookieBanner from "@/components/CookieBanner";
 import NavBar from "@/components/NavBar";
+import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import Icon from "@/components/ui/icon";
 
 const JULIA_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/344bf7da-4f0c-4b6b-ab42-6cc2b9daded2.jpeg";
@@ -27,6 +28,11 @@ const process = [
 ];
 
 export default function ObiNas() {
+  useBreadcrumb([
+    { name: "Главная", item: "https://aimuselab.ru/" },
+    { name: "О нас", item: "https://aimuselab.ru/o-nas" },
+  ]);
+
   return (
     <div style={{ background: "#0d0702", minHeight: "100vh" }}>
 

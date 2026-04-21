@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import CookieBanner from "@/components/CookieBanner";
 import NavBar from "@/components/NavBar";
+import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import Icon from "@/components/ui/icon";
 
 type FaqItem = { q: string; a: string | string[] };
@@ -176,6 +177,10 @@ const sections: FaqSection[] = [
 export default function Faq() {
   const [openItem, setOpenItem] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string>("price");
+  useBreadcrumb([
+    { name: "Главная", item: "https://aimuselab.ru/" },
+    { name: "FAQ", item: "https://aimuselab.ru/faq" },
+  ]);
 
   const toggleItem = (key: string) => setOpenItem(openItem === key ? null : key);
 
