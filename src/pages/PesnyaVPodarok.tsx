@@ -533,17 +533,40 @@ export default function PesnyaVPodarok() {
       </a>
 
       {/* ─── NAV ──────────────────────────────────────────────── */}
-      <nav className="fixed top-0 w-full z-50" style={{ background: "rgba(20,10,3,0.75)", backdropFilter: "blur(10px)" }}>
-        <div className="container mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
-          <span className="font-extrabold text-base text-white tracking-wide">AI MUSELAB</span>
-          <Link
-            to="/uslugi"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all hover:scale-105"
-            style={{ background: "rgba(245,201,122,0.15)", color: "#f5c97a", border: "1px solid rgba(245,201,122,0.35)" }}
+      <nav className="fixed top-0 w-full z-50" style={{ background: "rgba(20,10,3,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div className="container mx-auto max-w-6xl px-6 py-3 flex items-center justify-between gap-4">
+          <span className="font-extrabold text-base text-white tracking-wide flex-shrink-0">AI MUSELAB</span>
+
+          {/* Ссылки — скрыты на мобиле */}
+          <div className="hidden md:flex items-center gap-1">
+            {[
+              { to: "/portfolio", label: "Портфолио" },
+              { to: "/otzyvy", label: "Отзывы" },
+              { to: "/o-nas", label: "О нас" },
+              { to: "/faq", label: "FAQ" },
+              { to: "/uslugi", label: "Услуги" },
+            ].map(link => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all hover:text-white"
+                style={{ color: "#c9a882" }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <a
+            href="https://t.me/izmailova8888"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all hover:scale-105 text-white"
+            style={{ background: "#c2410c" }}
           >
-            <Icon name="Video" size={13} />
-            Прочие услуги
-          </Link>
+            <Icon name="Send" size={13} />
+            Заказать
+          </a>
         </div>
       </nav>
 
