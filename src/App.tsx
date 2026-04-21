@@ -11,6 +11,7 @@ import PublicOffer from "./pages/PublicOffer";
 import Portfolio from "./pages/Portfolio";
 import ObiNas from "./pages/ObiNas";
 import Faq from "./pages/Faq";
+import Otzyvy from "./pages/Otzyvy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/o-nas" element={<ObiNas />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/otzyvy" element={<Otzyvy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

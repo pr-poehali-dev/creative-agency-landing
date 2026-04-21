@@ -43,4 +43,12 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/faq"/>
   </url>
 
+  <url>
+    <loc>https://aimuselab.ru/otzyvy</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/otzyvy"/>
+  </url>
+
 </urlset>
