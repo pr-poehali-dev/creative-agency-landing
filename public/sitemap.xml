@@ -3,19 +3,19 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://aimusalab.ru/</loc>
+    <loc>https://aimuselab.ru/</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aimusalab.ru/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/"/>
   </url>
 
   <url>
-    <loc>https://aimusalab.ru/uslugi</loc>
+    <loc>https://aimuselab.ru/uslugi</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aimusalab.ru/uslugi"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/uslugi"/>
   </url>
 
 </urlset>
