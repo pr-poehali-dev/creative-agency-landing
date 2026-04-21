@@ -229,22 +229,10 @@ const portfolioTracks = [
 
 const reviews = [
   {
-    name: "Анна",
-    city: "Москва",
-    text: "У мужа никогда не текли слёзы от подарков, а тут сидел и слушал минуты три молча, потом сказал: «Это лучшее, что мне дарили». Спасибо за эти эмоции!",
+    name: "Евгения Левченко",
+    city: "Братск",
+    text: "Огромное спасибо за работу! Вы даже не представляете, какие эмоции были у мужа — 100% попадание в самое сердце. Всё, что я хотела сказать, но не могла выразить словами — вы взяли и воплотили это в реальность. Муж был в слезах. Это бесценно.",
     emoji: "😭",
-  },
-  {
-    name: "Дмитрий",
-    city: "Казань",
-    text: "Заказывали песню на свадьбу друзьям. Весь зал плакал и подпевал. Мы были королями вечера! Всё сделали чётко и в срок.",
-    emoji: "🎉",
-  },
-  {
-    name: "Марина",
-    city: "Санкт-Петербург",
-    text: "Боялась, что получится что-то формальное. Но когда услышала — мурашки по коже. Это НАША история, наши слова. Буду заказывать снова!",
-    emoji: "✨",
   },
 ];
 
@@ -696,9 +684,10 @@ export default function PesnyaVPodarok() {
           <p className="text-center text-lg mb-14" style={{ color: "#7a5c44" }}>
             Настоящие истории, настоящие эмоции
           </p>
-          <div className="grid md:grid-cols-3 gap-6">
+          {/* Один отзыв */}
+          <div className="max-w-2xl mx-auto mb-10">
             {reviews.map((r, i) => (
-              <Card key={i} className="p-6 border-0 shadow-md" style={{ background: "#fff" }}>
+              <Card key={i} className="p-8 border-0 shadow-md" style={{ background: "#fff" }}>
                 <div className="text-4xl mb-4">{r.emoji}</div>
                 <p className="text-base leading-relaxed mb-6 italic" style={{ color: "#5a3d2b" }}>«{r.text}»</p>
                 <div className="flex items-center gap-3">
@@ -713,22 +702,32 @@ export default function PesnyaVPodarok() {
               </Card>
             ))}
           </div>
-          <div className="mt-8 flex justify-center">
-            <div className="flex flex-col sm:flex-row items-center gap-4 px-6 py-4 rounded-2xl shadow" style={{ background: "#fff", border: "1px solid #e5c9b5" }}>
-              <div className="flex items-center gap-2">
-                <img src={WEDDING_IMG} alt="event" className="w-10 h-10 object-cover rounded-full" />
-                <span className="text-sm font-medium" style={{ color: "#5a3d2b" }}>Хотите увидеть видео-реакции клиентов при прослушивании?</span>
-              </div>
-              <a
-                href="https://t.me/izmailova8888?text=Привет! Хочу посмотреть видео-отзывы"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="whitespace-nowrap inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-white text-sm transition-transform hover:scale-105 shrink-0"
+
+          {/* Статистика */}
+          <div className="max-w-2xl mx-auto rounded-2xl p-8" style={{ background: "#fff", border: "1px solid #e5c9b5", boxShadow: "0 4px 24px rgba(194,65,12,0.07)" }}>
+            <div className="grid grid-cols-2 gap-5 mb-8">
+              {[
+                { icon: "⭐⭐⭐⭐⭐", label: "средний рейтинг", value: "5.0 из 5.0" },
+                { icon: "✅", label: "довольных клиентов по всей России", value: "100+" },
+                { icon: "💬", label: "рекомендуют нас своим друзьям", value: "98%" },
+                { icon: "😭", label: "получателей плакали от счастья", value: "100%" },
+              ].map(stat => (
+                <div key={stat.value} className="text-center">
+                  <div className="text-xl mb-1">{stat.icon}</div>
+                  <div className="text-2xl font-extrabold" style={{ color: "#c2410c" }}>{stat.value}</div>
+                  <div className="text-xs mt-1" style={{ color: "#9a7a65" }}>{stat.label}</div>
+                </div>
+              ))}
+            </div>
+            <div className="text-center">
+              <Link
+                to="/otzyvy"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-base transition-transform hover:scale-105"
                 style={{ background: "#c2410c" }}
               >
-                <Icon name="Play" size={14} />
-                Получить подборку
-              </a>
+                <Icon name="MessageSquare" size={18} />
+                Читать все отзывы →
+              </Link>
             </div>
           </div>
         </div>
