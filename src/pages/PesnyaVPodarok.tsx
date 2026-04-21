@@ -516,6 +516,21 @@ export default function PesnyaVPodarok() {
         Написать в Telegram
       </a>
 
+      {/* ─── NAV ──────────────────────────────────────────────── */}
+      <nav className="fixed top-0 w-full z-50" style={{ background: "rgba(20,10,3,0.75)", backdropFilter: "blur(10px)" }}>
+        <div className="container mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
+          <span className="font-extrabold text-base text-white tracking-wide">AI MUSELAB</span>
+          <Link
+            to="/uslugi"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all hover:scale-105"
+            style={{ background: "rgba(245,201,122,0.15)", color: "#f5c97a", border: "1px solid rgba(245,201,122,0.35)" }}
+          >
+            <Icon name="Video" size={13} />
+            Прочие услуги
+          </Link>
+        </div>
+      </nav>
+
       {/* ─── HERO ─────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div
