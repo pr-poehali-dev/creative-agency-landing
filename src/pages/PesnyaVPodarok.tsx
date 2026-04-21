@@ -471,23 +471,25 @@ export default function PesnyaVPodarok() {
 
       {/* ─── PRICING ──────────────────────────────────────────── */}
       <section className="py-20 px-6" style={{ background: "#faf7f4" }}>
-        <div className="container mx-auto max-w-5xl">
+        <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#2d2016" }}>
             Цены и пакеты
           </h2>
           <p className="text-center text-lg mb-14" style={{ color: "#7a5c44" }}>
             Никаких скрытых платежей — всё включено
           </p>
-          <div className="grid md:grid-cols-3 gap-6 items-start">
 
-            {/* Package 1 — базовый */}
+          {/* Верхний ряд — 3 карточки */}
+          <div className="grid md:grid-cols-3 gap-6 items-start mb-6">
+
+            {/* Package 1 — Стандарт */}
             <Card className="p-7 border-2 flex flex-col" style={{ borderColor: "#e5c9b5", background: "#fff" }}>
               <div className="mb-4">
                 <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#fef3c7", color: "#92400e" }}>
-                  Подарок с душой
+                  Стандарт
                 </span>
               </div>
-              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#2d2016" }}>Личное использование</h3>
+              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#2d2016" }}>Песня по интервью</h3>
               <p className="text-sm mb-5" style={{ color: "#9a7a65" }}>Для семьи, друзей и близких</p>
               <div className="text-4xl font-extrabold mb-1" style={{ color: "#c2410c" }}>5 000 ₽</div>
               <p className="text-xs mb-6" style={{ color: "#9a7a65" }}>Без передачи авторских прав</p>
@@ -509,7 +511,37 @@ export default function PesnyaVPodarok() {
               </Button>
             </Card>
 
-            {/* Package 2 — с правами */}
+            {/* Package 2 — С голосом автора */}
+            <Card className="p-7 border-2 flex flex-col" style={{ borderColor: "#e5c9b5", background: "#fff" }}>
+              <div className="mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#fce7f3", color: "#9d174d" }}>
+                  Голос автора
+                </span>
+              </div>
+              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#2d2016" }}>С личным голосом</h3>
+              <p className="text-sm mb-5" style={{ color: "#9a7a65" }}>Юлия поёт специально для вас</p>
+              <div className="text-4xl font-extrabold mb-1" style={{ color: "#c2410c" }}>7 000 ₽</div>
+              <p className="text-xs mb-6" style={{ color: "#9a7a65" }}>Без передачи авторских прав</p>
+              <ul className="space-y-3 mb-8 flex-1">
+                {[
+                  "Авторский текст на основе вашей истории",
+                  "Профессиональная аранжировка",
+                  "Вокал автора — Юлии Измайловой",
+                  "До 3 правок бесплатно",
+                  "Срок: 2–3 дня",
+                  "Файл MP3 навсегда ваш",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#5a3d2b" }}>
+                    <Icon name="Check" size={15} style={{ color: "#c2410c", flexShrink: 0, marginTop: 2 }} /> {f}
+                  </li>
+                ))}
+              </ul>
+              <Button onClick={scrollToForm} className="w-full py-4 rounded-full font-bold" variant="outline" style={{ borderColor: "#c2410c", color: "#c2410c" }}>
+                Заказать
+              </Button>
+            </Card>
+
+            {/* Package 3 — С авторскими правами (хит центра) */}
             <Card className="p-7 border-2 relative flex flex-col" style={{ borderColor: "#c2410c", background: "#fff4ec" }}>
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
                 <Badge className="px-4 py-1 text-sm font-bold rounded-full" style={{ background: "#c2410c", color: "#fff" }}>
@@ -544,22 +576,59 @@ export default function PesnyaVPodarok() {
               </Button>
             </Card>
 
-            {/* Package 3 — хит с живым вокалом */}
+          </div>
+
+          {/* Нижний ряд — 2 карточки */}
+          <div className="grid md:grid-cols-2 gap-6 items-start">
+
+            {/* Package 4 — Публикация в Яндекс Музыке */}
+            <Card className="p-7 border-2 relative flex flex-col" style={{ borderColor: "#ea580c", background: "#fff8f0" }}>
+              <div className="mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#ffedd5", color: "#9a3412" }}>
+                  Публикация
+                </span>
+              </div>
+              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#2d2016" }}>С публикацией в Яндекс Музыке</h3>
+              <p className="text-sm mb-5" style={{ color: "#9a7a65" }}>Ваша песня выйдет на стриминговых платформах</p>
+              <div className="text-4xl font-extrabold mb-1" style={{ color: "#ea580c" }}>14 900 ₽</div>
+              <p className="text-xs mb-6" style={{ color: "#9a7a65" }}>Авторские права + официальный релиз</p>
+              <ul className="space-y-3 mb-8 flex-1">
+                {[
+                  "Авторский текст на основе вашей истории",
+                  "Профессиональная аранжировка",
+                  "Передача коммерческих прав",
+                  "Публикация на Яндекс Музыке, VK Музыке",
+                  "До 5 правок бесплатно",
+                  "Срок: 3–5 дней",
+                  "Файл MP3 + договор об уступке прав",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm font-medium" style={{ color: "#5a3d2b" }}>
+                    <Icon name="Check" size={15} style={{ color: "#ea580c", flexShrink: 0, marginTop: 2 }} /> {f}
+                  </li>
+                ))}
+              </ul>
+              <Button onClick={scrollToForm} className="w-full py-4 rounded-full font-bold text-white" style={{ background: "#ea580c" }}>
+                Заказать
+              </Button>
+            </Card>
+
+            {/* Package 5 — Живой вокалист */}
             <Card className="p-7 border-2 flex flex-col" style={{ borderColor: "#7c3aed", background: "#faf5ff" }}>
               <div className="mb-4">
                 <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#ede9fe", color: "#5b21b6" }}>
                   Живой вокал
                 </span>
               </div>
-              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#2d2016" }}>Хит — максимум</h3>
-              <p className="text-sm mb-5" style={{ color: "#9a7a65" }}>Для особых событий и сильных впечатлений</p>
-              <div className="text-4xl font-extrabold mb-1" style={{ color: "#7c3aed" }}>19 000 ₽</div>
-              <p className="text-xs mb-6" style={{ color: "#9a7a65" }}>Живой вокалист + коммерческие права</p>
+              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#2d2016" }}>С живым голосом вокалиста</h3>
+              <p className="text-sm mb-5" style={{ color: "#9a7a65" }}>Для особых событий и максимального впечатления</p>
+              <div className="text-4xl font-extrabold mb-1" style={{ color: "#7c3aed" }}>29 900 ₽</div>
+              <p className="text-xs mb-6" style={{ color: "#9a7a65" }}>Студийная запись + коммерческие права</p>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
+                  "Авторский текст на основе вашей истории",
                   "Профессиональная аранжировка",
                   "Живой вокал — запись в студии",
-                  "Бэк-вокал и сведение",
+                  "Бэк-вокал и профессиональное сведение",
                   "Передача коммерческих прав",
                   "До 5 правок бесплатно",
                   "Срок: 5–7 дней",
@@ -576,6 +645,7 @@ export default function PesnyaVPodarok() {
             </Card>
 
           </div>
+
           <p className="text-center mt-8 text-sm" style={{ color: "#9a7a65" }}>
             Не уверены какой пакет подходит? Напишите нам — поможем выбрать за 5 минут.
           </p>
