@@ -36,6 +36,7 @@ export default function ObiNas() {
   usePageMeta({
     title: "О Нас — AI Muse Lab | Юлия Измайлова | Композитор и Автор",
     description: "Юлия Измайлова — профессиональный композитор с опытом более 10 лет. 5 альбомов, сотни созданных песен. Узнайте, кто создаёт вашу уникальную песню.",
+    ogUrl: "https://aimuselab.ru/o-nas",
   });
 
   return (

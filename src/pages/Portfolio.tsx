@@ -163,6 +163,7 @@ export default function Portfolio() {
   usePageMeta({
     title: "Примеры Наших Песен | Портфолио AI Muse Lab | Послушать Работы",
     description: "Послушайте примеры наших авторских песен на заказ. Реальные работы для клиентов: свадьбы, дни рождения, юбилеи. Более 100 созданных песен.",
+    ogUrl: "https://aimuselab.ru/portfolio",
   });
 
   return (

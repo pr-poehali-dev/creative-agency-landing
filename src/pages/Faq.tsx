@@ -185,6 +185,7 @@ export default function Faq() {
   usePageMeta({
     title: "Частые Вопросы о Заказе Песни | FAQ AI Muse Lab",
     description: "Ответы на все вопросы о создании персональной песни на заказ: процесс, сроки, цены, правки, авторские права. Узнайте всё перед заказом!",
+    ogUrl: "https://aimuselab.ru/faq",
   });
 
   const toggleItem = (key: string) => setOpenItem(openItem === key ? null : key);

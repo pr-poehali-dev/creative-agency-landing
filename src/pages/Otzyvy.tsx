@@ -87,6 +87,7 @@ export default function Otzyvy() {
   usePageMeta({
     title: "Отзывы Клиентов AI Muse Lab | Реальные Истории и Эмоции",
     description: "Читайте реальные отзывы наших клиентов. Более 100 счастливых людей заказали персональную песню в подарок. Узнайте, что они говорят о нас!",
+    ogUrl: "https://aimuselab.ru/otzyvy",
   });
 
   return (
