@@ -71,7 +71,7 @@ export default function ObiNas() {
                 <div className="absolute -inset-4 rounded-3xl blur-2xl opacity-30" style={{ background: "radial-gradient(ellipse, #c2410c 0%, transparent 70%)" }} />
                 <img
                   src={JULIA_IMG}
-                  alt="Юлия Измайлова — композитор AI Muse Lab"
+                  alt="Юлия Измайлова — композитор и основательница AI Muse Lab, автор-исполнитель GALAKTIKA"
                   className="relative w-72 md:w-80 rounded-3xl object-cover shadow-2xl"
                   style={{ border: "2px solid rgba(255,255,255,0.15)", aspectRatio: "3/4", objectPosition: "top" }}
                 />

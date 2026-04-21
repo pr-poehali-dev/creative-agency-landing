@@ -721,7 +721,7 @@ export default function PesnyaVPodarok() {
               />
               <img
                 src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/344bf7da-4f0c-4b6b-ab42-6cc2b9daded2.jpeg"
-                alt="Юлия Измайлова — автор-исполнитель GALAKTIKA"
+                alt="Юлия Измайлова — композитор и основательница AI Muse Lab, автор-исполнитель GALAKTIKA"
                 className="relative w-72 md:w-80 lg:w-96 rounded-3xl object-cover shadow-2xl"
                 style={{ border: "2px solid rgba(255,255,255,0.15)", aspectRatio: "3/4", objectPosition: "top" }}
               />
@@ -811,7 +811,7 @@ export default function PesnyaVPodarok() {
                 <p className="text-base leading-relaxed" style={{ color: "#7a5c44" }}>{step.desc}</p>
                 {step.img && (
                   <div className="mt-4 rounded-xl overflow-hidden h-36">
-                    <img src={step.img} alt={step.title} className="w-full h-full object-cover" />
+                    <img src={step.img} alt={`Процесс создания авторской песни на заказ — ${step.title}`} className="w-full h-full object-cover" />
                   </div>
                 )}
               </Card>
@@ -833,7 +833,7 @@ export default function PesnyaVPodarok() {
             {portfolioTracks.map((track, i) => (
               <Card key={i} className="overflow-hidden border-0 hover:shadow-2xl transition-all" style={{ background: "#3d2c1c" }}>
                 <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                  <img src={track.img} alt={track.title} className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
+                  <img src={track.img} alt={`Авторская песня «${track.title}» — ${track.occasion}`} className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
                   <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(30,15,5,0.85) 40%, transparent)" }} />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <span className="text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full" style={{ background: "rgba(194,65,12,0.85)", color: "#fff" }}>
