@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CookieBanner from "@/components/CookieBanner";
 import NavBar from "@/components/NavBar";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { Card } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
 
@@ -159,6 +160,10 @@ export default function Portfolio() {
     { name: "Главная", item: "https://aimuselab.ru/" },
     { name: "Портфолио", item: "https://aimuselab.ru/portfolio" },
   ]);
+  usePageMeta({
+    title: "Примеры Наших Песен | Портфолио AI Muse Lab | Послушать Работы",
+    description: "Послушайте примеры наших авторских песен на заказ. Реальные работы для клиентов: свадьбы, дни рождения, юбилеи. Более 100 созданных песен.",
+  });
 
   return (
     <div style={{ background: "#0d0702", minHeight: "100vh" }}>

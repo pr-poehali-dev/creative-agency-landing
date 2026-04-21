@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CookieBanner from "@/components/CookieBanner";
 import NavBar from "@/components/NavBar";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import Icon from "@/components/ui/icon";
 
 type FaqItem = { q: string; a: string | string[] };
@@ -181,6 +182,10 @@ export default function Faq() {
     { name: "Главная", item: "https://aimuselab.ru/" },
     { name: "FAQ", item: "https://aimuselab.ru/faq" },
   ]);
+  usePageMeta({
+    title: "Частые Вопросы о Заказе Песни | FAQ AI Muse Lab",
+    description: "Ответы на все вопросы о создании персональной песни на заказ: процесс, сроки, цены, правки, авторские права. Узнайте всё перед заказом!",
+  });
 
   const toggleItem = (key: string) => setOpenItem(openItem === key ? null : key);
 

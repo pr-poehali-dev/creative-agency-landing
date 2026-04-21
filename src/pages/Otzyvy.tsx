@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import CookieBanner from "@/components/CookieBanner";
 import NavBar from "@/components/NavBar";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import Icon from "@/components/ui/icon";
 
 const reviews = [
@@ -83,6 +84,10 @@ export default function Otzyvy() {
     { name: "Главная", item: "https://aimuselab.ru/" },
     { name: "Отзывы", item: "https://aimuselab.ru/otzyvy" },
   ]);
+  usePageMeta({
+    title: "Отзывы Клиентов AI Muse Lab | Реальные Истории и Эмоции",
+    description: "Читайте реальные отзывы наших клиентов. Более 100 счастливых людей заказали персональную песню в подарок. Узнайте, что они говорят о нас!",
+  });
 
   return (
     <div style={{ background: "#0d0702", minHeight: "100vh" }}>
