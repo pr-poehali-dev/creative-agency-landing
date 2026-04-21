@@ -19,6 +19,10 @@ const COVER5_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8
 
 const faqItems = [
   {
+    q: "Как именно создаётся песня? Расскажите про процесс",
+    a: "process-block",
+  },
+  {
     q: "Вы используете искусственный интеллект?",
     a: "Да, честно. Я использую AI (Suno, Udio) как профессиональный инструмент для создания аранжировки. Но я НЕ просто «генерирую за 5 минут». Я провожу глубинное интервью, лично пишу текст с хитовой структурой, сочиняю мелодию и загружаю её в AI. Работаю в студии как продюсер: подбираю голоса, инструменты, пишу детальные промты для каждой части. Могу добавить живой вокал (пакет Premium).",
   },
@@ -563,12 +567,15 @@ export default function PesnyaVPodarok() {
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-5">
-              Ваша история × Технологии будущего<br />
-              <span style={{ color: "#f5c97a" }}>= Идеальная песня</span>
+              Вы, ваши близкие или ваш проект<br />
+              <span style={{ color: "#f5c97a" }}>достойны личной песни</span>
             </h1>
 
-            <p className="text-base text-white/85 mb-3 leading-relaxed">
-              Я пишу тексты из ваших смыслов, сочиняю неповторимые мелодии — AI помогает создать студийное звучание за <strong className="text-white">2–3 дня</strong>.
+            <p className="text-lg text-white/85 mb-2 leading-relaxed font-semibold">
+              Ваша история × Технологии будущего = Идеальная песня
+            </p>
+            <p className="text-base text-white/75 mb-3 leading-relaxed">
+              Я пишу тексты из ваших смыслов, сочиняю неповторимые мелодии — AI помогает создать студийное звучание.
             </p>
             <p className="text-sm mb-6 leading-relaxed px-3 py-2 rounded-xl" style={{ color: "#f5c97a", background: "rgba(245,201,122,0.08)", border: "1px solid rgba(245,201,122,0.2)" }}>
               <strong>Юлия Измайлова</strong> — профессиональный композитор · 5 альбомов · Глубинное интервью · Хитовая структура · AI-продюсирование
@@ -660,79 +667,6 @@ export default function PesnyaVPodarok() {
         {/* Scroll hint */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 flex flex-col items-center gap-1 animate-bounce">
           <Icon name="ChevronDown" size={24} />
-        </div>
-      </section>
-
-      {/* ─── HOW I CREATE MUSIC ───────────────────────────────── */}
-      <section className="py-20 px-6" style={{ background: "#110a04" }}>
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-12">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#f5c97a" }}>Прозрачно о процессе</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-              Профессионал + AI:<br />как рождается ваша песня
-            </h2>
-            <p className="text-base max-w-2xl mx-auto" style={{ color: "#c9a882" }}>
-              Да, я использую AI (Suno, Udio) — но это не «генерация за 5 минут».
-              Это профессиональное продюсирование с помощью технологий будущего.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-5 gap-4">
-            {[
-              { icon: "MessageSquare", step: "01", title: "Глубинное интервью", desc: "Лично беседую с вами, вытаскиваю смыслы и детали, которые вы сами не замечаете" },
-              { icon: "PenLine", step: "02", title: "Хитовый текст", desc: "Пишу текст сама — с пониманием ритма, хитовой структуры, эмоциональных крючков" },
-              { icon: "Music2", step: "03", title: "Авторская мелодия", desc: "Сочиняю неповторимую мелодию, подбираю жанр, настроение, делаю детальную разбивку" },
-              { icon: "Cpu", step: "04", title: "AI-продюсирование", desc: "Работаю в AI-студии как продюсер: голоса, персоны, инструменты, промты для каждой части" },
-              { icon: "Sparkles", step: "05", title: "Финализация", desc: "Могу добавить живой вокал на аранжировку — до идеального студийного звучания" },
-            ].map((item, i) => (
-              <div key={i} className="relative flex flex-col items-center text-center p-5 rounded-2xl" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <div className="text-xs font-black mb-3 w-7 h-7 rounded-full flex items-center justify-center" style={{ background: "#c2410c", color: "#fff" }}>{item.step}</div>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ background: "rgba(245,201,122,0.12)" }}>
-                  <Icon name={item.icon as "Music2"} size={20} style={{ color: "#f5c97a" }} />
-                </div>
-                <h3 className="font-bold text-white text-sm mb-2">{item.title}</h3>
-                <p className="text-xs leading-relaxed" style={{ color: "#9a7a65" }}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 rounded-2xl p-6 grid md:grid-cols-2 gap-6" style={{ background: "rgba(194,65,12,0.08)", border: "1px solid rgba(194,65,12,0.2)" }}>
-            <div>
-              <p className="font-bold text-white mb-3 text-sm">Почему это работает:</p>
-              <ul className="space-y-2">
-                {[
-                  "Профессиональная композиция (не случайная генерация)",
-                  "Студийное качество за 2–3 дня (не месяцы работы)",
-                  "Уникальный текст из ваших смыслов (не шаблон)",
-                  "Доступная цена от 5 000 ₽ (не 100 000 ₽ за живую студию)",
-                ].map(t => (
-                  <li key={t} className="flex items-start gap-2 text-sm" style={{ color: "#c9a882" }}>
-                    <Icon name="Check" size={14} style={{ color: "#f5c97a", marginTop: 2, flexShrink: 0 }} />
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="flex items-center">
-              <div className="rounded-xl p-4 w-full" style={{ background: "rgba(0,0,0,0.3)" }}>
-                <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "#f5c97a" }}>Аналогия</p>
-                <p className="text-sm leading-relaxed" style={{ color: "#c9a882" }}>
-                  Фотограф использует Photoshop. Без таланта — Photoshop бесполезен.
-                  Так же и с AI в музыке. <strong className="text-white">Вы платите за экспертизу + мощь технологий.</strong>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="text-center mt-8">
-            <a
-              href="https://t.me/izmailova8888"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
-              style={{ background: "#c2410c" }}
-            >
-              <Icon name="Send" size={17} />
-              Обсудить мою идею
-            </a>
-          </div>
         </div>
       </section>
 
@@ -1217,9 +1151,39 @@ export default function PesnyaVPodarok() {
                   <h3 className="font-semibold text-base pr-4" style={{ color: "#2d2016" }}>{item.q}</h3>
                   <Icon name={openFaq === i ? "ChevronUp" : "ChevronDown"} size={20} style={{ color: "#c2410c", flexShrink: 0 }} />
                 </div>
-                {openFaq === i && (
+                {openFaq === i && item.a !== "process-block" && (
                   <div className="px-6 pb-6 text-base leading-relaxed" style={{ color: "#7a5c44" }}>
                     {item.a}
+                  </div>
+                )}
+                {openFaq === i && item.a === "process-block" && (
+                  <div className="px-6 pb-6">
+                    <p className="text-sm mb-4" style={{ color: "#7a5c44" }}>
+                      Да, я использую AI (Suno, Udio) — но это не «генерация за 5 минут». Это профессиональное продюсирование с помощью технологий будущего.
+                    </p>
+                    <div className="grid sm:grid-cols-5 gap-3 mb-5">
+                      {[
+                        { icon: "MessageSquare", step: "01", title: "Глубинное интервью", desc: "Лично беседую с вами, вытаскиваю смыслы и детали, которые вы сами не замечаете" },
+                        { icon: "PenLine", step: "02", title: "Хитовый текст", desc: "Пишу текст сама — с пониманием ритма, хитовой структуры, эмоциональных крючков" },
+                        { icon: "Music2", step: "03", title: "Авторская мелодия", desc: "Сочиняю неповторимую мелодию, подбираю жанр, настроение, делаю детальную разбивку" },
+                        { icon: "Cpu", step: "04", title: "AI-продюсирование", desc: "Работаю в AI-студии как продюсер: голоса, персоны, инструменты, промты для каждой части" },
+                        { icon: "Sparkles", step: "05", title: "Финализация", desc: "Могу добавить живой вокал на аранжировку — до идеального студийного звучания" },
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex flex-col items-center text-center p-4 rounded-xl" style={{ background: "#fdf3e7", border: "1px solid #e5c9b5" }}>
+                          <div className="text-xs font-black mb-2 w-6 h-6 rounded-full flex items-center justify-center text-white" style={{ background: "#c2410c" }}>{item.step}</div>
+                          <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-2" style={{ background: "#fde8d8" }}>
+                            <Icon name={item.icon as "Music2"} size={16} style={{ color: "#c2410c" }} />
+                          </div>
+                          <h4 className="font-bold text-xs mb-1" style={{ color: "#2d2016" }}>{item.title}</h4>
+                          <p className="text-xs leading-relaxed" style={{ color: "#9a7a65" }}>{item.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="rounded-xl p-4" style={{ background: "#fdf3e7", border: "1px solid #e5c9b5" }}>
+                      <p className="text-sm" style={{ color: "#5a3d2b" }}>
+                        <strong>Аналогия:</strong> Фотограф использует Photoshop. Без таланта — Photoshop бесполезен. Так же и с AI в музыке. Вы платите за экспертизу + мощь технологий.
+                      </p>
+                    </div>
                   </div>
                 )}
               </Card>
