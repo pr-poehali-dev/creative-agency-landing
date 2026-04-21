@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import CookieBanner from "@/components/CookieBanner";
+import NavBar from "@/components/NavBar";
 import Icon from "@/components/ui/icon";
 
 const JULIA_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/344bf7da-4f0c-4b6b-ab42-6cc2b9daded2.jpeg";
@@ -29,30 +30,7 @@ export default function ObiNas() {
   return (
     <div style={{ background: "#0d0702", minHeight: "100vh" }}>
 
-      {/* ─── NAV ─── */}
-      <nav className="sticky top-0 z-50 border-b" style={{ background: "rgba(13,7,2,0.95)", borderColor: "#2a1a0e", backdropFilter: "blur(12px)" }}>
-        <div className="container mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "#c2410c" }}>
-              <Icon name="Music2" size={16} style={{ color: "#fff" }} />
-            </div>
-            <span className="font-extrabold text-white text-sm">AI Muse Lab</span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <Link to="/" className="text-sm font-medium hidden sm:block" style={{ color: "#c9a882" }}>Главная</Link>
-            <Link to="/portfolio" className="text-sm font-medium hidden sm:block" style={{ color: "#c9a882" }}>Портфолио</Link>
-            <a
-              href="https://t.me/izmailova8888"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full text-sm font-bold text-white transition-transform hover:scale-105"
-              style={{ background: "#c2410c" }}
-            >
-              Заказать песню
-            </a>
-          </div>
-        </div>
-      </nav>
+      <NavBar />
 
       {/* ─── HERO ─── */}
       <section className="py-20 px-6" style={{ background: "linear-gradient(180deg, #1a0d04 0%, #0d0702 100%)" }}>
