@@ -500,6 +500,7 @@ export default function PesnyaVPodarok() {
   const [calcAnswers, setCalcAnswers] = useState<string[]>([]);
   const [calcDone, setCalcDone] = useState(false);
   const [openLyrics, setOpenLyrics] = useState<number | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleCalcAnswer = (answer: string) => {
     const next = [...calcAnswers, answer];
@@ -537,7 +538,7 @@ export default function PesnyaVPodarok() {
         <div className="container mx-auto max-w-6xl px-6 py-3 flex items-center justify-between gap-4">
           <span className="font-extrabold text-base text-white tracking-wide flex-shrink-0">AI MUSELAB</span>
 
-          {/* Ссылки — скрыты на мобиле */}
+          {/* Ссылки — только десктоп */}
           <div className="hidden md:flex items-center gap-1">
             {[
               { to: "/portfolio", label: "Портфолио" },
@@ -557,17 +558,66 @@ export default function PesnyaVPodarok() {
             ))}
           </div>
 
-          <a
-            href="https://t.me/izmailova8888"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all hover:scale-105 text-white"
-            style={{ background: "#c2410c" }}
-          >
-            <Icon name="Send" size={13} />
-            Заказать
-          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href="https://t.me/izmailova8888"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all hover:scale-105 text-white"
+              style={{ background: "#c2410c" }}
+            >
+              <Icon name="Send" size={13} />
+              Заказать
+            </a>
+            {/* Гамбургер — только мобиле */}
+            <button
+              className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-all"
+              style={{ background: "rgba(255,255,255,0.08)" }}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Меню"
+            >
+              <Icon name={mobileMenuOpen ? "X" : "Menu"} size={18} style={{ color: "#fff" }} />
+            </button>
+          </div>
         </div>
+
+        {/* Мобильное меню */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t" style={{ background: "rgba(20,10,3,0.98)", borderColor: "rgba(255,255,255,0.07)" }}>
+            <div className="flex flex-col px-6 py-4 gap-1">
+              {[
+                { to: "/portfolio", label: "Портфолио", icon: "Headphones" },
+                { to: "/otzyvy", label: "Отзывы", icon: "Star" },
+                { to: "/o-nas", label: "О нас", icon: "User" },
+                { to: "/faq", label: "FAQ", icon: "HelpCircle" },
+                { to: "/uslugi", label: "Услуги", icon: "Sparkles" },
+              ].map(link => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"
+                  style={{ color: "#c9a882" }}
+                >
+                  <Icon name={link.icon as "Star"} size={16} style={{ color: "#f5c97a" }} />
+                  {link.label}
+                </Link>
+              ))}
+              <div className="mt-2 pt-3 border-t" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
+                <a
+                  href="https://t.me/izmailova8888"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold text-white"
+                  style={{ background: "#c2410c" }}
+                >
+                  <Icon name="Send" size={15} />
+                  Написать в Telegram
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* ─── HERO ─────────────────────────────────────────────── */}
