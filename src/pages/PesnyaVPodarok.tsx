@@ -515,18 +515,18 @@ export default function PesnyaVPodarok() {
             <Card className="p-7 border-2 flex flex-col" style={{ borderColor: "#e5c9b5", background: "#fff" }}>
               <div className="mb-4">
                 <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "#fce7f3", color: "#9d174d" }}>
-                  Голос автора
+                  Ваш голос
                 </span>
               </div>
-              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#2d2016" }}>С личным голосом</h3>
-              <p className="text-sm mb-5" style={{ color: "#9a7a65" }}>Юлия поёт специально для вас</p>
+              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#2d2016" }}>С голосом заказчика</h3>
+              <p className="text-sm mb-5" style={{ color: "#9a7a65" }}>Вы присылаете голос — он звучит в треке</p>
               <div className="text-4xl font-extrabold mb-1" style={{ color: "#c2410c" }}>7 000 ₽</div>
               <p className="text-xs mb-6" style={{ color: "#9a7a65" }}>Без передачи авторских прав</p>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
                   "Авторский текст на основе вашей истории",
                   "Профессиональная аранжировка",
-                  "Вокал автора — Юлии Измайловой",
+                  "Ваш голос вписан в трек",
                   "До 3 правок бесплатно",
                   "Срок: 2–3 дня",
                   "Файл MP3 навсегда ваш",
