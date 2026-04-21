@@ -10,6 +10,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import PublicOffer from "./pages/PublicOffer";
 import Portfolio from "./pages/Portfolio";
 import ObiNas from "./pages/ObiNas";
+import Faq from "./pages/Faq";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/public-offer" element={<PublicOffer />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/o-nas" element={<ObiNas />} />
+          <Route path="/faq" element={<Faq />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
