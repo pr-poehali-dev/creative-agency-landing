@@ -689,20 +689,28 @@ export default function PesnyaVPodarok() {
               <div className="text-center">
                 <div className="text-5xl mb-4">🎵</div>
                 <h3 className="text-xl font-bold text-white mb-3">
-                  Ваша идея подходит для пакета «Душевный»!
+                  Отлично! Ваши ответы готовы
                 </h3>
+                <div className="rounded-xl px-5 py-4 mb-6 text-left space-y-2" style={{ background: "#2d2016" }}>
+                  {calcQuestions.map((q, i) => (
+                    <div key={i} className="flex gap-2 text-sm">
+                      <span style={{ color: "#f5c97a" }} className="font-semibold shrink-0">{q.question}</span>
+                      <span style={{ color: "#c9a882" }}>{calcAnswers[i]}</span>
+                    </div>
+                  ))}
+                </div>
                 <p style={{ color: "#c9a882" }} className="mb-6 leading-relaxed">
-                  Мы уже начали придумывать припев! Оставьте номер ниже — получите вариант первой строчки песни в подарок к расчёту.
+                  Отправьте результаты Юлии — она подберёт идеальный формат и ответит лично.
                 </p>
                 <a
-                  href="https://t.me/AIMusalab_bot"
+                  href={`https://t.me/izmailova8888?text=${encodeURIComponent(`Привет! Прошёл(а) калькулятор смыслов на сайте.\n\nКому дарю: ${calcAnswers[0]}\nПовод: ${calcAnswers[1]}\nЖанр: ${calcAnswers[2]}\n\nХочу заказать песню!`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-8 py-5 rounded-full font-bold text-white transition-transform hover:scale-105"
                   style={{ background: "#c2410c" }}
                 >
-                  <Icon name="Bot" size={18} />
-                  Получить первую строчку
+                  <Icon name="Send" size={18} />
+                  Отправить Юлии в Telegram
                 </a>
               </div>
             )}
