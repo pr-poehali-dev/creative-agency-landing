@@ -51,4 +51,52 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/otzyvy"/>
   </url>
 
+  <url>
+    <loc>https://aimuselab.ru/blog</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/blog"/>
+  </url>
+
+  <url>
+    <loc>https://aimuselab.ru/blog/top-10-idej-podarkov-na-godovshchinu</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/blog/top-10-idej-podarkov-na-godovshchinu"/>
+  </url>
+
+  <url>
+    <loc>https://aimuselab.ru/blog/chto-podarit-mame-na-yubilej</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/blog/chto-podarit-mame-na-yubilej"/>
+  </url>
+
+  <url>
+    <loc>https://aimuselab.ru/blog/pesnya-na-zakaz-vs-obychnyj-podarok</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/blog/pesnya-na-zakaz-vs-obychnyj-podarok"/>
+  </url>
+
+  <url>
+    <loc>https://aimuselab.ru/blog/kak-sozdaetsya-personalnaya-pesnya</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/blog/kak-sozdaetsya-personalnaya-pesnya"/>
+  </url>
+
+  <url>
+    <loc>https://aimuselab.ru/blog/7-prichin-zakazat-zhivoj-vokal</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/blog/7-prichin-zakazat-zhivoj-vokal"/>
+  </url>
+
 </urlset>

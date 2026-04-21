@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import CookieBanner from "@/components/CookieBanner";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 import { useBreadcrumb } from "@/hooks/useBreadcrumb";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { Card } from "@/components/ui/card";
@@ -332,27 +333,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ─── FOOTER ─── */}
-      <footer className="py-8 px-6 border-t" style={{ background: "#0d0702", borderColor: "#2a1a0e" }}>
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-6 mb-6 text-xs" style={{ color: "#7a5c44" }}>
-            <div>
-              <p className="font-semibold mb-1" style={{ color: "#c9a882" }}>ИП Измайлова Юлия Александровна</p>
-              <p>ИНН: 665895132301</p>
-              <p>198207, г. Санкт-Петербург, пр-кт Ленинский, д 117, корп 1, кв 234</p>
-              <p>Без НДС (УСН)</p>
-            </div>
-            <div className="flex flex-col gap-2 text-xs md:text-right">
-              <Link to="/public-offer" className="hover:underline" style={{ color: "#c9a882" }}>Договор-оферта</Link>
-              <Link to="/privacy-policy" className="hover:underline" style={{ color: "#c9a882" }}>Политика конфиденциальности</Link>
-              <a href="https://t.me/izmailova8888" className="hover:underline" style={{ color: "#c9a882" }}>Telegram: @izmailova8888</a>
-            </div>
-          </div>
-          <div className="border-t pt-4 text-center text-xs" style={{ borderColor: "#2a1a0e", color: "#7a5c44" }}>
-            <p>© 2026 ИП Измайлова Юлия Александровна · Все права защищены</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       <CookieBanner />
     </div>

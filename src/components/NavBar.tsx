@@ -5,6 +5,7 @@ import Icon from "@/components/ui/icon";
 const navLinks = [
   { to: "/portfolio", label: "Портфолио", icon: "Headphones" },
   { to: "/otzyvy", label: "Отзывы", icon: "Star" },
+  { to: "/blog", label: "Блог", icon: "BookOpen" },
   { to: "/o-nas", label: "О нас", icon: "User" },
   { to: "/faq", label: "FAQ", icon: "HelpCircle" },
   { to: "/uslugi", label: "Услуги", icon: "Sparkles" },
