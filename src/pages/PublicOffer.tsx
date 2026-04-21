@@ -6,7 +6,7 @@ export default function PublicOffer() {
     <div className="min-h-screen" style={{ background: "#1a0f07", color: "#e8d5c0" }}>
       <div className="container mx-auto max-w-3xl px-6 py-16">
         <Link
-          to="/pesnya-v-podarok"
+          to="/"
           className="inline-flex items-center gap-2 mb-10 text-sm hover:underline"
           style={{ color: "#c9a882" }}
         >

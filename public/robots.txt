@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Allow: /pesnya-v-podarok
+Allow: /uslugi
 Disallow: /privacy-policy
 Disallow: /public-offer
 

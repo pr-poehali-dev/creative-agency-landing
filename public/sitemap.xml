@@ -3,18 +3,19 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://aimusalab.ru/pesnya-v-podarok</loc>
-    <lastmod>2026-04-20</lastmod>
+    <loc>https://aimusalab.ru/</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://aimusalab.ru/pesnya-v-podarok"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimusalab.ru/"/>
   </url>
 
   <url>
-    <loc>https://aimusalab.ru/</loc>
-    <lastmod>2026-04-20</lastmod>
+    <loc>https://aimusalab.ru/uslugi</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimusalab.ru/uslugi"/>
   </url>
 
 </urlset>

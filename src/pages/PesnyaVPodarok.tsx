@@ -16,23 +16,6 @@ const COVER3_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8
 const COVER4_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/63cbba21-6de2-47e5-b294-4f527f9a0329.jpg";
 const COVER5_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/a26a653d-418e-4648-8a8e-fd98fe7a9976.jpg";
 
-const artistServiceItems = [
-  {
-    icon: "Sparkles",
-    title: "Публикация трека на площадках",
-    desc: "Размещу вашу песню на Spotify, Apple Music, VK Музыке, Яндекс.Музыке и других стриминговых сервисах.",
-  },
-  {
-    icon: "UserCircle",
-    title: "Оформление профиля артиста",
-    desc: "Создам карточку исполнителя: фото, биография, ссылки, обложки. Ваш профиль будет выглядеть профессионально.",
-  },
-  {
-    icon: "GraduationCap",
-    title: "Обучение созданию авторских песен",
-    desc: "Научу создавать музыку с нуля — от идеи и смыслов до готового трека. Без специального образования.",
-  },
-];
 
 const faqItems = [
   {
