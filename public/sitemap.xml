@@ -27,4 +27,12 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/portfolio"/>
   </url>
 
+  <url>
+    <loc>https://aimuselab.ru/o-nas</loc>
+    <lastmod>2026-04-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/o-nas"/>
+  </url>
+
 </urlset>
