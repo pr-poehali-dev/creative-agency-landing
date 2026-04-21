@@ -8,6 +8,7 @@ import PesnyaVPodarok from "./pages/PesnyaVPodarok";
 import Uslugi from "./pages/Uslugi";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import PublicOffer from "./pages/PublicOffer";
+import Portfolio from "./pages/Portfolio";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/uslugi" element={<Uslugi />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/public-offer" element={<PublicOffer />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
