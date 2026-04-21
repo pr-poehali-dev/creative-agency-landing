@@ -93,6 +93,8 @@ const portfolioTracks = [
     desc: "Семья поздравляла свою слепую бабушку. В её памяти живы картинки из прошлого — и эта песня стала талисманом любви всей семьи к своему любимому человеку.",
     genre: "Душевная лирика",
     icon: "Heart",
+    link: "https://vk.ru/audio69559731_456239232",
+    lyrics: "",
   },
   {
     img: COVER2_IMG,
@@ -173,6 +175,7 @@ export default function PesnyaVPodarok() {
   const [calcStep, setCalcStep] = useState(0);
   const [calcAnswers, setCalcAnswers] = useState<string[]>([]);
   const [calcDone, setCalcDone] = useState(false);
+  const [openLyrics, setOpenLyrics] = useState<number | null>(null);
 
   const handleCalcAnswer = (answer: string) => {
     const next = [...calcAnswers, answer];
@@ -423,13 +426,41 @@ export default function PesnyaVPodarok() {
                     <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#f5c97a" }}>{track.genre}</span>
                   </div>
                   <h3 className="font-extrabold text-white text-lg mb-2">«{track.title}»</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#c9a882" }}>{track.desc}</p>
+                  <p className="text-sm leading-relaxed mb-4" style={{ color: "#c9a882" }}>{track.desc}</p>
+                  <div className="flex gap-2 flex-wrap">
+                    {track.link && (
+                      <a
+                        href={track.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white transition-transform hover:scale-105"
+                        style={{ background: "#c2410c" }}
+                      >
+                        <Icon name="Play" size={13} /> Слушать
+                      </a>
+                    )}
+                    {track.lyrics && (
+                      <button
+                        onClick={() => setOpenLyrics(openLyrics === i ? null : i)}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-transform hover:scale-105"
+                        style={{ background: "#5a3d2b", color: "#f5c97a" }}
+                      >
+                        <Icon name={openLyrics === i ? "ChevronUp" : "FileText"} size={13} />
+                        {openLyrics === i ? "Скрыть" : "Текст"}
+                      </button>
+                    )}
+                  </div>
+                  {openLyrics === i && track.lyrics && (
+                    <div className="mt-4 rounded-xl p-4 text-sm whitespace-pre-line leading-relaxed" style={{ background: "#2d2016", color: "#e8d5b7" }}>
+                      {track.lyrics}
+                    </div>
+                  )}
                 </div>
               </Card>
             ))}
           </div>
           <p className="text-center mt-8 text-sm" style={{ color: "#9a7a65" }}>
-            Прослушать треки можно написав нам — пришлём ссылки сразу в Telegram
+            Хотите послушать больше работ? Напишите нам — пришлём подборку в Telegram
           </p>
         </div>
       </section>
