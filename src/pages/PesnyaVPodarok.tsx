@@ -281,11 +281,13 @@ export default function PesnyaVPodarok() {
         <div className="container mx-auto max-w-6xl px-6 py-3 flex items-center justify-between gap-4">
 
           {/* Логотип */}
-          <Link to="/" className="flex items-center gap-2 flex-shrink-0 group">
-            <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, #A855F7 0%, #FF4DA6 100%)" }}>
-              <Icon name="Music2" size={14} style={{ color: "#fff" }} />
-            </div>
-            <span className="font-extrabold text-sm text-white tracking-wider hidden sm:block">AI MUSELAB</span>
+          <Link to="/" className="flex items-center flex-shrink-0">
+            <img
+              src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/589a2648-75cb-485c-aeed-7d4aae46cdaa.jpeg"
+              alt="AI Muse Lab — авторские песни на заказ"
+              className="h-10 w-auto rounded-xl object-cover"
+              style={{ maxWidth: 120 }}
+            />
           </Link>
 
           {/* Ссылки — десктоп */}
@@ -406,14 +408,23 @@ export default function PesnyaVPodarok() {
         <div className="absolute top-1/3 -left-20 w-72 h-72 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%)", filter: "blur(40px)" }} />
         <div className="absolute top-1/4 -right-20 w-72 h-72 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,77,166,0.12) 0%, transparent 70%)", filter: "blur(40px)" }} />
 
-        <div className="relative z-10 container mx-auto max-w-4xl px-6 pt-28 pb-10 text-center flex flex-col items-center">
+        <div className="relative z-10 container mx-auto max-w-4xl px-6 pt-24 pb-10 text-center flex flex-col items-center">
+          {/* Логотип на hero */}
+          <div className="mb-6">
+            <img
+              src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/589a2648-75cb-485c-aeed-7d4aae46cdaa.jpeg"
+              alt="AI Muse Lab"
+              className="mx-auto rounded-2xl"
+              style={{ height: 140, width: "auto", maxWidth: 320, objectFit: "contain", filter: "drop-shadow(0 0 32px rgba(168,85,247,0.6))" }}
+            />
+          </div>
           {/* Бейдж */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-8" style={{ background: "rgba(168,85,247,0.15)", border: "1px solid rgba(168,85,247,0.35)", color: "#C4B5FD" }}>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-6" style={{ background: "rgba(168,85,247,0.15)", border: "1px solid rgba(168,85,247,0.35)", color: "#C4B5FD" }}>
             <span style={{ color: "#A855F7" }}>✦</span> Юлия Измайлова — профессиональный композитор · 5 альбомов
           </div>
           {/* Заголовок */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-5" style={{ letterSpacing: "-0.02em" }}>
-            Ваша история ×<br />Технологии будущего<br />
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-5" style={{ letterSpacing: "-0.02em" }}>
+            Ваша история × Технологии будущего<br />
             <span style={{ background: "linear-gradient(135deg, #C084FC 0%, #F472B6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>=&nbsp;Идеальная песня</span>
           </h1>
           <p className="text-lg md:text-xl mb-3 max-w-lg" style={{ color: "#C4B5FD", lineHeight: 1.6 }}>
