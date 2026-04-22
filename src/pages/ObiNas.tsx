@@ -138,7 +138,7 @@ export default function ObiNas() {
                   <a href="https://music.yandex.com/artist/2948671" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style={{ background: "rgba(255,204,0,0.15)", color: "#ffcc00", border: "1px solid rgba(255,204,0,0.3)" }}>
                     <Icon name="Music" size={12} /> Яндекс Музыка
                   </a>
-                  <a href="https://vk.com/music/artist/galaktika_izmaylova" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style={{ background: "rgba(0,119,255,0.15)", color: "#5b9cf6", border: "1px solid rgba(0,119,255,0.3)" }}>
+                  <a href="https://vk.ru/artist/galaktika_mtuyntc0odg0mw" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style={{ background: "rgba(0,119,255,0.15)", color: "#5b9cf6", border: "1px solid rgba(0,119,255,0.3)" }}>
                     <Icon name="Music2" size={12} /> VK Музыка
                   </a>
                   <a href="https://vk.ru/club235584480" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style={{ background: "rgba(255,255,255,0.08)", color: "#c9a882", border: "1px solid rgba(255,255,255,0.15)" }}>

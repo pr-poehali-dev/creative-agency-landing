@@ -312,7 +312,7 @@ export default function Portfolio() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://vk.com/music/artist/galaktika_izmaylova"
+              href="https://vk.ru/artist/galaktika_mtuyntc0odg0mw"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
