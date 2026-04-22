@@ -49,13 +49,13 @@ export default function Uslugi() {
       </nav>
 
       {/* HERO */}
-      <section className="pt-32 pb-16 px-6" style={{ background: "#2d2016" }}>
+      <section id="ai-video" className="pt-32 pb-16 px-6" style={{ background: "#2d2016" }}>
         <div className="container mx-auto max-w-3xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full inline-block mb-6" style={{ background: "rgba(245,201,122,0.15)", color: "#f5c97a", border: "1px solid rgba(245,201,122,0.3)" }}>
-            Прочие услуги
+            Видео и клипы AI
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
-            Видеоконтент для клипов
+            Видеоконтент и клипы с AI
           </h1>
           <p className="text-lg" style={{ color: "#c9a882" }}>
             Профессиональные музыкальные клипы, лирик-видео и визуальный контент — от идеи до финального монтажа
@@ -66,7 +66,7 @@ export default function Uslugi() {
       {/* SERVICES */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {[
               {
                 icon: "Video",
@@ -86,15 +86,39 @@ export default function Uslugi() {
                 desc: "Генеративные визуальные образы под музыку с использованием нейросетей. Уникальная эстетика.",
                 tag: "Новинка",
               },
+              {
+                icon: "Megaphone",
+                title: "Рекламные ролики с AI",
+                desc: "Видео для запуска продукта, промо, бренда.",
+                tag: "",
+              },
+              {
+                icon: "Smartphone",
+                title: "Контент для соцсетей",
+                desc: "Reels, Shorts, TikTok, визуальные нарезки.",
+                tag: "",
+              },
+              {
+                icon: "PresentationIcon",
+                title: "Анимированные презентации",
+                desc: "Для выступлений, запусков, обучения.",
+                tag: "",
+              },
+              {
+                icon: "MonitorPlay",
+                title: "Product demo видео",
+                desc: "Демонстрация продукта, сервиса, приложения.",
+                tag: "",
+              },
             ].map((s, i) => (
-              <Card key={i} className="p-7 border-0 shadow-md relative" style={{ background: "#fff" }}>
+              <Card key={i} className="p-6 border-0 shadow-md relative" style={{ background: "#fff" }}>
                 {s.tag && (
                   <span className="absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-full" style={{ background: "#fde8d8", color: "#c2410c" }}>{s.tag}</span>
                 )}
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5" style={{ background: "#fde8d8" }}>
-                  <Icon name={s.icon as "Video"} size={24} style={{ color: "#c2410c" }} />
+                <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-4" style={{ background: "#fde8d8" }}>
+                  <Icon name={s.icon as "Video"} size={22} style={{ color: "#c2410c" }} />
                 </div>
-                <h3 className="font-extrabold text-xl mb-3" style={{ color: "#2d2016" }}>{s.title}</h3>
+                <h3 className="font-extrabold text-base mb-2" style={{ color: "#2d2016" }}>{s.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "#7a5c44" }}>{s.desc}</p>
               </Card>
             ))}
@@ -137,6 +161,100 @@ export default function Uslugi() {
           >
             <Icon name="Send" size={20} />
             Написать в Telegram
+          </a>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════ */}
+      {/* ─── ARTIST FROM ZERO ─────────────────────────────────── */}
+      {/* ══════════════════════════════════════════════════════════ */}
+
+      {/* HERO */}
+      <section id="artist-from-zero" className="py-24 px-6" style={{ background: "#1a0f07" }}>
+        <div className="container mx-auto max-w-3xl text-center">
+          <span className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full inline-block mb-6" style={{ background: "rgba(245,201,122,0.15)", color: "#f5c97a", border: "1px solid rgba(245,201,122,0.3)" }}>
+            Артисты с нуля
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+            Создание артиста под ключ
+          </h2>
+          <p className="text-base md:text-lg leading-relaxed" style={{ color: "#c9a882" }}>
+            Музыкальный бренд, песни, визуальный стиль, релизы, дистрибуция и развитие артиста — от идеи до первых слушателей.
+          </p>
+        </div>
+      </section>
+
+      {/* УСЛУГИ */}
+      <section className="py-20 px-6" style={{ background: "#fdf3e7" }}>
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                icon: "Star",
+                title: "Создание музыкального бренда",
+                desc: "Позиционирование, образ, стиль.",
+                badge: "Старт",
+              },
+              {
+                icon: "Disc3",
+                title: "Запись альбома или EP",
+                desc: "Работа над релизом под ключ.",
+                badge: "",
+              },
+              {
+                icon: "Globe",
+                title: "Дистрибуция на платформы",
+                desc: "Яндекс, VK, Spotify, Apple Music.",
+                badge: "",
+              },
+              {
+                icon: "LayoutTemplate",
+                title: "SMM-стратегия",
+                desc: "Контент-план, Reels, визуальная упаковка.",
+                badge: "",
+              },
+              {
+                icon: "Palette",
+                title: "Обложки и визуальный стиль",
+                desc: "Арт-дирекшн, обложки, айдентика.",
+                badge: "",
+              },
+              {
+                icon: "TrendingUp",
+                title: "PR и продвижение",
+                desc: "Запуск, релизная коммуникация.",
+                badge: "Хит",
+              },
+            ].map((s) => (
+              <Card key={s.title} className="p-6 border-0 shadow-sm relative" style={{ background: "#fff" }}>
+                {s.badge && (
+                  <span className="absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-full" style={{ background: "#fde8d8", color: "#c2410c" }}>{s.badge}</span>
+                )}
+                <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-4" style={{ background: "#fde8d8" }}>
+                  <Icon name={s.icon as "Star"} size={22} style={{ color: "#c2410c" }} />
+                </div>
+                <h3 className="font-extrabold text-base mb-2" style={{ color: "#2d2016" }}>{s.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#7a5c44" }}>{s.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 px-6" style={{ background: "#2d2016" }}>
+        <div className="container mx-auto max-w-xl text-center">
+          <h2 className="text-2xl font-extrabold text-white mb-4">Готовы запустить проект?</h2>
+          <p className="mb-8" style={{ color: "#c9a882" }}>Расскажите о себе — обсудим, с чего начать и как выстроить путь к первым слушателям.</p>
+          <a
+            href="https://t.me/izmailova8888"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-10 py-5 rounded-full font-bold text-white text-base transition-transform hover:scale-105"
+            style={{ background: "#c2410c" }}
+          >
+            <Icon name="Send" size={18} />
+            Запустить проект
           </a>
         </div>
       </section>
