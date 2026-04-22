@@ -366,124 +366,94 @@ export default function PesnyaVPodarok() {
       </nav>
 
       {/* ─── HERO ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative overflow-hidden" style={{ background: "#1a0f07" }}>
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url(${HERO_IMG})` }}
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(20,10,3,0.95) 45%, rgba(20,10,3,0.5) 75%, rgba(20,10,3,0.15))" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(26,15,7,0.6) 0%, rgba(26,15,7,0.95) 100%)" }} />
 
-        <div className="relative z-10 container mx-auto max-w-6xl px-6 py-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
+        <div className="relative z-10 container mx-auto max-w-5xl px-6 pt-24 pb-16 text-center">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
+            Ваша история × Технологии будущего<br />
+            <span style={{ color: "#f5c97a" }}>=&nbsp;Идеальная песня</span>
+          </h1>
+          <p className="text-base md:text-lg mb-10" style={{ color: "#c9a882" }}>
+            Юлия Измайлова — профессиональный композитор · 5 альбомов · AI-продюсирование
+          </p>
 
-          {/* ── Левая колонка: текст ── */}
-          <div className="flex-1 max-w-xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(255,255,255,0.10)", border: "1px solid rgba(255,255,255,0.22)" }}>
-              <Icon name="Star" size={13} style={{ color: "#f5c97a" }} />
-              <span className="text-sm font-semibold text-white">Артист и автор песен</span>
-              <span className="font-extrabold text-sm" style={{ color: "#f5c97a" }}>GALAKTIKA</span>
-            </div>
+          <p className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: "#f5c97a" }}>
+            Наша AI лаборатория создаёт:
+          </p>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-5">
-              Вы, ваши близкие или ваш проект<br />
-              <span style={{ color: "#f5c97a" }}>достойны личной песни</span>
-            </h1>
-
-            <p className="text-lg text-white/85 mb-2 leading-relaxed font-semibold">
-              Ваша история × Технологии будущего = Идеальная песня
-            </p>
-            <p className="text-base text-white/75 mb-3 leading-relaxed">
-              Я пишу тексты из ваших смыслов, сочиняю неповторимые мелодии — AI помогает создать студийное звучание.
-            </p>
-            <p className="text-sm mb-6 leading-relaxed px-3 py-2 rounded-xl" style={{ color: "#f5c97a", background: "rgba(245,201,122,0.08)", border: "1px solid rgba(245,201,122,0.2)" }}>
-              <strong>Юлия Измайлова</strong> — профессиональный композитор · 5 альбомов · Глубинное интервью · Хитовая структура · AI-продюсирование
-            </p>
-
-            {/* Платформы артиста */}
-            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#7a5c44" }}>Послушать моё творчество:</p>
-            <div className="flex flex-wrap gap-3 mb-10">
-              <a
-                href="https://music.yandex.com/artist/2948671"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
-                style={{ background: "rgba(255,204,0,0.18)", color: "#fff", border: "1px solid rgba(255,204,0,0.4)" }}
-              >
-                <Icon name="Headphones" size={15} />
-                Яндекс Музыка
-              </a>
-              <a
-                href="https://vk.ru/artist/galaktika_mtuyntc0odg0mw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
-                style={{ background: "rgba(0,119,255,0.18)", color: "#fff", border: "1px solid rgba(0,119,255,0.4)" }}
-              >
-                <Icon name="Music2" size={15} />
-                ВК Музыка
-              </a>
-              <a
-                href="https://vk.ru/club235584480"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform hover:scale-105"
-                style={{ background: "rgba(255,255,255,0.10)", color: "#fff", border: "1px solid rgba(255,255,255,0.25)" }}
-              >
-                <Icon name="Users" size={15} />
-                Сообщество ВКонтакте
-              </a>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button
-                onClick={scrollToForm}
-                size="lg"
-                className="text-base px-7 py-5 rounded-full font-bold shadow-2xl hover:scale-105 transition-transform"
-                style={{ background: "#c2410c", color: "#fff" }}
-              >
-                <Icon name="Mic" size={19} className="mr-2" />
-                Рассказать мою историю
-              </Button>
-              <a
-                href="#portfolio"
-                onClick={(e) => { e.preventDefault(); document.getElementById("portfolio-section")?.scrollIntoView({ behavior: "smooth" }); }}
-                className="inline-flex items-center justify-center gap-2 px-7 py-5 rounded-full text-base font-bold transition-transform hover:scale-105"
-                style={{ background: "rgba(255,255,255,0.10)", color: "#fff", border: "1px solid rgba(255,255,255,0.25)" }}
-              >
-                <Icon name="Play" size={17} />
-                Послушать примеры
-              </a>
-            </div>
-          </div>
-
-          {/* ── Правая колонка: фото ── */}
-          <div className="flex-shrink-0 flex flex-col items-center lg:ml-auto">
-            <div className="relative">
-              {/* Glow за фото */}
+          {/* 4 карточки */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+            {[
+              {
+                emoji: "🎁",
+                title: "Песни и хиты на заказ",
+                desc: "Персональные песни в подарок, авторские треки по вашей истории, живой вокал, семейные и праздничные хиты.",
+                btn: "Выбрать песню",
+                href: "#gift-song",
+                scroll: "gift-song-section",
+              },
+              {
+                emoji: "🎬",
+                title: "Музыка для бизнеса",
+                desc: "Бренд-песни, джинглы, музыка для рекламы, YouTube, подкастов, презентаций, приложений и digital-проектов.",
+                btn: "Для бизнеса",
+                href: "/uslugi#business-music",
+                scroll: null,
+              },
+              {
+                emoji: "📹",
+                title: "Видео и клипы AI",
+                desc: "Музыкальные клипы, рекламные ролики, AI-визуалы, контент для соцсетей и презентационные видео.",
+                btn: "Смотреть услуги",
+                href: "/uslugi#ai-video",
+                scroll: null,
+              },
+              {
+                emoji: "🎤",
+                title: "Артисты с нуля",
+                desc: "Создание музыкального бренда, песни, визуальный стиль, релизы, дистрибуция и развитие артиста под ключ.",
+                btn: "Запустить проект",
+                href: "/uslugi#artist-from-zero",
+                scroll: null,
+              },
+            ].map((card) => (
               <div
-                className="absolute -inset-4 rounded-3xl blur-2xl opacity-40"
-                style={{ background: "radial-gradient(ellipse, #7c3aed 0%, transparent 70%)" }}
-              />
-              <img
-                src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/344bf7da-4f0c-4b6b-ab42-6cc2b9daded2.jpeg"
-                alt="Юлия Измайлова — композитор и основательница AI Muse Lab, автор-исполнитель GALAKTIKA"
-                className="relative w-72 md:w-80 lg:w-96 rounded-3xl object-cover shadow-2xl"
-                style={{ border: "2px solid rgba(255,255,255,0.15)", aspectRatio: "3/4", objectPosition: "top" }}
-              />
-              {/* Плашка-подпись */}
-              <div
-                className="absolute bottom-4 left-4 right-4 rounded-2xl px-4 py-3 backdrop-blur-sm"
-                style={{ background: "rgba(20,10,3,0.75)", border: "1px solid rgba(255,255,255,0.15)" }}
+                key={card.title}
+                className="flex flex-col rounded-2xl p-5"
+                style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)" }}
               >
-                <p className="text-white font-bold text-sm">Юлия Измайлова</p>
-                <p className="text-xs mt-0.5" style={{ color: "#f5c97a" }}>Автор-исполнитель · GALAKTIKA</p>
+                <div className="text-3xl mb-3">{card.emoji}</div>
+                <h3 className="font-extrabold text-white text-base mb-2">{card.title}</h3>
+                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "#c9a882" }}>{card.desc}</p>
+                {card.scroll ? (
+                  <button
+                    onClick={() => document.getElementById(card.scroll!)?.scrollIntoView({ behavior: "smooth" })}
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105 w-full"
+                    style={{ background: "#c2410c", color: "#fff" }}
+                  >
+                    {card.btn}
+                  </button>
+                ) : (
+                  <Link
+                    to={card.href}
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105 w-full"
+                    style={{ background: "rgba(255,255,255,0.10)", color: "#fff", border: "1px solid rgba(255,255,255,0.25)" }}
+                  >
+                    {card.btn}
+                  </Link>
+                )}
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
         {/* Scroll hint */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 flex flex-col items-center gap-1 animate-bounce">
+        <div className="relative z-10 pb-8 flex justify-center text-white/40 animate-bounce">
           <Icon name="ChevronDown" size={24} />
         </div>
       </section>
