@@ -413,7 +413,7 @@ export default function PesnyaVPodarok() {
           alt=""
           aria-hidden="true"
           className="absolute pointer-events-none select-none"
-          style={{ top: "50%", left: "50%", transform: "translate(-50%, -55%)", width: "70%", maxWidth: 700, opacity: 0.07, mixBlendMode: "screen", filter: "blur(1px)" }}
+          style={{ top: "50%", left: "50%", transform: "translate(-50%, -55%)", width: "80%", maxWidth: 800, opacity: 0.18, mixBlendMode: "screen", filter: "blur(0px)" }}
         />
 
         <div className="relative z-10 container mx-auto max-w-4xl px-6 pt-24 pb-10 text-center flex flex-col items-center">
