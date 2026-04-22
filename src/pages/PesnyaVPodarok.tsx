@@ -985,6 +985,62 @@ export default function PesnyaVPodarok() {
         </div>
       </section>
 
+      {/* ─── ABOUT AUTHOR ─────────────────────────────────────── */}
+      <section className="py-20 px-6" style={{ background: "#fdf3e7" }}>
+        <div className="container mx-auto max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-12" style={{ color: "#2d2016" }}>
+            Кто создаёт ваши песни?
+          </h2>
+          <div className="flex flex-col md:flex-row gap-10 items-center">
+            {/* Фото */}
+            <div className="flex-shrink-0">
+              <img
+                src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/344bf7da-4f0c-4b6b-ab42-6cc2b9daded2.jpeg"
+                alt="Юлия Измайлова — основательница AI Muse Lab"
+                className="w-52 h-52 md:w-64 md:h-64 rounded-3xl object-cover shadow-xl"
+                style={{ border: "3px solid #e5c9b5" }}
+              />
+            </div>
+            {/* Текст */}
+            <div className="flex-1">
+              <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "#c2410c" }}>Основательница AI Muse Lab</p>
+              <h3 className="text-2xl font-extrabold mb-4" style={{ color: "#2d2016" }}>Юлия Измайлова</h3>
+              <p className="text-sm mb-1" style={{ color: "#7a5c44" }}>профессиональный композитор и автор текстов</p>
+              <div className="space-y-2 my-5">
+                {[
+                  "10+ лет опыта создания авторских песен",
+                  "5 выпущенных альбомов (GALAKTIKA)",
+                  "Более 100 персональных песен для клиентов",
+                  "Публикации на Яндекс Музыке, Spotify, VK Музыке",
+                ].map(item => (
+                  <div key={item} className="flex items-start gap-2 text-sm" style={{ color: "#5a3d2b" }}>
+                    <Icon name="Check" size={14} style={{ color: "#c2410c", marginTop: 2, flexShrink: 0 }} />
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-xl p-4 mb-6" style={{ background: "#fff8f2", border: "1px solid #e5c9b5" }}>
+                <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "#c2410c" }}>Личный подход</p>
+                <p className="text-sm leading-relaxed" style={{ color: "#5a3d2b" }}>
+                  Каждую историю Юлия изучает лично. Проводит глубинное интервью, вникает в детали, переносит эмоции в текст и музыку.
+                </p>
+                <p className="text-sm font-semibold mt-2" style={{ color: "#2d2016" }}>
+                  Это не автоматическая генерация — это авторская работа с душой.
+                </p>
+              </div>
+              <Link
+                to="/o-nas"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-white transition-transform hover:scale-105"
+                style={{ background: "#c2410c" }}
+              >
+                <Icon name="User" size={16} />
+                Узнать больше о команде →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── FAQ ──────────────────────────────────────────────── */}
       <section className="py-20 px-6" style={{ background: "#fdf3e7" }}>
         <div className="container mx-auto max-w-3xl">
