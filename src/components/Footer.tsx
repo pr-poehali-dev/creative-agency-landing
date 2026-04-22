@@ -25,16 +25,16 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="py-12 px-6" style={{ background: "#110a04", color: "#7a5c44" }}>
+    <footer className="py-12 px-6" style={{ background: "#0E0B1A", borderTop: "1px solid rgba(168,85,247,0.2)" }}>
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
 
           {/* Бренд */}
           <div className="md:col-span-2">
             <p className="font-extrabold text-base text-white mb-1">AI MUSELAB</p>
-            <p className="text-xs mb-4" style={{ color: "#c9a882" }}>Авторские песни на заказ в подарок</p>
-            <div className="text-xs space-y-1">
-              <p className="font-semibold" style={{ color: "#c9a882" }}>ИП Измайлова Юлия Александровна</p>
+            <p className="text-xs mb-4" style={{ color: "#B8ABCF" }}>Авторские песни на заказ в подарок</p>
+            <div className="text-xs space-y-1" style={{ color: "#B8ABCF" }}>
+              <p className="font-semibold" style={{ color: "#B8ABCF" }}>ИП Измайлова Юлия Александровна</p>
               <p>ИНН: 665895132301</p>
               <p>198207, г. Санкт-Петербург, пр-кт Ленинский, д 117, корп 1, кв 234</p>
               <p>Без НДС (УСН)</p>
@@ -44,14 +44,14 @@ export default function Footer() {
           {/* Навигационные колонки */}
           {footerLinks.map(col => (
             <div key={col.title}>
-              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#f5c97a" }}>{col.title}</p>
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#A855F7" }}>{col.title}</p>
               <div className="flex flex-col gap-2">
                 {col.links.map(link => (
                   <Link
                     key={link.to}
                     to={link.to}
-                    className="text-xs hover:underline transition-colors"
-                    style={{ color: "#c9a882" }}
+                    className="text-xs transition-colors hover:text-white"
+                    style={{ color: "#B8ABCF" }}
                   >
                     {link.label}
                   </Link>
@@ -62,28 +62,28 @@ export default function Footer() {
         </div>
 
         {/* Контакты */}
-        <div className="border-t pt-6 mb-6" style={{ borderColor: "#2a1a0e" }}>
+        <div className="border-t pt-6 mb-6" style={{ borderColor: "rgba(168,85,247,0.15)" }}>
           <div className="flex flex-wrap gap-4 text-xs">
-            <a href="https://t.me/izmailova8888" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#c9a882" }}>
+            <a href="https://t.me/izmailova8888" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" style={{ color: "#B8ABCF" }}>
               Telegram: @izmailova8888
             </a>
-            <a href="https://t.me/AIMusalab_bot" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#c9a882" }}>
+            <a href="https://t.me/AIMusalab_bot" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" style={{ color: "#B8ABCF" }}>
               Бот: @AIMusalab_bot
             </a>
-            <a href="https://vk.ru/club235584480" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#c9a882" }}>
+            <a href="https://vk.ru/club235584480" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" style={{ color: "#B8ABCF" }}>
               ВКонтакте
             </a>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="text-center text-xs" style={{ color: "#5a3d2b" }}>
+        <div className="text-center text-xs" style={{ color: "#B8ABCF", opacity: 0.6 }}>
           <p>© 2026 ИП Измайлова Юлия Александровна · Все права защищены</p>
           <p className="mt-1">
             Нажимая «Оставить заявку», вы принимаете условия{" "}
-            <Link to="/public-offer" className="hover:underline" style={{ color: "#7a5c44" }}>договора-оферты</Link>
+            <Link to="/public-offer" className="hover:text-white transition-colors underline" style={{ color: "#A855F7" }}>договора-оферты</Link>
             {" "}и соглашаетесь с{" "}
-            <Link to="/privacy-policy" className="hover:underline" style={{ color: "#7a5c44" }}>политикой конфиденциальности</Link>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors underline" style={{ color: "#A855F7" }}>политикой конфиденциальности</Link>
           </p>
         </div>
       </div>
