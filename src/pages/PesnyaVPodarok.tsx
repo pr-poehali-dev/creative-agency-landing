@@ -423,49 +423,48 @@ export default function PesnyaVPodarok() {
             <span style={{ color: "#A855F7" }}>✦</span> Юлия Измайлова — профессиональный композитор · 5 альбомов
           </div>
           {/* Заголовок */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-5" style={{ letterSpacing: "-0.02em" }}>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-8" style={{ letterSpacing: "-0.02em" }}>
             Ваша история × Технологии будущего<br />
             <span style={{ background: "linear-gradient(135deg, #C084FC 0%, #F472B6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>=&nbsp;Идеальная песня</span>
           </h1>
-          <p className="text-lg md:text-xl mb-3 max-w-lg" style={{ color: "#C4B5FD", lineHeight: 1.6 }}>
-            Авторская персональная песня — подарок, который невозможно забыть
-          </p>
-          <p className="text-sm mb-10" style={{ color: "rgba(196,181,253,0.6)" }}>
-            AI-продюсирование · Живой вокал · от 5 000 ₽ · за 2–3 дня
-          </p>
           {/* Главная CTA кнопка */}
           <button
             onClick={scrollToForm}
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl text-lg font-bold text-white transition-all hover:scale-105 hover:shadow-2xl mb-3"
+            className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl text-lg font-bold text-white transition-all hover:scale-105 hover:shadow-2xl mb-12"
             style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", boxShadow: "0 8px 32px rgba(168,85,247,0.5)" }}
           >
             <Icon name="Music2" size={20} />
             Создать свою песню
           </button>
-          <p className="text-xs mb-12" style={{ color: "rgba(196,181,253,0.5)" }}>Персональный трек — с душой и историей</p>
 
-          <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: "rgba(168,85,247,0.8)", letterSpacing: "0.15em" }}>
-            AI Muse Lab создаёт:
+          <p className="text-base font-bold uppercase tracking-widest mb-6" style={{ background: "linear-gradient(90deg, #C084FC, #F472B6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "0.2em" }}>
+            ✦ AI Muse Lab создаёт ✦
           </p>
 
-          {/* 4 карточки */}
+          {/* 4 карточки с тематическими подложками */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left w-full">
             {[
               {
                 icon: "Gift",
                 title: "Песни и хиты на заказ",
-                desc: "Персональные песни в подарок по вашей истории, живой вокал, семейные хиты.",
+                desc: "Персональные песни по вашей истории, живой вокал, семейные хиты.",
                 btn: "Выбрать песню",
                 scroll: "gift-song-section",
                 href: null,
+                bg: "linear-gradient(135deg, #3B0764 0%, #6B21A8 60%, #9333EA 100%)",
+                accent: "#E9D5FF",
+                img: WEDDING_IMG,
               },
               {
                 icon: "Briefcase",
                 title: "Музыка для бизнеса",
-                desc: "Бренд-песни, джинглы, музыка для рекламы, YouTube и digital-проектов.",
+                desc: "Бренд-песни, джинглы, музыка для рекламы и digital-проектов.",
                 btn: "Для бизнеса",
                 scroll: null,
                 href: "/uslugi#business-music",
+                bg: "linear-gradient(135deg, #0F172A 0%, #1E3A5F 60%, #1D4ED8 100%)",
+                accent: "#BAE6FD",
+                img: STUDIO_IMG,
               },
               {
                 icon: "Video",
@@ -474,6 +473,9 @@ export default function PesnyaVPodarok() {
                 btn: "Смотреть услуги",
                 scroll: null,
                 href: "/uslugi#ai-video",
+                bg: "linear-gradient(135deg, #1A0A0A 0%, #7F1D1D 60%, #DC2626 100%)",
+                accent: "#FECACA",
+                img: COVER3_IMG,
               },
               {
                 icon: "Mic2",
@@ -482,35 +484,48 @@ export default function PesnyaVPodarok() {
                 btn: "Запустить проект",
                 scroll: null,
                 href: "/uslugi#artist-from-zero",
+                bg: "linear-gradient(135deg, #0A1A0A 0%, #14532D 60%, #16A34A 100%)",
+                accent: "#BBF7D0",
+                img: VINYL_IMG,
               },
             ].map((card) => (
               <div
                 key={card.title}
-                className="flex flex-col rounded-2xl p-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
-                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(168,85,247,0.25)", backdropFilter: "blur(10px)" }}
+                className="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                style={{ border: "1px solid rgba(255,255,255,0.12)" }}
               >
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ background: "linear-gradient(135deg, rgba(168,85,247,0.3) 0%, rgba(255,77,166,0.2) 100%)" }}>
-                  <Icon name={card.icon as "Gift"} size={20} style={{ color: "#C084FC" }} />
+                {/* Тематическая подложка */}
+                <div className="relative h-28 overflow-hidden">
+                  <img src={card.img} alt={card.title} className="w-full h-full object-cover" style={{ opacity: 0.45 }} />
+                  <div className="absolute inset-0" style={{ background: card.bg, opacity: 0.75 }} />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.2)" }}>
+                      <Icon name={card.icon as "Gift"} size={22} style={{ color: "#fff" }} />
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-bold text-white text-base mb-2 leading-snug">{card.title}</h3>
-                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "rgba(196,181,253,0.75)" }}>{card.desc}</p>
-                {card.scroll ? (
-                  <button
-                    onClick={() => document.getElementById(card.scroll!)?.scrollIntoView({ behavior: "smooth" })}
-                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 w-full"
-                    style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", color: "#fff" }}
-                  >
-                    {card.btn}
-                  </button>
-                ) : (
-                  <a
-                    href={card.href!}
-                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 w-full"
-                    style={{ background: "rgba(168,85,247,0.15)", color: "#C084FC", border: "1px solid rgba(168,85,247,0.3)" }}
-                  >
-                    {card.btn}
-                  </a>
-                )}
+                {/* Текст */}
+                <div className="flex flex-col flex-1 p-4" style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(10px)" }}>
+                  <h3 className="font-bold text-white text-base mb-2 leading-snug">{card.title}</h3>
+                  <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "rgba(196,181,253,0.75)" }}>{card.desc}</p>
+                  {card.scroll ? (
+                    <button
+                      onClick={() => document.getElementById(card.scroll!)?.scrollIntoView({ behavior: "smooth" })}
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 w-full"
+                      style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", color: "#fff" }}
+                    >
+                      {card.btn}
+                    </button>
+                  ) : (
+                    <a
+                      href={card.href!}
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 w-full"
+                      style={{ background: "rgba(168,85,247,0.15)", color: "#C084FC", border: "1px solid rgba(168,85,247,0.3)" }}
+                    >
+                      {card.btn}
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>
