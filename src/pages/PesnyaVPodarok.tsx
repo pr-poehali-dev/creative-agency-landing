@@ -409,15 +409,7 @@ export default function PesnyaVPodarok() {
         <div className="absolute top-1/4 -right-20 w-72 h-72 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,77,166,0.12) 0%, transparent 70%)", filter: "blur(40px)" }} />
 
         <div className="relative z-10 container mx-auto max-w-4xl px-6 pt-24 pb-10 text-center flex flex-col items-center">
-          {/* Логотип на hero */}
-          <div className="mb-6">
-            <img
-              src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/589a2648-75cb-485c-aeed-7d4aae46cdaa.jpeg"
-              alt="AI Muse Lab"
-              className="mx-auto"
-              style={{ height: 160, width: "auto", maxWidth: 360, objectFit: "contain", mixBlendMode: "screen", filter: "drop-shadow(0 0 24px rgba(168,85,247,0.5))" }}
-            />
-          </div>
+
           {/* Бейдж */}
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-6" style={{ background: "rgba(168,85,247,0.15)", border: "1px solid rgba(168,85,247,0.35)", color: "#C4B5FD" }}>
             <span style={{ color: "#A855F7" }}>✦</span> Юлия Измайлова — профессиональный композитор · 5 альбомов
