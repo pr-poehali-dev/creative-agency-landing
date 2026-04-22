@@ -414,8 +414,8 @@ export default function PesnyaVPodarok() {
             <img
               src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/589a2648-75cb-485c-aeed-7d4aae46cdaa.jpeg"
               alt="AI Muse Lab"
-              className="mx-auto rounded-2xl"
-              style={{ height: 140, width: "auto", maxWidth: 320, objectFit: "contain", filter: "drop-shadow(0 0 32px rgba(168,85,247,0.6))" }}
+              className="mx-auto"
+              style={{ height: 160, width: "auto", maxWidth: 360, objectFit: "contain", mixBlendMode: "screen", filter: "drop-shadow(0 0 24px rgba(168,85,247,0.5))" }}
             />
           </div>
           {/* Бейдж */}
