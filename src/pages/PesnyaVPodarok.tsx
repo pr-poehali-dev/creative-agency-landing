@@ -425,32 +425,32 @@ export default function PesnyaVPodarok() {
                 title: "Песни и хиты на заказ",
                 desc: "Персональные песни в подарок, авторские треки по вашей истории, живой вокал, семейные и праздничные хиты.",
                 btn: "Выбрать песню",
-                href: "#gift-song",
                 scroll: "gift-song-section",
+                href: null,
               },
               {
                 emoji: "🎬",
                 title: "Музыка для бизнеса",
                 desc: "Бренд-песни, джинглы, музыка для рекламы, YouTube, подкастов, презентаций, приложений и digital-проектов.",
                 btn: "Для бизнеса",
-                href: "/uslugi#business-music",
                 scroll: null,
+                href: "/uslugi#business-music",
               },
               {
                 emoji: "📹",
                 title: "Видео и клипы AI",
                 desc: "Музыкальные клипы, рекламные ролики, AI-визуалы, контент для соцсетей и презентационные видео.",
                 btn: "Смотреть услуги",
-                href: "/uslugi#ai-video",
                 scroll: null,
+                href: "/uslugi#ai-video",
               },
               {
                 emoji: "🎤",
                 title: "Артисты с нуля",
                 desc: "Создание музыкального бренда, песни, визуальный стиль, релизы, дистрибуция и развитие артиста под ключ.",
                 btn: "Запустить проект",
-                href: "/uslugi#artist-from-zero",
                 scroll: null,
+                href: "/uslugi#artist-from-zero",
               },
             ].map((card) => (
               <div
@@ -470,13 +470,13 @@ export default function PesnyaVPodarok() {
                     {card.btn}
                   </button>
                 ) : (
-                  <Link
-                    to={card.href}
+                  <a
+                    href={card.href!}
                     className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-bold transition-transform hover:scale-105 w-full"
                     style={{ background: "rgba(255,255,255,0.10)", color: "#fff", border: "1px solid rgba(255,255,255,0.25)" }}
                   >
                     {card.btn}
-                  </Link>
+                  </a>
                 )}
               </div>
             ))}
@@ -719,7 +719,7 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── PRICING ──────────────────────────────────────────── */}
-      <section className="py-20 px-6" style={{ background: "#faf7f4" }}>
+      <section id="gift-song-section" className="py-20 px-6" style={{ background: "#faf7f4" }}>
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#2d2016" }}>
             Цены и пакеты
