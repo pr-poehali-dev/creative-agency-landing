@@ -279,82 +279,113 @@ export default function PesnyaVPodarok() {
       </a>
 
       {/* ─── NAV ──────────────────────────────────────────────── */}
-      <nav className="fixed top-0 w-full z-50" style={{ background: "rgba(20,10,3,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <nav className="fixed top-0 w-full z-50" style={{ background: "rgba(20,10,3,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <div className="container mx-auto max-w-6xl px-6 py-3 flex items-center justify-between gap-4">
-          <span className="font-extrabold text-base text-white tracking-wide flex-shrink-0">AI MUSELAB</span>
 
-          {/* Ссылки — только десктоп */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Логотип */}
+          <Link to="/" className="flex items-center gap-2 flex-shrink-0 group">
+            <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: "#c2410c" }}>
+              <Icon name="Music2" size={14} style={{ color: "#fff" }} />
+            </div>
+            <span className="font-extrabold text-sm text-white tracking-wider hidden sm:block">AI MUSELAB</span>
+          </Link>
+
+          {/* Ссылки — десктоп */}
+          <div className="hidden md:flex items-center gap-0.5">
             {[
-              { to: "/portfolio", label: "Портфолио" },
-              { to: "/otzyvy", label: "Отзывы" },
-              { to: "/o-nas", label: "О нас" },
-              { to: "/faq", label: "FAQ" },
-              { to: "/uslugi", label: "Услуги" },
+              { to: "/uslugi", label: "Услуги", icon: "Sparkles" },
+              { to: "/portfolio", label: "Портфолио", icon: "Headphones" },
+              { to: "/otzyvy", label: "Отзывы", icon: "Star" },
+              { to: "/o-nas", label: "О нас", icon: "User" },
+              { to: "/faq", label: "FAQ", icon: "HelpCircle" },
             ].map(link => (
               <Link
                 key={link.to}
                 to={link.to}
-                className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all hover:text-white"
-                style={{ color: "#c9a882" }}
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all hover:text-white hover:bg-white/5"
+                style={{ color: "#9a7a65" }}
               >
+                <Icon name={link.icon as "Star"} size={13} />
                 {link.label}
               </Link>
             ))}
           </div>
 
+          {/* Правая часть */}
           <div className="flex items-center gap-2">
+            {/* Кнопка «На главную» — на внутренних страницах не нужна, здесь скролл к форме */}
+            <button
+              onClick={scrollToForm}
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all hover:scale-105 text-white"
+              style={{ background: "#c2410c" }}
+            >
+              <Icon name="Mic" size={13} />
+              Заказать песню
+            </button>
             <a
               href="https://t.me/izmailova8888"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all hover:scale-105 text-white"
-              style={{ background: "#c2410c" }}
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold transition-all hover:scale-105"
+              style={{ background: "rgba(255,255,255,0.07)", color: "#c9a882", border: "1px solid rgba(255,255,255,0.1)" }}
             >
-              <Icon name="Send" size={13} />
-              Заказать
+              <Icon name="Send" size={12} />
+              Telegram
             </a>
-            {/* Гамбургер — только мобиле */}
+            {/* Гамбургер */}
             <button
               className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg transition-all"
-              style={{ background: "rgba(255,255,255,0.08)" }}
+              style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)" }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Меню"
             >
-              <Icon name={mobileMenuOpen ? "X" : "Menu"} size={18} style={{ color: "#fff" }} />
+              <Icon name={mobileMenuOpen ? "X" : "Menu"} size={17} style={{ color: "#f5c97a" }} />
             </button>
           </div>
         </div>
 
         {/* Мобильное меню */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t" style={{ background: "rgba(20,10,3,0.98)", borderColor: "rgba(255,255,255,0.07)" }}>
-            <div className="flex flex-col px-6 py-4 gap-1">
+          <div className="md:hidden border-t" style={{ background: "rgba(15,7,2,0.99)", borderColor: "rgba(255,255,255,0.07)" }}>
+            <div className="px-4 py-4 flex flex-col gap-1">
               {[
-                { to: "/portfolio", label: "Портфолио", icon: "Headphones" },
-                { to: "/otzyvy", label: "Отзывы", icon: "Star" },
-                { to: "/o-nas", label: "О нас", icon: "User" },
-                { to: "/faq", label: "FAQ", icon: "HelpCircle" },
-                { to: "/uslugi", label: "Услуги", icon: "Sparkles" },
+                { to: "/uslugi", label: "Услуги", icon: "Sparkles", desc: "Все наши направления" },
+                { to: "/portfolio", label: "Портфолио", icon: "Headphones", desc: "Послушать примеры" },
+                { to: "/otzyvy", label: "Отзывы", icon: "Star", desc: "Что говорят клиенты" },
+                { to: "/o-nas", label: "О нас", icon: "User", desc: "Юлия и команда" },
+                { to: "/faq", label: "FAQ", icon: "HelpCircle", desc: "Частые вопросы" },
               ].map(link => (
                 <Link
                   key={link.to}
                   to={link.to}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"
-                  style={{ color: "#c9a882" }}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all hover:bg-white/5"
                 >
-                  <Icon name={link.icon as "Star"} size={16} style={{ color: "#f5c97a" }} />
-                  {link.label}
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(194,65,12,0.2)" }}>
+                    <Icon name={link.icon as "Star"} size={15} style={{ color: "#f5c97a" }} />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-white">{link.label}</div>
+                    <div className="text-xs" style={{ color: "#7a5c44" }}>{link.desc}</div>
+                  </div>
+                  <Icon name="ChevronRight" size={14} style={{ color: "#5a3d2b", marginLeft: "auto" }} />
                 </Link>
               ))}
-              <div className="mt-2 pt-3 border-t" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
+              <div className="mt-3 pt-3 border-t flex flex-col gap-2" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
+                <button
+                  onClick={() => { scrollToForm(); setMobileMenuOpen(false); }}
+                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-bold text-white"
+                  style={{ background: "#c2410c" }}
+                >
+                  <Icon name="Mic" size={16} />
+                  Заказать песню
+                </button>
                 <a
                   href="https://t.me/izmailova8888"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold text-white"
-                  style={{ background: "#c2410c" }}
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold"
+                  style={{ background: "rgba(255,255,255,0.06)", color: "#c9a882", border: "1px solid rgba(255,255,255,0.08)" }}
                 >
                   <Icon name="Send" size={15} />
                   Написать в Telegram
