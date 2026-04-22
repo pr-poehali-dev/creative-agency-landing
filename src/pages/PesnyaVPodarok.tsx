@@ -463,7 +463,7 @@ export default function PesnyaVPodarok() {
               >
                 <div className="text-3xl mb-3">{card.emoji}</div>
                 <h3 className="font-extrabold text-white text-base mb-2">{card.title}</h3>
-                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "#B8ABCF" }}>{card.desc}</p>
+                <p className="text-base leading-relaxed mb-4 flex-1" style={{ color: "#B8ABCF" }}>{card.desc}</p>
                 {card.scroll ? (
                   <button
                     onClick={() => document.getElementById(card.scroll!)?.scrollIntoView({ behavior: "smooth" })}
@@ -493,7 +493,7 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── PROBLEM BLOCK ────────────────────────────────────── */}
-      <section className="py-20 px-6" style={{ background: "#171327" }}>
+      <section className="py-20 px-6" style={{ background: "#1C1535" }}>
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#F6F1FF" }}>
             Что подарить человеку,<br />у которого всё есть?
@@ -503,7 +503,7 @@ export default function PesnyaVPodarok() {
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {/* Bad */}
-            <Card className="p-8 border" style={{ borderColor: "rgba(184,171,207,0.2)", background: "#0E0B1A" }}>
+            <Card className="p-8 border" style={{ borderColor: "rgba(184,171,207,0.2)", background: "#110E24" }}>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "rgba(255,77,166,0.15)" }}>
                   <Icon name="X" size={20} style={{ color: "#FF4DA6" }} />
@@ -549,7 +549,7 @@ export default function PesnyaVPodarok() {
           </p>
           <div className="grid sm:grid-cols-2 gap-6">
             {steps.map((step, i) => (
-              <Card key={i} className="p-8 border relative overflow-hidden transition-all hover:-translate-y-1" style={{ background: "#171327", borderColor: "rgba(168,85,247,0.2)" }}>
+              <Card key={i} className="p-8 border relative overflow-hidden transition-all hover:-translate-y-1" style={{ background: "#1C1535", borderColor: "rgba(168,85,247,0.2)" }}>
                 <div className="absolute top-4 right-5 text-6xl font-black opacity-5" style={{ color: "#A855F7" }}>{step.num}</div>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(168,85,247,0.15)" }}>
@@ -570,7 +570,7 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── PORTFOLIO ────────────────────────────────────────── */}
-      <section id="portfolio-section" className="py-20 px-6" style={{ background: "#171327" }}>
+      <section id="portfolio-section" className="py-20 px-6" style={{ background: "#1C1535" }}>
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-white">
             Реальные истории — реальные треки
@@ -580,7 +580,7 @@ export default function PesnyaVPodarok() {
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {portfolioTracks.map((track, i) => (
-              <Card key={i} className="overflow-hidden border hover:shadow-2xl transition-all hover:-translate-y-1" style={{ background: "#0E0B1A", borderColor: "rgba(168,85,247,0.2)" }}>
+              <Card key={i} className="overflow-hidden border hover:shadow-2xl transition-all hover:-translate-y-1" style={{ background: "#110E24", borderColor: "rgba(168,85,247,0.2)" }}>
                 <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
                   <img src={track.img} alt={`Авторская песня «${track.title}» — ${track.occasion}`} className="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
                   <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(14,11,26,0.9) 40%, transparent)" }} />
@@ -635,7 +635,7 @@ export default function PesnyaVPodarok() {
             ))}
           </div>
           {/* Блок «Хотите послушать больше?» */}
-          <div className="mt-12 rounded-2xl p-8 text-center" style={{ background: "#0E0B1A", border: "1px solid rgba(168,85,247,0.2)" }}>
+          <div className="mt-12 rounded-2xl p-8 text-center" style={{ background: "#110E24", border: "1px solid rgba(168,85,247,0.2)" }}>
             <h3 className="text-xl font-extrabold text-white mb-5">Хотите послушать больше?</h3>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-7 text-sm" style={{ color: "#B8ABCF" }}>
               <div className="flex items-start gap-2">
@@ -675,7 +675,7 @@ export default function PesnyaVPodarok() {
           {/* Один отзыв */}
           <div className="max-w-2xl mx-auto mb-10">
             {reviews.map((r, i) => (
-              <Card key={i} className="p-8 border" style={{ background: "#171327", borderColor: "rgba(168,85,247,0.2)" }}>
+              <Card key={i} className="p-8 border" style={{ background: "#1C1535", borderColor: "rgba(168,85,247,0.2)" }}>
                 <div className="text-4xl mb-4">{r.emoji}</div>
                 <p className="text-base leading-relaxed mb-6 italic" style={{ color: "#F6F1FF" }}>«{r.text}»</p>
                 <div className="flex items-center gap-3">
@@ -692,7 +692,7 @@ export default function PesnyaVPodarok() {
           </div>
 
           {/* Статистика */}
-          <div className="max-w-2xl mx-auto rounded-2xl p-8" style={{ background: "#171327", border: "1px solid rgba(168,85,247,0.25)", boxShadow: "0 4px 24px rgba(168,85,247,0.15)" }}>
+          <div className="max-w-2xl mx-auto rounded-2xl p-8" style={{ background: "#1C1535", border: "1px solid rgba(168,85,247,0.25)", boxShadow: "0 4px 24px rgba(168,85,247,0.15)" }}>
             <div className="grid grid-cols-2 gap-5 mb-8">
               {[
                 { icon: "⭐⭐⭐⭐⭐", label: "средний рейтинг", value: "5.0 из 5.0" },
@@ -722,7 +722,7 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── PRICING ──────────────────────────────────────────── */}
-      <section id="gift-song-section" className="py-20 px-6" style={{ background: "#171327" }}>
+      <section id="gift-song-section" className="py-20 px-6" style={{ background: "#1C1535" }}>
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#F6F1FF" }}>
             Цены и пакеты
@@ -735,7 +735,7 @@ export default function PesnyaVPodarok() {
           <div className="grid md:grid-cols-3 gap-6 items-start mb-6">
 
             {/* Package 1 — Стандарт */}
-            <Card className="p-7 border flex flex-col transition-all hover:-translate-y-1" style={{ borderColor: "rgba(168,85,247,0.2)", background: "#0E0B1A" }}>
+            <Card className="p-7 border flex flex-col transition-all hover:-translate-y-1" style={{ borderColor: "rgba(168,85,247,0.2)", background: "#110E24" }}>
               <div className="mb-4">
                 <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "rgba(168,85,247,0.15)", color: "#A855F7" }}>
                   Стандарт
@@ -753,7 +753,7 @@ export default function PesnyaVPodarok() {
                   "Срок: 2–3 дня",
                   "Файл MP3 навсегда ваш",
                 ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#B8ABCF" }}>
+                  <li key={f} className="flex items-start gap-2 text-base" style={{ color: "#B8ABCF" }}>
                     <Icon name="Check" size={15} style={{ color: "#2DD4BF", flexShrink: 0, marginTop: 2 }} /> {f}
                   </li>
                 ))}
@@ -764,7 +764,7 @@ export default function PesnyaVPodarok() {
             </Card>
 
             {/* Package 2 — С голосом автора */}
-            <Card className="p-7 border flex flex-col transition-all hover:-translate-y-1" style={{ borderColor: "rgba(168,85,247,0.2)", background: "#0E0B1A" }}>
+            <Card className="p-7 border flex flex-col transition-all hover:-translate-y-1" style={{ borderColor: "rgba(168,85,247,0.2)", background: "#110E24" }}>
               <div className="mb-4">
                 <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "rgba(255,77,166,0.15)", color: "#FF4DA6" }}>
                   Ваш голос
@@ -783,7 +783,7 @@ export default function PesnyaVPodarok() {
                   "Срок: 2–3 дня",
                   "Файл MP3 навсегда ваш",
                 ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#B8ABCF" }}>
+                  <li key={f} className="flex items-start gap-2 text-base" style={{ color: "#B8ABCF" }}>
                     <Icon name="Check" size={15} style={{ color: "#2DD4BF", flexShrink: 0, marginTop: 2 }} /> {f}
                   </li>
                 ))}
@@ -818,7 +818,7 @@ export default function PesnyaVPodarok() {
                   "Срок: 2–3 дня",
                   "Файл MP3 + договор об уступке прав",
                 ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm font-medium" style={{ color: "#F6F1FF" }}>
+                  <li key={f} className="flex items-start gap-2 text-base font-medium" style={{ color: "#F6F1FF" }}>
                     <Icon name="Check" size={15} style={{ color: "#2DD4BF", flexShrink: 0, marginTop: 2 }} /> {f}
                   </li>
                 ))}
@@ -834,7 +834,7 @@ export default function PesnyaVPodarok() {
           <div className="grid md:grid-cols-2 gap-6 items-start">
 
             {/* Package 4 — Публикация в Яндекс Музыке */}
-            <Card className="p-7 border flex flex-col transition-all hover:-translate-y-1" style={{ borderColor: "rgba(168,85,247,0.3)", background: "#0E0B1A" }}>
+            <Card className="p-7 border flex flex-col transition-all hover:-translate-y-1" style={{ borderColor: "rgba(168,85,247,0.3)", background: "#110E24" }}>
               <div className="mb-4">
                 <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "rgba(45,212,191,0.15)", color: "#2DD4BF" }}>
                   Публикация
@@ -854,7 +854,7 @@ export default function PesnyaVPodarok() {
                   "Срок: 3–5 дней",
                   "Файл MP3 + договор об уступке прав",
                 ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm font-medium" style={{ color: "#B8ABCF" }}>
+                  <li key={f} className="flex items-start gap-2 text-base font-medium" style={{ color: "#B8ABCF" }}>
                     <Icon name="Check" size={15} style={{ color: "#2DD4BF", flexShrink: 0, marginTop: 2 }} /> {f}
                   </li>
                 ))}
@@ -886,7 +886,7 @@ export default function PesnyaVPodarok() {
                   "Срок: 5–7 дней",
                   "Видео-слайдшоу из фото — в подарок",
                 ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm font-medium" style={{ color: "#F6F1FF" }}>
+                  <li key={f} className="flex items-start gap-2 text-base font-medium" style={{ color: "#F6F1FF" }}>
                     <Icon name="Check" size={15} style={{ color: "#2DD4BF", flexShrink: 0, marginTop: 2 }} /> {f}
                   </li>
                 ))}
@@ -898,12 +898,12 @@ export default function PesnyaVPodarok() {
 
           </div>
 
-          <div className="mt-8 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4 justify-between" style={{ background: "rgba(168,85,247,0.08)", border: "1px solid rgba(168,85,247,0.25)" }}>
+          <div className="mt-8 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4 justify-between" style={{ background: "rgba(168,85,247,0.1)", border: "1px solid rgba(168,85,247,0.3)" }}>
             <div className="flex items-start gap-3">
               <Icon name="Clock" size={20} style={{ color: "#2DD4BF", flexShrink: 0, marginTop: 2 }} />
               <div>
-                <p className="font-bold text-sm" style={{ color: "#F6F1FF" }}>Не более 5 заказов в неделю</p>
-                <p className="text-sm mt-0.5" style={{ color: "#B8ABCF" }}>Как композитор я глубоко погружаюсь в каждую историю. Перед праздниками все слоты занимаются заранее — бронируйте место.</p>
+                <p className="font-bold text-base" style={{ color: "#F6F1FF" }}>Не более 5 заказов в неделю</p>
+                <p className="text-base mt-0.5" style={{ color: "#B8ABCF" }}>Как композитор я глубоко погружаюсь в каждую историю. Перед праздниками все слоты занимаются заранее — бронируйте место.</p>
               </div>
             </div>
             <a
@@ -932,7 +932,7 @@ export default function PesnyaVPodarok() {
           <p className="text-center mb-10" style={{ color: "#B8ABCF" }}>
             Ответьте на 3 вопроса — и мы уже начнём придумывать вашу песню
           </p>
-          <Card className="p-8 border shadow-xl" style={{ background: "#171327", borderColor: "rgba(168,85,247,0.3)" }}>
+          <Card className="p-8 border shadow-xl" style={{ background: "#1C1535", borderColor: "rgba(168,85,247,0.3)" }}>
             {!calcDone ? (
               <>
                 <div className="flex justify-center gap-2 mb-8">
@@ -949,7 +949,7 @@ export default function PesnyaVPodarok() {
                       key={opt}
                       onClick={() => handleCalcAnswer(opt)}
                       className="px-4 py-4 rounded-xl text-sm font-semibold transition-all hover:scale-105 text-left"
-                      style={{ background: "#0E0B1A", color: "#F6F1FF", border: "1px solid rgba(168,85,247,0.3)" }}
+                      style={{ background: "#110E24", color: "#F6F1FF", border: "1px solid rgba(168,85,247,0.3)" }}
                     >
                       {opt}
                     </button>
@@ -990,7 +990,7 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── ABOUT AUTHOR ─────────────────────────────────────── */}
-      <section className="py-20 px-6 relative overflow-hidden" style={{ background: "#171327" }}>
+      <section className="py-20 px-6 relative overflow-hidden" style={{ background: "#231840" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 60% at 0% 50%, rgba(255,77,166,0.08) 0%, transparent 70%)" }} />
         <div className="container mx-auto max-w-4xl relative z-10">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-12" style={{ color: "#F6F1FF" }}>
@@ -1024,7 +1024,7 @@ export default function PesnyaVPodarok() {
                   </div>
                 ))}
               </div>
-              <div className="rounded-xl p-4 mb-6" style={{ background: "rgba(168,85,247,0.08)", border: "1px solid rgba(168,85,247,0.2)" }}>
+              <div className="rounded-xl p-4 mb-6" style={{ background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.25)" }}>
                 <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "#A855F7" }}>Личный подход</p>
                 <p className="text-sm leading-relaxed" style={{ color: "#B8ABCF" }}>
                   Каждую историю Юлия изучает лично. Проводит глубинное интервью, вникает в детали, переносит эмоции в текст и музыку.
@@ -1057,7 +1057,7 @@ export default function PesnyaVPodarok() {
               <Card
                 key={i}
                 className="border overflow-hidden cursor-pointer transition-all hover:border-purple-500"
-                style={{ background: "#171327", borderColor: openFaq === i ? "#A855F7" : "rgba(168,85,247,0.2)" }}
+                style={{ background: "#1C1535", borderColor: openFaq === i ? "#A855F7" : "rgba(168,85,247,0.2)" }}
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
               >
                 <div className="flex items-center justify-between p-6">
@@ -1104,7 +1104,7 @@ export default function PesnyaVPodarok() {
           </div>
 
           {/* Блок «Ещё остались вопросы?» */}
-          <div className="mt-10 rounded-2xl p-8" style={{ background: "#171327", border: "1px solid rgba(168,85,247,0.2)" }}>
+          <div className="mt-10 rounded-2xl p-8" style={{ background: "#1C1535", border: "1px solid rgba(168,85,247,0.2)" }}>
             <h3 className="text-xl font-extrabold mb-3" style={{ color: "#F6F1FF" }}>Ещё остались вопросы?</h3>
             <p className="text-sm mb-5" style={{ color: "#B8ABCF" }}>У нас есть подробная страница с ответами на 25+ вопросов:</p>
             <div className="grid sm:grid-cols-2 gap-2 mb-6">
@@ -1135,7 +1135,7 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── OTHER SERVICES PROMO ─────────────────────────────── */}
-      <section className="py-20 px-6" style={{ background: "#171327" }}>
+      <section className="py-20 px-6" style={{ background: "#231840" }}>
         <div className="container mx-auto max-w-5xl">
           <p className="text-xs font-bold uppercase tracking-widest mb-4 text-center" style={{ color: "#A855F7" }}>Дополнительные услуги</p>
           <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-10 text-center">Кроме персональных песен я работаю с...</h2>
@@ -1146,12 +1146,12 @@ export default function PesnyaVPodarok() {
               { icon: "Palette", title: "Визуальный контент", desc: "Обложки релизов, карточки для соцсетей, аватары", price: "от 3 000 ₽" },
               { icon: "Star", title: "Артист под ключ", desc: "Трек + карточки + обучение релизам и продвижению на стримингах", price: "от 60 000 ₽" },
             ].map((s, i) => (
-              <div key={i} className="rounded-2xl p-6 flex flex-col transition-all hover:-translate-y-1" style={{ background: "#0E0B1A", border: "1px solid rgba(168,85,247,0.2)" }}>
+              <div key={i} className="rounded-2xl p-6 flex flex-col transition-all hover:-translate-y-1" style={{ background: "#110E24", border: "1px solid rgba(168,85,247,0.2)" }}>
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: "rgba(168,85,247,0.15)" }}>
                   <Icon name={s.icon as "Film"} size={20} style={{ color: "#A855F7" }} />
                 </div>
                 <h3 className="font-bold text-white text-sm mb-2">{s.title}</h3>
-                <p className="text-xs leading-relaxed mb-4 flex-1" style={{ color: "#B8ABCF" }}>{s.desc}</p>
+                <p className="text-base leading-relaxed mb-4 flex-1" style={{ color: "#B8ABCF" }}>{s.desc}</p>
                 <p className="text-sm font-extrabold" style={{ color: "#2DD4BF" }}>{s.price}</p>
               </div>
             ))}
