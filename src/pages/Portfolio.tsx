@@ -312,23 +312,25 @@ export default function Portfolio() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://t.me/izmailova8888"
+              href="https://vk.com/music/artist/galaktika_izmaylova"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
-              style={{ background: "#c2410c" }}
+              style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}
+            >
+              <Icon name="Music" size={17} />
+              Все альбомы на VK Музыке
+            </a>
+            <a
+              href="https://t.me/izmailova8888"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all hover:scale-105"
+              style={{ background: "rgba(255,255,255,0.08)", color: "#f5c97a", border: "1px solid rgba(245,201,122,0.3)" }}
             >
               <Icon name="Send" size={17} />
               Написать в Telegram
             </a>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all hover:scale-105"
-              style={{ background: "rgba(255,255,255,0.08)", color: "#f5c97a", border: "1px solid rgba(245,201,122,0.3)" }}
-            >
-              <Icon name="Home" size={17} />
-              На главную
-            </Link>
           </div>
         </div>
       </section>
