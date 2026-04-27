@@ -19,6 +19,7 @@ const BlogArticle2 = lazy(() => import("./pages/BlogArticle2"));
 const BlogArticle3 = lazy(() => import("./pages/BlogArticle3"));
 const BlogArticle4 = lazy(() => import("./pages/BlogArticle4"));
 const BlogArticle5 = lazy(() => import("./pages/BlogArticle5"));
+const Contacts = lazy(() => import("./pages/Contacts"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/blog/pesnya-na-zakaz-vs-obychnyj-podarok" element={<BlogArticle3 />} />
             <Route path="/blog/kak-sozdaetsya-personalnaya-pesnya" element={<BlogArticle4 />} />
             <Route path="/blog/7-prichin-zakazat-zhivoj-vokal" element={<BlogArticle5 />} />
+            <Route path="/contacts" element={<Contacts />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
