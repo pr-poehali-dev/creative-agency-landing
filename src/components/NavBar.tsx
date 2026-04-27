@@ -8,7 +8,6 @@ const navLinks = [
   { to: "/otzyvy", label: "Отзывы", icon: "Star", desc: "Что говорят клиенты" },
   { to: "/blog", label: "Блог", icon: "BookOpen", desc: "Статьи и советы" },
   { to: "/o-nas", label: "О нас", icon: "User", desc: "Юлия и команда" },
-  { to: "/faq", label: "FAQ", icon: "HelpCircle", desc: "Частые вопросы" },
   { to: "/contacts", label: "Контакты", icon: "Phone", desc: "Связаться с нами" },
 ];
 

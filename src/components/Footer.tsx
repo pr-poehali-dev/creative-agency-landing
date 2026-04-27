@@ -16,7 +16,7 @@ const footerLinks = [
     links: [
       { to: "/uslugi", label: "Услуги и цены" },
       { to: "/faq", label: "FAQ" },
-      { to: "/#form-section", label: "Контакты" },
+      { to: "/contacts", label: "Контакты" },
       { to: "/privacy-policy", label: "Политика конфиденциальности" },
       { to: "/public-offer", label: "Публичная оферта" },
     ],
