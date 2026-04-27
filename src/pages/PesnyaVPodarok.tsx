@@ -496,7 +496,7 @@ export default function PesnyaVPodarok() {
               >
                 {/* Тематическая подложка */}
                 <div className="relative h-28 overflow-hidden">
-                  <img src={card.img} alt={card.title} className="w-full h-full object-cover" style={{ opacity: 0.45 }} />
+                  <img src={card.img} alt={card.title} className="w-full h-full object-cover" style={{ opacity: 0.45 }} loading="lazy" decoding="async" />
                   <div className="absolute inset-0" style={{ background: card.bg, opacity: 0.75 }} />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.2)" }}>
@@ -612,7 +612,7 @@ export default function PesnyaVPodarok() {
                 <p className="text-base leading-relaxed" style={{ color: "#6B5E91" }}>{step.desc}</p>
                 {step.img && (
                   <div className="mt-4 rounded-xl overflow-hidden h-36">
-                    <img src={step.img} alt={`Процесс создания авторской песни на заказ — ${step.title}`} className="w-full h-full object-cover" />
+                    <img src={step.img} alt={`Процесс создания авторской песни на заказ — ${step.title}`} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                   </div>
                 )}
               </div>
@@ -637,7 +637,7 @@ export default function PesnyaVPodarok() {
             {portfolioTracks.map((track, i) => (
               <Card key={i} className="overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-2" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(168,85,247,0.2)", backdropFilter: "blur(10px)" }}>
                 <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                  <img src={track.img} alt={`Авторская песня «${track.title}» — ${track.occasion}`} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                  <img src={track.img} alt={`Авторская песня «${track.title}» — ${track.occasion}`} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" decoding="async" />
                   <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,7,24,0.95) 30%, rgba(10,7,24,0.3) 70%, transparent)" }} />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <span className="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full" style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", color: "#fff" }}>
@@ -1068,6 +1068,8 @@ export default function PesnyaVPodarok() {
                 alt="Юлия Измайлова — основательница AI Muse Lab"
                 className="w-52 h-52 md:w-64 md:h-64 rounded-3xl object-cover shadow-xl"
                 style={{ border: "2px solid #EC4899", boxShadow: "0 16px 48px rgba(236,72,153,0.2)" }}
+                loading="lazy"
+                decoding="async"
               />
             </div>
             {/* Текст */}

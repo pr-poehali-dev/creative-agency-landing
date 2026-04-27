@@ -205,7 +205,7 @@ export default function Portfolio() {
                 <div className="grid md:grid-cols-[220px_1fr] gap-0">
                   {/* Обложка */}
                   <div className="relative">
-                    <img src={track.img} alt={`Авторская песня «${track.title}» — ${track.occasion} | AI Muse Lab`} className="w-full h-56 md:h-full object-cover" />
+                    <img src={track.img} alt={`Авторская песня «${track.title}» — ${track.occasion} | AI Muse Lab`} className="w-full h-56 md:h-full object-cover" loading="lazy" decoding="async" />
                     <div className="absolute inset-0 flex items-end p-4" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }}>
                       <span className="text-xs font-bold px-2 py-1 rounded-full" style={{ background: "#c2410c", color: "#fff" }}>
                         {track.genre}
