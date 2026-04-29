@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Валидация пустых полей",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "", "contact": "", "message": "", "channel": "email"},
+      "expectedStatus": 400
+    },
+    {
+      "name": "Успешный запрос (без реального ключа)",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Тест", "contact": "+79001234567", "message": "Тестовое сообщение", "channel": "email"},
+      "expectedStatus": 200
+    }
+  ]
+}
