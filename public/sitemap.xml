@@ -99,4 +99,29 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/blog/7-prichin-zakazat-zhivoj-vokal"/>
   </url>
 
+
+  <url>
+    <loc>https://aimuselab.ru/contacts</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/contacts"/>
+  </url>
+
+  <url>
+    <loc>https://aimuselab.ru/privacy-policy</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/privacy-policy"/>
+  </url>
+
+  <url>
+    <loc>https://aimuselab.ru/public-offer</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://aimuselab.ru/public-offer"/>
+  </url>
+
 </urlset>

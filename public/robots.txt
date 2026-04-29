@@ -1,8 +1,5 @@
 User-agent: *
 Allow: /
-Allow: /uslugi
-Disallow: /privacy-policy
-Disallow: /public-offer
 
 User-agent: Googlebot
 Allow: /
