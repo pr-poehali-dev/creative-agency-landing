@@ -20,6 +20,14 @@ const contacts = [
     color: "#229ED9",
   },
   {
+    icon: "Mail",
+    title: "Email",
+    value: "aimuselab@yandex.ru",
+    href: "mailto:aimuselab@yandex.ru",
+    desc: "Написать на почту",
+    color: "#e84c3d",
+  },
+  {
     icon: "MessageCircle",
     title: "ВКонтакте",
     value: "Чат в VK",

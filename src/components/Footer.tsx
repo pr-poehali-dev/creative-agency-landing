@@ -64,6 +64,9 @@ export default function Footer() {
         {/* Контакты */}
         <div className="border-t pt-6 mb-6" style={{ borderColor: "rgba(168,85,247,0.2)" }}>
           <div className="flex flex-wrap gap-4 text-sm">
+            <a href="mailto:aimuselab@yandex.ru" style={{ color: "#6B5E91" }}>
+              Email: aimuselab@yandex.ru
+            </a>
             <a href="https://t.me/izmailova8888" target="_blank" rel="noopener noreferrer" style={{ color: "#6B5E91" }}>
               Telegram: @izmailova8888
             </a>
