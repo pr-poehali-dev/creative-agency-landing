@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import OrderCalculator from "@/components/OrderCalculator";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/4fee9940-7db1-4128-9a82-27b34ded74bb.jpg";
 const VINYL_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/1b51b62f-525c-42f3-ac36-5114e5d51e17.jpg";
@@ -220,49 +221,26 @@ const reviews = [
   },
 ];
 
-// Calculator questions
-const calcQuestions = [
-  {
-    id: "who",
-    question: "Кому дарите?",
-    options: ["Маме / Папе", "Любимому человеку", "Другу / Подруге", "Всей семье"],
-  },
-  {
-    id: "occasion",
-    question: "Какой повод?",
-    options: ["День рождения", "Свадьба / Годовщина", "Просто так, от сердца", "Другое"],
-  },
-  {
-    id: "genre",
-    question: "Какой жанр нравится получателю?",
-    options: ["Спокойная лирика", "Поп / Эстрада", "Рок / Авторская", "Не знаю — вы выберите"],
-  },
-];
 
 export default function PesnyaVPodarok() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [calcStep, setCalcStep] = useState(0);
-  const [calcAnswers, setCalcAnswers] = useState<string[]>([]);
-  const [calcDone, setCalcDone] = useState(false);
   const [openLyrics, setOpenLyrics] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [calcOpen, setCalcOpen] = useState(false);
 
-  const handleCalcAnswer = (answer: string) => {
-    const next = [...calcAnswers, answer];
-    setCalcAnswers(next);
-    if (calcStep < calcQuestions.length - 1) {
-      setCalcStep(calcStep + 1);
-    } else {
-      setCalcDone(true);
-    }
+  const scrollToCalc = () => {
+    document.getElementById("calculator-section")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToForm = () => {
-    document.getElementById("form-section")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("calculator-section")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="min-h-screen font-sans" style={{ background: "#0E0B1A", color: "#F6F1FF" }}>
+
+      {/* Модальный калькулятор */}
+      {calcOpen && <OrderCalculator onClose={() => setCalcOpen(false)} />}
 
       {/* Sticky CTA button */}
       <a
@@ -427,15 +405,25 @@ export default function PesnyaVPodarok() {
             Ваша история × Технологии будущего<br />
             <span style={{ background: "linear-gradient(135deg, #C084FC 0%, #F472B6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>=&nbsp;Идеальная песня</span>
           </h1>
-          {/* Главная CTA кнопка */}
-          <button
-            onClick={scrollToForm}
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl text-lg font-bold text-white transition-all hover:scale-105 hover:shadow-2xl mb-12"
-            style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", boxShadow: "0 8px 32px rgba(168,85,247,0.5)" }}
-          >
-            <Icon name="Music2" size={20} />
-            Создать свою песню
-          </button>
+          {/* Главные CTA кнопки */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 mb-12">
+            <button
+              onClick={() => setCalcOpen(true)}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-lg font-bold text-white transition-all hover:scale-105 hover:shadow-2xl"
+              style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", boxShadow: "0 8px 32px rgba(168,85,247,0.5)" }}
+            >
+              <Icon name="Calculator" size={20} />
+              Рассчитать стоимость 🎁
+            </button>
+            <button
+              onClick={scrollToForm}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-base font-semibold transition-all hover:scale-105"
+              style={{ background: "rgba(168,85,247,0.15)", border: "1.5px solid rgba(168,85,247,0.4)", color: "#E9D5FF" }}
+            >
+              <Icon name="Music2" size={18} />
+              Создать свою песню
+            </button>
+          </div>
 
           <p className="text-base font-bold uppercase tracking-widest mb-6" style={{ background: "linear-gradient(90deg, #C084FC, #F472B6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "0.2em" }}>
             ✦ AI Muse Lab создаёт ✦
@@ -983,72 +971,19 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── CALCULATOR ───────────────────────────────────────── */}
-      <section className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #1A0533 0%, #0D1B4B 100%)" }}>
+      <section id="calculator-section" className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #1A0533 0%, #0D1B4B 100%)" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 60% at 50% 0%, rgba(168,85,247,0.2) 0%, transparent 60%)" }} />
         <div className="absolute top-10 left-10 text-8xl opacity-5 pointer-events-none select-none">🎵</div>
         <div className="absolute bottom-10 right-10 text-8xl opacity-5 pointer-events-none select-none">🎶</div>
-        <div className="container mx-auto max-w-2xl relative z-10">
-          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#C084FC" }}>Подбор формата</p>
+        <div className="container mx-auto max-w-lg relative z-10">
+          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#C084FC" }}>Заполнить форму</p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-white">
-            Калькулятор смыслов
+            Рассчитайте стоимость
           </h2>
           <p className="text-center text-lg mb-10" style={{ color: "rgba(196,181,253,0.8)" }}>
-            Ответьте на 3 вопроса — и мы уже начнём придумывать вашу песню
+            Выберите опции — цена пересчитается автоматически. И получите подарок 🎁
           </p>
-          <div className="p-8 rounded-2xl shadow-2xl" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(168,85,247,0.3)", backdropFilter: "blur(20px)" }}>
-            {!calcDone ? (
-              <>
-                <div className="flex justify-center gap-2 mb-8">
-                  {calcQuestions.map((_, i) => (
-                    <div key={i} className="w-10 h-2 rounded-full transition-all" style={{ background: i <= calcStep ? "linear-gradient(90deg, #A855F7, #EC4899)" : "rgba(168,85,247,0.2)" }} />
-                  ))}
-                </div>
-                <h3 className="text-xl font-bold text-white text-center mb-6">
-                  {calcQuestions[calcStep].question}
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {calcQuestions[calcStep].options.map((opt) => (
-                    <button
-                      key={opt}
-                      onClick={() => handleCalcAnswer(opt)}
-                      className="px-4 py-4 rounded-xl text-base font-semibold transition-all hover:scale-105 hover:border-purple-400 text-left"
-                      style={{ background: "rgba(255,255,255,0.06)", color: "#F6F1FF", border: "1px solid rgba(168,85,247,0.3)" }}
-                    >
-                      {opt}
-                    </button>
-                  ))}
-                </div>
-              </>
-            ) : (
-              <div className="text-center">
-                <div className="text-5xl mb-4">🎵</div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  Отлично! Ваши ответы готовы
-                </h3>
-                <div className="rounded-xl px-5 py-4 mb-6 text-left space-y-2" style={{ background: "#0E0B1A", border: "1px solid rgba(168,85,247,0.2)" }}>
-                  {calcQuestions.map((q, i) => (
-                    <div key={i} className="flex gap-2 text-sm">
-                      <span style={{ color: "#A855F7" }} className="font-semibold shrink-0">{q.question}</span>
-                      <span style={{ color: "#B8ABCF" }}>{calcAnswers[i]}</span>
-                    </div>
-                  ))}
-                </div>
-                <p style={{ color: "#B8ABCF" }} className="mb-6 leading-relaxed">
-                  Отправьте результаты Юлии — она подберёт идеальный формат и ответит лично.
-                </p>
-                <a
-                  href={`https://t.me/izmailova8888?text=${encodeURIComponent(`Привет! Прошёл(а) калькулятор смыслов на сайте.\n\nКому дарю: ${calcAnswers[0]}\nПовод: ${calcAnswers[1]}\nЖанр: ${calcAnswers[2]}\n\nХочу заказать песню!`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-5 rounded-full font-bold text-white transition-transform hover:scale-105"
-                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #FF4DA6 100%)" }}
-                >
-                  <Icon name="Send" size={18} />
-                  Отправить Юлии в Telegram
-                </a>
-              </div>
-            )}
-          </div>
+          <OrderCalculator inline />
         </div>
       </section>
 
