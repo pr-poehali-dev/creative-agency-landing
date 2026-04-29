@@ -28,6 +28,7 @@ def send_sms(text: str) -> bool:
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req, timeout=10) as resp:
         result = json.loads(resp.read())
+    print(f'[SMS.RU] response: {json.dumps(result)}')
     return result.get('status') == 'OK'
 
 
