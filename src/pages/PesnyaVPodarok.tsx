@@ -405,25 +405,15 @@ export default function PesnyaVPodarok() {
             Ваша история × Технологии будущего<br />
             <span style={{ background: "linear-gradient(135deg, #C084FC 0%, #F472B6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>=&nbsp;Идеальная песня</span>
           </h1>
-          {/* Главные CTA кнопки */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 mb-12">
-            <button
-              onClick={() => setCalcOpen(true)}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-lg font-bold text-white transition-all hover:scale-105 hover:shadow-2xl"
-              style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", boxShadow: "0 8px 32px rgba(168,85,247,0.5)" }}
-            >
-              <Icon name="Calculator" size={20} />
-              Рассчитать стоимость 🎁
-            </button>
-            <button
-              onClick={scrollToForm}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-base font-semibold transition-all hover:scale-105"
-              style={{ background: "rgba(168,85,247,0.15)", border: "1.5px solid rgba(168,85,247,0.4)", color: "#E9D5FF" }}
-            >
-              <Icon name="Music2" size={18} />
-              Создать свою песню
-            </button>
-          </div>
+          {/* Главная CTA кнопка */}
+          <button
+            onClick={scrollToForm}
+            className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl text-lg font-bold text-white transition-all hover:scale-105 hover:shadow-2xl mb-12"
+            style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", boxShadow: "0 8px 32px rgba(168,85,247,0.5)" }}
+          >
+            <Icon name="Music2" size={20} />
+            Создать свою песню
+          </button>
 
           <p className="text-base font-bold uppercase tracking-widest mb-6" style={{ background: "linear-gradient(90deg, #C084FC, #F472B6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "0.2em" }}>
             ✦ AI Muse Lab создаёт ✦
