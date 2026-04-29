@@ -10,6 +10,7 @@ const contacts = [
     href: "tel:+79818636699",
     desc: "Позвонить напрямую",
     color: "#c2410c",
+    extra: { icon: "MessageSquare", label: "Отправить SMS", href: "sms:+79818636699" },
   },
   {
     icon: "Send",
@@ -63,24 +64,40 @@ export default function Contacts() {
         <section className="pb-24 px-6">
           <div className="container mx-auto max-w-2xl flex flex-col gap-4">
             {contacts.map((c) => (
-              <a
+              <div
                 key={c.title}
-                href={c.href}
-                target={c.href.startsWith("http") ? "_blank" : undefined}
-                rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="flex items-center gap-5 px-6 py-5 rounded-2xl transition-all hover:scale-[1.02] group"
+                className="rounded-2xl"
                 style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110" style={{ background: `${c.color}22` }}>
-                  <Icon name={c.icon as "Phone"} size={26} style={{ color: c.color }} />
-                </div>
-                <div className="flex-1">
-                  <div className="text-xs font-semibold mb-0.5" style={{ color: "#9a7a65" }}>{c.title}</div>
-                  <div className="text-xl font-bold text-white">{c.value}</div>
-                  <div className="text-sm mt-0.5" style={{ color: "#5a3d2b" }}>{c.desc}</div>
-                </div>
-                <Icon name="ChevronRight" size={20} style={{ color: "#3a2010" }} />
-              </a>
+                <a
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : undefined}
+                  rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="flex items-center gap-5 px-6 py-5 transition-all hover:scale-[1.01] group rounded-2xl"
+                >
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110" style={{ background: `${c.color}22` }}>
+                    <Icon name={c.icon as "Phone"} size={26} style={{ color: c.color }} />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-xs font-semibold mb-0.5" style={{ color: "#9a7a65" }}>{c.title}</div>
+                    <div className="text-xl font-bold text-white">{c.value}</div>
+                    <div className="text-sm mt-0.5" style={{ color: "#5a3d2b" }}>{c.desc}</div>
+                  </div>
+                  <Icon name="ChevronRight" size={20} style={{ color: "#3a2010" }} />
+                </a>
+                {c.extra && (
+                  <div className="px-6 pb-4">
+                    <a
+                      href={c.extra.href}
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all hover:scale-105"
+                      style={{ background: "rgba(194,65,12,0.15)", color: "#f5c97a", border: "1px solid rgba(245,201,122,0.2)" }}
+                    >
+                      <Icon name={c.extra.icon as "MessageSquare"} size={13} />
+                      {c.extra.label}
+                    </a>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         </section>
