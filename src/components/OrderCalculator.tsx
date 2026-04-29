@@ -66,6 +66,7 @@ export default function OrderCalculator({ onClose, inline }: Props) {
     publication: false, liveVocal: false, lyricVideo: false, artistProject: false,
   });
   const [form, setForm]         = useState({ name: "", phone: "", email: "", comment: "" });
+  const [consents, setConsents] = useState({ pd: false, marketing: false });
   const [submitting, setSubmitting] = useState(false);
 
   const meaningIdx  = step === "meaning0" ? 0 : step === "meaning1" ? 1 : step === "meaning2" ? 2 : -1;
@@ -340,13 +341,44 @@ export default function OrderCalculator({ onClose, inline }: Props) {
                 </div>
               </div>
 
+              {/* Галочки согласий */}
+              <div className="space-y-3 mb-5">
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    required
+                    checked={consents.pd}
+                    onChange={e => setConsents(p => ({ ...p, pd: e.target.checked }))}
+                    className="mt-0.5 shrink-0 w-4 h-4 rounded accent-purple-500"
+                  />
+                  <span className="text-xs leading-relaxed" style={{ color: "rgba(196,181,253,0.7)" }}>
+                    Я даю согласие на сбор и обработку персональных данных в соответствии с{" "}
+                    <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline" style={{ color: "#C084FC" }}>
+                      Политикой конфиденциальности
+                    </a>{" "}
+                    согласно ФЗ-152 «О персональных данных» *
+                  </span>
+                </label>
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={consents.marketing}
+                    onChange={e => setConsents(p => ({ ...p, marketing: e.target.checked }))}
+                    className="mt-0.5 shrink-0 w-4 h-4 rounded accent-purple-500"
+                  />
+                  <span className="text-xs leading-relaxed" style={{ color: "rgba(196,181,253,0.7)" }}>
+                    Согласен(на) получать информационные и рекламные рассылки от AI Muse Lab (необязательно)
+                  </span>
+                </label>
+              </div>
+
               <div className="flex gap-3">
                 <button type="button" onClick={goBack} className="px-4 py-3 rounded-xl font-semibold text-sm transition hover:bg-white/10" style={{ color: "#C084FC", border: "1px solid rgba(168,85,247,0.3)" }}>
                   ← Назад
                 </button>
-                <button type="submit" disabled={submitting}
+                <button type="submit" disabled={submitting || !consents.pd}
                   className="flex-1 py-3 rounded-xl font-bold text-white text-sm flex items-center justify-center gap-2 transition hover:scale-105"
-                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", opacity: submitting ? 0.7 : 1 }}>
+                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", opacity: (submitting || !consents.pd) ? 0.5 : 1 }}>
                   {submitting ? "Отправляем..." : <><Icon name="Send" size={16} /> Отправить заявку</>}
                 </button>
               </div>
