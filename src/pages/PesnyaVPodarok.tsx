@@ -978,10 +978,10 @@ export default function PesnyaVPodarok() {
         <div className="container mx-auto max-w-lg relative z-10">
           <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#C084FC" }}>Заполнить форму</p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-white">
-            Рассчитайте стоимость
+            Заполните форму и узнайте стоимость
           </h2>
           <p className="text-center text-lg mb-10" style={{ color: "rgba(196,181,253,0.8)" }}>
-            Выберите опции — цена пересчитается автоматически. И получите подарок 🎁
+            Несколько вопросов — и вы получите точный расчёт + подарок 🎁
           </p>
           <OrderCalculator inline />
         </div>

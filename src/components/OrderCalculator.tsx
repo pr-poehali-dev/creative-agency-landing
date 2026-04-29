@@ -1,55 +1,57 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
+const CONTACT_URL = "https://functions.poehali.dev/9f0dc5b8-e0c8-4fea-bb5e-bbf79a9c6595";
+
+// ─── Шаги смыслов ────────────────────────────────────────────
+const meaningSteps = [
+  {
+    id: "who",
+    question: "Кому дарите песню?",
+    options: ["Маме / Папе", "Любимому человеку", "Другу / Подруге", "Всей семье"],
+    emoji: "🎁",
+  },
+  {
+    id: "occasion",
+    question: "Какой повод?",
+    options: ["День рождения", "Свадьба / Годовщина", "Просто так, от сердца", "Другое"],
+    emoji: "🎉",
+  },
+  {
+    id: "genre",
+    question: "Какой жанр нравится получателю?",
+    options: ["Спокойная лирика", "Поп / Эстрада", "Рок / Авторская", "Не знаю — выберите сами"],
+    emoji: "🎵",
+  },
+];
+
+// ─── Калькулятор цены ─────────────────────────────────────────
 interface CalcState {
   urgent: boolean | null;
-  ownVoice: boolean | null;
-  rights: boolean | null;
-  publication: boolean | null;
-  liveVocal: boolean | null;
-  lyricVideo: boolean | null;
-  artistProject: boolean | null;
+  ownVoice: boolean;
+  rights: boolean;
+  publication: boolean;
+  liveVocal: boolean;
+  lyricVideo: boolean;
+  artistProject: boolean;
 }
-
-const GIFT_EMOJI = "🎁";
 
 function calcPrice(s: CalcState): { base: number; total: number; lines: string[] } {
   const lines: string[] = [];
   let base = 5000;
   lines.push("Стандарт (текст + аранжировка) — 5 000 ₽");
-
-  if (s.ownVoice) {
-    base += 2000;
-    lines.push("+ Ваш голос в треке — 2 000 ₽");
-  }
-  if (s.rights) {
-    base += 4900;
-    lines.push("+ Передача авторских прав — 4 900 ₽");
-  }
-  if (s.publication) {
-    base += 5000;
-    lines.push("+ Публикация в Яндекс Музыке / VK — 5 000 ₽");
-  }
-  if (s.liveVocal) {
-    base += 20900;
-    lines.push("+ Живой вокал вокалиста — 20 900 ₽");
-  }
-  if (s.lyricVideo) {
-    base += 3000;
-    lines.push("+ Лирик-видео — от 3 000 ₽");
-  }
-  if (s.artistProject) {
-    base += 55000;
-    lines.push("+ Стать артистом под ключ — от 55 000 ₽");
-  }
-
-  let total = base;
-  if (s.urgent) {
-    total = Math.round(base * 1.5);
-  }
-
+  if (s.ownVoice)      { base += 2000;  lines.push("+ Ваш голос в треке — 2 000 ₽"); }
+  if (s.rights)        { base += 4900;  lines.push("+ Передача авторских прав — 4 900 ₽"); }
+  if (s.publication)   { base += 5000;  lines.push("+ Публикация в Яндекс Музыке / VK — 5 000 ₽"); }
+  if (s.liveVocal)     { base += 20900; lines.push("+ Живой вокал вокалиста — 20 900 ₽"); }
+  if (s.lyricVideo)    { base += 3000;  lines.push("+ Лирик-видео — от 3 000 ₽"); }
+  if (s.artistProject) { base += 55000; lines.push("+ Стать артистом под ключ — от 55 000 ₽"); }
+  const total = s.urgent ? Math.round(base * 1.5) : base;
   return { base, total, lines };
 }
+
+type Step = "meaning0" | "meaning1" | "meaning2" | "urgent" | "options" | "form" | "done";
+const stepOrder: Step[] = ["meaning0", "meaning1", "meaning2", "urgent", "options", "form"];
 
 interface Props {
   onClose?: () => void;
@@ -57,94 +59,93 @@ interface Props {
 }
 
 export default function OrderCalculator({ onClose, inline }: Props) {
-  const [step, setStep] = useState<"urgent" | "options" | "form" | "done">("urgent");
-  const [state, setState] = useState<CalcState>({
-    urgent: null,
-    ownVoice: null,
-    rights: null,
-    publication: null,
-    liveVocal: null,
-    lyricVideo: null,
-    artistProject: null,
+  const [step, setStep]       = useState<Step>("meaning0");
+  const [meanings, setMeanings] = useState<string[]>([]);
+  const [calc, setCalc]       = useState<CalcState>({
+    urgent: null, ownVoice: false, rights: false,
+    publication: false, liveVocal: false, lyricVideo: false, artistProject: false,
   });
-  const [form, setForm] = useState({ name: "", phone: "", comment: "" });
+  const [form, setForm]         = useState({ name: "", phone: "", comment: "" });
   const [submitting, setSubmitting] = useState(false);
 
-  const urgentBlocked = state.urgent && (state.liveVocal || state.publication);
+  const meaningIdx  = step === "meaning0" ? 0 : step === "meaning1" ? 1 : step === "meaning2" ? 2 : -1;
+  const meaningStep = meaningIdx >= 0 ? meaningSteps[meaningIdx] : null;
+  const currentIdx  = stepOrder.indexOf(step);
+  const { base, total, lines } = calcPrice(calc);
+  const hasUrgent = calc.urgent === true;
 
-  function toggleOption(key: keyof CalcState, value: boolean) {
-    setState((prev) => {
-      const next = { ...prev, [key]: prev[key] === value ? null : value };
-      // При срочности отключаем несовместимые опции
-      if (next.urgent) {
-        next.liveVocal = false;
-        next.publication = false;
-      }
+  function pickMeaning(val: string) {
+    const next = [...meanings, val];
+    setMeanings(next);
+    if (step === "meaning0")      setStep("meaning1");
+    else if (step === "meaning1") setStep("meaning2");
+    else                          setStep("urgent");
+  }
+
+  function goBack() {
+    if      (step === "meaning1") { setMeanings(m => m.slice(0,1)); setStep("meaning0"); }
+    else if (step === "meaning2") { setMeanings(m => m.slice(0,2)); setStep("meaning1"); }
+    else if (step === "urgent")   { setMeanings(m => m.slice(0,2)); setStep("meaning2"); }
+    else if (step === "options")  setStep("urgent");
+    else if (step === "form")     setStep("options");
+  }
+
+  function toggleOpt(key: keyof CalcState) {
+    setCalc(prev => {
+      const next = { ...prev, [key]: !prev[key] } as CalcState;
+      if (next.urgent) { next.liveVocal = false; next.publication = false; }
       return next;
     });
   }
-
-  const { base, total, lines } = calcPrice(state);
-  const hasUrgent = state.urgent === true;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const text = [
-        `Новая заявка с калькулятора!`,
-        `Имя: ${form.name}`,
-        `Телефон: ${form.phone}`,
+      const messageText = [
+        `=== ЗАЯВКА С КАЛЬКУЛЯТОРА ===`,
         ``,
-        `Выбранные опции:`,
-        ...lines,
-        hasUrgent ? `⚡ СРОЧНО (2-3 часа) +50%` : `Срок: стандартный 2-3 дня`,
+        `👤 О получателе:`,
+        `  Кому дарите: ${meanings[0] || "—"}`,
+        `  Повод: ${meanings[1] || "—"}`,
+        `  Жанр: ${meanings[2] || "—"}`,
         ``,
-        `Итого: ${total.toLocaleString("ru")} ₽`,
-        form.comment ? `\nКомментарий: ${form.comment}` : "",
-      ]
-        .filter(Boolean)
-        .join("\n");
+        `🎵 Выбранные опции:`,
+        ...lines.map(l => `  · ${l}`),
+        hasUrgent ? `  ⚡ СРОЧНО (2–3 часа) +50%` : `  📅 Срок: стандартный 2–3 дня`,
+        ``,
+        `💰 Итоговая стоимость: ${total.toLocaleString("ru")} ₽`,
+        form.comment ? `\n💬 Комментарий: ${form.comment}` : "",
+      ].filter(Boolean).join("\n");
 
-      // Попытка отправить через бэкенд
-      const resp = await fetch("/api/contact-message", {
+      await fetch(CONTACT_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: form.name, phone: form.phone, message: text }),
-      }).catch(() => null);
-
-      // Если нет бэкенда — открываем Telegram с текстом
-      if (!resp || !resp.ok) {
-        window.open(
-          `https://t.me/izmailova8888?text=${encodeURIComponent(text)}`,
-          "_blank"
-        );
-      }
-      setStep("done");
-    } finally {
-      setSubmitting(false);
-    }
+        body: JSON.stringify({ name: form.name, contact: form.phone, message: messageText, channel: "email" }),
+      });
+    } catch { /* отправляем всё равно на done */ }
+    setSubmitting(false);
+    setStep("done");
   }
 
-  const wrap = inline
-    ? "w-full"
-    : "fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm";
-
-  const card = inline
-    ? "w-full rounded-3xl overflow-hidden"
-    : "w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto";
+  const wrapCls = inline ? "w-full" : "fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm";
+  const cardCls = inline ? "w-full rounded-3xl overflow-hidden" : "w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto";
 
   return (
-    <div className={wrap} onClick={!inline && onClose ? (e) => e.target === e.currentTarget && onClose() : undefined}>
-      <div className={card} style={{ background: "linear-gradient(160deg, #1A0533 0%, #0D1B4B 100%)", border: "1px solid rgba(168,85,247,0.3)" }}>
+    <div
+      className={wrapCls}
+      onClick={!inline && onClose ? (e) => { if (e.target === e.currentTarget) onClose(); } : undefined}
+    >
+      <div className={cardCls} style={{ background: "linear-gradient(160deg, #1A0533 0%, #0D1B4B 100%)", border: "1px solid rgba(168,85,247,0.3)" }}>
+
         {/* Header */}
         <div className="flex items-center justify-between px-6 pt-6 pb-4" style={{ borderBottom: "1px solid rgba(168,85,247,0.15)" }}>
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "#C084FC" }}>Калькулятор стоимости</p>
-            <h2 className="text-xl font-extrabold text-white">Рассчитайте цену и получите подарок {GIFT_EMOJI}</h2>
+            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "#C084FC" }}>Заполните форму</p>
+            <h2 className="text-xl font-extrabold text-white">Рассчитайте стоимость и получите подарок 🎁</h2>
           </div>
           {!inline && onClose && (
-            <button onClick={onClose} className="w-9 h-9 rounded-full flex items-center justify-center transition hover:bg-white/10" style={{ color: "#C084FC" }}>
+            <button onClick={onClose} className="w-9 h-9 rounded-full flex items-center justify-center transition hover:bg-white/10 ml-3 shrink-0" style={{ color: "#C084FC" }}>
               <Icon name="X" size={20} />
             </button>
           )}
@@ -152,259 +153,210 @@ export default function OrderCalculator({ onClose, inline }: Props) {
 
         <div className="px-6 py-6">
 
-          {/* ШАГИ */}
+          {/* Прогресс */}
           {step !== "done" && (
-            <div className="flex gap-2 mb-6">
-              {["urgent", "options", "form"].map((s, i) => (
-                <div key={s} className="flex-1 h-1.5 rounded-full transition-all" style={{ background: ["urgent", "options", "form"].indexOf(step) >= i ? "linear-gradient(90deg,#A855F7,#EC4899)" : "rgba(168,85,247,0.2)" }} />
+            <div className="flex gap-1.5 mb-6">
+              {stepOrder.map((s, i) => (
+                <div key={s} className="flex-1 h-1.5 rounded-full transition-all duration-300"
+                  style={{ background: i <= currentIdx ? "linear-gradient(90deg,#A855F7,#EC4899)" : "rgba(168,85,247,0.2)" }} />
               ))}
             </div>
           )}
 
-          {/* ШАГ 1 — Срочность */}
+          {/* ── Шаги смыслов ── */}
+          {meaningStep && (
+            <div>
+              <div className="text-4xl text-center mb-3">{meaningStep.emoji}</div>
+              <h3 className="text-xl font-bold text-white text-center mb-1">{meaningStep.question}</h3>
+              <p className="text-sm text-center mb-6" style={{ color: "rgba(196,181,253,0.6)" }}>
+                Шаг {meaningIdx + 1} из {meaningSteps.length} — расскажите нам о получателе
+              </p>
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                {meaningStep.options.map(opt => (
+                  <button key={opt} onClick={() => pickMeaning(opt)}
+                    className="px-4 py-4 rounded-2xl text-sm font-semibold transition-all hover:scale-105 text-left"
+                    style={{ background: "rgba(255,255,255,0.06)", color: "#F6F1FF", border: "1.5px solid rgba(168,85,247,0.3)" }}>
+                    {opt}
+                  </button>
+                ))}
+              </div>
+              {meaningIdx > 0 && (
+                <button onClick={goBack} className="text-sm transition hover:opacity-80" style={{ color: "#C084FC" }}>← Назад</button>
+              )}
+            </div>
+          )}
+
+          {/* ── Срочность ── */}
           {step === "urgent" && (
             <div>
-              <h3 className="text-lg font-bold text-white mb-2">Как быстро нужна песня?</h3>
-              <p className="text-sm mb-5" style={{ color: "rgba(196,181,253,0.7)" }}>От этого зависит итоговая стоимость</p>
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <button
-                  onClick={() => { setState(p => ({ ...p, urgent: false })); setStep("options"); }}
+              <div className="text-4xl text-center mb-3">⏱️</div>
+              <h3 className="text-xl font-bold text-white text-center mb-1">Как быстро нужна песня?</h3>
+              <p className="text-sm text-center mb-6" style={{ color: "rgba(196,181,253,0.6)" }}>От этого зависит итоговая стоимость</p>
+              <div className="grid grid-cols-2 gap-3 mb-5">
+                <button onClick={() => { setCalc(p => ({ ...p, urgent: false })); setStep("options"); }}
                   className="flex flex-col items-start p-4 rounded-2xl text-left transition-all hover:scale-105"
-                  style={{ background: "rgba(168,85,247,0.1)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }}
-                >
+                  style={{ background: "rgba(168,85,247,0.1)", border: "1.5px solid rgba(168,85,247,0.3)" }}>
                   <span className="text-2xl mb-2">📅</span>
                   <span className="font-bold text-white text-base">Стандарт</span>
                   <span className="text-sm mt-1" style={{ color: "rgba(196,181,253,0.7)" }}>2–3 дня</span>
                   <span className="text-sm font-semibold mt-2" style={{ color: "#C084FC" }}>от 5 000 ₽</span>
                 </button>
-                <button
-                  onClick={() => { setState(p => ({ ...p, urgent: true, liveVocal: false, publication: false })); setStep("options"); }}
+                <button onClick={() => { setCalc(p => ({ ...p, urgent: true, liveVocal: false, publication: false })); setStep("options"); }}
                   className="flex flex-col items-start p-4 rounded-2xl text-left transition-all hover:scale-105"
-                  style={{ background: "rgba(236,72,153,0.1)", border: "1.5px solid rgba(236,72,153,0.4)", color: "#F6F1FF" }}
-                >
+                  style={{ background: "rgba(236,72,153,0.1)", border: "1.5px solid rgba(236,72,153,0.4)" }}>
                   <span className="text-2xl mb-2">⚡</span>
                   <span className="font-bold text-white text-base">Срочно</span>
                   <span className="text-sm mt-1" style={{ color: "rgba(196,181,253,0.7)" }}>2–3 часа</span>
                   <span className="text-sm font-semibold mt-2" style={{ color: "#F472B6" }}>+50% к цене</span>
                 </button>
               </div>
-              {hasUrgent && (
-                <div className="rounded-xl px-4 py-3 text-sm" style={{ background: "rgba(236,72,153,0.1)", border: "1px solid rgba(236,72,153,0.3)", color: "#FCA5A5" }}>
-                  ⚡ При срочном заказе живой вокал и публикация недоступны — только стандарт и ваш голос.
-                </div>
-              )}
+              <button onClick={goBack} className="text-sm transition hover:opacity-80" style={{ color: "#C084FC" }}>← Назад</button>
             </div>
           )}
 
-          {/* ШАГ 2 — Опции */}
+          {/* ── Опции ── */}
           {step === "options" && (
             <div>
-              <h3 className="text-lg font-bold text-white mb-1">Выберите опции</h3>
-              <p className="text-sm mb-5" style={{ color: "rgba(196,181,253,0.7)" }}>Можно несколько. Цена пересчитается автоматически.</p>
-
-              <div className="space-y-3 mb-6">
-                {[
-                  {
-                    key: "ownVoice" as keyof CalcState,
-                    icon: "Mic",
-                    label: "Ваш голос в треке",
-                    desc: "Присылаете голос — он звучит в вашей песне",
-                    price: "+2 000 ₽",
-                    disabled: false,
-                  },
-                  {
-                    key: "rights" as keyof CalcState,
-                    icon: "FileCheck",
-                    label: "Передача авторских прав",
-                    desc: "Для рекламы, бизнеса, коммерческого использования",
-                    price: "+4 900 ₽",
-                    disabled: false,
-                  },
-                  {
-                    key: "publication" as keyof CalcState,
-                    icon: "Radio",
-                    label: "Публикация в Яндекс Музыке / VK",
-                    desc: "Официальный релиз на стриминговых платформах",
-                    price: "+5 000 ₽",
-                    disabled: !!state.urgent,
-                    disabledNote: "Недоступно при срочном заказе",
-                  },
-                  {
-                    key: "liveVocal" as keyof CalcState,
-                    icon: "Music2",
-                    label: "Живой вокал вокалиста",
-                    desc: "Профессиональный певец запишет вашу песню",
-                    price: "+20 900 ₽",
-                    disabled: !!state.urgent,
-                    disabledNote: "Недоступно при срочном заказе",
-                  },
-                  {
-                    key: "lyricVideo" as keyof CalcState,
-                    icon: "Video",
-                    label: "Лирик-видео",
-                    desc: "Красивое видео с текстом для соцсетей",
-                    price: "от +3 000 ₽",
-                    disabled: false,
-                  },
-                  {
-                    key: "artistProject" as keyof CalcState,
-                    icon: "Star",
-                    label: "Стать артистом под ключ",
-                    desc: "Бренд, релизы, дистрибуция, развитие",
-                    price: "от +55 000 ₽",
-                    disabled: false,
-                  },
-                ].map((opt) => {
-                  const active = state[opt.key] === true;
+              <h3 className="text-lg font-bold text-white mb-1">Выберите дополнительные опции</h3>
+              <p className="text-sm mb-4" style={{ color: "rgba(196,181,253,0.7)" }}>Можно несколько. Цена пересчитается сразу.</p>
+              <div className="space-y-2.5 mb-5">
+                {([
+                  { key: "ownVoice",      icon: "Mic",       label: "Ваш голос в треке",                 desc: "Присылаете голосовое — оно звучит в песне",          price: "+2 000 ₽",    disabled: false },
+                  { key: "rights",        icon: "FileCheck", label: "Передача авторских прав",           desc: "Для рекламы, бизнеса, коммерческого использования",  price: "+4 900 ₽",    disabled: false },
+                  { key: "publication",   icon: "Radio",     label: "Публикация в Яндекс Музыке / VK",  desc: "Официальный релиз на стриминговых платформах",       price: "+5 000 ₽",    disabled: hasUrgent, disabledNote: "Недоступно при срочном" },
+                  { key: "liveVocal",     icon: "Music2",    label: "Живой вокал вокалиста",             desc: "Профессиональный певец запишет вашу песню",          price: "+20 900 ₽",   disabled: hasUrgent, disabledNote: "Недоступно при срочном" },
+                  { key: "lyricVideo",    icon: "Video",     label: "Лирик-видео",                       desc: "Красивое видео с текстом для соцсетей",              price: "от +3 000 ₽", disabled: false },
+                  { key: "artistProject", icon: "Star",      label: "Стать артистом под ключ",           desc: "Бренд, релизы, дистрибуция, развитие",               price: "от +55 000 ₽",disabled: false },
+                ] as { key: keyof CalcState; icon: string; label: string; desc: string; price: string; disabled: boolean; disabledNote?: string }[]).map(opt => {
+                  const active = calc[opt.key] === true;
                   return (
-                    <button
-                      key={opt.key}
-                      disabled={opt.disabled}
-                      onClick={() => !opt.disabled && toggleOption(opt.key, true)}
-                      className="w-full flex items-center gap-3 p-4 rounded-2xl text-left transition-all"
+                    <button key={opt.key} disabled={opt.disabled} onClick={() => !opt.disabled && toggleOpt(opt.key)}
+                      className="w-full flex items-center gap-3 p-3.5 rounded-2xl text-left transition-all"
                       style={{
-                        background: opt.disabled ? "rgba(255,255,255,0.03)" : active ? "rgba(168,85,247,0.18)" : "rgba(255,255,255,0.06)",
-                        border: `1.5px solid ${opt.disabled ? "rgba(255,255,255,0.08)" : active ? "#A855F7" : "rgba(168,85,247,0.25)"}`,
-                        opacity: opt.disabled ? 0.45 : 1,
-                        cursor: opt.disabled ? "not-allowed" : "pointer",
-                      }}
-                    >
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: active ? "rgba(168,85,247,0.3)" : "rgba(255,255,255,0.07)" }}>
-                        <Icon name={opt.icon as "Mic"} size={18} style={{ color: active ? "#C084FC" : "#9CA3AF" }} />
+                        background: opt.disabled ? "rgba(255,255,255,0.02)" : active ? "rgba(168,85,247,0.18)" : "rgba(255,255,255,0.05)",
+                        border: `1.5px solid ${opt.disabled ? "rgba(255,255,255,0.07)" : active ? "#A855F7" : "rgba(168,85,247,0.25)"}`,
+                        opacity: opt.disabled ? 0.4 : 1, cursor: opt.disabled ? "not-allowed" : "pointer",
+                      }}>
+                      <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: active ? "rgba(168,85,247,0.3)" : "rgba(255,255,255,0.07)" }}>
+                        <Icon name={opt.icon as "Mic"} size={17} style={{ color: active ? "#C084FC" : "#9CA3AF" }} />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2">
-                          <span className="font-bold text-sm" style={{ color: opt.disabled ? "#6B7280" : "#F6F1FF" }}>{opt.label}</span>
-                          {opt.disabled && <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: "rgba(239,68,68,0.15)", color: "#FCA5A5" }}>{opt.disabledNote}</span>}
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          <span className="font-semibold text-sm" style={{ color: opt.disabled ? "#6B7280" : "#F6F1FF" }}>{opt.label}</span>
+                          {opt.disabled && <span className="text-xs px-1.5 py-0.5 rounded-full" style={{ background: "rgba(239,68,68,0.15)", color: "#FCA5A5" }}>{opt.disabledNote}</span>}
                         </div>
-                        <p className="text-xs mt-0.5" style={{ color: "rgba(196,181,253,0.6)" }}>{opt.desc}</p>
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(196,181,253,0.55)" }}>{opt.desc}</p>
                       </div>
-                      <span className="text-sm font-bold shrink-0" style={{ color: active ? "#F472B6" : "#9CA3AF" }}>{opt.price}</span>
-                      {active && <Icon name="CheckCircle2" size={18} style={{ color: "#A855F7", shrink: 0 }} />}
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <span className="text-xs font-bold" style={{ color: active ? "#F472B6" : "#9CA3AF" }}>{opt.price}</span>
+                        {active && <Icon name="CheckCircle2" size={16} style={{ color: "#A855F7" }} />}
+                      </div>
                     </button>
                   );
                 })}
               </div>
 
               {/* Итог */}
-              <div className="rounded-2xl p-4 mb-5" style={{ background: "rgba(168,85,247,0.1)", border: "1px solid rgba(168,85,247,0.3)" }}>
+              <div className="rounded-2xl p-4 mb-4" style={{ background: "rgba(168,85,247,0.1)", border: "1px solid rgba(168,85,247,0.3)" }}>
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-semibold" style={{ color: "#C084FC" }}>Итоговая стоимость:</span>
                   <div className="text-right">
                     {hasUrgent && base !== total && (
-                      <div className="text-xs line-through" style={{ color: "rgba(196,181,253,0.5)" }}>{base.toLocaleString("ru")} ₽</div>
+                      <div className="text-xs line-through" style={{ color: "rgba(196,181,253,0.4)" }}>{base.toLocaleString("ru")} ₽</div>
                     )}
                     <span className="text-2xl font-extrabold text-white">{total.toLocaleString("ru")} ₽</span>
-                    {hasUrgent && <span className="ml-2 text-xs px-2 py-0.5 rounded-full font-bold" style={{ background: "rgba(236,72,153,0.2)", color: "#F472B6" }}>⚡ срочно +50%</span>}
+                    {hasUrgent && <span className="ml-2 text-xs px-2 py-0.5 rounded-full font-bold" style={{ background: "rgba(236,72,153,0.2)", color: "#F472B6" }}>⚡ +50%</span>}
                   </div>
                 </div>
               </div>
 
               <div className="flex gap-3">
-                <button onClick={() => setStep("urgent")} className="px-4 py-3 rounded-xl font-semibold text-sm transition hover:bg-white/10" style={{ color: "#C084FC", border: "1px solid rgba(168,85,247,0.3)" }}>
+                <button onClick={goBack} className="px-4 py-3 rounded-xl font-semibold text-sm transition hover:bg-white/10" style={{ color: "#C084FC", border: "1px solid rgba(168,85,247,0.3)" }}>
                   ← Назад
                 </button>
-                <button
-                  onClick={() => setStep("form")}
+                <button onClick={() => setStep("form")}
                   className="flex-1 py-3 rounded-xl font-bold text-white text-sm transition hover:scale-105"
-                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}
-                >
-                  Получить расчёт и подарок {GIFT_EMOJI}
+                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}>
+                  Получить расчёт и подарок 🎁
                 </button>
               </div>
             </div>
           )}
 
-          {/* ШАГ 3 — Форма */}
+          {/* ── Форма ── */}
           {step === "form" && (
             <form onSubmit={handleSubmit}>
-              <div className="rounded-2xl p-4 mb-5" style={{ background: "rgba(168,85,247,0.1)", border: "1px solid rgba(168,85,247,0.3)" }}>
-                <p className="text-sm font-semibold mb-2" style={{ color: "#C084FC" }}>Ваш заказ:</p>
-                <ul className="space-y-1">
-                  {lines.map((l, i) => (
-                    <li key={i} className="text-sm" style={{ color: "#E9D5FF" }}>· {l}</li>
-                  ))}
-                  {hasUrgent && <li className="text-sm font-bold" style={{ color: "#F472B6" }}>⚡ Срочно 2-3 часа (+50%)</li>}
-                </ul>
-                <div className="mt-3 pt-3 flex justify-between items-center" style={{ borderTop: "1px solid rgba(168,85,247,0.2)" }}>
-                  <span className="text-sm" style={{ color: "#C084FC" }}>Итого:</span>
-                  <span className="text-xl font-extrabold text-white">{total.toLocaleString("ru")} ₽</span>
+              <div className="rounded-2xl p-4 mb-4" style={{ background: "rgba(168,85,247,0.08)", border: "1px solid rgba(168,85,247,0.25)" }}>
+                <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "#C084FC" }}>Ваш заказ</p>
+                <div className="text-xs space-y-0.5 mb-3" style={{ color: "#D8B4FE" }}>
+                  <div>🎁 Кому: {meanings[0]} · {meanings[1]} · {meanings[2]}</div>
+                  {lines.map((l, i) => <div key={i}>· {l}</div>)}
+                  {hasUrgent && <div className="font-bold" style={{ color: "#F472B6" }}>⚡ Срочно 2–3 часа (+50%)</div>}
+                </div>
+                <div className="flex justify-between items-center pt-2" style={{ borderTop: "1px solid rgba(168,85,247,0.2)" }}>
+                  <span className="text-xs" style={{ color: "#C084FC" }}>Итого:</span>
+                  <span className="text-lg font-extrabold text-white">{total.toLocaleString("ru")} ₽</span>
                 </div>
               </div>
 
-              {/* Подарок */}
-              <div className="rounded-2xl p-4 mb-5 flex items-start gap-3" style={{ background: "rgba(236,72,153,0.1)", border: "1px solid rgba(236,72,153,0.3)" }}>
-                <span className="text-2xl">🎁</span>
+              <div className="rounded-2xl p-3.5 mb-4 flex items-start gap-3" style={{ background: "rgba(236,72,153,0.08)", border: "1px solid rgba(236,72,153,0.25)" }}>
+                <span className="text-xl">🎁</span>
                 <div>
-                  <p className="font-bold text-white text-sm mb-0.5">Подарок за заявку</p>
-                  <p className="text-xs" style={{ color: "rgba(196,181,253,0.8)" }}>Видео-слайдшоу из ваших фото бесплатно — к каждому треку</p>
+                  <p className="font-bold text-white text-sm">Подарок за заявку</p>
+                  <p className="text-xs mt-0.5" style={{ color: "rgba(196,181,253,0.7)" }}>Видео-слайдшоу из ваших фото — бесплатно к каждому треку</p>
                 </div>
               </div>
 
               <div className="space-y-3 mb-5">
                 <div>
                   <label className="block text-sm font-semibold mb-1.5" style={{ color: "#C084FC" }}>Ваше имя *</label>
-                  <input
-                    required
-                    value={form.name}
-                    onChange={e => setForm(p => ({ ...p, name: e.target.value }))}
+                  <input required value={form.name} onChange={e => setForm(p => ({ ...p, name: e.target.value }))}
                     placeholder="Как вас зовут?"
-                    className="w-full px-4 py-3 rounded-xl text-sm outline-none transition"
-                    style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }}
-                  />
+                    className="w-full px-4 py-3 rounded-xl text-sm outline-none"
+                    style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }} />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold mb-1.5" style={{ color: "#C084FC" }}>Телефон или Telegram *</label>
-                  <input
-                    required
-                    value={form.phone}
-                    onChange={e => setForm(p => ({ ...p, phone: e.target.value }))}
+                  <input required value={form.phone} onChange={e => setForm(p => ({ ...p, phone: e.target.value }))}
                     placeholder="+7 900 000-00-00 или @username"
-                    className="w-full px-4 py-3 rounded-xl text-sm outline-none transition"
-                    style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }}
-                  />
+                    className="w-full px-4 py-3 rounded-xl text-sm outline-none"
+                    style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }} />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold mb-1.5" style={{ color: "#C084FC" }}>Комментарий (необязательно)</label>
-                  <textarea
-                    value={form.comment}
-                    onChange={e => setForm(p => ({ ...p, comment: e.target.value }))}
-                    placeholder="Расскажите пару слов о поводе..."
+                  <textarea value={form.comment} onChange={e => setForm(p => ({ ...p, comment: e.target.value }))}
+                    placeholder="Расскажите пару слов о поводе или пожеланиях..."
                     rows={2}
-                    className="w-full px-4 py-3 rounded-xl text-sm outline-none transition resize-none"
-                    style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }}
-                  />
+                    className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none"
+                    style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }} />
                 </div>
               </div>
 
               <div className="flex gap-3">
-                <button type="button" onClick={() => setStep("options")} className="px-4 py-3 rounded-xl font-semibold text-sm transition hover:bg-white/10" style={{ color: "#C084FC", border: "1px solid rgba(168,85,247,0.3)" }}>
+                <button type="button" onClick={goBack} className="px-4 py-3 rounded-xl font-semibold text-sm transition hover:bg-white/10" style={{ color: "#C084FC", border: "1px solid rgba(168,85,247,0.3)" }}>
                   ← Назад
                 </button>
-                <button
-                  type="submit"
-                  disabled={submitting}
+                <button type="submit" disabled={submitting}
                   className="flex-1 py-3 rounded-xl font-bold text-white text-sm flex items-center justify-center gap-2 transition hover:scale-105"
-                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", opacity: submitting ? 0.7 : 1 }}
-                >
+                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", opacity: submitting ? 0.7 : 1 }}>
                   {submitting ? "Отправляем..." : <><Icon name="Send" size={16} /> Отправить заявку</>}
                 </button>
               </div>
-              <p className="text-center text-xs mt-3" style={{ color: "rgba(196,181,253,0.5)" }}>Ответим в течение 15 минут</p>
+              <p className="text-center text-xs mt-3" style={{ color: "rgba(196,181,253,0.45)" }}>Юлия ответит в течение 15 минут</p>
             </form>
           )}
 
-          {/* ГОТОВО */}
+          {/* ── Готово ── */}
           {step === "done" && (
             <div className="text-center py-6">
               <div className="text-5xl mb-4">🎉</div>
               <h3 className="text-xl font-bold text-white mb-2">Заявка принята!</h3>
-              <p className="mb-2" style={{ color: "rgba(196,181,253,0.8)" }}>Юлия свяжется с вами в течение 15 минут.</p>
+              <p className="mb-4" style={{ color: "rgba(196,181,253,0.8)" }}>Юлия свяжется с вами в течение 15 минут.</p>
               <div className="rounded-2xl p-4 mb-5 flex items-start gap-3 text-left" style={{ background: "rgba(236,72,153,0.1)", border: "1px solid rgba(236,72,153,0.3)" }}>
                 <span className="text-2xl">🎁</span>
                 <div>
-                  <p className="font-bold text-white text-sm mb-0.5">Ваш подарок</p>
-                  <p className="text-xs" style={{ color: "rgba(196,181,253,0.8)" }}>Видео-слайдшоу из ваших фото — бесплатно к треку</p>
+                  <p className="font-bold text-white text-sm">Ваш подарок</p>
+                  <p className="text-xs mt-0.5" style={{ color: "rgba(196,181,253,0.7)" }}>Видео-слайдшоу из ваших фото — бесплатно к треку</p>
                 </div>
               </div>
               {onClose && (
@@ -414,6 +366,7 @@ export default function OrderCalculator({ onClose, inline }: Props) {
               )}
             </div>
           )}
+
         </div>
       </div>
     </div>
