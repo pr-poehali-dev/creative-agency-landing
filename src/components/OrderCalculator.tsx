@@ -65,7 +65,7 @@ export default function OrderCalculator({ onClose, inline }: Props) {
     urgent: null, ownVoice: false, rights: false,
     publication: false, liveVocal: false, lyricVideo: false, artistProject: false,
   });
-  const [form, setForm]         = useState({ name: "", phone: "", comment: "" });
+  const [form, setForm]         = useState({ name: "", phone: "", email: "", comment: "" });
   const [submitting, setSubmitting] = useState(false);
 
   const meaningIdx  = step === "meaning0" ? 0 : step === "meaning1" ? 1 : step === "meaning2" ? 2 : -1;
@@ -121,7 +121,7 @@ export default function OrderCalculator({ onClose, inline }: Props) {
       await fetch(CONTACT_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: form.name, contact: form.phone, message: messageText, channel: "email" }),
+        body: JSON.stringify({ name: form.name, contact: form.phone, client_email: form.email, message: messageText, channel: "email" }),
       });
     } catch { /* отправляем всё равно на done */ }
     setSubmitting(false);
@@ -321,6 +321,14 @@ export default function OrderCalculator({ onClose, inline }: Props) {
                     placeholder="+7 900 000-00-00 или @username"
                     className="w-full px-4 py-3 rounded-xl text-sm outline-none"
                     style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }} />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold mb-1.5" style={{ color: "#C084FC" }}>Ваша почта *</label>
+                  <input required type="email" value={form.email} onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
+                    placeholder="example@mail.ru"
+                    className="w-full px-4 py-3 rounded-xl text-sm outline-none"
+                    style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }} />
+                  <p className="text-xs mt-1" style={{ color: "rgba(196,181,253,0.5)" }}>Пришлём подтверждение заявки с номером</p>
                 </div>
                 <div>
                   <label className="block text-sm font-semibold mb-1.5" style={{ color: "#C084FC" }}>Комментарий (необязательно)</label>
