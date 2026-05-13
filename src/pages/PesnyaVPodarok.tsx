@@ -414,20 +414,17 @@ export default function PesnyaVPodarok() {
         <div className="relative z-10 container mx-auto max-w-4xl px-6 pt-24 pb-10 text-center flex flex-col items-center">
 
           {/* Бейдж */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold" style={{ background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.3)", color: "#7C3AED" }}>
-              <span style={{ color: "#A855F7" }}>✦</span> Юлия Измайлова — профессиональный композитор
-            </div>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-6" style={{ background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.3)", color: "#7C3AED" }}>
+            <span style={{ color: "#A855F7" }}>✦</span>
+            {" "}Ваш композитор: Юлия Измайлова (Galaktika) — на{" "}
             <a
               href="https://music.yandex.com/artist/2948671"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold transition-all hover:scale-105"
-              style={{ background: "rgba(255,204,0,0.12)", border: "1px solid rgba(255,204,0,0.35)", color: "#b38600" }}
-              title="Слушать GALAKTIKA на Яндекс Музыке"
+              className="underline underline-offset-2 hover:opacity-80 transition-opacity"
+              style={{ color: "#A855F7" }}
             >
-              <Icon name="Music" size={13} />
-              GALAKTIKA на Яндекс Музыке
+              Яндекс Музыке
             </a>
           </div>
 
