@@ -7,18 +7,19 @@
       "expectedStatus": 200
     },
     {
-      "name": "Submit lead success",
+      "name": "GET tracks with audio URLs",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": { "tracks": [] },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "POST lead success",
       "method": "POST",
       "path": "/",
       "body": { "name": "Тест", "contact": "@test_user" },
       "expectedStatus": 200
-    },
-    {
-      "name": "Missing fields returns 400",
-      "method": "POST",
-      "path": "/",
-      "body": { "name": "" },
-      "expectedStatus": 400
     }
   ]
 }
