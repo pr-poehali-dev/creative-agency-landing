@@ -810,10 +810,7 @@ export default function PesnyaVPodarok() {
           <div className="mt-10 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4 justify-between" style={{ background: "#F3EFFF", border: "1px solid rgba(168,85,247,0.2)" }}>
             <div className="flex items-start gap-3">
               <Icon name="Clock" size={20} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} />
-              <div>
-                <p className="font-bold text-base" style={{ color: "#1A1030" }}>Не более 5 заказов в неделю</p>
-                <p className="text-base mt-0.5" style={{ color: "#6B5E91" }}>Как композитор я глубоко погружаюсь в каждую историю. Перед праздниками все слоты занимаются заранее — бронируйте место.</p>
-              </div>
+              <p className="text-base" style={{ color: "#6B5E91" }}>Как композитор я глубоко погружаюсь в каждую историю. Перед праздниками все слоты занимаются заранее — бронируйте место.</p>
             </div>
             <a
               href="https://t.me/izmailova8888"
