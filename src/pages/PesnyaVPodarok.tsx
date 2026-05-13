@@ -404,47 +404,41 @@ export default function PesnyaVPodarok() {
       </nav>
 
       {/* ─── HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-screen flex flex-col justify-center" style={{ background: "#0A0718" }}>
+      <section className="relative overflow-hidden min-h-screen flex flex-col justify-center" style={{ background: "#1C1018" }}>
         {/* Фоновое фото */}
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMG})`, opacity: 0.12 }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMG})`, opacity: 0.1 }} />
         {/* Градиентная маска */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(10,7,24,0.7) 0%, rgba(10,7,24,0.85) 60%, #0A0718 100%)" }} />
-        {/* Центральное сияние */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 50% at 50% 30%, rgba(168,85,247,0.25) 0%, transparent 65%)" }} />
-        {/* Боковые акценты */}
-        <div className="absolute top-1/3 -left-20 w-72 h-72 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%)", filter: "blur(40px)" }} />
-        <div className="absolute top-1/4 -right-20 w-72 h-72 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,77,166,0.12) 0%, transparent 70%)", filter: "blur(40px)" }} />
-        {/* Логотип как декоративный фон */}
-        <img
-          src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/589a2648-75cb-485c-aeed-7d4aae46cdaa.jpeg"
-          alt=""
-          aria-hidden="true"
-          className="absolute pointer-events-none select-none"
-          style={{ top: "50%", left: "50%", transform: "translate(-50%, -55%)", width: "80%", maxWidth: 800, opacity: 0.18, mixBlendMode: "screen", filter: "blur(0px)" }}
-        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(28,16,24,0.75) 0%, rgba(28,16,24,0.88) 60%, #1C1018 100%)" }} />
+        {/* Тёплое центральное сияние — розово-персиковое */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 65% 45% at 50% 30%, rgba(219,112,147,0.18) 0%, transparent 65%)" }} />
+        {/* Боковые мягкие акценты */}
+        <div className="absolute top-1/3 -left-20 w-80 h-80 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(180,90,120,0.12) 0%, transparent 70%)", filter: "blur(50px)" }} />
+        <div className="absolute top-1/4 -right-20 w-80 h-80 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(230,140,100,0.1) 0%, transparent 70%)", filter: "blur(50px)" }} />
 
         <div className="relative z-10 container mx-auto max-w-4xl px-6 pt-24 pb-10 text-center flex flex-col items-center">
 
           {/* Бейдж */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-6" style={{ background: "rgba(168,85,247,0.15)", border: "1px solid rgba(168,85,247,0.35)", color: "#C4B5FD" }}>
-            <span style={{ color: "#A855F7" }}>✦</span> Юлия Измайлова — профессиональный композитор · 5 альбомов
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-6" style={{ background: "rgba(219,112,147,0.12)", border: "1px solid rgba(219,112,147,0.3)", color: "#e8b4c8" }}>
+            <span style={{ color: "#db7093" }}>✦</span> Юлия Измайлова — профессиональный композитор · 5 альбомов
           </div>
+
           {/* Заголовок */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-8" style={{ letterSpacing: "-0.02em" }}>
             Песня, которая{" "}
-            <span style={{ background: "linear-gradient(135deg, #C084FC 0%, #F472B6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>расскажет вашу историю</span>
+            <span style={{ background: "linear-gradient(135deg, #e8a0b4 0%, #d4846a 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>расскажет вашу историю</span>
           </h1>
+
           {/* Главная CTA кнопка */}
           <button
             onClick={scrollToForm}
             className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl text-lg font-bold text-white transition-all hover:scale-105 hover:shadow-2xl mb-12"
-            style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", boxShadow: "0 8px 32px rgba(168,85,247,0.5)" }}
+            style={{ background: "linear-gradient(135deg, #c06080 0%, #a0405a 100%)", boxShadow: "0 8px 28px rgba(180,70,100,0.4)" }}
           >
             <Icon name="Music2" size={20} />
             Создать свою песню
           </button>
 
-          <p className="text-base font-bold uppercase tracking-widest mb-6" style={{ background: "linear-gradient(90deg, #C084FC, #F472B6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "0.2em" }}>
+          <p className="text-sm font-semibold uppercase tracking-widest mb-6" style={{ color: "rgba(232,180,200,0.45)", letterSpacing: "0.2em" }}>
             ✦ AI Muse Lab создаёт ✦
           </p>
 
@@ -452,24 +446,24 @@ export default function PesnyaVPodarok() {
           <div className="w-full max-w-xs mx-auto text-left">
             <div
               className="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-              style={{ border: "1px solid rgba(255,255,255,0.12)" }}
+              style={{ border: "1px solid rgba(219,112,147,0.2)" }}
             >
               <div className="relative h-28 overflow-hidden">
-                <img src={WEDDING_IMG} alt="Песни и хиты на заказ" className="w-full h-full object-cover" style={{ opacity: 0.45 }} loading="lazy" decoding="async" />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #3B0764 0%, #6B21A8 60%, #9333EA 100%)", opacity: 0.75 }} />
+                <img src={WEDDING_IMG} alt="Песни и хиты на заказ" className="w-full h-full object-cover" style={{ opacity: 0.5 }} loading="lazy" decoding="async" />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #3d1020 0%, #7a2840 60%, #b05060 100%)", opacity: 0.7 }} />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.2)" }}>
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.12)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.18)" }}>
                     <Icon name="Gift" size={22} style={{ color: "#fff" }} />
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col flex-1 p-4" style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(10px)" }}>
+              <div className="flex flex-col flex-1 p-4" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(10px)" }}>
                 <h3 className="font-bold text-white text-base mb-2 leading-snug">Песни и хиты на заказ</h3>
-                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "rgba(196,181,253,0.75)" }}>Персональная песня на заказ по вашему сюжету. Со словами, которые вы давно хотели сказать, но не знали как. Идеально для подарка любимому, родителям, друзьям.</p>
+                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "rgba(232,192,208,0.7)" }}>Персональная песня на заказ по вашему сюжету. Со словами, которые вы давно хотели сказать, но не знали как. Идеально для подарка любимому, родителям, друзьям.</p>
                 <button
                   onClick={() => document.getElementById("gift-song-section")?.scrollIntoView({ behavior: "smooth" })}
                   className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 w-full"
-                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", color: "#fff" }}
+                  style={{ background: "linear-gradient(135deg, #c06080 0%, #a0405a 100%)", color: "#fff" }}
                 >
                   Выбрать песню
                 </button>
@@ -479,7 +473,7 @@ export default function PesnyaVPodarok() {
         </div>
 
         {/* Scroll hint */}
-        <div className="relative z-10 pb-8 flex justify-center text-white/40 animate-bounce">
+        <div className="relative z-10 pb-8 flex justify-center animate-bounce" style={{ color: "rgba(232,180,200,0.3)" }}>
           <Icon name="ChevronDown" size={24} />
         </div>
       </section>
