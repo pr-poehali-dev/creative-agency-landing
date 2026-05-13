@@ -7,6 +7,34 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import OrderCalculator from "@/components/OrderCalculator";
+import AudioPlayer, { Track } from "@/components/AudioPlayer";
+
+const playerTracks: Track[] = [
+  {
+    id: "lichnyj-geroj",
+    title: "Личный герой",
+    occasion: "для любимого человека",
+    emoji: "❤️",
+    publicKey: "https://disk.yandex.ru/d/Qt-vD587OVtjOQ",
+    desc: "Девушка поздравила своего парня, героя войны, с днём рождения. Её слова: «Мне вас сам Бог послал» — стали самым тёплым отзывом.",
+  },
+  {
+    id: "zryachee-serdce",
+    title: "Зрячее сердце",
+    occasion: "для бабушки",
+    emoji: "🌸",
+    publicKey: "https://disk.yandex.ru/d/ma-Q1rEWWSh4WQ",
+    desc: "Семья поздравляла свою слепую бабушку. В её памяти живы картинки из прошлого — и эта песня стала талисманом любви всей семьи.",
+  },
+  {
+    id: "kajfuyu-s-yanoj",
+    title: "Кайфую с Яной",
+    occasion: "для подруги на день рождения",
+    emoji: "🎉",
+    publicKey: "https://disk.yandex.ru/d/Qt-vD587OVtjOQ",
+    desc: "Весёлая, искренняя, настоящая. Именно такой и должна быть дружеская песня.",
+  },
+];
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/4fee9940-7db1-4128-9a82-27b34ded74bb.jpg";
 const VINYL_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/1b51b62f-525c-42f3-ac36-5114e5d51e17.jpg";
@@ -543,81 +571,35 @@ export default function PesnyaVPodarok() {
       <section id="portfolio-section" className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #0F0A1E 0%, #1A0A30 50%, #0A0F20 100%)" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 40% at 20% 50%, rgba(168,85,247,0.1) 0%, transparent 60%)" }} />
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 30% at 80% 30%, rgba(236,72,153,0.08) 0%, transparent 60%)" }} />
-        <div className="container mx-auto max-w-5xl relative z-10">
-          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#A855F7" }}>Портфолио</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-white">
-            Реальные истории — реальные треки
-          </h2>
-          <p className="text-center text-lg md:text-xl mb-14 max-w-lg mx-auto" style={{ color: "rgba(196,181,253,0.75)", lineHeight: 1.6 }}>
-            Живой вокал, профессиональная запись, настоящие эмоции
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {portfolioTracks.map((track, i) => (
-              <Card key={i} className="overflow-hidden hover:shadow-2xl transition-all hover:-translate-y-2" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(168,85,247,0.2)", backdropFilter: "blur(10px)" }}>
-                <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                  <img src={track.img} alt={`Авторская песня «${track.title}» — ${track.occasion}`} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" decoding="async" />
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,7,24,0.95) 30%, rgba(10,7,24,0.3) 70%, transparent)" }} />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <span className="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full" style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", color: "#fff" }}>
-                      {track.occasion}
-                    </span>
-                  </div>
-                  <div className="absolute top-3 right-3">
-                    <div className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: "rgba(168,85,247,0.8)", backdropFilter: "blur(4px)" }}>
-                      <Icon name="Music" size={16} className="text-white" />
-                    </div>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Icon name={track.icon as "Heart"} size={13} style={{ color: "#C084FC" }} />
-                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#C084FC" }}>{track.genre}</span>
-                  </div>
-                  <h3 className="font-extrabold text-white text-lg mb-2">«{track.title}»</h3>
-                  <p className="text-base leading-relaxed mb-4" style={{ color: "rgba(196,181,253,0.75)" }}>{track.desc}</p>
-                  <div className="flex gap-2 flex-wrap">
-                    {track.link && (
-                      <a
-                        href={track.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white transition-transform hover:scale-105"
-                        style={{ background: "linear-gradient(135deg, #A855F7 0%, #FF4DA6 100%)" }}
-                      >
-                        <Icon name="Play" size={13} /> Слушать
-                      </a>
-                    )}
-                    {track.lyrics && (
-                      <button
-                        onClick={() => setOpenLyrics(openLyrics === i ? null : i)}
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-transform hover:scale-105"
-                        style={{ background: "rgba(168,85,247,0.15)", color: "#A855F7", border: "1px solid rgba(168,85,247,0.3)" }}
-                      >
-                        <Icon name={openLyrics === i ? "ChevronUp" : "FileText"} size={13} />
-                        {openLyrics === i ? "Скрыть" : "Текст"}
-                      </button>
-                    )}
-                  </div>
-                  {openLyrics === i && track.lyrics && (
-                    <div className="mt-4 rounded-xl p-4 text-sm whitespace-pre-line leading-relaxed" style={{ background: "#171327", color: "#B8ABCF", border: "1px solid rgba(168,85,247,0.15)" }}>
-                      {track.lyrics}
-                    </div>
-                  )}
-                </div>
-              </Card>
-            ))}
+        <div className="container mx-auto max-w-2xl relative z-10">
+
+          {/* Заголовок */}
+          <div
+            className="inline-block text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6"
+            style={{ background: "rgba(168,85,247,0.15)", border: "1px solid rgba(168,85,247,0.35)", color: "#C084FC" }}
+          >
+            Портфолио · Слушай прямо здесь
           </div>
-          {/* Блок «Хотите послушать больше?» */}
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-5 text-white leading-tight">
+            Послушай прежде, чем заказывать —{" "}
+            <span style={{ background: "linear-gradient(135deg, #a855f7 0%, #ec4899 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              3 реальные песни по историям людей
+            </span>
+          </h2>
+          <p className="text-lg leading-relaxed mb-10" style={{ color: "rgba(196,181,253,0.8)" }}>
+            Боишься, что песня не тронет? Послушай — и пойми, каково это, когда музыка попадает прямо в сердце.
+          </p>
+
+          {/* Плеер */}
+          <AudioPlayer tracks={playerTracks} />
+
+          {/* Послушать больше */}
           <div className="mt-12 rounded-2xl p-8 text-center" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(168,85,247,0.2)", backdropFilter: "blur(10px)" }}>
-            <h3 className="text-xl font-extrabold text-white mb-5">Хотите послушать больше?</h3>
+            <h3 className="text-xl font-extrabold text-white mb-5">Послушать больше примеров работ</h3>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-7 text-base" style={{ color: "rgba(196,181,253,0.8)" }}>
               <div className="flex items-start gap-2">
                 <span className="text-base leading-none mt-0.5">💡</span>
                 <span><strong className="text-white">Более 100 работ</strong> в разных жанрах: от душевной лирики до зажигательного диско</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-base leading-none mt-0.5">🎵</span>
-                <span><strong className="text-white">Все стили:</strong> рок, поп, рэп, романтика, детские песни, корпоративные гимны</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-base leading-none mt-0.5">❤️</span>
@@ -630,7 +612,7 @@ export default function PesnyaVPodarok() {
               style={{ background: "linear-gradient(135deg, #A855F7 0%, #FF4DA6 100%)" }}
             >
               <Icon name="Headphones" size={18} />
-              Послушать все примеры работ →
+              Все примеры работ →
             </Link>
           </div>
         </div>

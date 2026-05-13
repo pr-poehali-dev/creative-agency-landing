@@ -7,6 +7,7 @@ interface Track {
   occasion: string;
   emoji: string;
   publicKey: string;
+  desc?: string;
 }
 
 interface PlayerState {
@@ -164,6 +165,13 @@ function TrackPlayer({ track, isActive, onActivate }: TrackPlayerProps) {
               {formatTime(current)} / {formatTime(duration)}
             </span>
           </div>
+
+          {/* Описание */}
+          {track.desc && (
+            <p className="text-xs mt-2 leading-relaxed" style={{ color: "rgba(196,181,253,0.55)" }}>
+              {track.desc}
+            </p>
+          )}
 
           {state.error && (
             <p className="text-xs mt-1" style={{ color: "rgba(236,72,153,0.8)" }}>
