@@ -404,28 +404,24 @@ export default function PesnyaVPodarok() {
       </nav>
 
       {/* ─── HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-screen flex flex-col justify-center" style={{ background: "#2D1F2E" }}>
-        {/* Фоновое фото */}
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMG})`, opacity: 0.07 }} />
-        {/* Градиентная маска */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(45,31,46,0.6) 0%, rgba(45,31,46,0.75) 60%, #2D1F2E 100%)" }} />
+      <section className="relative overflow-hidden min-h-screen flex flex-col justify-center" style={{ background: "#F3EFFF" }}>
         {/* Центральное сияние */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 50% at 50% 30%, rgba(168,85,247,0.15) 0%, transparent 65%)" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 50% at 50% 30%, rgba(168,85,247,0.12) 0%, transparent 65%)" }} />
         {/* Боковые акценты */}
-        <div className="absolute top-1/3 -left-20 w-80 h-80 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 70%)", filter: "blur(50px)" }} />
-        <div className="absolute top-1/4 -right-20 w-80 h-80 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,77,166,0.08) 0%, transparent 70%)", filter: "blur(50px)" }} />
+        <div className="absolute top-1/3 -left-20 w-80 h-80 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%)", filter: "blur(50px)" }} />
+        <div className="absolute top-1/4 -right-20 w-80 h-80 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,77,166,0.06) 0%, transparent 70%)", filter: "blur(50px)" }} />
 
         <div className="relative z-10 container mx-auto max-w-4xl px-6 pt-24 pb-10 text-center flex flex-col items-center">
 
           {/* Бейдж */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-6" style={{ background: "rgba(168,85,247,0.15)", border: "1px solid rgba(168,85,247,0.35)", color: "#C4B5FD" }}>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-6" style={{ background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.3)", color: "#7C3AED" }}>
             <span style={{ color: "#A855F7" }}>✦</span> Юлия Измайлова — профессиональный композитор · 5 альбомов
           </div>
 
           {/* Заголовок */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-8" style={{ letterSpacing: "-0.02em" }}>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-8" style={{ letterSpacing: "-0.02em", color: "#1A1030" }}>
             Песня, которая{" "}
-            <span style={{ background: "linear-gradient(135deg, #C084FC 0%, #F472B6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>расскажет вашу историю</span>
+            <span style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>расскажет вашу историю</span>
           </h1>
 
           {/* Главная CTA кнопка */}
@@ -438,7 +434,7 @@ export default function PesnyaVPodarok() {
             Создать свою песню
           </button>
 
-          <p className="text-sm font-semibold uppercase tracking-widest mb-6" style={{ color: "rgba(196,181,253,0.45)", letterSpacing: "0.2em" }}>
+          <p className="text-sm font-semibold uppercase tracking-widest mb-6" style={{ color: "rgba(124,58,237,0.4)", letterSpacing: "0.2em" }}>
             ✦ Muse Lab создаёт ✦
           </p>
 
@@ -457,9 +453,9 @@ export default function PesnyaVPodarok() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col flex-1 p-4" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(10px)" }}>
-                <h3 className="font-bold text-white text-base mb-2 leading-snug">Песни и хиты на заказ</h3>
-                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "rgba(196,181,253,0.75)" }}>Персональная песня на заказ по вашему сюжету. Со словами, которые вы давно хотели сказать, но не знали как. Идеально для подарка любимому, родителям, друзьям.</p>
+              <div className="flex flex-col flex-1 p-4" style={{ background: "rgba(255,255,255,0.7)", backdropFilter: "blur(10px)" }}>
+                <h3 className="font-bold text-base mb-2 leading-snug" style={{ color: "#1A1030" }}>Песни и хиты на заказ</h3>
+                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "#6B5E91" }}>Персональная песня на заказ по вашему сюжету. Со словами, которые вы давно хотели сказать, но не знали как. Идеально для подарка любимому, родителям, друзьям.</p>
                 <button
                   onClick={() => document.getElementById("gift-song-section")?.scrollIntoView({ behavior: "smooth" })}
                   className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 w-full"
@@ -473,7 +469,7 @@ export default function PesnyaVPodarok() {
         </div>
 
         {/* Scroll hint */}
-        <div className="relative z-10 pb-8 flex justify-center animate-bounce" style={{ color: "rgba(232,180,200,0.3)" }}>
+        <div className="relative z-10 pb-8 flex justify-center animate-bounce" style={{ color: "rgba(168,85,247,0.4)" }}>
           <Icon name="ChevronDown" size={24} />
         </div>
       </section>
