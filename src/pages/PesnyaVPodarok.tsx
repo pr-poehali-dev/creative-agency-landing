@@ -414,8 +414,21 @@ export default function PesnyaVPodarok() {
         <div className="relative z-10 container mx-auto max-w-4xl px-6 pt-24 pb-10 text-center flex flex-col items-center">
 
           {/* Бейдж */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-6" style={{ background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.3)", color: "#7C3AED" }}>
-            <span style={{ color: "#A855F7" }}>✦</span> Юлия Измайлова — профессиональный композитор · 5 альбомов
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold" style={{ background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.3)", color: "#7C3AED" }}>
+              <span style={{ color: "#A855F7" }}>✦</span> Юлия Измайлова — профессиональный композитор
+            </div>
+            <a
+              href="https://music.yandex.com/artist/2948671"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold transition-all hover:scale-105"
+              style={{ background: "rgba(255,204,0,0.12)", border: "1px solid rgba(255,204,0,0.35)", color: "#b38600" }}
+              title="Слушать GALAKTIKA на Яндекс Музыке"
+            >
+              <Icon name="Music" size={13} />
+              GALAKTIKA на Яндекс Музыке
+            </a>
           </div>
 
           {/* Заголовок */}
@@ -885,9 +898,8 @@ export default function PesnyaVPodarok() {
               <div className="space-y-3 my-5">
                 {[
                   "10+ лет опыта создания авторских песен",
-                  "5 выпущенных альбомов (GALAKTIKA)",
+                  "5 выпущенных альбомов под именем GALAKTIKA",
                   "Более 100 персональных песен для клиентов",
-                  "Публикации на Яндекс Музыке, Spotify, VK Музыке",
                 ].map(item => (
                   <div key={item} className="flex items-start gap-2 text-base" style={{ color: "#4A3F6B" }}>
                     <Icon name="Check" size={15} style={{ color: "#A855F7", marginTop: 2, flexShrink: 0 }} />
@@ -895,6 +907,47 @@ export default function PesnyaVPodarok() {
                   </div>
                 ))}
               </div>
+
+              {/* Послушать творчество */}
+              <div className="rounded-xl p-4 mb-5" style={{ background: "#F3EFFF", border: "1px solid rgba(168,85,247,0.2)" }}>
+                <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#A855F7" }}>Послушать творчество Юлии</p>
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    href="https://music.yandex.com/artist/2948671"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all hover:scale-105"
+                    style={{ background: "#FFCC00", color: "#1A1030" }}
+                  >
+                    <Icon name="Music" size={15} />
+                    Яндекс Музыка
+                  </a>
+                  <a
+                    href="https://vk.ru/artist/galaktika_mtuyntc0odg0mw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-white transition-all hover:scale-105"
+                    style={{ background: "#0077FF" }}
+                  >
+                    <Icon name="Music2" size={15} />
+                    VK Музыка
+                  </a>
+                  <a
+                    href="https://vk.ru/club235584480"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all hover:scale-105"
+                    style={{ background: "rgba(168,85,247,0.12)", color: "#7C3AED", border: "1px solid rgba(168,85,247,0.3)" }}
+                  >
+                    <Icon name="Users" size={15} />
+                    ВКонтакте
+                  </a>
+                </div>
+                <p className="text-xs mt-3" style={{ color: "#9688B8" }}>
+                  Более 5 выпущенных альбомов — можете убедиться сами, прежде чем заказывать
+                </p>
+              </div>
+
               <div className="rounded-xl p-5 mb-6" style={{ background: "#FFFFFF", border: "1px solid rgba(236,72,153,0.2)", boxShadow: "0 4px 16px rgba(236,72,153,0.08)" }}>
                 <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "#EC4899" }}>Личный подход</p>
                 <p className="text-base leading-relaxed" style={{ color: "#4A3F6B" }}>
@@ -910,7 +963,7 @@ export default function PesnyaVPodarok() {
                 style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}
               >
                 <Icon name="User" size={16} />
-                Узнать больше о команде →
+                Узнать больше о Юлии →
               </Link>
             </div>
           </div>
