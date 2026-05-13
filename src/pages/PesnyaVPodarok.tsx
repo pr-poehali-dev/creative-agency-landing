@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import OrderCalculator from "@/components/OrderCalculator";
 import AudioPlayer, { Track } from "@/components/AudioPlayer";
+import GiftForm from "@/components/GiftForm";
 
 const playerTracks: Track[] = [
   {
@@ -828,6 +829,28 @@ export default function PesnyaVPodarok() {
           <p className="text-center mt-4 text-sm" style={{ color: "#9688B8" }}>
             Не уверены какой пакет подходит? Напишите нам — поможем выбрать за 5 минут.
           </p>
+        </div>
+      </section>
+
+      {/* ─── GIFT FORM ────────────────────────────────────────── */}
+      <section className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #0F0A1E 0%, #1A0A30 50%, #0A0F20 100%)" }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(168,85,247,0.12) 0%, transparent 60%)" }} />
+        <div className="container mx-auto max-w-lg relative z-10">
+          <div className="text-center mb-8">
+            <div
+              className="inline-block text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5"
+              style={{ background: "rgba(168,85,247,0.15)", border: "1px solid rgba(168,85,247,0.35)", color: "#C084FC" }}
+            >
+              Подарок от нас
+            </div>
+            <h2 className="text-2xl md:text-3xl font-extrabold mb-4 text-white leading-tight">
+              Ещё не решили? Получите подарок, пока выбираете
+            </h2>
+            <p className="text-base leading-relaxed" style={{ color: "rgba(196,181,253,0.75)" }}>
+              Расскажите в двух словах, зачем вы сегодня зашли, и выберите подарок. Я отправлю его на указанный Telegram / WhatsApp или почту.
+            </p>
+          </div>
+          <GiftForm />
         </div>
       </section>
 
