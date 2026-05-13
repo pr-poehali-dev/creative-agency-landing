@@ -697,50 +697,74 @@ export default function PesnyaVPodarok() {
 
       {/* ─── PRICING ──────────────────────────────────────────── */}
       <section id="gift-song-section" className="py-24 px-6" style={{ background: "#FFFFFF" }}>
-        {/* Цветная полоска сверху */}
-        <div style={{ height: 4, background: "linear-gradient(90deg, #A855F7 0%, #EC4899 100%)", marginBottom: 0 }} />
+        <div style={{ height: 4, background: "linear-gradient(90deg, #A855F7 0%, #EC4899 100%)" }} />
         <div className="container mx-auto max-w-6xl pt-14">
           <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#A855F7" }}>Стоимость</p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#1A1030" }}>
-            Цены и пакеты
+            Цены и тарифы
           </h2>
           <p className="text-center text-lg md:text-xl mb-14 max-w-lg mx-auto" style={{ color: "#6B5E91", lineHeight: 1.6 }}>
             Никаких скрытых платежей — всё включено
           </p>
 
-          {/* Верхний ряд — 3 карточки */}
-          <div className="grid md:grid-cols-3 gap-6 items-start mb-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
 
-            {/* Package 1 — Стандарт */}
+            {/* Тариф 1 — Музыкальное СМС */}
             <div className="p-7 rounded-2xl flex flex-col transition-all hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #E9E3F7", background: "#FAFAFE" }}>
               <div className="mb-4">
                 <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full" style={{ background: "#EDE9FE", color: "#7C3AED" }}>
-                  Стандарт
+                  Музыкальное СМС
                 </span>
               </div>
-              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#1A1030" }}>Песня по интервью</h3>
-              <p className="text-base mb-5" style={{ color: "#6B5E91" }}>Для семьи, друзей и близких</p>
-              <div className="text-4xl font-extrabold mb-1" style={{ color: "#A855F7" }}>5 000 ₽</div>
-              <p className="text-sm mb-6" style={{ color: "#9688B8" }}>Без передачи авторских прав</p>
+              <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Музыкальное СМС</h3>
+              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>1 минута вашей истории. Идеально для короткого, но очень личного поздравления в соцсетях или мессенджере.</p>
+              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>1 990 ₽</div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
-                  "Авторский текст на основе вашей истории",
-                  "Профессиональная аранжировка",
-                  "До 3 правок бесплатно",
-                  "Срок: 2–3 дня",
-                  "Файл MP3 навсегда ваш",
+                  "Ваш текст или смысл текста",
+                  "AI-аранжировка в выбранном стиле",
+                  "Срок: 1 час",
+                  "Файл в MP3",
                 ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-base" style={{ color: "#4A3F6B" }}>
-                    <Icon name="Check" size={15} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} /> {f}
+                  <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#4A3F6B" }}>
+                    <Icon name="Check" size={14} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} /> {f}
                   </li>
                 ))}
               </ul>
               <Button onClick={scrollToForm} className="w-full py-4 rounded-xl font-bold" variant="outline" style={{ borderColor: "#A855F7", color: "#A855F7" }}>
-                Заказать
+                Заказать мини
               </Button>
             </div>
 
-            {/* Package 3 — С авторскими правами (выделенная) */}
+            {/* Тариф 2 — Признание */}
+            <div className="p-7 rounded-2xl flex flex-col transition-all hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #E9E3F7", background: "#FAFAFE" }}>
+              <div className="mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full" style={{ background: "#FCE7F3", color: "#9D174D" }}>
+                  Признание
+                </span>
+              </div>
+              <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Признание</h3>
+              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>Полноценная песня, которая расскажет всё, что у вас на сердце. Для тех, кто хочет тронуть до слёз.</p>
+              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>5 000 ₽</div>
+              <ul className="space-y-3 mb-8 flex-1">
+                {[
+                  "Полная песня (куплеты, припевы)",
+                  "AI-аранжировка",
+                  "Авторский текст на основе личного интервью с композитором",
+                  "Срок: 1 день",
+                  "Файл в MP3",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#4A3F6B" }}>
+                    <Icon name="Check" size={14} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} /> {f}
+                  </li>
+                ))}
+              </ul>
+              <Button onClick={scrollToForm} className="w-full py-4 rounded-xl font-bold" variant="outline" style={{ borderColor: "#A855F7", color: "#A855F7" }}>
+                Заказать признание
+              </Button>
+            </div>
+
+            {/* Тариф 3 — Сюрприз (выделенная) */}
             <div className="p-7 rounded-2xl relative flex flex-col" style={{ border: "2px solid #A855F7", background: "linear-gradient(135deg, #FAF5FF 0%, #FDF2F8 100%)", boxShadow: "0 16px 48px rgba(168,85,247,0.18)", transform: "scale(1.02)" }}>
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
                 <Badge className="px-4 py-1.5 text-sm font-bold rounded-full" style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", color: "#fff" }}>
@@ -749,97 +773,52 @@ export default function PesnyaVPodarok() {
               </div>
               <div className="mb-4 mt-2">
                 <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full" style={{ background: "rgba(168,85,247,0.12)", color: "#7C3AED" }}>
-                  С авторскими правами
+                  Сюрприз
                 </span>
               </div>
-              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#1A1030" }}>Коммерческое использование</h3>
-              <p className="text-base mb-5" style={{ color: "#6B5E91" }}>Для бизнеса, соцсетей, рекламы</p>
-              <div className="text-4xl font-extrabold mb-1" style={{ color: "#A855F7" }}>9 900 ₽</div>
-              <p className="text-sm mb-6" style={{ color: "#9688B8" }}>С передачей коммерческих авторских прав</p>
+              <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Сюрприз</h3>
+              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>Всё из «Признания» + полные права и релиз на стримингах. Чтобы ваш подарок услышал весь мир.</p>
+              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>9 900 ₽</div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
-                  "Авторский текст на основе вашей истории",
-                  "Профессиональная аранжировка",
+                  "Всё из тарифа «Признание»",
                   "Передача коммерческих прав",
-                  "До 5 правок бесплатно",
-                  "Срок: 2–3 дня",
-                  "Файл MP3 + договор об уступке прав",
+                  "Публикация на Яндекс Музыке и VK Музыке",
                 ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-base font-medium" style={{ color: "#1A1030" }}>
-                    <Icon name="Check" size={15} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} /> {f}
+                  <li key={f} className="flex items-start gap-2 text-sm font-medium" style={{ color: "#1A1030" }}>
+                    <Icon name="Check" size={14} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} /> {f}
                   </li>
                 ))}
               </ul>
               <Button onClick={scrollToForm} className="w-full py-4 rounded-xl font-bold text-white" style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}>
-                Заказать
+                Устроить сюрприз
               </Button>
             </div>
 
-          </div>
-
-          {/* Нижний ряд — 2 карточки */}
-          <div className="grid md:grid-cols-2 gap-6 items-start">
-
-            {/* Package 4 — Публикация в Яндекс Музыке */}
-            <div className="p-7 rounded-2xl flex flex-col transition-all hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #E9E3F7", background: "#FAFAFE" }}>
-              <div className="mb-4">
-                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full" style={{ background: "#ECFDF5", color: "#065F46" }}>
-                  Публикация
-                </span>
-              </div>
-              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#1A1030" }}>С публикацией в Яндекс Музыке</h3>
-              <p className="text-base mb-5" style={{ color: "#6B5E91" }}>Ваша песня выйдет на стриминговых платформах</p>
-              <div className="text-4xl font-extrabold mb-1" style={{ color: "#A855F7" }}>14 900 ₽</div>
-              <p className="text-sm mb-6" style={{ color: "#9688B8" }}>Авторские права + официальный релиз</p>
-              <ul className="space-y-3 mb-8 flex-1">
-                {[
-                  "Авторский текст на основе вашей истории",
-                  "Профессиональная аранжировка",
-                  "Передача коммерческих прав",
-                  "Публикация на Яндекс Музыке, VK Музыке",
-                  "До 5 правок бесплатно",
-                  "Срок: 3–5 дней",
-                  "Файл MP3 + договор об уступке прав",
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-base font-medium" style={{ color: "#4A3F6B" }}>
-                    <Icon name="Check" size={15} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} /> {f}
-                  </li>
-                ))}
-              </ul>
-              <Button onClick={scrollToForm} className="w-full py-4 rounded-xl font-bold text-white" style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}>
-                Заказать
-              </Button>
-            </div>
-
-            {/* Package 5 — Живой вокалист */}
+            {/* Тариф 4 — Хит */}
             <div className="p-7 rounded-2xl flex flex-col" style={{ border: "2px solid #EC4899", background: "linear-gradient(135deg, #FDF2F8 0%, #FAF5FF 100%)" }}>
               <div className="mb-4">
                 <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "rgba(255,77,166,0.2)", color: "#FF4DA6" }}>
-                  Живой вокал — Хит
+                  Хит
                 </span>
               </div>
-              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#1A1030" }}>С живым голосом вокалиста</h3>
-              <p className="text-base mb-5" style={{ color: "#6B5E91" }}>Для особых событий и максимального впечатления</p>
-              <div className="text-4xl font-extrabold mb-1" style={{ color: "#EC4899" }}>29 900 ₽</div>
-              <p className="text-sm mb-6" style={{ color: "#9688B8" }}>Студийная запись + коммерческие права</p>
+              <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Хит</h3>
+              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>Максимальное звучание. Студийный живой вокал, бэк-вокал, сведение. Для особенных моментов.</p>
+              <div className="text-4xl font-extrabold mb-6" style={{ color: "#EC4899" }}>29 900 ₽</div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
-                  "Авторский текст на основе вашей истории",
-                  "Профессиональная аранжировка",
-                  "Живой вокал — запись в студии",
-                  "Бэк-вокал и профессиональное сведение",
-                  "Передача коммерческих прав",
-                  "До 5 правок бесплатно",
-                  "Срок: 5–7 дней",
-                  "Видео-слайдшоу из фото — в подарок",
+                  "Всё из тарифа «Сюрприз»",
+                  "Живой профессиональный вокал вместо AI",
+                  "Студийная запись и сведение",
+                  "Бэк-вокал",
                 ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-base font-medium" style={{ color: "#1A1030" }}>
-                    <Icon name="Check" size={15} style={{ color: "#EC4899", flexShrink: 0, marginTop: 2 }} /> {f}
+                  <li key={f} className="flex items-start gap-2 text-sm font-medium" style={{ color: "#1A1030" }}>
+                    <Icon name="Check" size={14} style={{ color: "#EC4899", flexShrink: 0, marginTop: 2 }} /> {f}
                   </li>
                 ))}
               </ul>
               <Button onClick={scrollToForm} className="w-full py-4 rounded-xl font-bold text-white" style={{ background: "linear-gradient(135deg, #EC4899 0%, #A855F7 100%)" }}>
-                Заказать «Хит»
+                Создать хит
               </Button>
             </div>
 
