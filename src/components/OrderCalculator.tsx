@@ -305,11 +305,12 @@ export default function OrderCalculator({ onClose, inline }: Props) {
                 </div>
               </div>
 
-              <div className="rounded-2xl p-3.5 mb-4 flex items-start gap-3" style={{ background: "rgba(236,72,153,0.08)", border: "1px solid rgba(236,72,153,0.25)" }}>
+              {/* Подарок */}
+              <div className="rounded-2xl p-3.5 mb-5 flex items-start gap-3" style={{ background: "rgba(236,72,153,0.08)", border: "1px solid rgba(236,72,153,0.25)" }}>
                 <span className="text-xl">🎁</span>
                 <div>
-                  <p className="font-bold text-white text-sm">Подарок за заявку</p>
-                  <p className="text-xs mt-0.5" style={{ color: "rgba(196,181,253,0.7)" }}>Видео-слайдшоу из ваших фото — бесплатно к каждому треку</p>
+                  <p className="font-bold text-white text-sm">Бонус-трек в подарок</p>
+                  <p className="text-xs mt-0.5" style={{ color: "rgba(196,181,253,0.7)" }}>Уникальная разработка MuseLab — бесплатно к вашему заказу</p>
                 </div>
               </div>
 
@@ -334,15 +335,40 @@ export default function OrderCalculator({ onClose, inline }: Props) {
                     placeholder="example@mail.ru"
                     className="w-full px-4 py-3 rounded-xl text-sm outline-none"
                     style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }} />
-                  <p className="text-xs mt-1" style={{ color: "rgba(196,181,253,0.5)" }}>Пришлём подтверждение заявки с номером</p>
+                  <p className="text-xs mt-1" style={{ color: "rgba(196,181,253,0.5)" }}>Пришлём подтверждение заявки</p>
                 </div>
+
+                {/* Комментарий — обязателен для СМС, для остальных опционален */}
                 <div>
-                  <label className="block text-sm font-semibold mb-1.5" style={{ color: "#C084FC" }}>Комментарий (необязательно)</label>
-                  <textarea value={form.comment} onChange={e => setForm(p => ({ ...p, comment: e.target.value }))}
-                    placeholder="Расскажите пару слов о поводе или пожеланиях..."
-                    rows={2}
-                    className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none"
-                    style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }} />
+                  {calc.tariff === "sms" ? (
+                    <>
+                      <label className="block text-sm font-semibold mb-1" style={{ color: "#C084FC" }}>
+                        Для кого, по какому поводу и что хотите сказать *
+                      </label>
+                      <p className="text-xs mb-2" style={{ color: "rgba(196,181,253,0.5)" }}>
+                        Опишите подробнее — это основа вашей песни. Кому она адресована, какой случай или чувство хотите выразить.
+                      </p>
+                      <textarea required value={form.comment} onChange={e => setForm(p => ({ ...p, comment: e.target.value }))}
+                        placeholder="Например: поздравляю маму с 60-летием, хочу сказать как она важна для меня и всей семьи..."
+                        rows={4}
+                        className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none"
+                        style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }} />
+                    </>
+                  ) : (
+                    <>
+                      <label className="block text-sm font-semibold mb-1" style={{ color: "#C084FC" }}>
+                        Расскажите в двух словах (необязательно)
+                      </label>
+                      <p className="text-xs mb-2" style={{ color: "rgba(196,181,253,0.5)" }}>
+                        Для тарифа «{TARIFFS.find(t => t.id === calc.tariff)?.name}» Юлия проведёт личное интервью и сама вытащит все нужные смыслы. Но если хотите — набросайте пару слов.
+                      </p>
+                      <textarea value={form.comment} onChange={e => setForm(p => ({ ...p, comment: e.target.value }))}
+                        placeholder="Для кого песня, какой повод, что важно передать..."
+                        rows={3}
+                        className="w-full px-4 py-3 rounded-xl text-sm outline-none resize-none"
+                        style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(168,85,247,0.3)", color: "#F6F1FF" }} />
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -400,8 +426,8 @@ export default function OrderCalculator({ onClose, inline }: Props) {
               <div className="rounded-2xl p-4 mb-5 flex items-start gap-3 text-left" style={{ background: "rgba(236,72,153,0.1)", border: "1px solid rgba(236,72,153,0.3)" }}>
                 <span className="text-2xl">🎁</span>
                 <div>
-                  <p className="font-bold text-white text-sm">Ваш подарок</p>
-                  <p className="text-xs mt-0.5" style={{ color: "rgba(196,181,253,0.7)" }}>Видео-слайдшоу из ваших фото — бесплатно к треку</p>
+                  <p className="font-bold text-white text-sm">Бонус-трек уже ждёт вас</p>
+                  <p className="text-xs mt-0.5" style={{ color: "rgba(196,181,253,0.7)" }}>Юлия пришлёт его вместе с подтверждением заявки</p>
                 </div>
               </div>
               {onClose && (
