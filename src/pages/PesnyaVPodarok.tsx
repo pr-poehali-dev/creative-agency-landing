@@ -431,8 +431,8 @@ export default function PesnyaVPodarok() {
           </div>
           {/* Заголовок */}
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-8" style={{ letterSpacing: "-0.02em" }}>
-            Ваша история × Технологии будущего<br />
-            <span style={{ background: "linear-gradient(135deg, #C084FC 0%, #F472B6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>=&nbsp;Идеальная песня</span>
+            Песня, которая{" "}
+            <span style={{ background: "linear-gradient(135deg, #C084FC 0%, #F472B6 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>расскажет вашу историю</span>
           </h1>
           {/* Главная CTA кнопка */}
           <button
@@ -465,7 +465,7 @@ export default function PesnyaVPodarok() {
               </div>
               <div className="flex flex-col flex-1 p-4" style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(10px)" }}>
                 <h3 className="font-bold text-white text-base mb-2 leading-snug">Песни и хиты на заказ</h3>
-                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "rgba(196,181,253,0.75)" }}>Персональные песни по вашей истории, живой вокал, семейные хиты.</p>
+                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "rgba(196,181,253,0.75)" }}>Персональная песня на заказ по вашему сюжету. Со словами, которые вы давно хотели сказать, но не знали как. Идеально для подарка любимому, родителям, друзьям.</p>
                 <button
                   onClick={() => document.getElementById("gift-song-section")?.scrollIntoView({ behavior: "smooth" })}
                   className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 w-full"
