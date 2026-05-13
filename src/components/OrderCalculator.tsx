@@ -25,27 +25,49 @@ const meaningSteps = [
   },
 ];
 
+// ─── Тарифы ───────────────────────────────────────────────────
+const TARIFFS = [
+  {
+    id: "sms",
+    name: "Музыкальное СМС",
+    price: 1990,
+    desc: "1 минута · AI-аранжировка · Срок: 1 час",
+    emoji: "💬",
+  },
+  {
+    id: "priznanie",
+    name: "Признание",
+    price: 5000,
+    desc: "Полная песня · Авторский текст по интервью · 1 день",
+    emoji: "❤️",
+  },
+  {
+    id: "syurpriz",
+    name: "Сюрприз",
+    price: 9900,
+    desc: "Признание + права + релиз на стримингах",
+    emoji: "🎁",
+    popular: true,
+  },
+  {
+    id: "hit",
+    name: "Хит",
+    price: 29900,
+    desc: "Живой вокал · Студийная запись · Бэк-вокал",
+    emoji: "🎤",
+  },
+];
+
 // ─── Калькулятор цены ─────────────────────────────────────────
 interface CalcState {
   urgent: boolean | null;
-  ownVoice: boolean;
-  rights: boolean;
-  publication: boolean;
-  liveVocal: boolean;
-  lyricVideo: boolean;
-  artistProject: boolean;
+  tariff: string;
 }
 
 function calcPrice(s: CalcState): { base: number; total: number; lines: string[] } {
-  const lines: string[] = [];
-  let base = 5000;
-  lines.push("Стандарт (текст + аранжировка) — 5 000 ₽");
-  if (s.ownVoice)      { base += 2000;  lines.push("+ Ваш голос в треке — 2 000 ₽"); }
-  if (s.rights)        { base += 4900;  lines.push("+ Передача авторских прав — 4 900 ₽"); }
-  if (s.publication)   { base += 5000;  lines.push("+ Публикация в Яндекс Музыке / VK — 5 000 ₽"); }
-  if (s.liveVocal)     { base += 20900; lines.push("+ Живой вокал вокалиста — 20 900 ₽"); }
-  if (s.lyricVideo)    { base += 3000;  lines.push("+ Лирик-видео — от 3 000 ₽"); }
-  if (s.artistProject) { base += 55000; lines.push("+ Стать артистом под ключ — от 55 000 ₽"); }
+  const tariff = TARIFFS.find(t => t.id === s.tariff) ?? TARIFFS[1];
+  const lines = [`${tariff.name} — ${tariff.price.toLocaleString("ru")} ₽`];
+  const base = tariff.price;
   const total = s.urgent ? Math.round(base * 1.5) : base;
   return { base, total, lines };
 }
@@ -62,8 +84,7 @@ export default function OrderCalculator({ onClose, inline }: Props) {
   const [step, setStep]       = useState<Step>("meaning0");
   const [meanings, setMeanings] = useState<string[]>([]);
   const [calc, setCalc]       = useState<CalcState>({
-    urgent: null, ownVoice: false, rights: false,
-    publication: false, liveVocal: false, lyricVideo: false, artistProject: false,
+    urgent: null, tariff: "priznanie",
   });
   const [form, setForm]         = useState({ name: "", phone: "", email: "", comment: "" });
   const [consents, setConsents] = useState({ pd: false, marketing: false });
@@ -89,14 +110,6 @@ export default function OrderCalculator({ onClose, inline }: Props) {
     else if (step === "urgent")   { setMeanings(m => m.slice(0,2)); setStep("meaning2"); }
     else if (step === "options")  setStep("urgent");
     else if (step === "form")     setStep("options");
-  }
-
-  function toggleOpt(key: keyof CalcState) {
-    setCalc(prev => {
-      const next = { ...prev, [key]: !prev[key] } as CalcState;
-      if (next.urgent) { next.liveVocal = false; next.publication = false; }
-      return next;
-    });
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -215,41 +228,33 @@ export default function OrderCalculator({ onClose, inline }: Props) {
             </div>
           )}
 
-          {/* ── Опции ── */}
+          {/* ── Выбор тарифа ── */}
           {step === "options" && (
             <div>
-              <h3 className="text-lg font-bold text-white mb-1">Выберите дополнительные опции</h3>
-              <p className="text-sm mb-4" style={{ color: "rgba(196,181,253,0.7)" }}>Можно несколько. Цена пересчитается сразу.</p>
+              <h3 className="text-lg font-bold text-white mb-1">Выберите тариф</h3>
+              <p className="text-sm mb-4" style={{ color: "rgba(196,181,253,0.7)" }}>Цена зависит от выбранного тарифа</p>
               <div className="space-y-2.5 mb-5">
-                {([
-                  { key: "ownVoice",      icon: "Mic",       label: "Ваш голос в треке",                 desc: "Присылаете голосовое — оно звучит в песне",          price: "+2 000 ₽",    disabled: false },
-                  { key: "rights",        icon: "FileCheck", label: "Передача авторских прав",           desc: "Для рекламы, бизнеса, коммерческого использования",  price: "+4 900 ₽",    disabled: false },
-                  { key: "publication",   icon: "Radio",     label: "Публикация в Яндекс Музыке / VK",  desc: "Официальный релиз на стриминговых платформах",       price: "+5 000 ₽",    disabled: hasUrgent, disabledNote: "Недоступно при срочном" },
-                  { key: "liveVocal",     icon: "Music2",    label: "Живой вокал вокалиста",             desc: "Профессиональный певец запишет вашу песню",          price: "+20 900 ₽",   disabled: hasUrgent, disabledNote: "Недоступно при срочном" },
-                  { key: "lyricVideo",    icon: "Video",     label: "Лирик-видео",                       desc: "Красивое видео с текстом для соцсетей",              price: "от +3 000 ₽", disabled: false },
-                  { key: "artistProject", icon: "Star",      label: "Стать артистом под ключ",           desc: "Бренд, релизы, дистрибуция, развитие",               price: "от +55 000 ₽",disabled: false },
-                ] as { key: keyof CalcState; icon: string; label: string; desc: string; price: string; disabled: boolean; disabledNote?: string }[]).map(opt => {
-                  const active = calc[opt.key] === true;
+                {TARIFFS.map(t => {
+                  const active = calc.tariff === t.id;
                   return (
-                    <button key={opt.key} disabled={opt.disabled} onClick={() => !opt.disabled && toggleOpt(opt.key)}
-                      className="w-full flex items-center gap-3 p-3.5 rounded-2xl text-left transition-all"
+                    <button key={t.id} onClick={() => setCalc(p => ({ ...p, tariff: t.id }))}
+                      className="w-full flex items-center gap-3 p-3.5 rounded-2xl text-left transition-all relative"
                       style={{
-                        background: opt.disabled ? "rgba(255,255,255,0.02)" : active ? "rgba(168,85,247,0.18)" : "rgba(255,255,255,0.05)",
-                        border: `1.5px solid ${opt.disabled ? "rgba(255,255,255,0.07)" : active ? "#A855F7" : "rgba(168,85,247,0.25)"}`,
-                        opacity: opt.disabled ? 0.4 : 1, cursor: opt.disabled ? "not-allowed" : "pointer",
+                        background: active ? "rgba(168,85,247,0.18)" : "rgba(255,255,255,0.05)",
+                        border: `1.5px solid ${active ? "#A855F7" : "rgba(168,85,247,0.25)"}`,
                       }}>
-                      <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: active ? "rgba(168,85,247,0.3)" : "rgba(255,255,255,0.07)" }}>
-                        <Icon name={opt.icon as "Mic"} size={17} style={{ color: active ? "#C084FC" : "#9CA3AF" }} />
-                      </div>
+                      {t.popular && (
+                        <span className="absolute -top-2.5 left-4 text-xs font-bold px-2 py-0.5 rounded-full" style={{ background: "linear-gradient(135deg,#A855F7,#EC4899)", color: "#fff" }}>
+                          Популярный
+                        </span>
+                      )}
+                      <span className="text-2xl shrink-0">{t.emoji}</span>
                       <div className="flex-1 min-w-0">
-                        <div className="flex flex-wrap items-center gap-1.5">
-                          <span className="font-semibold text-sm" style={{ color: opt.disabled ? "#6B7280" : "#F6F1FF" }}>{opt.label}</span>
-                          {opt.disabled && <span className="text-xs px-1.5 py-0.5 rounded-full" style={{ background: "rgba(239,68,68,0.15)", color: "#FCA5A5" }}>{opt.disabledNote}</span>}
-                        </div>
-                        <p className="text-xs mt-0.5" style={{ color: "rgba(196,181,253,0.55)" }}>{opt.desc}</p>
+                        <span className="font-semibold text-sm block" style={{ color: "#F6F1FF" }}>{t.name}</span>
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(196,181,253,0.55)" }}>{t.desc}</p>
                       </div>
                       <div className="flex items-center gap-1.5 shrink-0">
-                        <span className="text-xs font-bold" style={{ color: active ? "#F472B6" : "#9CA3AF" }}>{opt.price}</span>
+                        <span className="text-sm font-bold" style={{ color: active ? "#F472B6" : "#9CA3AF" }}>{t.price.toLocaleString("ru")} ₽</span>
                         {active && <Icon name="CheckCircle2" size={16} style={{ color: "#A855F7" }} />}
                       </div>
                     </button>
