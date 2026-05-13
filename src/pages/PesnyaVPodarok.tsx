@@ -419,93 +419,33 @@ export default function PesnyaVPodarok() {
             ✦ AI Muse Lab создаёт ✦
           </p>
 
-          {/* 4 карточки с тематическими подложками */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left w-full">
-            {[
-              {
-                icon: "Gift",
-                title: "Песни и хиты на заказ",
-                desc: "Персональные песни по вашей истории, живой вокал, семейные хиты.",
-                btn: "Выбрать песню",
-                scroll: "gift-song-section",
-                href: null,
-                bg: "linear-gradient(135deg, #3B0764 0%, #6B21A8 60%, #9333EA 100%)",
-                accent: "#E9D5FF",
-                img: WEDDING_IMG,
-              },
-              {
-                icon: "Briefcase",
-                title: "Музыка для бизнеса",
-                desc: "Бренд-песни, джинглы, музыка для рекламы и digital-проектов.",
-                btn: "Для бизнеса",
-                scroll: null,
-                href: "/uslugi#business-music",
-                bg: "linear-gradient(135deg, #0F172A 0%, #1E3A5F 60%, #1D4ED8 100%)",
-                accent: "#BAE6FD",
-                img: STUDIO_IMG,
-              },
-              {
-                icon: "Video",
-                title: "Видео и клипы AI",
-                desc: "Музыкальные клипы, рекламные ролики, AI-визуалы для соцсетей.",
-                btn: "Смотреть услуги",
-                scroll: null,
-                href: "/uslugi#ai-video",
-                bg: "linear-gradient(135deg, #1A0A0A 0%, #7F1D1D 60%, #DC2626 100%)",
-                accent: "#FECACA",
-                img: COVER3_IMG,
-              },
-              {
-                icon: "Mic2",
-                title: "Артисты с нуля",
-                desc: "Создание бренда артиста, релизы, дистрибуция и развитие под ключ.",
-                btn: "Запустить проект",
-                scroll: null,
-                href: "/uslugi#artist-from-zero",
-                bg: "linear-gradient(135deg, #0A1A0A 0%, #14532D 60%, #16A34A 100%)",
-                accent: "#BBF7D0",
-                img: VINYL_IMG,
-              },
-            ].map((card) => (
-              <div
-                key={card.title}
-                className="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                style={{ border: "1px solid rgba(255,255,255,0.12)" }}
-              >
-                {/* Тематическая подложка */}
-                <div className="relative h-28 overflow-hidden">
-                  <img src={card.img} alt={card.title} className="w-full h-full object-cover" style={{ opacity: 0.45 }} loading="lazy" decoding="async" />
-                  <div className="absolute inset-0" style={{ background: card.bg, opacity: 0.75 }} />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.2)" }}>
-                      <Icon name={card.icon as "Gift"} size={22} style={{ color: "#fff" }} />
-                    </div>
+          {/* 1 карточка — Песни и хиты на заказ */}
+          <div className="w-full max-w-xs mx-auto text-left">
+            <div
+              className="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              style={{ border: "1px solid rgba(255,255,255,0.12)" }}
+            >
+              <div className="relative h-28 overflow-hidden">
+                <img src={WEDDING_IMG} alt="Песни и хиты на заказ" className="w-full h-full object-cover" style={{ opacity: 0.45 }} loading="lazy" decoding="async" />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #3B0764 0%, #6B21A8 60%, #9333EA 100%)", opacity: 0.75 }} />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.2)" }}>
+                    <Icon name="Gift" size={22} style={{ color: "#fff" }} />
                   </div>
                 </div>
-                {/* Текст */}
-                <div className="flex flex-col flex-1 p-4" style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(10px)" }}>
-                  <h3 className="font-bold text-white text-base mb-2 leading-snug">{card.title}</h3>
-                  <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "rgba(196,181,253,0.75)" }}>{card.desc}</p>
-                  {card.scroll ? (
-                    <button
-                      onClick={() => document.getElementById(card.scroll!)?.scrollIntoView({ behavior: "smooth" })}
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 w-full"
-                      style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", color: "#fff" }}
-                    >
-                      {card.btn}
-                    </button>
-                  ) : (
-                    <a
-                      href={card.href!}
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 w-full"
-                      style={{ background: "rgba(168,85,247,0.15)", color: "#C084FC", border: "1px solid rgba(168,85,247,0.3)" }}
-                    >
-                      {card.btn}
-                    </a>
-                  )}
-                </div>
               </div>
-            ))}
+              <div className="flex flex-col flex-1 p-4" style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(10px)" }}>
+                <h3 className="font-bold text-white text-base mb-2 leading-snug">Песни и хиты на заказ</h3>
+                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "rgba(196,181,253,0.75)" }}>Персональные песни по вашей истории, живой вокал, семейные хиты.</p>
+                <button
+                  onClick={() => document.getElementById("gift-song-section")?.scrollIntoView({ behavior: "smooth" })}
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 w-full"
+                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", color: "#fff" }}
+                >
+                  Выбрать песню
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
