@@ -800,36 +800,6 @@ export default function PesnyaVPodarok() {
               </Button>
             </div>
 
-            {/* Package 2 — С голосом автора */}
-            <div className="p-7 rounded-2xl flex flex-col transition-all hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #E9E3F7", background: "#FAFAFE" }}>
-              <div className="mb-4">
-                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full" style={{ background: "#FCE7F3", color: "#9D174D" }}>
-                  Ваш голос
-                </span>
-              </div>
-              <h3 className="font-extrabold text-xl mb-1" style={{ color: "#1A1030" }}>С голосом заказчика</h3>
-              <p className="text-base mb-5" style={{ color: "#6B5E91" }}>Вы присылаете голос — он звучит в треке</p>
-              <div className="text-4xl font-extrabold mb-1" style={{ color: "#A855F7" }}>7 000 ₽</div>
-              <p className="text-sm mb-6" style={{ color: "#9688B8" }}>Без передачи авторских прав</p>
-              <ul className="space-y-3 mb-8 flex-1">
-                {[
-                  "Авторский текст на основе вашей истории",
-                  "Профессиональная аранжировка",
-                  "Ваш голос вписан в трек",
-                  "До 3 правок бесплатно",
-                  "Срок: 2–3 дня",
-                  "Файл MP3 навсегда ваш",
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-base" style={{ color: "#4A3F6B" }}>
-                    <Icon name="Check" size={15} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} /> {f}
-                  </li>
-                ))}
-              </ul>
-              <Button onClick={scrollToForm} className="w-full py-4 rounded-xl font-bold" variant="outline" style={{ borderColor: "#A855F7", color: "#A855F7" }}>
-                Заказать
-              </Button>
-            </div>
-
             {/* Package 3 — С авторскими правами (выделенная) */}
             <div className="p-7 rounded-2xl relative flex flex-col" style={{ border: "2px solid #A855F7", background: "linear-gradient(135deg, #FAF5FF 0%, #FDF2F8 100%)", boxShadow: "0 16px 48px rgba(168,85,247,0.18)", transform: "scale(1.02)" }}>
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
