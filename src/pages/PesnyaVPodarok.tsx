@@ -16,7 +16,7 @@ const playerTracks: Track[] = [
     title: "Личный герой",
     occasion: "для любимого человека",
     emoji: "❤️",
-    publicKey: "https://disk.yandex.ru/d/Qt-vD587OVtjOQ",
+    publicKey: "https://disk.yandex.ru/d/wfEcIXNjUkFpuA",
     desc: "Девушка поздравила своего парня, героя войны, с днём рождения. Её слова: «Мне вас сам Бог послал» — стали самым тёплым отзывом.",
   },
   {
