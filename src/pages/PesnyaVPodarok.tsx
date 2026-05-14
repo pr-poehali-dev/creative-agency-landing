@@ -310,17 +310,6 @@ export default function PesnyaVPodarok() {
       {calcOpen && <OrderCalculator onClose={() => setCalcOpen(false)} />}
 
       {/* Sticky CTA button */}
-      <a
-        href="https://t.me/izmailova8888"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-full shadow-xl text-white text-sm font-semibold transition-transform hover:scale-105"
-        style={{ background: "linear-gradient(135deg, #A855F7 0%, #FF4DA6 100%)", boxShadow: "0 8px 24px rgba(168,85,247,0.5)" }}
-      >
-        <Icon name="Send" size={18} />
-        Написать в Telegram
-      </a>
-
       {/* ─── NAV ──────────────────────────────────────────────── */}
       <nav className="fixed top-0 w-full z-50" style={{ background: "rgba(14,11,26,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(168,85,247,0.2)" }}>
         <div className="container mx-auto max-w-6xl px-6 py-3 flex items-center justify-between gap-4">
