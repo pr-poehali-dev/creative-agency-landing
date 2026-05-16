@@ -14,12 +14,13 @@
       "expectedStatus": 400
     },
     {
-      "name": "Успешный запрос с email клиента",
+      "name": "Реальный тест отправки письма",
       "method": "POST",
       "path": "/",
-      "body": {"name": "Тест", "contact": "+79001234567", "client_email": "test@example.com", "message": "Тестовое сообщение", "channel": "email"},
+      "body": {"name": "Тест Юра", "contact": "+79001234567", "client_email": "aimuselab@yandex.ru", "message": "Тестовое письмо — проверка работы формы", "channel": "email"},
       "expectedStatus": 200,
-      "expectedStatus": 200
+      "expectedBody": {"ok": true},
+      "bodyMatcher": "partial"
     }
   ]
 }

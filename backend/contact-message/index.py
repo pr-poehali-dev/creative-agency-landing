@@ -22,6 +22,7 @@ def send_sms(text: str) -> bool:
     """Отправляет SMS через sms.ru"""
     api_id = os.environ.get('SMSRU_API_ID', '')
     if not api_id:
+        print('[SMS] SMSRU_API_ID не задан')
         return False
     params = urllib.parse.urlencode({
         'api_id': api_id,
@@ -41,8 +42,10 @@ def send_email_to_owner(order_id: str, from_name: str, from_contact: str, messag
     """Отправляет письмо владельцу через Яндекс SMTP"""
     smtp_password = os.environ.get('YANDEX_SMTP_PASSWORD', '')
     if not smtp_password:
+        print('[EMAIL] YANDEX_SMTP_PASSWORD не задан')
         return False
 
+    print(f'[EMAIL] Отправка письма владельцу на {OWNER_EMAIL}')
     msg = MIMEMultipart('alternative')
     msg['Subject'] = f'[{order_id}] Новая заявка с сайта от {from_name}'
     msg['From'] = OWNER_EMAIL
@@ -58,18 +61,31 @@ def send_email_to_owner(order_id: str, from_name: str, from_contact: str, messag
 """
     msg.attach(MIMEText(body, 'plain', 'utf-8'))
 
-    with smtplib.SMTP_SSL('smtp.yandex.ru', 465) as server:
-        server.login(OWNER_EMAIL, smtp_password)
-        server.sendmail(OWNER_EMAIL, OWNER_EMAIL, msg.as_string())
-    return True
+    try:
+        with smtplib.SMTP_SSL('smtp.yandex.ru', 465) as server:
+            server.login(OWNER_EMAIL, smtp_password)
+            server.sendmail(OWNER_EMAIL, OWNER_EMAIL, msg.as_string())
+        print(f'[EMAIL] Письмо владельцу отправлено успешно')
+        return True
+    except smtplib.SMTPAuthenticationError as e:
+        print(f'[EMAIL] Ошибка аутентификации SMTP: {e}')
+        return False
+    except smtplib.SMTPException as e:
+        print(f'[EMAIL] SMTP ошибка: {e}')
+        return False
+    except Exception as e:
+        print(f'[EMAIL] Неизвестная ошибка: {e}')
+        return False
 
 
 def send_confirmation_to_client(order_id: str, client_name: str, client_email: str, message_text: str) -> bool:
     """Отправляет письмо-подтверждение клиенту"""
     smtp_password = os.environ.get('YANDEX_SMTP_PASSWORD', '')
     if not smtp_password or not client_email:
+        print(f'[EMAIL] Пропуск письма клиенту: password={bool(smtp_password)}, email={client_email}')
         return False
 
+    print(f'[EMAIL] Отправка подтверждения клиенту на {client_email}')
     msg = MIMEMultipart('alternative')
     msg['Subject'] = f'Заявка {order_id} принята — AI Muse Lab'
     msg['From'] = OWNER_EMAIL
@@ -125,10 +141,21 @@ def send_confirmation_to_client(order_id: str, client_name: str, client_email: s
 
     msg.attach(MIMEText(html_body, 'html', 'utf-8'))
 
-    with smtplib.SMTP_SSL('smtp.yandex.ru', 465) as server:
-        server.login(OWNER_EMAIL, smtp_password)
-        server.sendmail(OWNER_EMAIL, client_email, msg.as_string())
-    return True
+    try:
+        with smtplib.SMTP_SSL('smtp.yandex.ru', 465) as server:
+            server.login(OWNER_EMAIL, smtp_password)
+            server.sendmail(OWNER_EMAIL, client_email, msg.as_string())
+        print(f'[EMAIL] Письмо клиенту отправлено успешно на {client_email}')
+        return True
+    except smtplib.SMTPAuthenticationError as e:
+        print(f'[EMAIL] Ошибка аутентификации SMTP: {e}')
+        return False
+    except smtplib.SMTPException as e:
+        print(f'[EMAIL] SMTP ошибка: {e}')
+        return False
+    except Exception as e:
+        print(f'[EMAIL] Неизвестная ошибка: {e}')
+        return False
 
 
 def handler(event: dict, context) -> dict:
@@ -153,6 +180,8 @@ def handler(event: dict, context) -> dict:
     message = body.get('message', '').strip()
     channel = body.get('channel', 'email')
 
+    print(f'[HANDLER] Новая заявка: name={name}, contact={contact}, channel={channel}, client_email={client_email}')
+
     if not name or not contact or not message:
         return {
             'statusCode': 400,
@@ -171,6 +200,8 @@ def handler(event: dict, context) -> dict:
         results['owner_email'] = send_email_to_owner(order_id, name, contact, message)
         if client_email:
             results['client_email'] = send_confirmation_to_client(order_id, name, client_email, message)
+
+    print(f'[HANDLER] Результат: order_id={order_id}, results={results}')
 
     return {
         'statusCode': 200,
