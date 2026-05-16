@@ -717,36 +717,9 @@ export default function PesnyaVPodarok() {
             Никаких скрытых платежей — всё включено
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
 
-            {/* Тариф 1 — Музыкальное СМС */}
-            <div className="p-7 rounded-2xl flex flex-col transition-all hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #E9E3F7", background: "#FAFAFE" }}>
-              <div className="mb-4">
-                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full" style={{ background: "#EDE9FE", color: "#7C3AED" }}>
-                  Музыкальное СМС
-                </span>
-              </div>
-              <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Музыкальное СМС</h3>
-              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>1 минута вашей истории. Идеально для короткого, но очень личного поздравления в соцсетях или мессенджере.</p>
-              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>1 990 ₽</div>
-              <ul className="space-y-3 mb-8 flex-1">
-                {[
-                  "Ваш текст или смысл текста",
-                  "AI-аранжировка в выбранном стиле",
-                  "Срок: 1 час",
-                  "Файл в MP3",
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#4A3F6B" }}>
-                    <Icon name="Check" size={14} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} /> {f}
-                  </li>
-                ))}
-              </ul>
-              <Button onClick={scrollToForm} className="w-full py-4 rounded-xl font-bold" variant="outline" style={{ borderColor: "#A855F7", color: "#A855F7" }}>
-                Заказать мини
-              </Button>
-            </div>
-
-            {/* Тариф 2 — Признание */}
+            {/* Тариф 1 — Признание */}
             <div className="p-7 rounded-2xl flex flex-col transition-all hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #E9E3F7", background: "#FAFAFE" }}>
               <div className="mb-4">
                 <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full" style={{ background: "#FCE7F3", color: "#9D174D" }}>
@@ -755,7 +728,7 @@ export default function PesnyaVPodarok() {
               </div>
               <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Признание</h3>
               <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>Полноценная песня, которая расскажет всё, что у вас на сердце. Для тех, кто хочет тронуть до слёз.</p>
-              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>5 000 ₽</div>
+              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>9 900 ₽</div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
                   "Полная песня (куплеты, припевы)",
@@ -788,7 +761,7 @@ export default function PesnyaVPodarok() {
               </div>
               <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Сюрприз</h3>
               <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>Всё из «Признания» + полные права и релиз на стримингах. Чтобы ваш подарок услышал весь мир.</p>
-              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>9 900 ₽</div>
+              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>14 900 ₽</div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
                   "Всё из тарифа «Признание»",
