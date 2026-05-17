@@ -36,12 +36,46 @@ TRACKS_META = [
 ]
 
 
+def find_file_key(s3, project_id: str, filename: str) -> str:
+    """Ищет файл в бакете — в корне, в /files/, в /песни/ и других папках"""
+    candidates = [
+        filename,
+        f'files/{filename}',
+        f'песни/{filename}',
+        f'pesni/{filename}',
+        f'audio/{filename}',
+        f'music/{filename}',
+        f'tracks/{filename}',
+    ]
+    for key in candidates:
+        try:
+            s3.head_object(Bucket='files', Key=key)
+            print(f'[S3] Найден файл: {key}')
+            return f"https://cdn.poehali.dev/projects/{project_id}/bucket/{key}"
+        except Exception:
+            pass
+    print(f'[S3] Файл не найден нигде: {filename}')
+    return f"https://cdn.poehali.dev/projects/{project_id}/bucket/{filename}"
+
+
 def get_tracks() -> list:
     """Формирует треки с прямыми CDN-ссылками из S3"""
     project_id = os.environ['AWS_ACCESS_KEY_ID']
+    s3 = boto3.client(
+        's3',
+        endpoint_url='https://bucket.poehali.dev',
+        aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+        aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
+    )
+
+    # Показать всё что есть в бакете
+    resp = s3.list_objects_v2(Bucket='files', MaxKeys=200)
+    all_keys = [o['Key'] for o in resp.get('Contents', [])]
+    print(f'[S3] Все файлы в бакете ({len(all_keys)}): {all_keys}')
+
     tracks = []
     for meta in TRACKS_META:
-        url = f"https://cdn.poehali.dev/projects/{project_id}/bucket/{meta['file']}"
+        url = find_file_key(s3, project_id, meta['file'])
         tracks.append({
             'id': meta['id'],
             'title': meta['title'],
