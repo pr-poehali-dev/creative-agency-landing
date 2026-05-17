@@ -20,9 +20,10 @@ def list_audio_files() -> list:
         aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
         aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
     )
-    response = s3.list_objects_v2(Bucket='files')
+    response = s3.list_objects_v2(Bucket='files', MaxKeys=1000)
     all_keys = [obj['Key'] for obj in response.get('Contents', [])]
-    print(f'[S3] Все файлы в хранилище ({len(all_keys)}): {all_keys}')
+    print(f'[S3] Бакет "files", всего объектов ({len(all_keys)}): {all_keys}')
+    print(f'[S3] IsTruncated={response.get("IsTruncated")}, KeyCount={response.get("KeyCount")}')
     files = []
     for obj in response.get('Contents', []):
         key = obj['Key']
