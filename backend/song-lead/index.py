@@ -2,6 +2,7 @@ import json
 import os
 import urllib.request
 import urllib.parse
+import boto3
 
 CORS = {
     'Access-Control-Allow-Origin': '*',
@@ -10,56 +11,67 @@ CORS = {
     'Access-Control-Max-Age': '86400',
 }
 
-TRACKS = [
-    {
-        'id': 'lichnyj-geroj',
-        'title': 'Личный герой',
-        'occasion': 'для любимого человека',
-        'emoji': '❤️',
-        'public_key': 'https://disk.yandex.ru/d/Qt-vD587OVtjOQ',
-    },
-    {
-        'id': 'zryachee-serdce',
-        'title': 'Зрячее сердце',
-        'occasion': 'для бабушки',
-        'emoji': '🌸',
-        'public_key': 'https://disk.yandex.ru/d/ma-Q1rEWWSh4WQ',
-    },
-    {
-        'id': 'kajfuyu-s-yanoj',
-        'title': 'Кайфую с Яной',
-        'occasion': 'для подруги на день рождения',
-        'emoji': '🎉',
-        'public_key': 'https://disk.yandex.ru/d/Qt-vD587OVtjOQ',
-    },
-]
 
-
-def get_yadisk_url(public_key: str) -> str:
-    api = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?public_key=' + urllib.parse.quote(public_key, safe='')
-    req = urllib.request.Request(api, headers={'User-Agent': 'Mozilla/5.0'})
-    with urllib.request.urlopen(req, timeout=10) as resp:
-        return json.loads(resp.read())['href']
+def list_audio_files() -> list:
+    """Возвращает mp3/wav файлы из S3-хранилища"""
+    s3 = boto3.client(
+        's3',
+        endpoint_url='https://bucket.poehali.dev',
+        aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+        aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
+    )
+    response = s3.list_objects_v2(Bucket='files')
+    all_keys = [obj['Key'] for obj in response.get('Contents', [])]
+    print(f'[S3] Все файлы в хранилище ({len(all_keys)}): {all_keys}')
+    files = []
+    for obj in response.get('Contents', []):
+        key = obj['Key']
+        if any(key.lower().endswith(ext) for ext in ['.mp3', '.wav', '.ogg', '.m4a', '.flac']):
+            files.append({
+                'key': key,
+                'size': obj['Size'],
+                'url': f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{key}",
+            })
+    return files
 
 
 def handler(event: dict, context) -> dict:
-    """GET — возвращает прямые ссылки на треки с Яндекс.Диска. POST — принимает заявку."""
+    """GET — список аудио-файлов из S3 или отправка треков. POST — принимает заявку."""
 
     if event.get('httpMethod') == 'OPTIONS':
         return {'statusCode': 200, 'headers': CORS, 'body': ''}
 
     if event.get('httpMethod') == 'GET':
-        result = []
-        for track in TRACKS:
-            try:
-                audio_url = get_yadisk_url(track['public_key'])
-            except Exception:
-                audio_url = None
-            result.append({**{k: v for k, v in track.items() if k != 'public_key'}, 'audioUrl': audio_url})
+        params = event.get('queryStringParameters') or {}
+
+        if params.get('action') == 'list-storage':
+            files = list_audio_files()
+            print(f'[STORAGE] Найдено аудио файлов: {len(files)}')
+            for f in files:
+                print(f'  - {f["key"]} ({f["size"]} bytes) → {f["url"]}')
+            return {
+                'statusCode': 200,
+                'headers': CORS,
+                'body': json.dumps({'files': files}, ensure_ascii=False),
+            }
+
+        files = list_audio_files()
+        tracks = []
+        for f in files:
+            name = f['key'].rsplit('/', 1)[-1]
+            title = name.rsplit('.', 1)[0]
+            tracks.append({
+                'id': title.lower().replace(' ', '-'),
+                'title': title,
+                'occasion': '',
+                'emoji': '🎵',
+                'audioUrl': f['url'],
+            })
+
         return {
             'statusCode': 200,
             'headers': CORS,
-            'body': json.dumps({'tracks': result}, ensure_ascii=False),
+            'body': json.dumps({'tracks': tracks}, ensure_ascii=False),
         }
 
     body = json.loads(event.get('body') or '{}')
