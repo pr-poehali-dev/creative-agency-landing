@@ -2,7 +2,6 @@ import json
 import os
 import urllib.request
 import urllib.parse
-import boto3
 
 CORS = {
     'Access-Control-Allow-Origin': '*',
@@ -11,82 +10,42 @@ CORS = {
     'Access-Control-Max-Age': '86400',
 }
 
-TRACKS_META = [
+TRACKS = [
     {
         'id': 'lichnyj-geroj',
         'title': 'Личный герой',
         'occasion': 'для любимого человека',
         'emoji': '❤️',
+        'audioUrl': 'https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/ad642f12-36cb-498b-b796-17767144838f.mp3',
     },
     {
         'id': 'zryachee-serdce',
         'title': 'Зрячее сердце',
         'occasion': 'для бабушки',
         'emoji': '🌸',
+        'audioUrl': 'https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/8a3562dd-d3af-47dd-9f18-1b13d0c326cb.mp3',
     },
     {
         'id': 'kajfuyu-s-yanoj',
         'title': 'Кайфую с Яной',
         'occasion': 'для подруги на день рождения',
         'emoji': '🎉',
+        'audioUrl': 'https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/e43d6175-fb83-4844-bff3-684b8a5c8008.mp3',
     },
 ]
 
 
-def get_tracks() -> list:
-    """Читает mp3-файлы из S3 и сопоставляет с метаданными треков"""
-    project_id = os.environ['AWS_ACCESS_KEY_ID']
-    s3 = boto3.client(
-        's3',
-        endpoint_url='https://bucket.poehali.dev',
-        aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
-        aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
-    )
-
-    resp = s3.list_objects_v2(Bucket='files', MaxKeys=1000)
-    all_objects = resp.get('Contents', [])
-    print(f'[S3] Всего объектов в бакете: {len(all_objects)}')
-    for o in all_objects:
-        print(f'  key={o["Key"]}, size={o["Size"]}')
-
-    # Фильтруем только mp3 файлы, сортируем по дате загрузки
-    mp3_files = sorted(
-        [o for o in all_objects if o['Key'].lower().endswith('.mp3')],
-        key=lambda o: o['LastModified']
-    )
-    print(f'[S3] MP3 файлов: {len(mp3_files)}')
-
-    tracks = []
-    for i, meta in enumerate(TRACKS_META):
-        if i < len(mp3_files):
-            key = mp3_files[i]['Key']
-            url = f"https://cdn.poehali.dev/projects/{project_id}/bucket/{key}"
-        else:
-            url = None
-        print(f'[TRACK] {meta["title"]} → {url}')
-        tracks.append({
-            'id': meta['id'],
-            'title': meta['title'],
-            'occasion': meta['occasion'],
-            'emoji': meta['emoji'],
-            'audioUrl': url,
-        })
-
-    return tracks
-
-
 def handler(event: dict, context) -> dict:
-    """GET — треки из S3 для плеера. POST — принимает заявку."""
+    """GET — треки из S3 для встроенного плеера. POST — принимает заявку."""
 
     if event.get('httpMethod') == 'OPTIONS':
         return {'statusCode': 200, 'headers': CORS, 'body': ''}
 
     if event.get('httpMethod') == 'GET':
-        tracks = get_tracks()
         return {
             'statusCode': 200,
             'headers': CORS,
-            'body': json.dumps({'tracks': tracks}, ensure_ascii=False),
+            'body': json.dumps({'tracks': TRACKS}, ensure_ascii=False),
         }
 
     body = json.loads(event.get('body') or '{}')

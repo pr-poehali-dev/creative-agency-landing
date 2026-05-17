@@ -11,7 +11,7 @@
       "method": "GET",
       "path": "/",
       "expectedStatus": 200,
-      "expectedBody": { "tracks": [{"id": "lichnyj-geroj"}] },
+      "expectedBody": { "tracks": [{"id": "lichnyj-geroj", "audioUrl": "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/ad642f12-36cb-498b-b796-17767144838f.mp3"}] },
       "bodyMatcher": "partial"
     },
     {
