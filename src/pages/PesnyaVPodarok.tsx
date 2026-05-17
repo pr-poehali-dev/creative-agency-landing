@@ -456,6 +456,23 @@ export default function PesnyaVPodarok() {
             <span style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>расскажет вашу историю</span>
           </h1>
 
+          {/* Видео-приветствие */}
+          <div className="w-full max-w-sm mx-auto mb-8">
+            <div
+              className="relative rounded-2xl overflow-hidden"
+              style={{ boxShadow: "0 8px 40px rgba(168,85,247,0.25)", border: "2px solid rgba(168,85,247,0.3)" }}
+            >
+              <video
+                src="VIDEO_URL_PLACEHOLDER"
+                controls
+                playsInline
+                className="w-full"
+                style={{ display: "block", maxHeight: 400, background: "#1A1030" }}
+                poster=""
+              />
+            </div>
+          </div>
+
           {/* Главная CTA кнопка */}
           <button
             onClick={scrollToForm}
