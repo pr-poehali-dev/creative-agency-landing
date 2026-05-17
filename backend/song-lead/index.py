@@ -11,64 +11,56 @@ CORS = {
     'Access-Control-Max-Age': '86400',
 }
 
+TRACKS_META = [
+    {
+        'id': 'lichnyj-geroj',
+        'file': 'lichnyj-geroj.mp3',
+        'title': 'Личный герой',
+        'occasion': 'для любимого человека',
+        'emoji': '❤️',
+    },
+    {
+        'id': 'zryachee-serdce',
+        'file': 'serdce.mp3',
+        'title': 'Зрячее сердце',
+        'occasion': 'для бабушки',
+        'emoji': '🌸',
+    },
+    {
+        'id': 'kajfuyu-s-yanoj',
+        'file': 'jana.mp3',
+        'title': 'Кайфую с Яной',
+        'occasion': 'для подруги на день рождения',
+        'emoji': '🎉',
+    },
+]
 
-def list_audio_files() -> list:
-    """Возвращает mp3/wav файлы из S3-хранилища"""
-    s3 = boto3.client(
-        's3',
-        endpoint_url='https://bucket.poehali.dev',
-        aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
-        aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
-    )
-    response = s3.list_objects_v2(Bucket='files', MaxKeys=1000)
-    all_keys = [obj['Key'] for obj in response.get('Contents', [])]
-    print(f'[S3] Бакет "files", всего объектов ({len(all_keys)}): {all_keys}')
-    print(f'[S3] IsTruncated={response.get("IsTruncated")}, KeyCount={response.get("KeyCount")}')
-    files = []
-    for obj in response.get('Contents', []):
-        key = obj['Key']
-        if any(key.lower().endswith(ext) for ext in ['.mp3', '.wav', '.ogg', '.m4a', '.flac']):
-            files.append({
-                'key': key,
-                'size': obj['Size'],
-                'url': f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{key}",
-            })
-    return files
+
+def get_tracks() -> list:
+    """Формирует треки с прямыми CDN-ссылками из S3"""
+    project_id = os.environ['AWS_ACCESS_KEY_ID']
+    tracks = []
+    for meta in TRACKS_META:
+        url = f"https://cdn.poehali.dev/projects/{project_id}/bucket/{meta['file']}"
+        tracks.append({
+            'id': meta['id'],
+            'title': meta['title'],
+            'occasion': meta['occasion'],
+            'emoji': meta['emoji'],
+            'audioUrl': url,
+        })
+        print(f"[TRACK] {meta['title']} → {url}")
+    return tracks
 
 
 def handler(event: dict, context) -> dict:
-    """GET — список аудио-файлов из S3 или отправка треков. POST — принимает заявку."""
+    """GET — треки из S3 для плеера. POST — принимает заявку."""
 
     if event.get('httpMethod') == 'OPTIONS':
         return {'statusCode': 200, 'headers': CORS, 'body': ''}
 
     if event.get('httpMethod') == 'GET':
-        params = event.get('queryStringParameters') or {}
-
-        if params.get('action') == 'list-storage':
-            files = list_audio_files()
-            print(f'[STORAGE] Найдено аудио файлов: {len(files)}')
-            for f in files:
-                print(f'  - {f["key"]} ({f["size"]} bytes) → {f["url"]}')
-            return {
-                'statusCode': 200,
-                'headers': CORS,
-                'body': json.dumps({'files': files}, ensure_ascii=False),
-            }
-
-        files = list_audio_files()
-        tracks = []
-        for f in files:
-            name = f['key'].rsplit('/', 1)[-1]
-            title = name.rsplit('.', 1)[0]
-            tracks.append({
-                'id': title.lower().replace(' ', '-'),
-                'title': title,
-                'occasion': '',
-                'emoji': '🎵',
-                'audioUrl': f['url'],
-            })
-
+        tracks = get_tracks()
         return {
             'statusCode': 200,
             'headers': CORS,

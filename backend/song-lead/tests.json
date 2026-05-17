@@ -11,7 +11,7 @@
       "method": "GET",
       "path": "/",
       "expectedStatus": 200,
-      "expectedBody": { "tracks": [] },
+      "expectedBody": { "tracks": [{"id": "lichnyj-geroj"}] },
       "bodyMatcher": "partial"
     },
     {

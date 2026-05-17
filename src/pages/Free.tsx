@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
@@ -5,29 +6,7 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 import AudioPlayer, { Track } from "@/components/AudioPlayer";
 import Icon from "@/components/ui/icon";
 
-const tracks: Track[] = [
-  {
-    id: "lichnyj-geroj",
-    title: "Личный герой",
-    occasion: "для любимого человека",
-    emoji: "❤️",
-    publicKey: "https://disk.yandex.ru/d/wfEcIXNjUkFpuA",
-  },
-  {
-    id: "zryachee-serdce",
-    title: "Зрячее сердце",
-    occasion: "для бабушки",
-    emoji: "🌸",
-    publicKey: "https://disk.yandex.ru/d/ma-Q1rEWWSh4WQ",
-  },
-  {
-    id: "kajfuyu-s-yanoj",
-    title: "Кайфую с Яной",
-    occasion: "для подруги на день рождения",
-    emoji: "🎉",
-    publicKey: "https://disk.yandex.ru/d/Qt-vD587OVtjOQ",
-  },
-];
+const TRACKS_URL = "https://functions.poehali.dev/1da8aa11-ec15-4134-82ec-7826c554f737";
 
 export default function Free() {
   usePageMeta({
@@ -36,6 +15,15 @@ export default function Free() {
       "Боишься, что песня не тронет? Послушай прямо здесь — 3 реальные авторские песни по историям людей. Без регистрации.",
     ogUrl: "https://aimuselab.ru/free",
   });
+
+  const [tracks, setTracks] = useState<Track[]>([]);
+
+  useEffect(() => {
+    fetch(TRACKS_URL)
+      .then(r => r.json())
+      .then(data => setTracks(data.tracks || []))
+      .catch(() => {});
+  }, []);
 
   return (
     <>
@@ -83,7 +71,13 @@ export default function Free() {
 
         {/* Плеер */}
         <section className="max-w-2xl mx-auto mb-10">
-          <AudioPlayer tracks={tracks} />
+          {tracks.length === 0 ? (
+            <div className="flex justify-center py-10">
+              <div className="w-8 h-8 rounded-full border-2 border-purple-500 border-t-transparent animate-spin" />
+            </div>
+          ) : (
+            <AudioPlayer tracks={tracks} />
+          )}
         </section>
 
         {/* Социальное доказательство */}

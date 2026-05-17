@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CookieBanner from "@/components/CookieBanner";
 import Footer from "@/components/Footer";
@@ -10,32 +10,13 @@ import OrderCalculator from "@/components/OrderCalculator";
 import AudioPlayer, { Track } from "@/components/AudioPlayer";
 import GiftForm from "@/components/GiftForm";
 
-const playerTracks: Track[] = [
-  {
-    id: "lichnyj-geroj",
-    title: "Личный герой",
-    occasion: "для любимого человека",
-    emoji: "❤️",
-    publicKey: "https://disk.yandex.ru/d/wfEcIXNjUkFpuA",
-    desc: "Девушка поздравила своего парня, героя войны, с днём рождения. Её слова: «Мне вас сам Бог послал» — стали самым тёплым отзывом.",
-  },
-  {
-    id: "zryachee-serdce",
-    title: "Зрячее сердце",
-    occasion: "для бабушки",
-    emoji: "🌸",
-    publicKey: "https://disk.yandex.ru/d/ma-Q1rEWWSh4WQ",
-    desc: "Семья поздравляла свою слепую бабушку. В её памяти живы картинки из прошлого — и эта песня стала талисманом любви всей семьи.",
-  },
-  {
-    id: "kajfuyu-s-yanoj",
-    title: "Кайфую с Яной",
-    occasion: "для подруги на день рождения",
-    emoji: "🎉",
-    publicKey: "https://disk.yandex.ru/d/Qt-vD587OVtjOQ",
-    desc: "Весёлая, искренняя, настоящая. Именно такой и должна быть дружеская песня.",
-  },
-];
+const TRACKS_URL = "https://functions.poehali.dev/1da8aa11-ec15-4134-82ec-7826c554f737";
+
+const TRACK_DESCS: Record<string, string> = {
+  "lichnyj-geroj": "Девушка поздравила своего парня, героя войны, с днём рождения. Её слова: «Мне вас сам Бог послал» — стали самым тёплым отзывом.",
+  "zryachee-serdce": "Семья поздравляла свою слепую бабушку. В её памяти живы картинки из прошлого — и эта песня стала талисманом любви всей семьи.",
+  "kajfuyu-s-yanoj": "Весёлая, искренняя, настоящая. Именно такой и должна быть дружеская песня.",
+};
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/4fee9940-7db1-4128-9a82-27b34ded74bb.jpg";
 const VINYL_IMG = "https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/1b51b62f-525c-42f3-ac36-5114e5d51e17.jpg";
@@ -294,6 +275,20 @@ export default function PesnyaVPodarok() {
   const [openLyrics, setOpenLyrics] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
+  const [playerTracks, setPlayerTracks] = useState<Track[]>([]);
+
+  useEffect(() => {
+    fetch(TRACKS_URL)
+      .then(r => r.json())
+      .then(data => {
+        const tracks = (data.tracks || []).map((t: Track) => ({
+          ...t,
+          desc: TRACK_DESCS[t.id] || t.desc,
+        }));
+        setPlayerTracks(tracks);
+      })
+      .catch(() => {});
+  }, []);
 
   const scrollToCalc = () => {
     document.getElementById("calculator-section")?.scrollIntoView({ behavior: "smooth" });
