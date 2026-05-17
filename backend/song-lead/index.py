@@ -14,21 +14,18 @@ CORS = {
 TRACKS_META = [
     {
         'id': 'lichnyj-geroj',
-        'file': 'lichnyj-geroj.mp3',
         'title': 'Личный герой',
         'occasion': 'для любимого человека',
         'emoji': '❤️',
     },
     {
         'id': 'zryachee-serdce',
-        'file': 'serdce.mp3',
         'title': 'Зрячее сердце',
         'occasion': 'для бабушки',
         'emoji': '🌸',
     },
     {
         'id': 'kajfuyu-s-yanoj',
-        'file': 'jana.mp3',
         'title': 'Кайфую с Яной',
         'occasion': 'для подруги на день рождения',
         'emoji': '🎉',
@@ -36,30 +33,8 @@ TRACKS_META = [
 ]
 
 
-def find_file_key(s3, project_id: str, filename: str) -> str:
-    """Ищет файл в бакете — в корне, в /files/, в /песни/ и других папках"""
-    candidates = [
-        filename,
-        f'files/{filename}',
-        f'песни/{filename}',
-        f'pesni/{filename}',
-        f'audio/{filename}',
-        f'music/{filename}',
-        f'tracks/{filename}',
-    ]
-    for key in candidates:
-        try:
-            s3.head_object(Bucket='files', Key=key)
-            print(f'[S3] Найден файл: {key}')
-            return f"https://cdn.poehali.dev/projects/{project_id}/bucket/{key}"
-        except Exception:
-            pass
-    print(f'[S3] Файл не найден нигде: {filename}')
-    return f"https://cdn.poehali.dev/projects/{project_id}/bucket/{filename}"
-
-
 def get_tracks() -> list:
-    """Формирует треки с прямыми CDN-ссылками из S3"""
+    """Читает mp3-файлы из S3 и сопоставляет с метаданными треков"""
     project_id = os.environ['AWS_ACCESS_KEY_ID']
     s3 = boto3.client(
         's3',
@@ -68,14 +43,27 @@ def get_tracks() -> list:
         aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
     )
 
-    # Показать всё что есть в бакете
-    resp = s3.list_objects_v2(Bucket='files', MaxKeys=200)
-    all_keys = [o['Key'] for o in resp.get('Contents', [])]
-    print(f'[S3] Все файлы в бакете ({len(all_keys)}): {all_keys}')
+    resp = s3.list_objects_v2(Bucket='files', MaxKeys=1000)
+    all_objects = resp.get('Contents', [])
+    print(f'[S3] Всего объектов в бакете: {len(all_objects)}')
+    for o in all_objects:
+        print(f'  key={o["Key"]}, size={o["Size"]}')
+
+    # Фильтруем только mp3 файлы, сортируем по дате загрузки
+    mp3_files = sorted(
+        [o for o in all_objects if o['Key'].lower().endswith('.mp3')],
+        key=lambda o: o['LastModified']
+    )
+    print(f'[S3] MP3 файлов: {len(mp3_files)}')
 
     tracks = []
-    for meta in TRACKS_META:
-        url = find_file_key(s3, project_id, meta['file'])
+    for i, meta in enumerate(TRACKS_META):
+        if i < len(mp3_files):
+            key = mp3_files[i]['Key']
+            url = f"https://cdn.poehali.dev/projects/{project_id}/bucket/{key}"
+        else:
+            url = None
+        print(f'[TRACK] {meta["title"]} → {url}')
         tracks.append({
             'id': meta['id'],
             'title': meta['title'],
@@ -83,7 +71,7 @@ def get_tracks() -> list:
             'emoji': meta['emoji'],
             'audioUrl': url,
         })
-        print(f"[TRACK] {meta['title']} → {url}")
+
     return tracks
 
 
