@@ -463,12 +463,11 @@ export default function PesnyaVPodarok() {
               style={{ boxShadow: "0 8px 40px rgba(168,85,247,0.25)", border: "2px solid rgba(168,85,247,0.3)" }}
             >
               <video
-                src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/356f909f-8bbf-44d7-9950-db2307b8fd31.MOV"
+                src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/ea3c8d7d-082e-4250-90bf-212bd8608d5d.mp4"
                 controls
                 playsInline
                 className="w-full"
                 style={{ display: "block", maxHeight: 400, background: "#1A1030" }}
-                poster="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/fdcefed6-19e1-41c8-8824-8ee5c25680e9.jpg"
               />
             </div>
           </div>
