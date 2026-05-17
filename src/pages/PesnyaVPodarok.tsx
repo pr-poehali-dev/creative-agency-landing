@@ -468,7 +468,7 @@ export default function PesnyaVPodarok() {
                 playsInline
                 className="w-full"
                 style={{ display: "block", maxHeight: 400, background: "#1A1030" }}
-                poster=""
+                poster="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/files/fdcefed6-19e1-41c8-8824-8ee5c25680e9.jpg"
               />
             </div>
           </div>
