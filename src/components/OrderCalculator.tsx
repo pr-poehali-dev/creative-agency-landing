@@ -30,14 +30,14 @@ const TARIFFS = [
   {
     id: "priznanie",
     name: "Признание",
-    price: 9900,
+    price: 14900,
     desc: "Полная песня · Авторский текст по интервью · 1 день",
     emoji: "❤️",
   },
   {
     id: "syurpriz",
     name: "Сюрприз",
-    price: 14900,
+    price: 29900,
     desc: "Признание + права + релиз на стримингах",
     emoji: "🎁",
     popular: true,
@@ -45,7 +45,7 @@ const TARIFFS = [
   {
     id: "hit",
     name: "Хит",
-    price: 29900,
+    price: 79900,
     desc: "Живой вокал · Студийная запись · Бэк-вокал",
     emoji: "🎤",
   },
