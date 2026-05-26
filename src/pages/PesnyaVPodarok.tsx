@@ -739,7 +739,7 @@ export default function PesnyaVPodarok() {
               </div>
               <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Признание</h3>
               <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>Полноценная песня, которая расскажет всё, что у вас на сердце. Для тех, кто хочет тронуть до слёз.</p>
-              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>9 900 ₽</div>
+              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>14 900 ₽</div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
                   "Полная песня (куплеты, припевы)",
@@ -772,7 +772,7 @@ export default function PesnyaVPodarok() {
               </div>
               <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Сюрприз</h3>
               <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>Всё из «Признания» + полные права и релиз на стримингах. Чтобы ваш подарок услышал весь мир.</p>
-              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>14 900 ₽</div>
+              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>29 900 ₽</div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
                   "Всё из тарифа «Признание»",
@@ -798,7 +798,7 @@ export default function PesnyaVPodarok() {
               </div>
               <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Хит</h3>
               <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>Максимальное звучание. Студийный живой вокал, бэк-вокал, сведение. Для особенных моментов.</p>
-              <div className="text-4xl font-extrabold mb-6" style={{ color: "#EC4899" }}>29 900 ₽</div>
+              <div className="text-4xl font-extrabold mb-6" style={{ color: "#EC4899" }}>79 900 ₽</div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
                   "Всё из тарифа «Сюрприз»",
