@@ -213,7 +213,7 @@ export default function OrderCalculator({ onClose, inline }: Props) {
                   style={{ background: "rgba(236,72,153,0.1)", border: "1.5px solid rgba(236,72,153,0.4)" }}>
                   <span className="text-2xl mb-2">⚡</span>
                   <span className="font-bold text-white text-base">Срочно</span>
-                  <span className="text-sm mt-1" style={{ color: "rgba(196,181,253,0.7)" }}>2–3 часа</span>
+                  <span className="text-sm mt-1" style={{ color: "rgba(196,181,253,0.7)" }}>24 часа</span>
                   <span className="text-sm font-semibold mt-2" style={{ color: "#F472B6" }}>+50% к цене</span>
                 </button>
               </div>
