@@ -745,7 +745,7 @@ export default function PesnyaVPodarok() {
                   "Полная песня (куплеты, припевы)",
                   "AI-аранжировка",
                   "Авторский текст на основе личного интервью с композитором",
-                  "Срок: 1 день",
+                  "Срок: 2–3 дня",
                   "Файл в MP3",
                 ].map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#4A3F6B" }}>

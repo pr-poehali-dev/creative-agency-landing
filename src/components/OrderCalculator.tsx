@@ -204,9 +204,9 @@ export default function OrderCalculator({ onClose, inline }: Props) {
                   className="flex flex-col items-start p-4 rounded-2xl text-left transition-all hover:scale-105"
                   style={{ background: "rgba(168,85,247,0.1)", border: "1.5px solid rgba(168,85,247,0.3)" }}>
                   <span className="text-2xl mb-2">📅</span>
-                  <span className="font-bold text-white text-base">Стандарт</span>
+                  <span className="font-bold text-white text-base">Признание</span>
                   <span className="text-sm mt-1" style={{ color: "rgba(196,181,253,0.7)" }}>2–3 дня</span>
-                  <span className="text-sm font-semibold mt-2" style={{ color: "#C084FC" }}>от 9 900 ₽</span>
+                  <span className="text-sm font-semibold mt-2" style={{ color: "#C084FC" }}>от 14 900 ₽</span>
                 </button>
                 <button onClick={() => { setCalc(p => ({ ...p, urgent: true, liveVocal: false, publication: false })); setStep("options"); }}
                   className="flex flex-col items-start p-4 rounded-2xl text-left transition-all hover:scale-105"
