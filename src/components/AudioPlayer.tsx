@@ -11,8 +11,8 @@ interface Track {
 }
 
 const accentColors: Record<string, { bg: string; border: string; btn: string }> = {
-  "lichnyj-geroj":   { bg: "rgba(236,72,153,0.10)", border: "rgba(236,72,153,0.35)", btn: "linear-gradient(135deg,#ec4899,#a855f7)" },
-  "zryachee-serdce": { bg: "rgba(168,85,247,0.10)", border: "rgba(168,85,247,0.35)", btn: "linear-gradient(135deg,#a855f7,#ec4899)" },
+  "lichnyj-geroj":   { bg: "rgba(236,72,153,0.10)", border: "rgba(236,72,153,0.35)", btn: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)" },
+  "zryachee-serdce": { bg: "rgba(168,85,247,0.10)", border: "rgba(168,85,247,0.35)", btn: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)" },
   "kajfuyu-s-yanoj": { bg: "rgba(45,212,191,0.08)", border: "rgba(45,212,191,0.35)", btn: "linear-gradient(135deg,#0d9488,#a855f7)" },
 };
 

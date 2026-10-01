@@ -21,8 +21,8 @@ export default function NavBar() {
 
         {/* Логотип */}
         <Link to="/" className="flex items-center gap-2 flex-shrink-0 group">
-          <div className="w-7 h-7 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105" style={{ background: "#c2410c" }}>
-            <Icon name="Music2" size={14} style={{ color: "#fff" }} />
+          <div className="w-7 h-7 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105" style={{ background: "#C9974A" }}>
+            <Icon name="Music2" size={14} style={{ color: "#171327" }} />
           </div>
           <span className="font-extrabold text-sm text-white tracking-wider hidden sm:block">AI MUSELAB</span>
         </Link>
@@ -36,9 +36,9 @@ export default function NavBar() {
                 key={link.to}
                 to={link.to}
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all hover:text-white hover:bg-white/5"
-                style={{ color: active ? "#f5c97a" : "#9a7a65" }}
+                style={{ color: active ? "#F3DCA8" : "#9688B8" }}
               >
-                <Icon name={link.icon as "Star"} size={13} style={{ color: active ? "#f5c97a" : "#7a5c44" }} />
+                <Icon name={link.icon as "Star"} size={13} style={{ color: active ? "#F3DCA8" : "#9688B8" }} />
                 {link.label}
               </Link>
             );
@@ -50,7 +50,7 @@ export default function NavBar() {
           <Link
             to="/"
             className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold text-white transition-all hover:scale-105"
-            style={{ background: "#c2410c" }}
+            style={{ background: "#C9974A" }}
           >
             <Icon name="Mic" size={13} />
             Заказать песню
@@ -60,7 +60,7 @@ export default function NavBar() {
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold transition-all hover:scale-105"
-            style={{ background: "rgba(255,255,255,0.07)", color: "#c9a882", border: "1px solid rgba(255,255,255,0.1)" }}
+            style={{ background: "rgba(255,255,255,0.07)", color: "#B8ABCF", border: "1px solid rgba(255,255,255,0.1)" }}
           >
             <Icon name="Send" size={12} />
             Telegram
@@ -73,7 +73,7 @@ export default function NavBar() {
             onClick={() => setOpen(!open)}
             aria-label="Меню"
           >
-            <Icon name={open ? "X" : "Menu"} size={17} style={{ color: "#f5c97a" }} />
+            <Icon name={open ? "X" : "Menu"} size={17} style={{ color: "#F3DCA8" }} />
           </button>
         </div>
       </div>
@@ -93,13 +93,13 @@ export default function NavBar() {
                   style={{ background: active ? "rgba(194,65,12,0.12)" : "transparent" }}
                 >
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: active ? "rgba(194,65,12,0.3)" : "rgba(255,255,255,0.06)" }}>
-                    <Icon name={link.icon as "Star"} size={15} style={{ color: active ? "#f5c97a" : "#7a5c44" }} />
+                    <Icon name={link.icon as "Star"} size={15} style={{ color: active ? "#F3DCA8" : "#9688B8" }} />
                   </div>
                   <div className="flex-1">
-                    <div className="text-sm font-bold" style={{ color: active ? "#f5c97a" : "#fff" }}>{link.label}</div>
-                    <div className="text-xs" style={{ color: "#5a3d2b" }}>{link.desc}</div>
+                    <div className="text-sm font-bold" style={{ color: active ? "#F3DCA8" : "#171327" }}>{link.label}</div>
+                    <div className="text-xs" style={{ color: "#6B5E91" }}>{link.desc}</div>
                   </div>
-                  <Icon name="ChevronRight" size={14} style={{ color: "#3a2010" }} />
+                  <Icon name="ChevronRight" size={14} style={{ color: "#2A2048" }} />
                 </Link>
               );
             })}
@@ -109,7 +109,7 @@ export default function NavBar() {
                 to="/"
                 onClick={() => setOpen(false)}
                 className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-bold text-white"
-                style={{ background: "#c2410c" }}
+                style={{ background: "#C9974A" }}
               >
                 <Icon name="Mic" size={16} />
                 Заказать песню
@@ -119,7 +119,7 @@ export default function NavBar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold"
-                style={{ background: "rgba(255,255,255,0.06)", color: "#c9a882", border: "1px solid rgba(255,255,255,0.08)" }}
+                style={{ background: "rgba(255,255,255,0.06)", color: "#B8ABCF", border: "1px solid rgba(255,255,255,0.08)" }}
               >
                 <Icon name="Send" size={15} />
                 Написать в Telegram

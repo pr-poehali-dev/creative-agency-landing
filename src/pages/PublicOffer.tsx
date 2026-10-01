@@ -3,23 +3,23 @@ import Icon from "@/components/ui/icon";
 
 export default function PublicOffer() {
   return (
-    <div className="min-h-screen" style={{ background: "#1a0f07", color: "#e8d5c0" }}>
+    <div className="min-h-screen" style={{ background: "#171327", color: "#D6CCEA" }}>
       <div className="container mx-auto max-w-3xl px-6 py-16">
         <Link
           to="/"
           className="inline-flex items-center gap-2 mb-10 text-sm hover:underline"
-          style={{ color: "#c9a882" }}
+          style={{ color: "#B8ABCF" }}
         >
           <Icon name="ArrowLeft" size={16} />
           Вернуться на главную
         </Link>
 
         <h1 className="text-3xl font-extrabold mb-2 text-white">Договор-оферта на оказание услуг</h1>
-        <p className="text-sm mb-10" style={{ color: "#7a5c44" }}>
+        <p className="text-sm mb-10" style={{ color: "#9688B8" }}>
           Дата публикации: 20 апреля 2026 г.
         </p>
 
-        <div className="space-y-8 text-sm leading-relaxed" style={{ color: "#c9a882" }}>
+        <div className="space-y-8 text-sm leading-relaxed" style={{ color: "#B8ABCF" }}>
           <section>
             <h2 className="text-lg font-bold mb-3 text-white">1. Общие положения</h2>
             <p>
@@ -47,7 +47,7 @@ export default function PublicOffer() {
               <li><span className="text-white font-semibold">Режим налогообложения:</span> Без НДС (УСН)</li>
               <li>
                 <span className="text-white font-semibold">Telegram:</span>{" "}
-                <a href="https://t.me/izmailova8888" className="hover:underline" style={{ color: "#c2410c" }}>
+                <a href="https://t.me/izmailova8888" className="hover:underline" style={{ color: "#C9974A" }}>
                   @izmailova8888
                 </a>
               </li>
@@ -180,7 +180,7 @@ export default function PublicOffer() {
         </div>
       </div>
 
-      <footer className="py-8 px-6 text-center text-sm" style={{ background: "#110a04", color: "#7a5c44" }}>
+      <footer className="py-8 px-6 text-center text-sm" style={{ background: "#120E22", color: "#9688B8" }}>
         <p>© 2026 ИП Измайлова Юлия Александровна · ИНН 665895132301</p>
       </footer>
     </div>

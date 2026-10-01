@@ -237,7 +237,7 @@ export default function OrderCalculator({ onClose, inline }: Props) {
                         border: `1.5px solid ${active ? "#A855F7" : "rgba(168,85,247,0.25)"}`,
                       }}>
                       {t.popular && (
-                        <span className="absolute -top-2.5 left-4 text-xs font-bold px-2 py-0.5 rounded-full" style={{ background: "linear-gradient(135deg,#A855F7,#EC4899)", color: "#fff" }}>
+                        <span className="absolute -top-2.5 left-4 text-xs font-bold px-2 py-0.5 rounded-full" style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}>
                           Популярный
                         </span>
                       )}
@@ -275,7 +275,7 @@ export default function OrderCalculator({ onClose, inline }: Props) {
                 </button>
                 <button onClick={() => setStep("form")}
                   className="flex-1 py-3 rounded-xl font-bold text-white text-sm transition hover:scale-105"
-                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}>
+                  style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)" }}>
                   Получить расчёт и подарок 🎁
                 </button>
               </div>
@@ -402,7 +402,7 @@ export default function OrderCalculator({ onClose, inline }: Props) {
                 </button>
                 <button type="submit" disabled={submitting || !consents.pd}
                   className="flex-1 py-3 rounded-xl font-bold text-white text-sm flex items-center justify-center gap-2 transition hover:scale-105"
-                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", opacity: (submitting || !consents.pd) ? 0.5 : 1 }}>
+                  style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", opacity: (submitting || !consents.pd) ? 0.5 : 1 }}>
                   {submitting ? "Отправляем..." : <><Icon name="Send" size={16} /> Отправить заявку</>}
                 </button>
               </div>
@@ -424,7 +424,7 @@ export default function OrderCalculator({ onClose, inline }: Props) {
                 </div>
               </div>
               {onClose && (
-                <button onClick={onClose} className="px-8 py-3 rounded-xl font-bold text-white" style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}>
+                <button onClick={onClose} className="px-8 py-3 rounded-xl font-bold " style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)" }}>
                   Закрыть
                 </button>
               )}

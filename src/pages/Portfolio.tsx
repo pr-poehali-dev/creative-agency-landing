@@ -168,27 +168,27 @@ export default function Portfolio() {
   });
 
   return (
-    <div style={{ background: "#0d0702", minHeight: "100vh" }}>
+    <div style={{ background: "#0E0B1A", minHeight: "100vh" }}>
 
       <NavBar />
 
       {/* ─── HERO ─── */}
-      <section className="py-20 px-6 text-center" style={{ background: "linear-gradient(180deg, #1a0d04 0%, #0d0702 100%)" }}>
+      <section className="py-20 px-6 text-center" style={{ background: "linear-gradient(180deg, #171327 0%, #0E0B1A 100%)" }}>
         <div className="container mx-auto max-w-3xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.15)" }}>
-            <Icon name="Headphones" size={14} style={{ color: "#f5c97a" }} />
+            <Icon name="Headphones" size={14} style={{ color: "#F3DCA8" }} />
             <span className="text-sm text-white/80">Реальные работы — реальные эмоции</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
             Примеры наших<br />
-            <span style={{ color: "#f5c97a" }}>авторских песен</span>
+            <span style={{ color: "#F3DCA8" }}>авторских песен</span>
           </h1>
-          <p className="text-lg mb-8" style={{ color: "#c9a882" }}>
+          <p className="text-lg mb-8" style={{ color: "#B8ABCF" }}>
             Более <strong className="text-white">100 созданных песен</strong> для счастливых клиентов по всей России
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {["Слёзы радости", "Живые тексты", "Студийное звучание"].map(tag => (
-              <span key={tag} className="px-3 py-1 rounded-full text-sm font-semibold" style={{ background: "rgba(245,201,122,0.12)", color: "#f5c97a", border: "1px solid rgba(245,201,122,0.25)" }}>
+              <span key={tag} className="px-3 py-1 rounded-full text-sm font-semibold" style={{ background: "rgba(245,201,122,0.12)", color: "#F3DCA8", border: "1px solid rgba(245,201,122,0.25)" }}>
                 {tag}
               </span>
             ))}
@@ -197,17 +197,17 @@ export default function Portfolio() {
       </section>
 
       {/* ─── TRACKS ─── */}
-      <section className="py-16 px-6" style={{ background: "#0d0702" }}>
+      <section className="py-16 px-6" style={{ background: "#0E0B1A" }}>
         <div className="container mx-auto max-w-5xl">
           <div className="space-y-8">
             {tracks.map((track, i) => (
-              <Card key={i} className="overflow-hidden border-0" style={{ background: "#1a0d04", border: "1px solid #2a1a0e" }}>
+              <Card key={i} className="overflow-hidden border-0" style={{ background: "#171327", border: "1px solid #1E1833" }}>
                 <div className="grid md:grid-cols-[220px_1fr] gap-0">
                   {/* Обложка */}
                   <div className="relative">
                     <img src={track.img} alt={`Авторская песня «${track.title}» — ${track.occasion} | AI Muse Lab`} className="w-full h-56 md:h-full object-cover" loading="lazy" decoding="async" />
                     <div className="absolute inset-0 flex items-end p-4" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }}>
-                      <span className="text-xs font-bold px-2 py-1 rounded-full" style={{ background: "#c2410c", color: "#fff" }}>
+                      <span className="text-xs font-bold px-2 py-1 rounded-full" style={{ background: "#C9974A", color: "#171327" }}>
                         {track.genre}
                       </span>
                     </div>
@@ -217,18 +217,18 @@ export default function Portfolio() {
                   <div className="p-6 flex flex-col gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <Icon name={track.icon as "Heart"} size={14} style={{ color: "#f5c97a" }} />
-                        <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#7a5c44" }}>{track.occasion}</span>
+                        <Icon name={track.icon as "Heart"} size={14} style={{ color: "#F3DCA8" }} />
+                        <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#9688B8" }}>{track.occasion}</span>
                       </div>
                       <h2 className="text-xl font-extrabold text-white mb-2">«{track.title}»</h2>
-                      <p className="text-sm leading-relaxed" style={{ color: "#c9a882" }}>{track.desc}</p>
+                      <p className="text-sm leading-relaxed" style={{ color: "#B8ABCF" }}>{track.desc}</p>
                     </div>
 
                     {/* Отзыв */}
                     {track.review && (
                       <div className="rounded-xl px-4 py-3" style={{ background: "rgba(245,201,122,0.07)", border: "1px solid rgba(245,201,122,0.15)" }}>
-                        <p className="text-sm italic leading-relaxed" style={{ color: "#e8d5b0" }}>«{track.review}»</p>
-                        <p className="text-xs mt-1 font-semibold" style={{ color: "#7a5c44" }}>— {track.reviewer}</p>
+                        <p className="text-sm italic leading-relaxed" style={{ color: "#E8C98A" }}>«{track.review}»</p>
+                        <p className="text-xs mt-1 font-semibold" style={{ color: "#9688B8" }}>— {track.reviewer}</p>
                       </div>
                     )}
 
@@ -239,7 +239,7 @@ export default function Portfolio() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-transform hover:scale-105"
-                        style={{ background: "#c2410c" }}
+                        style={{ background: "#C9974A" }}
                       >
                         <Icon name="Play" size={14} />
                         Слушать
@@ -247,7 +247,7 @@ export default function Portfolio() {
                       <button
                         onClick={() => setOpenLyrics(openLyrics === i ? null : i)}
                         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all"
-                        style={{ background: "rgba(255,255,255,0.06)", color: "#c9a882", border: "1px solid #2a1a0e" }}
+                        style={{ background: "rgba(255,255,255,0.06)", color: "#B8ABCF", border: "1px solid #1E1833" }}
                       >
                         <Icon name="FileText" size={14} />
                         {openLyrics === i ? "Скрыть текст" : "Текст песни"}
@@ -256,8 +256,8 @@ export default function Portfolio() {
 
                     {/* Текст песни */}
                     {openLyrics === i && (
-                      <div className="rounded-xl p-4 mt-1" style={{ background: "rgba(0,0,0,0.4)", border: "1px solid #2a1a0e" }}>
-                        <pre className="text-xs leading-relaxed whitespace-pre-wrap font-sans" style={{ color: "#c9a882" }}>{track.lyrics}</pre>
+                      <div className="rounded-xl p-4 mt-1" style={{ background: "rgba(0,0,0,0.4)", border: "1px solid #1E1833" }}>
+                        <pre className="text-xs leading-relaxed whitespace-pre-wrap font-sans" style={{ color: "#B8ABCF" }}>{track.lyrics}</pre>
                       </div>
                     )}
                   </div>
@@ -269,29 +269,29 @@ export default function Portfolio() {
       </section>
 
       {/* ─── ЖАНРЫ И ПОВОДЫ ─── */}
-      <section className="py-16 px-6" style={{ background: "#fdf3e7" }}>
+      <section className="py-16 px-6" style={{ background: "#171327" }}>
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-extrabold text-center mb-12" style={{ color: "#2d2016" }}>
+          <h2 className="text-3xl font-extrabold text-center mb-12" style={{ color: "#F6F1FF" }}>
             Все жанры и поводы
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="font-bold text-lg mb-4" style={{ color: "#2d2016" }}>Любой жанр и стиль</h3>
+              <h3 className="font-bold text-lg mb-4" style={{ color: "#F6F1FF" }}>Любой жанр и стиль</h3>
               <div className="space-y-2">
                 {genres.map(g => (
-                  <div key={g} className="flex items-center gap-2 text-sm" style={{ color: "#5a3d2b" }}>
-                    <Icon name="Check" size={14} style={{ color: "#c2410c", flexShrink: 0 }} />
+                  <div key={g} className="flex items-center gap-2 text-sm" style={{ color: "#6B5E91" }}>
+                    <Icon name="Check" size={14} style={{ color: "#C9974A", flexShrink: 0 }} />
                     {g}
                   </div>
                 ))}
               </div>
             </div>
             <div>
-              <h3 className="font-bold text-lg mb-4" style={{ color: "#2d2016" }}>Для любого повода</h3>
+              <h3 className="font-bold text-lg mb-4" style={{ color: "#F6F1FF" }}>Для любого повода</h3>
               <div className="grid grid-cols-2 gap-2">
                 {occasions.map(o => (
-                  <div key={o.label} className="flex items-center gap-2 text-sm" style={{ color: "#5a3d2b" }}>
-                    <Icon name={o.icon as "Cake"} size={14} style={{ color: "#c2410c", flexShrink: 0 }} />
+                  <div key={o.label} className="flex items-center gap-2 text-sm" style={{ color: "#6B5E91" }}>
+                    <Icon name={o.icon as "Cake"} size={14} style={{ color: "#C9974A", flexShrink: 0 }} />
                     {o.label}
                   </div>
                 ))}
@@ -302,12 +302,12 @@ export default function Portfolio() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="py-20 px-6 text-center" style={{ background: "#1a0d04" }}>
+      <section className="py-20 px-6 text-center" style={{ background: "#171327" }}>
         <div className="container mx-auto max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
             Хотите свою уникальную песню?
           </h2>
-          <p className="text-base mb-8" style={{ color: "#c9a882" }}>
+          <p className="text-base mb-8" style={{ color: "#B8ABCF" }}>
             Расскажите историю — и через 2–3 дня у вас будет персональный шедевр, который будут переслушивать годами.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -326,7 +326,7 @@ export default function Portfolio() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all hover:scale-105"
-              style={{ background: "rgba(255,255,255,0.08)", color: "#f5c97a", border: "1px solid rgba(245,201,122,0.3)" }}
+              style={{ background: "rgba(255,255,255,0.08)", color: "#F3DCA8", border: "1px solid rgba(245,201,122,0.3)" }}
             >
               <Icon name="Send" size={17} />
               Написать в Telegram

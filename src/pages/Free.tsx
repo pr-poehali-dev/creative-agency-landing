@@ -53,7 +53,7 @@ export default function Free() {
             Послушай прежде,{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #a855f7 0%, #ec4899 100%)",
+                background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -114,7 +114,7 @@ export default function Free() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-white text-base transition-all hover:scale-105"
               style={{
-                background: "linear-gradient(135deg, #a855f7 0%, #ec4899 100%)",
+                background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)",
                 boxShadow: "0 0 24px rgba(168,85,247,0.4)",
               }}
             >

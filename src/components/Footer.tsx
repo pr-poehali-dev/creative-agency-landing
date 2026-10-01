@@ -25,16 +25,16 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="py-12 px-6" style={{ background: "#F3EFFF", borderTop: "1px solid rgba(168,85,247,0.2)" }}>
+    <footer className="py-12 px-6" style={{ background: "#0E0B1A", borderTop: "1px solid rgba(168,85,247,0.2)" }}>
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
 
           {/* Бренд */}
           <div className="md:col-span-2">
-            <p className="font-extrabold text-base mb-1" style={{ color: "#1A1030" }}>AI MUSELAB</p>
+            <p className="font-extrabold text-base mb-1" style={{ color: "#F6F1FF" }}>AI MUSELAB</p>
             <p className="text-sm mb-4" style={{ color: "#6B5E91" }}>Авторские песни на заказ в подарок</p>
             <div className="text-sm space-y-1" style={{ color: "#9688B8" }}>
-              <p className="font-semibold" style={{ color: "#4A3F6B" }}>ИП Измайлова Юлия Александровна</p>
+              <p className="font-semibold" style={{ color: "#B8ABCF" }}>ИП Измайлова Юлия Александровна</p>
               <p>ИНН: 665895132301</p>
               <p>198207, г. Санкт-Петербург, пр-кт Ленинский, д 117, корп 1, кв 234</p>
               <p>Без НДС (УСН)</p>

@@ -80,27 +80,27 @@ export default function Blog() {
     : articles.filter(a => a.category === activeCategory);
 
   return (
-    <div style={{ background: "#0d0702", minHeight: "100vh" }}>
+    <div style={{ background: "#0E0B1A", minHeight: "100vh" }}>
       <NavBar />
 
       {/* ─── HERO ─── */}
-      <section className="py-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #1a0d04 0%, #0d0702 100%)" }}>
+      <section className="py-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #171327 0%, #0E0B1A 100%)" }}>
         <div className="container mx-auto max-w-3xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.15)" }}>
-            <Icon name="BookOpen" size={14} style={{ color: "#f5c97a" }} />
+            <Icon name="BookOpen" size={14} style={{ color: "#F3DCA8" }} />
             <span className="text-sm text-white/80">Полезные статьи и советы</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
-            Блог <span style={{ color: "#f5c97a" }}>AI Muse Lab</span>
+            Блог <span style={{ color: "#F3DCA8" }}>AI Muse Lab</span>
           </h1>
-          <p className="text-base" style={{ color: "#c9a882" }}>
+          <p className="text-base" style={{ color: "#B8ABCF" }}>
             Идеи подарков, истории клиентов и советы по созданию авторских песен
           </p>
         </div>
       </section>
 
       {/* ─── КАТЕГОРИИ ─── */}
-      <section className="py-6 px-6" style={{ background: "#110a04" }}>
+      <section className="py-6 px-6" style={{ background: "#120E22" }}>
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map(cat => (
@@ -109,8 +109,8 @@ export default function Blog() {
                 onClick={() => setActiveCategory(cat)}
                 className="px-4 py-2 rounded-full text-sm font-semibold transition-all"
                 style={activeCategory === cat
-                  ? { background: "#c2410c", color: "#fff" }
-                  : { background: "rgba(255,255,255,0.06)", color: "#c9a882", border: "1px solid #2a1a0e" }
+                  ? { background: "#C9974A", color: "#171327" }
+                  : { background: "rgba(255,255,255,0.06)", color: "#B8ABCF", border: "1px solid #1E1833" }
                 }
               >
                 {cat}
@@ -129,42 +129,42 @@ export default function Blog() {
                 key={article.slug}
                 to={`/blog/${article.slug}`}
                 className="group flex flex-col rounded-2xl overflow-hidden transition-transform hover:scale-[1.02]"
-                style={{ background: "#1a0d04", border: "1px solid #2a1a0e" }}
+                style={{ background: "#171327", border: "1px solid #1E1833" }}
               >
                 {/* Шапка карточки */}
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "rgba(194,65,12,0.2)", color: "#f5c97a" }}>
+                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "rgba(194,65,12,0.2)", color: "#F3DCA8" }}>
                       {article.category}
                     </span>
                     {article.hot && (
-                      <span className="text-xs font-bold px-2 py-1 rounded-full" style={{ background: "#c2410c", color: "#fff" }}>
+                      <span className="text-xs font-bold px-2 py-1 rounded-full" style={{ background: "#C9974A", color: "#171327" }}>
                         🔥 Популярное
                       </span>
                     )}
                   </div>
 
                   <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: "rgba(245,201,122,0.1)" }}>
-                    <Icon name={article.icon as "Heart"} size={22} style={{ color: "#f5c97a" }} />
+                    <Icon name={article.icon as "Heart"} size={22} style={{ color: "#F3DCA8" }} />
                   </div>
 
                   <h2 className="text-lg font-extrabold text-white mb-3 leading-snug group-hover:text-amber-300 transition-colors">
                     {article.title}
                   </h2>
 
-                  <p className="text-sm leading-relaxed flex-1" style={{ color: "#c9a882" }}>
+                  <p className="text-sm leading-relaxed flex-1" style={{ color: "#B8ABCF" }}>
                     {article.excerpt}
                   </p>
                 </div>
 
                 {/* Футер карточки */}
-                <div className="px-6 py-4 flex items-center justify-between border-t" style={{ borderColor: "#2a1a0e" }}>
-                  <div className="flex items-center gap-3 text-xs" style={{ color: "#7a5c44" }}>
+                <div className="px-6 py-4 flex items-center justify-between border-t" style={{ borderColor: "#1E1833" }}>
+                  <div className="flex items-center gap-3 text-xs" style={{ color: "#9688B8" }}>
                     <span>{article.date}</span>
                     <span>·</span>
                     <span>{article.readTime} чтения</span>
                   </div>
-                  <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: "#f5c97a" }}>
+                  <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: "#F3DCA8" }}>
                     Читать <Icon name="ArrowRight" size={13} />
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export default function Blog() {
           </div>
 
           {filtered.length === 0 && (
-            <div className="text-center py-16" style={{ color: "#7a5c44" }}>
+            <div className="text-center py-16" style={{ color: "#9688B8" }}>
               <Icon name="Search" size={40} style={{ margin: "0 auto 16px", opacity: 0.4 }} />
               <p>Статей в этой категории пока нет</p>
             </div>
@@ -182,16 +182,16 @@ export default function Blog() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="py-14 px-6 text-center" style={{ background: "#1a0d04" }}>
+      <section className="py-14 px-6 text-center" style={{ background: "#171327" }}>
         <div className="container mx-auto max-w-2xl">
           <h2 className="text-2xl font-extrabold text-white mb-3">Готовы создать вашу песню?</h2>
-          <p className="text-sm mb-6" style={{ color: "#c9a882" }}>Расскажите историю — и через 2–3 дня у вас будет персональный шедевр</p>
+          <p className="text-sm mb-6" style={{ color: "#B8ABCF" }}>Расскажите историю — и через 2–3 дня у вас будет персональный шедевр</p>
           <a
             href="https://t.me/izmailova8888"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
-            style={{ background: "#c2410c" }}
+            style={{ background: "#C9974A" }}
           >
             <Icon name="Send" size={17} />
             Написать в Telegram

@@ -153,7 +153,7 @@ export default function GiftForm() {
         disabled={status === "loading" || !contact.trim()}
         className="w-full py-4 rounded-2xl font-bold text-white text-base transition-all hover:scale-105 flex items-center justify-center gap-2"
         style={{
-          background: "linear-gradient(135deg, #a855f7 0%, #ec4899 100%)",
+          background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)",
           boxShadow: "0 0 24px rgba(168,85,247,0.35)",
           opacity: !contact.trim() ? 0.6 : 1,
         }}

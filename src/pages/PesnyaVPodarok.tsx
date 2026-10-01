@@ -4,7 +4,6 @@ import CookieBanner from "@/components/CookieBanner";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import OrderCalculator from "@/components/OrderCalculator";
 import AudioPlayer, { Track } from "@/components/AudioPlayer";
@@ -255,7 +254,7 @@ function GiftSection() {
           <button
             onClick={() => setOpen(true)}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-white text-base transition-all hover:scale-105"
-            style={{ background: "linear-gradient(135deg, #a855f7 0%, #ec4899 100%)", boxShadow: "0 0 24px rgba(168,85,247,0.35)" }}
+            style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030", boxShadow: "0 0 24px rgba(168,85,247,0.35)" }}
           >
             <Icon name="Gift" size={18} />
             Забрать подарок
@@ -346,7 +345,7 @@ export default function PesnyaVPodarok() {
             <button
               onClick={scrollToForm}
               className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold transition-all hover:scale-105 text-white"
-              style={{ background: "linear-gradient(135deg, #A855F7 0%, #FF4DA6 100%)" }}
+              style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}
             >
               <Icon name="Mic" size={13} />
               Заказать песню
@@ -368,7 +367,7 @@ export default function PesnyaVPodarok() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Меню"
             >
-              <Icon name={mobileMenuOpen ? "X" : "Menu"} size={17} style={{ color: "#A855F7" }} />
+              <Icon name={mobileMenuOpen ? "X" : "Menu"} size={17} style={{ color: "#E8C98A" }} />
             </button>
           </div>
         </div>
@@ -391,20 +390,20 @@ export default function PesnyaVPodarok() {
                   className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all hover:bg-white/5"
                 >
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "rgba(168,85,247,0.15)" }}>
-                    <Icon name={link.icon as "Star"} size={15} style={{ color: "#A855F7" }} />
+                    <Icon name={link.icon as "Star"} size={15} style={{ color: "#E8C98A" }} />
                   </div>
                   <div>
                     <div className="text-sm font-bold text-white">{link.label}</div>
                     <div className="text-xs" style={{ color: "#B8ABCF" }}>{link.desc}</div>
                   </div>
-                  <Icon name="ChevronRight" size={14} style={{ color: "#A855F7", marginLeft: "auto" }} />
+                  <Icon name="ChevronRight" size={14} style={{ color: "#E8C98A", marginLeft: "auto" }} />
                 </Link>
               ))}
               <div className="mt-3 pt-3 border-t flex flex-col gap-2" style={{ borderColor: "rgba(168,85,247,0.2)" }}>
                 <button
                   onClick={() => { scrollToForm(); setMobileMenuOpen(false); }}
                   className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-bold text-white"
-                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #FF4DA6 100%)" }}
+                  style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}
                 >
                   <Icon name="Mic" size={16} />
                   Заказать песню
@@ -426,88 +425,93 @@ export default function PesnyaVPodarok() {
       </nav>
 
       {/* ─── HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden min-h-screen flex flex-col justify-center" style={{ background: "#F3EFFF" }}>
-        {/* Центральное сияние */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 50% at 50% 30%, rgba(168,85,247,0.12) 0%, transparent 65%)" }} />
-        {/* Боковые акценты */}
-        <div className="absolute top-1/3 -left-20 w-80 h-80 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%)", filter: "blur(50px)" }} />
-        <div className="absolute top-1/4 -right-20 w-80 h-80 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(255,77,166,0.06) 0%, transparent 70%)", filter: "blur(50px)" }} />
+      <section className="relative overflow-hidden min-h-screen flex flex-col justify-center" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, #2A1850 0%, #0E0B1A 70%)" }}>
+        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(168,85,247,0.22) 0%, transparent 70%)", filter: "blur(60px)" }} />
+        <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(232,201,138,0.14) 0%, transparent 70%)", filter: "blur(60px)" }} />
 
-        <div className="relative z-10 container mx-auto max-w-4xl px-6 pt-24 pb-10 text-center flex flex-col items-center">
+        <div className="relative z-10 container mx-auto max-w-4xl px-6 pt-28 pb-10 text-center flex flex-col items-center">
 
-          {/* Бейдж */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-6" style={{ background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.3)", color: "#7C3AED" }}>
-            <span style={{ color: "#A855F7" }}>✦</span>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium mb-8" style={{ background: "rgba(232,201,138,0.08)", border: "1px solid rgba(232,201,138,0.3)", color: "#E8C98A" }}>
+            <span>✦</span>
             {" "}Ваш композитор: Юлия Измайлова (Galaktika) — на{" "}
             <a
               href="https://music.yandex.com/artist/2948671"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:opacity-80 transition-opacity"
-              style={{ color: "#A855F7" }}
+              className="underline underline-offset-4 hover:opacity-80 transition-opacity"
+              style={{ color: "#F3DCA8" }}
             >
               Яндекс Музыке
             </a>
           </div>
 
-          {/* Заголовок */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight mb-8" style={{ letterSpacing: "-0.02em", color: "#1A1030" }}>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-6" style={{ letterSpacing: "-0.02em", color: "#F6F1FF" }}>
             Песня, которая{" "}
-            <span style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>расскажет вашу историю</span>
+            <span className="text-gold italic inline-block pr-3 pb-1">расскажет вашу историю</span>
           </h1>
 
-          {/* Видео-приветствие */}
-          <div className="w-full max-w-sm mx-auto mb-8">
+          <p className="text-lg md:text-xl max-w-2xl mb-10" style={{ color: "#B8ABCF" }}>
+            Авторская песня по вашей истории — подарок, который невозможно купить в магазине. Готово за 2–3 дня.
+          </p>
+
+          <div className="w-full max-w-sm mx-auto mb-10">
             <div
-              className="relative rounded-2xl overflow-hidden"
-              style={{ boxShadow: "0 8px 40px rgba(168,85,247,0.25)", border: "2px solid rgba(168,85,247,0.3)" }}
+              className="relative rounded-3xl overflow-hidden"
+              style={{ boxShadow: "0 24px 80px rgba(168,85,247,0.35)", border: "1px solid rgba(232,201,138,0.35)" }}
             >
               <video
                 src="https://cdn.poehali.dev/projects/b2acea56-ed48-4d91-9ea6-1f8a27b4c2ef/bucket/356f909f-8bbf-44d7-9950-db2307b8fd31.MOV"
                 controls
                 playsInline
                 className="w-full"
-                style={{ display: "block", maxHeight: 400, background: "#1A1030" }}
+                style={{ display: "block", maxHeight: 400, background: "#0E0B1A" }}
               />
             </div>
           </div>
 
-          {/* Главная CTA кнопка */}
           <button
             onClick={scrollToForm}
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl text-lg font-bold text-white transition-all hover:scale-105 hover:shadow-2xl mb-12"
-            style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", boxShadow: "0 8px 32px rgba(168,85,247,0.5)" }}
+            className="inline-flex items-center gap-3 px-10 py-4 rounded-full text-lg font-bold transition-all hover:scale-105 mb-12"
+            style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030", boxShadow: "0 10px 40px rgba(201,151,74,0.4)" }}
           >
             <Icon name="Music2" size={20} />
             Создать свою песню
           </button>
 
-          <p className="text-sm font-semibold uppercase tracking-widest mb-6" style={{ color: "rgba(124,58,237,0.4)", letterSpacing: "0.2em" }}>
-            ✦ Muse Lab создаёт ✦
-          </p>
+          <div className="grid grid-cols-3 gap-4 w-full max-w-2xl mb-12">
+            {[
+              { n: "100+", t: "довольных клиентов" },
+              { n: "2–3 дня", t: "срок готовности" },
+              { n: "5.0", t: "средняя оценка" },
+            ].map((x) => (
+              <div key={x.t} className="rounded-2xl py-4 px-2" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(232,201,138,0.2)" }}>
+                <div className="font-display text-2xl md:text-3xl font-bold text-gold">{x.n}</div>
+                <div className="text-xs md:text-sm mt-1" style={{ color: "#B8ABCF" }}>{x.t}</div>
+              </div>
+            ))}
+          </div>
 
-          {/* 1 карточка — Песни и хиты на заказ */}
           <div className="w-full max-w-xs mx-auto text-left">
             <div
-              className="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-              style={{ border: "1px solid rgba(255,255,255,0.12)" }}
+              className="flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2"
+              style={{ border: "1px solid rgba(232,201,138,0.25)", background: "#171327" }}
             >
               <div className="relative h-28 overflow-hidden">
                 <img src={WEDDING_IMG} alt="Песни и хиты на заказ" className="w-full h-full object-cover" style={{ opacity: 0.5 }} loading="lazy" decoding="async" />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #3B0764 0%, #6B21A8 60%, #9333EA 100%)", opacity: 0.75 }} />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #1A0A30 0%, #3B0764 100%)", opacity: 0.75 }} />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.12)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.18)" }}>
-                    <Icon name="Gift" size={22} style={{ color: "#fff" }} />
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: "rgba(232,201,138,0.15)", backdropFilter: "blur(8px)", border: "1px solid rgba(232,201,138,0.4)" }}>
+                    <Icon name="Gift" size={22} style={{ color: "#F3DCA8" }} />
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col flex-1 p-4" style={{ background: "rgba(255,255,255,0.7)", backdropFilter: "blur(10px)" }}>
-                <h3 className="font-bold text-base mb-2 leading-snug" style={{ color: "#1A1030" }}>Песни и хиты на заказ</h3>
-                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "#6B5E91" }}>Персональная песня на заказ по вашему сюжету. Со словами, которые вы давно хотели сказать, но не знали как. Идеально для подарка любимому, родителям, друзьям.</p>
+              <div className="flex flex-col flex-1 p-4">
+                <h3 className="font-bold text-base mb-2 leading-snug" style={{ color: "#F6F1FF" }}>Песни и хиты на заказ</h3>
+                <p className="text-sm leading-relaxed mb-4 flex-1" style={{ color: "#B8ABCF" }}>Персональная песня по вашему сюжету. Со словами, которые вы давно хотели сказать, но не знали как.</p>
                 <button
                   onClick={() => document.getElementById("gift-song-section")?.scrollIntoView({ behavior: "smooth" })}
                   className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105 w-full"
-                  style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", color: "#fff" }}
+                  style={{ background: "transparent", color: "#F3DCA8", border: "1px solid rgba(232,201,138,0.5)" }}
                 >
                   Выбрать песню
                 </button>
@@ -516,30 +520,29 @@ export default function PesnyaVPodarok() {
           </div>
         </div>
 
-        {/* Scroll hint */}
-        <div className="relative z-10 pb-8 flex justify-center animate-bounce" style={{ color: "rgba(168,85,247,0.4)" }}>
+        <div className="relative z-10 pb-8 flex justify-center animate-bounce" style={{ color: "rgba(232,201,138,0.5)" }}>
           <Icon name="ChevronDown" size={24} />
         </div>
       </section>
 
       {/* ─── PROBLEM BLOCK ────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#FFFFFF" }}>
+      <section className="py-24 px-6" style={{ background: "#0E0B1A" }}>
         <div className="container mx-auto max-w-5xl">
-          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#A855F7" }}>Задумайтесь</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#1A1030" }}>
+          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#E8C98A" }}>Задумайтесь</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#F6F1FF" }}>
             Что подарить человеку,<br />у которого всё есть?
           </h2>
-          <p className="text-center text-lg md:text-xl mb-14 max-w-xl mx-auto" style={{ color: "#6B5E91", lineHeight: 1.6 }}>
+          <p className="text-center text-lg md:text-xl mb-14 max-w-xl mx-auto" style={{ color: "#B8ABCF", lineHeight: 1.6 }}>
             Вы уже думали об этом. И, скорее всего, снова остановились на чём-то стандартном.
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {/* Bad */}
-            <div className="p-8 rounded-2xl" style={{ background: "#F8F5FF", border: "1px solid #E9E3F7" }}>
+            <div className="p-8 rounded-2xl" style={{ background: "#171327", border: "1px solid #E9E3F7" }}>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "#FEE2E2" }}>
+                <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "rgba(239,68,68,0.15)" }}>
                   <Icon name="X" size={20} style={{ color: "#EF4444" }} />
                 </div>
-                <h3 className="font-bold text-xl" style={{ color: "#6B5E91" }}>Стандартный подарок</h3>
+                <h3 className="font-bold text-xl" style={{ color: "#B8ABCF" }}>Стандартный подарок</h3>
               </div>
               <ul className="space-y-4">
                 {["Постоит на полке и забудется через неделю", "Деньги потрачены, а радости — на час", "Такой же подарок уже дарили другие", "Безделушка без смысла и истории"].map((t) => (
@@ -551,20 +554,20 @@ export default function PesnyaVPodarok() {
               </ul>
             </div>
             {/* Good */}
-            <div className="p-8 rounded-2xl relative" style={{ background: "linear-gradient(135deg, #FAF5FF 0%, #FDF2F8 100%)", border: "2px solid #A855F7", boxShadow: "0 8px 40px rgba(168,85,247,0.15)" }}>
+            <div className="p-8 rounded-2xl relative" style={{ background: "linear-gradient(135deg, #241A3D 0%, #1B1430 100%)", border: "2px solid #A855F7", boxShadow: "0 8px 40px rgba(168,85,247,0.15)" }}>
               <div className="absolute -top-4 right-6">
-                <span className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider text-white" style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}>Рекомендуем</span>
+                <span className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider " style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}>Рекомендуем</span>
               </div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "linear-gradient(135deg, rgba(168,85,247,0.2) 0%, rgba(236,72,153,0.15) 100%)" }}>
-                  <Icon name="Heart" size={20} style={{ color: "#A855F7" }} />
+                  <Icon name="Heart" size={20} style={{ color: "#E8C98A" }} />
                 </div>
-                <h3 className="font-bold text-xl" style={{ color: "#1A1030" }}>Персональная песня</h3>
+                <h3 className="font-bold text-xl" style={{ color: "#F6F1FF" }}>Персональная песня</h3>
               </div>
               <ul className="space-y-4">
                 {["Слёзы радости на глазах в момент подарка", "Переслушивают снова и снова — годами", "Становится семейной реликвией", "Единственная в мире — только о вашем человеке"].map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-base font-medium" style={{ color: "#1A1030" }}>
-                    <Icon name="CheckCircle2" size={18} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} />
+                  <li key={t} className="flex items-start gap-3 text-base font-medium" style={{ color: "#F6F1FF" }}>
+                    <Icon name="CheckCircle2" size={18} style={{ color: "#E8C98A", flexShrink: 0, marginTop: 2 }} />
                     {t}
                   </li>
                 ))}
@@ -575,26 +578,26 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── HOW IT WORKS ─────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#F3EFFF" }}>
+      <section className="py-24 px-6" style={{ background: "#120E22" }}>
         <div className="container mx-auto max-w-5xl">
-          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#A855F7" }}>Процесс</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#1A1030" }}>
+          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#E8C98A" }}>Процесс</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#F6F1FF" }}>
             Как это работает?
           </h2>
-          <p className="text-center text-lg md:text-xl mb-14 max-w-lg mx-auto" style={{ color: "#6B5E91", lineHeight: 1.6 }}>
+          <p className="text-center text-lg md:text-xl mb-14 max-w-lg mx-auto" style={{ color: "#B8ABCF", lineHeight: 1.6 }}>
             Всего 4 шага. Вам нужно только рассказать историю.
           </p>
           <div className="grid sm:grid-cols-2 gap-5">
             {steps.map((step, i) => (
-              <div key={i} className="p-7 rounded-2xl relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg" style={{ background: "#FFFFFF", border: "1px solid rgba(168,85,247,0.12)", boxShadow: "0 2px 16px rgba(168,85,247,0.07)" }}>
+              <div key={i} className="p-7 rounded-2xl relative overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg" style={{ background: "#171327", border: "1px solid rgba(168,85,247,0.12)", boxShadow: "0 2px 16px rgba(168,85,247,0.07)" }}>
                 <div className="absolute -top-3 -right-3 text-8xl font-black pointer-events-none select-none" style={{ color: "rgba(168,85,247,0.06)", lineHeight: 1 }}>{step.num}</div>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0" style={{ background: "linear-gradient(135deg, rgba(168,85,247,0.15) 0%, rgba(236,72,153,0.1) 100%)" }}>
-                    <Icon name={step.icon as "FileText"} size={22} style={{ color: "#A855F7" }} />
+                    <Icon name={step.icon as "FileText"} size={22} style={{ color: "#E8C98A" }} />
                   </div>
-                  <h3 className="font-bold text-lg" style={{ color: "#1A1030" }}>{step.title}</h3>
+                  <h3 className="font-bold text-lg" style={{ color: "#F6F1FF" }}>{step.title}</h3>
                 </div>
-                <p className="text-base leading-relaxed" style={{ color: "#6B5E91" }}>{step.desc}</p>
+                <p className="text-base leading-relaxed" style={{ color: "#B8ABCF" }}>{step.desc}</p>
                 {step.img && (
                   <div className="mt-4 rounded-xl overflow-hidden h-36">
                     <img src={step.img} alt={`Процесс создания авторской песни на заказ — ${step.title}`} className="w-full h-full object-cover" loading="lazy" decoding="async" />
@@ -621,7 +624,7 @@ export default function PesnyaVPodarok() {
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-5 text-white leading-tight">
             Послушай прежде, чем заказывать —{" "}
-            <span style={{ background: "linear-gradient(135deg, #a855f7 0%, #ec4899 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            <span style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               3 реальные песни по историям людей
             </span>
           </h2>
@@ -648,7 +651,7 @@ export default function PesnyaVPodarok() {
             <Link
               to="/portfolio"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-base transition-transform hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #A855F7 0%, #FF4DA6 100%)" }}
+              style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}
             >
               <Icon name="Headphones" size={18} />
               Все примеры работ →
@@ -658,27 +661,27 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── REVIEWS ──────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#FDF8F0" }}>
+      <section className="py-24 px-6" style={{ background: "#120E22" }}>
         <div className="container mx-auto max-w-5xl">
-          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#A855F7" }}>Отзывы</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#1A1030" }}>
+          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#E8C98A" }}>Отзывы</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#F6F1FF" }}>
             Что говорят те, кто уже подарил
           </h2>
-          <p className="text-center text-lg md:text-xl mb-14 max-w-lg mx-auto" style={{ color: "#6B5E91", lineHeight: 1.6 }}>
+          <p className="text-center text-lg md:text-xl mb-14 max-w-lg mx-auto" style={{ color: "#B8ABCF", lineHeight: 1.6 }}>
             Настоящие истории, настоящие эмоции
           </p>
           {/* Один отзыв */}
           <div className="max-w-2xl mx-auto mb-10">
             {reviews.map((r, i) => (
-              <div key={i} className="p-8 rounded-2xl" style={{ background: "#FFFFFF", border: "1px solid rgba(168,85,247,0.12)", boxShadow: "0 4px 32px rgba(168,85,247,0.1)" }}>
+              <div key={i} className="p-8 rounded-2xl" style={{ background: "#171327", border: "1px solid rgba(168,85,247,0.12)", boxShadow: "0 4px 32px rgba(168,85,247,0.1)" }}>
                 <div className="text-4xl mb-4">{r.emoji}</div>
-                <p className="text-lg leading-relaxed mb-6 italic" style={{ color: "#2D2050" }}>«{r.text}»</p>
+                <p className="text-lg leading-relaxed mb-6 italic" style={{ color: "#D6CCEA" }}>«{r.text}»</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white text-sm" style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}>
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold  text-sm" style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}>
                     {r.name[0]}
                   </div>
                   <div>
-                    <p className="font-semibold text-base" style={{ color: "#1A1030" }}>{r.name}</p>
+                    <p className="font-semibold text-base" style={{ color: "#F6F1FF" }}>{r.name}</p>
                     <p className="text-sm" style={{ color: "#9688B8" }}>г. {r.city}</p>
                   </div>
                 </div>
@@ -687,7 +690,7 @@ export default function PesnyaVPodarok() {
           </div>
 
           {/* Статистика */}
-          <div className="max-w-2xl mx-auto rounded-2xl p-8" style={{ background: "#FFFFFF", border: "1px solid rgba(168,85,247,0.15)", boxShadow: "0 4px 24px rgba(168,85,247,0.08)" }}>
+          <div className="max-w-2xl mx-auto rounded-2xl p-8" style={{ background: "#171327", border: "1px solid rgba(168,85,247,0.15)", boxShadow: "0 4px 24px rgba(168,85,247,0.08)" }}>
             <div className="grid grid-cols-2 gap-5 mb-8">
               {[
                 { icon: "⭐⭐⭐⭐⭐", label: "средний рейтинг", value: "5.0 из 5.0" },
@@ -697,7 +700,7 @@ export default function PesnyaVPodarok() {
               ].map(stat => (
                 <div key={stat.value} className="text-center">
                   <div className="text-xl mb-1">{stat.icon}</div>
-                  <div className="text-2xl font-extrabold" style={{ color: "#A855F7" }}>{stat.value}</div>
+                  <div className="text-2xl font-extrabold" style={{ color: "#E8C98A" }}>{stat.value}</div>
                   <div className="text-sm mt-1" style={{ color: "#9688B8" }}>{stat.label}</div>
                 </div>
               ))}
@@ -706,7 +709,7 @@ export default function PesnyaVPodarok() {
               <Link
                 to="/otzyvy"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white text-base transition-transform hover:scale-105"
-                style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}
+                style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}
               >
                 <Icon name="MessageSquare" size={18} />
                 Читать все отзывы →
@@ -717,118 +720,93 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── PRICING ──────────────────────────────────────────── */}
-      <section id="gift-song-section" className="py-24 px-6" style={{ background: "#FFFFFF" }}>
-        <div style={{ height: 4, background: "linear-gradient(90deg, #A855F7 0%, #EC4899 100%)" }} />
-        <div className="container mx-auto max-w-6xl pt-14">
-          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#A855F7" }}>Стоимость</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4" style={{ color: "#1A1030" }}>
-            Цены и тарифы
+      <section id="gift-song-section" className="py-24 px-6 relative overflow-hidden" style={{ background: "#0E0B1A" }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(168,85,247,0.15) 0%, transparent 70%)" }} />
+        <div className="relative container mx-auto max-w-6xl">
+          <p className="text-center text-sm font-semibold uppercase mb-3" style={{ color: "#E8C98A", letterSpacing: "0.25em" }}>Стоимость</p>
+          <h2 className="font-display text-4xl md:text-5xl font-semibold text-center mb-4" style={{ color: "#F6F1FF" }}>
+            Цены и <span className="text-gold italic inline-block pr-2">тарифы</span>
           </h2>
-          <p className="text-center text-lg md:text-xl mb-14 max-w-lg mx-auto" style={{ color: "#6B5E91", lineHeight: 1.6 }}>
+          <p className="text-center text-lg mb-16 max-w-lg mx-auto" style={{ color: "#B8ABCF", lineHeight: 1.6 }}>
             Никаких скрытых платежей — всё включено
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
-
-            {/* Тариф 1 — Признание */}
-            <div className="p-7 rounded-2xl flex flex-col transition-all hover:-translate-y-1 hover:shadow-lg" style={{ border: "1px solid #E9E3F7", background: "#FAFAFE" }}>
-              <div className="mb-4">
-                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full" style={{ background: "#FCE7F3", color: "#9D174D" }}>
-                  Признание
-                </span>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            {[
+              {
+                name: "Признание", price: "14 900", tag: "Для искренних слов", featured: false,
+                desc: "Полноценная песня, которая расскажет всё, что у вас на сердце.",
+                features: ["Полная песня (куплеты, припевы)", "AI-аранжировка", "Авторский текст по личному интервью", "Срок: 2–3 дня", "Файл в MP3"],
+                cta: "Заказать признание",
+              },
+              {
+                name: "Сюрприз", price: "29 900", tag: "Популярный выбор", featured: true,
+                desc: "Всё из «Признания» + полные права и релиз на стримингах.",
+                features: ["Всё из тарифа «Признание»", "Передача коммерческих прав", "Публикация на Яндекс Музыке и VK Музыке"],
+                cta: "Устроить сюрприз",
+              },
+              {
+                name: "Хит", price: "79 900", tag: "Максимум звучания", featured: false,
+                desc: "Студийный живой вокал, бэк-вокал, сведение. Для особенных моментов.",
+                features: ["Всё из тарифа «Сюрприз»", "Живой профессиональный вокал вместо AI", "Студийная запись и сведение", "Бэк-вокал"],
+                cta: "Создать хит",
+              },
+            ].map((t) => (
+              <div
+                key={t.name}
+                className="relative p-8 rounded-3xl flex flex-col transition-all duration-300 hover:-translate-y-2"
+                style={{
+                  background: t.featured ? "linear-gradient(160deg, #2A1B4A 0%, #171327 100%)" : "#171327",
+                  border: t.featured ? "1.5px solid #E8C98A" : "1px solid rgba(232,201,138,0.18)",
+                  boxShadow: t.featured ? "0 24px 70px rgba(201,151,74,0.22)" : "0 8px 30px rgba(0,0,0,0.3)",
+                }}
+              >
+                {t.featured && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap px-5 py-1.5 rounded-full text-xs font-bold uppercase" style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030", letterSpacing: "0.15em" }}>
+                    {t.tag}
+                  </div>
+                )}
+                {!t.featured && (
+                  <p className="text-xs font-semibold uppercase mb-3" style={{ color: "#E8C98A", letterSpacing: "0.2em" }}>{t.tag}</p>
+                )}
+                {t.featured && <div className="mb-3 h-4" />}
+                <h3 className="font-display text-3xl font-semibold mb-3" style={{ color: "#F6F1FF" }}>{t.name}</h3>
+                <p className="text-sm mb-6 leading-relaxed" style={{ color: "#B8ABCF" }}>{t.desc}</p>
+                <div className="mb-6 pb-6" style={{ borderBottom: "1px solid rgba(232,201,138,0.18)" }}>
+                  <span className="font-display text-5xl font-bold text-gold">{t.price}</span>
+                  <span className="text-xl ml-1" style={{ color: "#E8C98A" }}>₽</span>
+                </div>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {t.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm" style={{ color: "#D6CCEA" }}>
+                      <Icon name="Check" size={16} style={{ color: "#E8C98A", flexShrink: 0, marginTop: 2 }} /> {f}
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  onClick={scrollToForm}
+                  className="w-full py-6 rounded-full font-bold text-base"
+                  style={t.featured
+                    ? { background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }
+                    : { background: "transparent", color: "#F3DCA8", border: "1px solid rgba(232,201,138,0.5)" }}
+                >
+                  {t.cta}
+                </Button>
               </div>
-              <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Признание</h3>
-              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>Полноценная песня, которая расскажет всё, что у вас на сердце. Для тех, кто хочет тронуть до слёз.</p>
-              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>14 900 ₽</div>
-              <ul className="space-y-3 mb-8 flex-1">
-                {[
-                  "Полная песня (куплеты, припевы)",
-                  "AI-аранжировка",
-                  "Авторский текст на основе личного интервью с композитором",
-                  "Срок: 2–3 дня",
-                  "Файл в MP3",
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#4A3F6B" }}>
-                    <Icon name="Check" size={14} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} /> {f}
-                  </li>
-                ))}
-              </ul>
-              <Button onClick={scrollToForm} className="w-full py-4 rounded-xl font-bold" variant="outline" style={{ borderColor: "#A855F7", color: "#A855F7" }}>
-                Заказать признание
-              </Button>
-            </div>
-
-            {/* Тариф 3 — Сюрприз (выделенная) */}
-            <div className="p-7 rounded-2xl relative flex flex-col" style={{ border: "2px solid #A855F7", background: "linear-gradient(135deg, #FAF5FF 0%, #FDF2F8 100%)", boxShadow: "0 16px 48px rgba(168,85,247,0.18)", transform: "scale(1.02)" }}>
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                <Badge className="px-4 py-1.5 text-sm font-bold rounded-full" style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)", color: "#fff" }}>
-                  Популярный выбор
-                </Badge>
-              </div>
-              <div className="mb-4 mt-2">
-                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full" style={{ background: "rgba(168,85,247,0.12)", color: "#7C3AED" }}>
-                  Сюрприз
-                </span>
-              </div>
-              <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Сюрприз</h3>
-              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>Всё из «Признания» + полные права и релиз на стримингах. Чтобы ваш подарок услышал весь мир.</p>
-              <div className="text-4xl font-extrabold mb-6" style={{ color: "#A855F7" }}>29 900 ₽</div>
-              <ul className="space-y-3 mb-8 flex-1">
-                {[
-                  "Всё из тарифа «Признание»",
-                  "Передача коммерческих прав",
-                  "Публикация на Яндекс Музыке и VK Музыке",
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm font-medium" style={{ color: "#1A1030" }}>
-                    <Icon name="Check" size={14} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} /> {f}
-                  </li>
-                ))}
-              </ul>
-              <Button onClick={scrollToForm} className="w-full py-4 rounded-xl font-bold text-white" style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}>
-                Устроить сюрприз
-              </Button>
-            </div>
-
-            {/* Тариф 4 — Хит */}
-            <div className="p-7 rounded-2xl flex flex-col" style={{ border: "2px solid #EC4899", background: "linear-gradient(135deg, #FDF2F8 0%, #FAF5FF 100%)" }}>
-              <div className="mb-4">
-                <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ background: "rgba(255,77,166,0.2)", color: "#FF4DA6" }}>
-                  Хит
-                </span>
-              </div>
-              <h3 className="font-extrabold text-xl mb-3" style={{ color: "#1A1030" }}>Хит</h3>
-              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#6B5E91" }}>Максимальное звучание. Студийный живой вокал, бэк-вокал, сведение. Для особенных моментов.</p>
-              <div className="text-4xl font-extrabold mb-6" style={{ color: "#EC4899" }}>79 900 ₽</div>
-              <ul className="space-y-3 mb-8 flex-1">
-                {[
-                  "Всё из тарифа «Сюрприз»",
-                  "Живой профессиональный вокал вместо AI",
-                  "Студийная запись и сведение",
-                  "Бэк-вокал",
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm font-medium" style={{ color: "#1A1030" }}>
-                    <Icon name="Check" size={14} style={{ color: "#EC4899", flexShrink: 0, marginTop: 2 }} /> {f}
-                  </li>
-                ))}
-              </ul>
-              <Button onClick={scrollToForm} className="w-full py-4 rounded-xl font-bold text-white" style={{ background: "linear-gradient(135deg, #EC4899 0%, #A855F7 100%)" }}>
-                Создать хит
-              </Button>
-            </div>
-
+            ))}
           </div>
 
-          <div className="mt-10 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4 justify-between" style={{ background: "#F3EFFF", border: "1px solid rgba(168,85,247,0.2)" }}>
+          <div className="mt-10 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4 justify-between" style={{ background: "#171327", border: "1px solid rgba(232,201,138,0.2)" }}>
             <div className="flex items-start gap-3">
-              <Icon name="Clock" size={20} style={{ color: "#A855F7", flexShrink: 0, marginTop: 2 }} />
-              <p className="text-base" style={{ color: "#6B5E91" }}>Как композитор я глубоко погружаюсь в каждую историю. Перед праздниками все слоты занимаются заранее — бронируйте место.</p>
+              <Icon name="Clock" size={20} style={{ color: "#E8C98A", flexShrink: 0, marginTop: 2 }} />
+              <p className="text-base" style={{ color: "#B8ABCF" }}>Как композитор я глубоко погружаюсь в каждую историю. Перед праздниками все слоты занимаются заранее — бронируйте место.</p>
             </div>
             <a
               href="https://t.me/izmailova8888"
               target="_blank"
               rel="noopener noreferrer"
               className="whitespace-nowrap inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white text-sm transition-transform hover:scale-105 shrink-0"
-              style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}
+              style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}
             >
               <Icon name="Send" size={15} />
               Забронировать место
@@ -844,7 +822,7 @@ export default function PesnyaVPodarok() {
       <GiftSection />
 
       {/* ─── CALCULATOR ───────────────────────────────────────── */}
-      <section id="calculator-section" className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #1A0533 0%, #0D1B4B 100%)" }}>
+      <section id="calculator-section" className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #150F2B 0%, #0E0B1A 100%)" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 60% at 50% 0%, rgba(168,85,247,0.2) 0%, transparent 60%)" }} />
         <div className="absolute top-10 left-10 text-8xl opacity-5 pointer-events-none select-none">🎵</div>
         <div className="absolute bottom-10 right-10 text-8xl opacity-5 pointer-events-none select-none">🎶</div>
@@ -860,11 +838,11 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── ABOUT AUTHOR ─────────────────────────────────────── */}
-      <section className="py-24 px-6 relative overflow-hidden" style={{ background: "#FFF5F7" }}>
+      <section className="py-24 px-6 relative overflow-hidden" style={{ background: "#120E22" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 100% 50%, rgba(236,72,153,0.06) 0%, transparent 60%)" }} />
         <div className="container mx-auto max-w-4xl relative z-10">
           <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#EC4899" }}>Автор</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-12" style={{ color: "#1A1030" }}>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-12" style={{ color: "#F6F1FF" }}>
             Кто создаёт ваши песни?
           </h2>
           <div className="flex flex-col md:flex-row gap-10 items-center">
@@ -882,24 +860,24 @@ export default function PesnyaVPodarok() {
             {/* Текст */}
             <div className="flex-1">
               <p className="text-sm font-bold uppercase tracking-widest mb-2" style={{ color: "#EC4899" }}>Основательница AI Muse Lab</p>
-              <h3 className="text-2xl font-extrabold mb-4" style={{ color: "#1A1030" }}>Юлия Измайлова</h3>
-              <p className="text-base mb-1" style={{ color: "#6B5E91" }}>профессиональный композитор и автор текстов</p>
+              <h3 className="text-2xl font-extrabold mb-4" style={{ color: "#F6F1FF" }}>Юлия Измайлова</h3>
+              <p className="text-base mb-1" style={{ color: "#B8ABCF" }}>профессиональный композитор и автор текстов</p>
               <div className="space-y-3 my-5">
                 {[
                   "10+ лет опыта создания авторских песен",
                   "5 выпущенных альбомов под именем GALAKTIKA",
                   "Более 100 персональных песен для клиентов",
                 ].map(item => (
-                  <div key={item} className="flex items-start gap-2 text-base" style={{ color: "#4A3F6B" }}>
-                    <Icon name="Check" size={15} style={{ color: "#A855F7", marginTop: 2, flexShrink: 0 }} />
+                  <div key={item} className="flex items-start gap-2 text-base" style={{ color: "#D6CCEA" }}>
+                    <Icon name="Check" size={15} style={{ color: "#E8C98A", marginTop: 2, flexShrink: 0 }} />
                     {item}
                   </div>
                 ))}
               </div>
 
               {/* Послушать творчество */}
-              <div className="rounded-xl p-4 mb-5" style={{ background: "#F3EFFF", border: "1px solid rgba(168,85,247,0.2)" }}>
-                <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#A855F7" }}>Послушать творчество Юлии</p>
+              <div className="rounded-xl p-4 mb-5" style={{ background: "#1E1833", border: "1px solid rgba(168,85,247,0.2)" }}>
+                <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#E8C98A" }}>Послушать творчество Юлии</p>
                 <div className="flex flex-wrap gap-2">
                   <a
                     href="https://music.yandex.com/artist/2948671"
@@ -926,7 +904,7 @@ export default function PesnyaVPodarok() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all hover:scale-105"
-                    style={{ background: "rgba(168,85,247,0.12)", color: "#7C3AED", border: "1px solid rgba(168,85,247,0.3)" }}
+                    style={{ background: "rgba(168,85,247,0.12)", color: "#E8C98A", border: "1px solid rgba(168,85,247,0.3)" }}
                   >
                     <Icon name="Users" size={15} />
                     ВКонтакте
@@ -937,19 +915,19 @@ export default function PesnyaVPodarok() {
                 </p>
               </div>
 
-              <div className="rounded-xl p-5 mb-6" style={{ background: "#FFFFFF", border: "1px solid rgba(236,72,153,0.2)", boxShadow: "0 4px 16px rgba(236,72,153,0.08)" }}>
+              <div className="rounded-xl p-5 mb-6" style={{ background: "#171327", border: "1px solid rgba(236,72,153,0.2)", boxShadow: "0 4px 16px rgba(236,72,153,0.08)" }}>
                 <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "#EC4899" }}>Личный подход</p>
-                <p className="text-base leading-relaxed" style={{ color: "#4A3F6B" }}>
+                <p className="text-base leading-relaxed" style={{ color: "#D6CCEA" }}>
                   Каждую историю Юлия изучает лично. Проводит глубинное интервью, вникает в детали, переносит эмоции в текст и музыку.
                 </p>
-                <p className="text-base font-semibold mt-2" style={{ color: "#1A1030" }}>
+                <p className="text-base font-semibold mt-2" style={{ color: "#F6F1FF" }}>
                   Это не автоматическая генерация — это авторская работа с душой.
                 </p>
               </div>
               <Link
                 to="/o-nas"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-white transition-transform hover:scale-105"
-                style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}
+                style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}
               >
                 <Icon name="User" size={16} />
                 Узнать больше о Юлии →
@@ -960,10 +938,10 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── FAQ ──────────────────────────────────────────────── */}
-      <section className="py-24 px-6" style={{ background: "#F7F5FF" }}>
+      <section className="py-24 px-6" style={{ background: "#120E22" }}>
         <div className="container mx-auto max-w-3xl">
-          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#A855F7" }}>FAQ</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-14" style={{ color: "#1A1030" }}>
+          <p className="text-center text-sm font-bold uppercase tracking-widest mb-3" style={{ color: "#E8C98A" }}>FAQ</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-14" style={{ color: "#F6F1FF" }}>
             Вопросы и ответы
           </h2>
           <div className="space-y-3">
@@ -971,21 +949,21 @@ export default function PesnyaVPodarok() {
               <div
                 key={i}
                 className="overflow-hidden cursor-pointer rounded-2xl transition-all"
-                style={{ background: "#FFFFFF", border: openFaq === i ? "1px solid #A855F7" : "1px solid #E9E3F7", boxShadow: openFaq === i ? "0 4px 24px rgba(168,85,247,0.12)" : "0 2px 8px rgba(0,0,0,0.04)" }}
+                style={{ background: "#171327", border: openFaq === i ? "1px solid #E8C98A" : "1px solid rgba(232,201,138,0.2)", boxShadow: openFaq === i ? "0 4px 24px rgba(168,85,247,0.12)" : "0 2px 8px rgba(0,0,0,0.04)" }}
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
               >
                 <div className="flex items-center justify-between p-6">
-                  <h3 className="font-semibold text-base pr-4" style={{ color: "#1A1030" }}>{item.q}</h3>
-                  <Icon name={openFaq === i ? "ChevronUp" : "ChevronDown"} size={20} style={{ color: "#A855F7", flexShrink: 0 }} />
+                  <h3 className="font-semibold text-base pr-4" style={{ color: "#F6F1FF" }}>{item.q}</h3>
+                  <Icon name={openFaq === i ? "ChevronUp" : "ChevronDown"} size={20} style={{ color: "#E8C98A", flexShrink: 0 }} />
                 </div>
                 {openFaq === i && item.a !== "process-block" && (
-                  <div className="px-6 pb-6 text-base leading-relaxed" style={{ color: "#4A3F6B" }}>
+                  <div className="px-6 pb-6 text-base leading-relaxed" style={{ color: "#D6CCEA" }}>
                     {item.a}
                   </div>
                 )}
                 {openFaq === i && item.a === "process-block" && (
                   <div className="px-6 pb-6">
-                    <p className="text-base mb-4" style={{ color: "#4A3F6B" }}>
+                    <p className="text-base mb-4" style={{ color: "#D6CCEA" }}>
                       Да, я использую AI (Suno, Udio) — но это не «генерация за 5 минут». Это профессиональное продюсирование с помощью технологий будущего.
                     </p>
                     <div className="grid sm:grid-cols-5 gap-3 mb-5">
@@ -996,19 +974,19 @@ export default function PesnyaVPodarok() {
                         { icon: "Cpu", step: "04", title: "AI-продюсирование", desc: "Работаю в AI-студии как продюсер: голоса, персоны, инструменты, промты для каждой части" },
                         { icon: "Sparkles", step: "05", title: "Финализация", desc: "Могу добавить живой вокал на аранжировку — до идеального студийного звучания" },
                       ].map((item, idx) => (
-                        <div key={idx} className="flex flex-col items-center text-center p-4 rounded-xl" style={{ background: "#F3EFFF", border: "1px solid rgba(168,85,247,0.15)" }}>
-                          <div className="text-xs font-black mb-2 w-6 h-6 rounded-full flex items-center justify-center text-white" style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}>{item.step}</div>
+                        <div key={idx} className="flex flex-col items-center text-center p-4 rounded-xl" style={{ background: "#1E1833", border: "1px solid rgba(168,85,247,0.15)" }}>
+                          <div className="text-xs font-black mb-2 w-6 h-6 rounded-full flex items-center justify-center " style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}>{item.step}</div>
                           <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-2" style={{ background: "rgba(168,85,247,0.12)" }}>
-                            <Icon name={item.icon as "Music2"} size={16} style={{ color: "#A855F7" }} />
+                            <Icon name={item.icon as "Music2"} size={16} style={{ color: "#E8C98A" }} />
                           </div>
-                          <h4 className="font-bold text-xs mb-1" style={{ color: "#1A1030" }}>{item.title}</h4>
-                          <p className="text-xs leading-relaxed" style={{ color: "#6B5E91" }}>{item.desc}</p>
+                          <h4 className="font-bold text-xs mb-1" style={{ color: "#F6F1FF" }}>{item.title}</h4>
+                          <p className="text-xs leading-relaxed" style={{ color: "#B8ABCF" }}>{item.desc}</p>
                         </div>
                       ))}
                     </div>
-                    <div className="rounded-xl p-4" style={{ background: "#F3EFFF", border: "1px solid rgba(168,85,247,0.15)" }}>
-                      <p className="text-base" style={{ color: "#4A3F6B" }}>
-                        <strong style={{ color: "#1A1030" }}>Аналогия:</strong> Фотограф использует Photoshop. Без таланта — Photoshop бесполезен. Так же и с AI в музыке. Вы платите за экспертизу + мощь технологий.
+                    <div className="rounded-xl p-4" style={{ background: "#1E1833", border: "1px solid rgba(168,85,247,0.15)" }}>
+                      <p className="text-base" style={{ color: "#D6CCEA" }}>
+                        <strong style={{ color: "#F6F1FF" }}>Аналогия:</strong> Фотограф использует Photoshop. Без таланта — Photoshop бесполезен. Так же и с AI в музыке. Вы платите за экспертизу + мощь технологий.
                       </p>
                     </div>
                   </div>
@@ -1018,9 +996,9 @@ export default function PesnyaVPodarok() {
           </div>
 
           {/* Блок «Ещё остались вопросы?» */}
-          <div className="mt-10 rounded-2xl p-8" style={{ background: "#FFFFFF", border: "1px solid rgba(168,85,247,0.15)", boxShadow: "0 4px 24px rgba(168,85,247,0.08)" }}>
-            <h3 className="text-xl font-extrabold mb-3" style={{ color: "#1A1030" }}>Ещё остались вопросы?</h3>
-            <p className="text-base mb-5" style={{ color: "#6B5E91" }}>У нас есть подробная страница с ответами на 25+ вопросов:</p>
+          <div className="mt-10 rounded-2xl p-8" style={{ background: "#171327", border: "1px solid rgba(168,85,247,0.15)", boxShadow: "0 4px 24px rgba(168,85,247,0.08)" }}>
+            <h3 className="text-xl font-extrabold mb-3" style={{ color: "#F6F1FF" }}>Ещё остались вопросы?</h3>
+            <p className="text-base mb-5" style={{ color: "#B8ABCF" }}>У нас есть подробная страница с ответами на 25+ вопросов:</p>
             <div className="grid sm:grid-cols-2 gap-2 mb-6">
               {[
                 { icon: "💰", text: "Стоимость и оплата" },
@@ -1030,7 +1008,7 @@ export default function PesnyaVPodarok() {
                 { icon: "📜", text: "Авторские права" },
                 { icon: "✨", text: "...и многое другое!" },
               ].map(item => (
-                <div key={item.text} className="flex items-center gap-2 text-base" style={{ color: "#4A3F6B" }}>
+                <div key={item.text} className="flex items-center gap-2 text-base" style={{ color: "#D6CCEA" }}>
                   <span>{item.icon}</span>
                   <span>{item.text}</span>
                 </div>
@@ -1039,7 +1017,7 @@ export default function PesnyaVPodarok() {
             <Link
               to="/faq"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-white transition-transform hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #A855F7 0%, #FF4DA6 100%)" }}
+              style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}
             >
               <Icon name="HelpCircle" size={16} />
               Все вопросы и ответы →
@@ -1049,10 +1027,10 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── OTHER SERVICES PROMO ─────────────────────────────── */}
-      <section className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #1C0A2E 0%, #2D0A1E 100%)" }}>
+      <section className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #150F2B 0%, #0E0B1A 100%)" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 60% at 80% 50%, rgba(236,72,153,0.1) 0%, transparent 60%)" }} />
         <div className="container mx-auto max-w-5xl relative z-10">
-          <p className="text-sm font-bold uppercase tracking-widest mb-4 text-center" style={{ color: "#F9A8D4" }}>Дополнительные услуги</p>
+          <p className="text-sm font-bold uppercase tracking-widest mb-4 text-center" style={{ color: "#E8C98A" }}>Дополнительные услуги</p>
           <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-10 text-center">Кроме персональных песен я работаю с...</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
@@ -1063,11 +1041,11 @@ export default function PesnyaVPodarok() {
             ].map((s, i) => (
               <div key={i} className="rounded-2xl p-6 flex flex-col transition-all hover:-translate-y-2" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(249,168,212,0.2)", backdropFilter: "blur(10px)" }}>
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: "rgba(249,168,212,0.15)" }}>
-                  <Icon name={s.icon as "Film"} size={20} style={{ color: "#F9A8D4" }} />
+                  <Icon name={s.icon as "Film"} size={20} style={{ color: "#E8C98A" }} />
                 </div>
                 <h3 className="font-bold text-white text-base mb-2">{s.title}</h3>
                 <p className="text-base leading-relaxed mb-4 flex-1" style={{ color: "rgba(249,168,212,0.75)" }}>{s.desc}</p>
-                <p className="text-base font-extrabold" style={{ color: "#F9A8D4" }}>{s.price}</p>
+                <p className="text-base font-extrabold" style={{ color: "#E8C98A" }}>{s.price}</p>
               </div>
             ))}
           </div>
@@ -1075,7 +1053,7 @@ export default function PesnyaVPodarok() {
             <Link
               to="/uslugi"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white transition-transform hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #EC4899 0%, #A855F7 100%)" }}
+              style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030" }}
             >
               <Icon name="Video" size={18} />
               Подробнее об услугах
@@ -1085,7 +1063,7 @@ export default function PesnyaVPodarok() {
       </section>
 
       {/* ─── CTA SECTION ──────────────────────────────────────── */}
-      <section id="form-section" className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #6B21A8 0%, #9D174D 100%)" }}>
+      <section id="form-section" className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #2A1850 0%, #1A0A30 100%)" }}>
         {/* Фоновые музыкальные ноты */}
         <div className="absolute top-8 left-8 text-9xl pointer-events-none select-none" style={{ opacity: 0.06, fontSize: 120 }}>🎵</div>
         <div className="absolute bottom-8 right-8 text-9xl pointer-events-none select-none" style={{ opacity: 0.06, fontSize: 100 }}>🎶</div>
@@ -1105,7 +1083,7 @@ export default function PesnyaVPodarok() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 px-8 py-5 rounded-2xl font-bold text-lg transition-transform hover:scale-105 shadow-xl"
-              style={{ background: "#FFFFFF", color: "#7C3AED", boxShadow: "0 8px 32px rgba(0,0,0,0.2)" }}
+              style={{ background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)", color: "#1A1030", boxShadow: "0 8px 32px rgba(0,0,0,0.2)" }}
             >
               <Icon name="Bot" size={22} />
               Оставить заявку через бота

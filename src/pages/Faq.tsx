@@ -192,22 +192,22 @@ export default function Faq() {
   const toggleItem = (key: string) => setOpenItem(openItem === key ? null : key);
 
   return (
-    <div style={{ background: "#0d0702", minHeight: "100vh" }}>
+    <div style={{ background: "#0E0B1A", minHeight: "100vh" }}>
 
       <NavBar />
 
       {/* ─── HERO ─── */}
-      <section className="py-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #1a0d04 0%, #0d0702 100%)" }}>
+      <section className="py-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #171327 0%, #0E0B1A 100%)" }}>
         <div className="container mx-auto max-w-3xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.15)" }}>
-            <Icon name="HelpCircle" size={14} style={{ color: "#f5c97a" }} />
+            <Icon name="HelpCircle" size={14} style={{ color: "#F3DCA8" }} />
             <span className="text-sm text-white/80">Всё, что нужно знать перед заказом</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
             Частые вопросы<br />
-            <span style={{ color: "#f5c97a" }}>о заказе песни</span>
+            <span style={{ color: "#F3DCA8" }}>о заказе песни</span>
           </h1>
-          <p className="text-base" style={{ color: "#c9a882" }}>
+          <p className="text-base" style={{ color: "#B8ABCF" }}>
             Ответы на все вопросы о процессе, сроках, ценах и правках
           </p>
         </div>
@@ -230,8 +230,8 @@ export default function Faq() {
                     }}
                     className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all text-left flex-shrink-0"
                     style={activeSection === s.id
-                      ? { background: "#c2410c", color: "#fff" }
-                      : { background: "rgba(255,255,255,0.05)", color: "#c9a882" }
+                      ? { background: "#C9974A", color: "#171327" }
+                      : { background: "rgba(255,255,255,0.05)", color: "#B8ABCF" }
                     }
                   >
                     <Icon name={s.icon as "Clock"} size={14} />
@@ -247,7 +247,7 @@ export default function Faq() {
                 <div key={section.id} id={section.id}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(194,65,12,0.2)" }}>
-                      <Icon name={section.icon as "Clock"} size={18} style={{ color: "#f5c97a" }} />
+                      <Icon name={section.icon as "Clock"} size={18} style={{ color: "#F3DCA8" }} />
                     </div>
                     <h2 className="text-xl font-extrabold text-white">{section.title}</h2>
                   </div>
@@ -259,26 +259,26 @@ export default function Faq() {
                         <div
                           key={key}
                           className="rounded-2xl overflow-hidden cursor-pointer transition-all"
-                          style={{ background: "#1a0d04", border: `1px solid ${isOpen ? "#c2410c" : "#2a1a0e"}` }}
+                          style={{ background: "#171327", border: `1px solid ${isOpen ? "#C9974A" : "#1E1833"}` }}
                           onClick={() => toggleItem(key)}
                         >
                           <div className="flex items-center justify-between px-5 py-4 gap-4">
-                            <h3 className="font-semibold text-sm" style={{ color: "#fff" }}>{item.q}</h3>
-                            <Icon name={isOpen ? "ChevronUp" : "ChevronDown"} size={18} style={{ color: "#c2410c", flexShrink: 0 }} />
+                            <h3 className="font-semibold text-sm" style={{ color: "#F6F1FF" }}>{item.q}</h3>
+                            <Icon name={isOpen ? "ChevronUp" : "ChevronDown"} size={18} style={{ color: "#C9974A", flexShrink: 0 }} />
                           </div>
                           {isOpen && (
                             <div className="px-5 pb-5">
                               {Array.isArray(item.a) ? (
                                 <ul className="space-y-2">
                                   {item.a.map((line, i) => (
-                                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: "#c9a882" }}>
-                                      <Icon name="Check" size={13} style={{ color: "#f5c97a", marginTop: 3, flexShrink: 0 }} />
+                                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: "#B8ABCF" }}>
+                                      <Icon name="Check" size={13} style={{ color: "#F3DCA8", marginTop: 3, flexShrink: 0 }} />
                                       {line}
                                     </li>
                                   ))}
                                 </ul>
                               ) : (
-                                <p className="text-sm leading-relaxed" style={{ color: "#c9a882" }}>{item.a}</p>
+                                <p className="text-sm leading-relaxed" style={{ color: "#B8ABCF" }}>{item.a}</p>
                               )}
                             </div>
                           )}
@@ -294,12 +294,12 @@ export default function Faq() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="py-16 px-6" style={{ background: "#fdf3e7" }}>
+      <section className="py-16 px-6" style={{ background: "#171327" }}>
         <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl md:text-3xl font-extrabold mb-3" style={{ color: "#2d2016" }}>
+          <h2 className="text-2xl md:text-3xl font-extrabold mb-3" style={{ color: "#F6F1FF" }}>
             Не нашли ответ на свой вопрос?
           </h2>
-          <p className="text-sm mb-6" style={{ color: "#5a3d2b" }}>
+          <p className="text-sm mb-6" style={{ color: "#6B5E91" }}>
             Ответим в течение 15 минут в рабочее время (09:00–21:00 МСК)
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
@@ -308,7 +308,7 @@ export default function Faq() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
-              style={{ background: "#c2410c" }}
+              style={{ background: "#C9974A" }}
             >
               <Icon name="Send" size={17} />
               @izmailova8888
@@ -318,7 +318,7 @@ export default function Faq() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-transform hover:scale-105"
-              style={{ background: "#fff", color: "#2d2016", border: "1px solid #e5c9b5" }}
+              style={{ background: "#171327", color: "#F6F1FF", border: "1px solid rgba(232,201,138,0.2)" }}
             >
               <Icon name="Bot" size={17} />
               @AIMusalab_bot
@@ -327,7 +327,7 @@ export default function Faq() {
           <Link
             to="/"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
-            style={{ background: "#2d2016" }}
+            style={{ background: "#120E22" }}
           >
             <Icon name="Music2" size={17} />
             Заказать песню
