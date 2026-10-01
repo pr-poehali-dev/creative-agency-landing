@@ -31,16 +31,16 @@ export default function Free() {
 
       <main
         className="min-h-screen pt-24 pb-20 px-4"
-        style={{ background: "linear-gradient(180deg, #0e0b1a 0%, #130d22 100%)" }}
+        style={{ background: "linear-gradient(180deg, #0a0a0b 0%, #0f0f10 100%)" }}
       >
         {/* Заголовок */}
         <section className="max-w-2xl mx-auto text-center mb-12">
           <div
-            className="inline-block text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6"
+            className="inline-block text-xs font-semibold tracking-widest uppercase mb-6 px-0 py-0 border-0"
             style={{
-              background: "rgba(168,85,247,0.15)",
-              border: "1px solid rgba(168,85,247,0.35)",
-              color: "#C084FC",
+              background: "rgba(196,160,106,0.15)",
+              border: "1px solid rgba(196,160,106,0.35)",
+              color: "#c4a06a",
             }}
           >
             Слушай прямо здесь · Без регистрации
@@ -48,12 +48,12 @@ export default function Free() {
 
           <h1
             className="text-3xl md:text-5xl font-extrabold leading-tight mb-5"
-            style={{ fontFamily: "Montserrat, sans-serif", color: "#f6f1ff" }}
+            style={{ fontFamily: "Montserrat, sans-serif", color: "#f2efe9" }}
           >
             Послушай прежде,{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)",
+                background: "#c4a06a",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -62,9 +62,9 @@ export default function Free() {
             </span>
           </h1>
 
-          <p className="text-lg leading-relaxed" style={{ color: "rgba(196,181,253,0.8)" }}>
+          <p className="text-lg leading-relaxed" style={{ color: "rgba(169,166,159,0.8)" }}>
             Боишься, что песня не тронет?{" "}
-            <strong style={{ color: "#f6f1ff" }}>Нажми — и услышишь сама,</strong>{" "}
+            <strong style={{ color: "#f2efe9" }}>Нажми — и услышишь сама,</strong>{" "}
             каково это, когда музыка попадает прямо в сердце.
           </p>
         </section>
@@ -73,7 +73,7 @@ export default function Free() {
         <section className="max-w-2xl mx-auto mb-10">
           {tracks.length === 0 ? (
             <div className="flex justify-center py-10">
-              <div className="w-8 h-8 rounded-full border-2 border-purple-500 border-t-transparent animate-spin" />
+              <div className="w-8 h-8 rounded-none border-2 border-neutral-500 border-t-transparent animate-spin" />
             </div>
           ) : (
             <AudioPlayer tracks={tracks} />
@@ -82,10 +82,10 @@ export default function Free() {
 
         {/* Социальное доказательство */}
         <div className="max-w-2xl mx-auto text-center mb-10">
-          <p className="text-base italic" style={{ color: "rgba(196,181,253,0.6)" }}>
+          <p className="text-base italic" style={{ color: "rgba(169,166,159,0.6)" }}>
             «Бог меня послал к тебе» — так говорят клиенты.
             <br />
-            <span className="font-semibold not-italic" style={{ color: "#C084FC" }}>
+            <span className="font-semibold not-italic" style={{ color: "#c4a06a" }}>
               Более 100 песен создано
             </span>{" "}
             — каждая по живой истории реального человека.
@@ -95,16 +95,16 @@ export default function Free() {
         {/* CTA */}
         <section className="max-w-xl mx-auto text-center">
           <div
-            className="rounded-3xl p-8 md:p-10"
+            className="rounded-sm p-8 md:p-10"
             style={{
-              background: "rgba(168,85,247,0.08)",
-              border: "1px solid rgba(168,85,247,0.25)",
+              background: "rgba(196,160,106,0.08)",
+              border: "1px solid rgba(196,160,106,0.25)",
             }}
           >
-            <p className="text-xl font-bold mb-2" style={{ color: "#f6f1ff", fontFamily: "Montserrat, sans-serif" }}>
+            <p className="text-xl font-bold mb-2" style={{ color: "#f2efe9", fontFamily: "Montserrat, sans-serif" }}>
               Хочешь такую же?
             </p>
-            <p className="text-sm mb-7" style={{ color: "rgba(196,181,253,0.7)" }}>
+            <p className="text-sm mb-7" style={{ color: "rgba(169,166,159,0.7)" }}>
               Напиши Юлии — расскажи историю, и она создаст твою песню за 2–3 дня
             </p>
 
@@ -112,22 +112,22 @@ export default function Free() {
               href="https://t.me/izmailova8888"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-white text-base transition-all hover:scale-105"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-sm font-bold text-white text-base transition-all hover:opacity-90"
               style={{
-                background: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)",
-                boxShadow: "0 0 24px rgba(168,85,247,0.4)",
+                background: "#c4a06a",
+                boxShadow: "none",
               }}
             >
               <Icon name="Send" size={18} />
               Написать в Telegram
             </a>
 
-            <p className="mt-4 text-sm" style={{ color: "rgba(196,181,253,0.5)" }}>
+            <p className="mt-4 text-sm" style={{ color: "rgba(169,166,159,0.5)" }}>
               или на почту:{" "}
               <a
                 href="mailto:aimuselab@yandex.ru"
                 className="underline"
-                style={{ color: "rgba(196,181,253,0.75)" }}
+                style={{ color: "rgba(169,166,159,0.75)" }}
               >
                 aimuselab@yandex.ru
               </a>

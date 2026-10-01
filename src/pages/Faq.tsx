@@ -192,22 +192,22 @@ export default function Faq() {
   const toggleItem = (key: string) => setOpenItem(openItem === key ? null : key);
 
   return (
-    <div style={{ background: "#0E0B1A", minHeight: "100vh" }}>
+    <div style={{ background: "#0a0a0b", minHeight: "100vh" }}>
 
       <NavBar />
 
       {/* ─── HERO ─── */}
-      <section className="py-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #171327 0%, #0E0B1A 100%)" }}>
+      <section className="py-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #131314 0%, #0a0a0b 100%)" }}>
         <div className="container mx-auto max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.15)" }}>
-            <Icon name="HelpCircle" size={14} style={{ color: "#F3DCA8" }} />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-none mb-6" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.15)" }}>
+            <Icon name="HelpCircle" size={14} style={{ color: "#d8bd8a" }} />
             <span className="text-sm text-white/80">Всё, что нужно знать перед заказом</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
             Частые вопросы<br />
-            <span style={{ color: "#F3DCA8" }}>о заказе песни</span>
+            <span style={{ color: "#d8bd8a" }}>о заказе песни</span>
           </h1>
-          <p className="text-base" style={{ color: "#B8ABCF" }}>
+          <p className="text-base" style={{ color: "#a9a69f" }}>
             Ответы на все вопросы о процессе, сроках, ценах и правках
           </p>
         </div>
@@ -228,10 +228,10 @@ export default function Faq() {
                       setActiveSection(s.id);
                       document.getElementById(s.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
                     }}
-                    className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all text-left flex-shrink-0"
+                    className="flex items-center gap-2 px-3 py-2.5 rounded-sm text-sm font-semibold whitespace-nowrap transition-all text-left flex-shrink-0"
                     style={activeSection === s.id
-                      ? { background: "#C9974A", color: "#171327" }
-                      : { background: "rgba(255,255,255,0.05)", color: "#B8ABCF" }
+                      ? { background: "#b8925a", color: "#131314" }
+                      : { background: "rgba(255,255,255,0.03)", color: "#a9a69f" }
                     }
                   >
                     <Icon name={s.icon as "Clock"} size={14} />
@@ -246,8 +246,8 @@ export default function Faq() {
               {sections.map(section => (
                 <div key={section.id} id={section.id}>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(194,65,12,0.2)" }}>
-                      <Icon name={section.icon as "Clock"} size={18} style={{ color: "#F3DCA8" }} />
+                    <div className="w-9 h-9 rounded-sm flex items-center justify-center flex-shrink-0" style={{ background: "transparent", border: "1px solid rgba(196,160,106,0.35)" }}>
+                      <Icon name={section.icon as "Clock"} size={18} style={{ color: "#d8bd8a" }} />
                     </div>
                     <h2 className="text-xl font-extrabold text-white">{section.title}</h2>
                   </div>
@@ -258,27 +258,27 @@ export default function Faq() {
                       return (
                         <div
                           key={key}
-                          className="rounded-2xl overflow-hidden cursor-pointer transition-all"
-                          style={{ background: "#171327", border: `1px solid ${isOpen ? "#C9974A" : "#1E1833"}` }}
+                          className="rounded-sm overflow-hidden cursor-pointer transition-all"
+                          style={{ background: "#131314", border: `1px solid ${isOpen ? "#b8925a" : "#1b1b1d"}` }}
                           onClick={() => toggleItem(key)}
                         >
                           <div className="flex items-center justify-between px-5 py-4 gap-4">
-                            <h3 className="font-semibold text-sm" style={{ color: "#F6F1FF" }}>{item.q}</h3>
-                            <Icon name={isOpen ? "ChevronUp" : "ChevronDown"} size={18} style={{ color: "#C9974A", flexShrink: 0 }} />
+                            <h3 className="font-semibold text-sm" style={{ color: "#f2efe9" }}>{item.q}</h3>
+                            <Icon name={isOpen ? "ChevronUp" : "ChevronDown"} size={18} style={{ color: "#b8925a", flexShrink: 0 }} />
                           </div>
                           {isOpen && (
                             <div className="px-5 pb-5">
                               {Array.isArray(item.a) ? (
                                 <ul className="space-y-2">
                                   {item.a.map((line, i) => (
-                                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: "#B8ABCF" }}>
-                                      <Icon name="Check" size={13} style={{ color: "#F3DCA8", marginTop: 3, flexShrink: 0 }} />
+                                    <li key={i} className="flex items-start gap-2 text-sm" style={{ color: "#a9a69f" }}>
+                                      <Icon name="Check" size={13} style={{ color: "#d8bd8a", marginTop: 3, flexShrink: 0 }} />
                                       {line}
                                     </li>
                                   ))}
                                 </ul>
                               ) : (
-                                <p className="text-sm leading-relaxed" style={{ color: "#B8ABCF" }}>{item.a}</p>
+                                <p className="text-sm leading-relaxed" style={{ color: "#a9a69f" }}>{item.a}</p>
                               )}
                             </div>
                           )}
@@ -294,12 +294,12 @@ export default function Faq() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="py-16 px-6" style={{ background: "#171327" }}>
+      <section className="py-16 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-3xl text-center">
-          <h2 className="text-2xl md:text-3xl font-extrabold mb-3" style={{ color: "#F6F1FF" }}>
+          <h2 className="text-2xl md:text-3xl font-extrabold mb-3" style={{ color: "#f2efe9" }}>
             Не нашли ответ на свой вопрос?
           </h2>
-          <p className="text-sm mb-6" style={{ color: "#6B5E91" }}>
+          <p className="text-sm mb-6" style={{ color: "#6f6c66" }}>
             Ответим в течение 15 минут в рабочее время (09:00–21:00 МСК)
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-6">
@@ -307,8 +307,8 @@ export default function Faq() {
               href="https://t.me/izmailova8888"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
-              style={{ background: "#C9974A" }}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-none font-bold text-white transition-transform hover:opacity-90"
+              style={{ background: "#b8925a" }}
             >
               <Icon name="Send" size={17} />
               @izmailova8888
@@ -317,8 +317,8 @@ export default function Faq() {
               href="https://t.me/AIMusalab_bot"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-transform hover:scale-105"
-              style={{ background: "#171327", color: "#F6F1FF", border: "1px solid rgba(232,201,138,0.2)" }}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-none font-bold transition-transform hover:opacity-90"
+              style={{ background: "#131314", color: "#f2efe9", border: "1px solid rgba(196,160,106,0.2)" }}
             >
               <Icon name="Bot" size={17} />
               @AIMusalab_bot
@@ -326,8 +326,8 @@ export default function Faq() {
           </div>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
-            style={{ background: "#120E22" }}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-none font-bold text-white transition-transform hover:opacity-90"
+            style={{ background: "#0f0f10" }}
           >
             <Icon name="Music2" size={17} />
             Заказать песню

@@ -80,37 +80,37 @@ export default function Blog() {
     : articles.filter(a => a.category === activeCategory);
 
   return (
-    <div style={{ background: "#0E0B1A", minHeight: "100vh" }}>
+    <div style={{ background: "#0a0a0b", minHeight: "100vh" }}>
       <NavBar />
 
       {/* ─── HERO ─── */}
-      <section className="py-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #171327 0%, #0E0B1A 100%)" }}>
+      <section className="py-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #131314 0%, #0a0a0b 100%)" }}>
         <div className="container mx-auto max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.15)" }}>
-            <Icon name="BookOpen" size={14} style={{ color: "#F3DCA8" }} />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-none mb-6" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.15)" }}>
+            <Icon name="BookOpen" size={14} style={{ color: "#d8bd8a" }} />
             <span className="text-sm text-white/80">Полезные статьи и советы</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
-            Блог <span style={{ color: "#F3DCA8" }}>AI Muse Lab</span>
+            Блог <span style={{ color: "#d8bd8a" }}>AI Muse Lab</span>
           </h1>
-          <p className="text-base" style={{ color: "#B8ABCF" }}>
+          <p className="text-base" style={{ color: "#a9a69f" }}>
             Идеи подарков, истории клиентов и советы по созданию авторских песен
           </p>
         </div>
       </section>
 
       {/* ─── КАТЕГОРИИ ─── */}
-      <section className="py-6 px-6" style={{ background: "#120E22" }}>
+      <section className="py-6 px-6" style={{ background: "#0f0f10" }}>
         <div className="container mx-auto max-w-5xl">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className="px-4 py-2 rounded-full text-sm font-semibold transition-all"
+                className="px-4 py-2 rounded-none text-sm font-semibold transition-all"
                 style={activeCategory === cat
-                  ? { background: "#C9974A", color: "#171327" }
-                  : { background: "rgba(255,255,255,0.06)", color: "#B8ABCF", border: "1px solid #1E1833" }
+                  ? { background: "#b8925a", color: "#131314" }
+                  : { background: "rgba(255,255,255,0.03)", color: "#a9a69f", border: "1px solid #1b1b1d" }
                 }
               >
                 {cat}
@@ -128,43 +128,43 @@ export default function Blog() {
               <Link
                 key={article.slug}
                 to={`/blog/${article.slug}`}
-                className="group flex flex-col rounded-2xl overflow-hidden transition-transform hover:scale-[1.02]"
-                style={{ background: "#171327", border: "1px solid #1E1833" }}
+                className="group flex flex-col rounded-sm overflow-hidden transition-transform hover:opacity-90"
+                style={{ background: "#131314", border: "1px solid #1b1b1d" }}
               >
                 {/* Шапка карточки */}
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "rgba(194,65,12,0.2)", color: "#F3DCA8" }}>
+                    <span className="text-xs font-bold px-3 py-1 rounded-none" style={{ background: "rgba(196,160,106,0.2)", color: "#d8bd8a" }}>
                       {article.category}
                     </span>
                     {article.hot && (
-                      <span className="text-xs font-bold px-2 py-1 rounded-full" style={{ background: "#C9974A", color: "#171327" }}>
-                        🔥 Популярное
+                      <span className="text-xs font-bold px-2 py-1 rounded-none" style={{ background: "#b8925a", color: "#131314" }}>
+                         Популярное
                       </span>
                     )}
                   </div>
 
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: "rgba(245,201,122,0.1)" }}>
-                    <Icon name={article.icon as "Heart"} size={22} style={{ color: "#F3DCA8" }} />
+                  <div className="w-12 h-12 rounded-sm flex items-center justify-center mb-4" style={{ background: "transparent", border: "1px solid rgba(196,160,106,0.35)" }}>
+                    <Icon name={article.icon as "Heart"} size={22} style={{ color: "#d8bd8a" }} />
                   </div>
 
                   <h2 className="text-lg font-extrabold text-white mb-3 leading-snug group-hover:text-amber-300 transition-colors">
                     {article.title}
                   </h2>
 
-                  <p className="text-sm leading-relaxed flex-1" style={{ color: "#B8ABCF" }}>
+                  <p className="text-sm leading-relaxed flex-1" style={{ color: "#a9a69f" }}>
                     {article.excerpt}
                   </p>
                 </div>
 
                 {/* Футер карточки */}
-                <div className="px-6 py-4 flex items-center justify-between border-t" style={{ borderColor: "#1E1833" }}>
-                  <div className="flex items-center gap-3 text-xs" style={{ color: "#9688B8" }}>
+                <div className="px-6 py-4 flex items-center justify-between border-t" style={{ borderColor: "#1b1b1d" }}>
+                  <div className="flex items-center gap-3 text-xs" style={{ color: "#86837d" }}>
                     <span>{article.date}</span>
                     <span>·</span>
                     <span>{article.readTime} чтения</span>
                   </div>
-                  <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: "#F3DCA8" }}>
+                  <div className="flex items-center gap-1 text-xs font-semibold" style={{ color: "#d8bd8a" }}>
                     Читать <Icon name="ArrowRight" size={13} />
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export default function Blog() {
           </div>
 
           {filtered.length === 0 && (
-            <div className="text-center py-16" style={{ color: "#9688B8" }}>
+            <div className="text-center py-16" style={{ color: "#86837d" }}>
               <Icon name="Search" size={40} style={{ margin: "0 auto 16px", opacity: 0.4 }} />
               <p>Статей в этой категории пока нет</p>
             </div>
@@ -182,16 +182,16 @@ export default function Blog() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="py-14 px-6 text-center" style={{ background: "#171327" }}>
+      <section className="py-14 px-6 text-center" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-2xl">
           <h2 className="text-2xl font-extrabold text-white mb-3">Готовы создать вашу песню?</h2>
-          <p className="text-sm mb-6" style={{ color: "#B8ABCF" }}>Расскажите историю — и через 2–3 дня у вас будет персональный шедевр</p>
+          <p className="text-sm mb-6" style={{ color: "#a9a69f" }}>Расскажите историю — и через 2–3 дня у вас будет персональный шедевр</p>
           <a
             href="https://t.me/izmailova8888"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
-            style={{ background: "#C9974A" }}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-none font-bold text-white transition-transform hover:opacity-90"
+            style={{ background: "#b8925a" }}
           >
             <Icon name="Send" size={17} />
             Написать в Telegram

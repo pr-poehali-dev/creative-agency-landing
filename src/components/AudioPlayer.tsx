@@ -11,9 +11,9 @@ interface Track {
 }
 
 const accentColors: Record<string, { bg: string; border: string; btn: string }> = {
-  "lichnyj-geroj":   { bg: "rgba(236,72,153,0.10)", border: "rgba(236,72,153,0.35)", btn: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)" },
-  "zryachee-serdce": { bg: "rgba(168,85,247,0.10)", border: "rgba(168,85,247,0.35)", btn: "linear-gradient(135deg, #F3DCA8 0%, #C9974A 100%)" },
-  "kajfuyu-s-yanoj": { bg: "rgba(45,212,191,0.08)", border: "rgba(45,212,191,0.35)", btn: "linear-gradient(135deg,#0d9488,#a855f7)" },
+  "lichnyj-geroj":   { bg: "rgba(196,160,106,0.10)", border: "rgba(196,160,106,0.35)", btn: "#c4a06a" },
+  "zryachee-serdce": { bg: "rgba(196,160,106,0.10)", border: "rgba(196,160,106,0.35)", btn: "#c4a06a" },
+  "kajfuyu-s-yanoj": { bg: "rgba(196,160,106,0.08)", border: "rgba(196,160,106,0.35)", btn: "linear-gradient(135deg,#c4a06a,#c4a06a)" },
 };
 
 interface AudioPlayerProps {
@@ -49,7 +49,7 @@ function TrackRow({ track, isPlaying, onToggle }: { track: Track; isPlaying: boo
 
   return (
     <div
-      className="rounded-2xl p-5 transition-all duration-200"
+      className="rounded-sm p-5 transition-all duration-200"
       style={{ background: colors.bg, border: `1px solid ${colors.border}` }}
     >
       <audio
@@ -64,10 +64,10 @@ function TrackRow({ track, isPlaying, onToggle }: { track: Track; isPlaying: boo
         <div className="shrink-0 text-2xl w-10 text-center">{track.emoji}</div>
 
         <div className="flex-1 min-w-0">
-          <p className="font-bold text-sm" style={{ color: "#f6f1ff" }}>«{track.title}»</p>
-          <p className="text-xs mt-0.5" style={{ color: "rgba(196,181,253,0.6)" }}>{track.occasion}</p>
+          <p className="font-bold text-sm" style={{ color: "#f2efe9" }}>«{track.title}»</p>
+          <p className="text-xs mt-0.5" style={{ color: "rgba(169,166,159,0.6)" }}>{track.occasion}</p>
           {track.desc && (
-            <p className="text-xs mt-1.5 leading-relaxed" style={{ color: "rgba(196,181,253,0.5)" }}>{track.desc}</p>
+            <p className="text-xs mt-1.5 leading-relaxed" style={{ color: "rgba(169,166,159,0.5)" }}>{track.desc}</p>
           )}
         </div>
 
@@ -78,8 +78,8 @@ function TrackRow({ track, isPlaying, onToggle }: { track: Track; isPlaying: boo
             if (isPlaying) { el.pause(); } else { el.play(); }
             onToggle();
           }}
-          className="shrink-0 flex items-center justify-center w-11 h-11 rounded-xl text-white transition-all hover:scale-105 active:scale-95"
-          style={{ background: colors.btn, boxShadow: "0 4px 12px rgba(168,85,247,0.3)" }}
+          className="shrink-0 flex items-center justify-center w-11 h-11 rounded-sm text-white transition-all hover:opacity-90 active:scale-95"
+          style={{ background: colors.btn, boxShadow: "none" }}
         >
           <Icon name={isPlaying ? "Pause" : "Play"} size={18} />
         </button>
@@ -87,20 +87,20 @@ function TrackRow({ track, isPlaying, onToggle }: { track: Track; isPlaying: boo
 
       {(isPlaying || progress > 0) && (
         <div className="mt-3 flex items-center gap-2">
-          <span className="text-xs tabular-nums" style={{ color: "rgba(196,181,253,0.5)", minWidth: 32 }}>
+          <span className="text-xs tabular-nums" style={{ color: "rgba(169,166,159,0.5)", minWidth: 32 }}>
             {formatTime((progress / 100) * duration)}
           </span>
           <div
-            className="flex-1 h-1.5 rounded-full cursor-pointer"
-            style={{ background: "rgba(196,181,253,0.15)" }}
+            className="flex-1 h-1.5 rounded-none cursor-pointer"
+            style={{ background: "rgba(169,166,159,0.15)" }}
             onClick={handleSeek}
           >
             <div
-              className="h-full rounded-full transition-all"
+              className="h-full rounded-none transition-all"
               style={{ width: `${progress}%`, background: colors.btn }}
             />
           </div>
-          <span className="text-xs tabular-nums" style={{ color: "rgba(196,181,253,0.5)", minWidth: 32, textAlign: "right" }}>
+          <span className="text-xs tabular-nums" style={{ color: "rgba(169,166,159,0.5)", minWidth: 32, textAlign: "right" }}>
             {formatTime(duration)}
           </span>
         </div>

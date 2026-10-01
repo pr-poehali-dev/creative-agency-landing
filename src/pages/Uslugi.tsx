@@ -8,24 +8,24 @@ function BusinessFaqItem({ q, a }: { q: string; a: string }) {
   return (
     <Card
       className="border-0 shadow-sm overflow-hidden cursor-pointer"
-      style={{ background: "#171327" }}
+      style={{ background: "#131314" }}
       onClick={() => setOpen(!open)}
     >
       <div className="flex items-center justify-between p-5">
-        <h3 className="font-semibold text-sm pr-4" style={{ color: "#F6F1FF" }}>{q}</h3>
-        <Icon name={open ? "ChevronUp" : "ChevronDown"} size={18} style={{ color: "#C9974A", flexShrink: 0 }} />
+        <h3 className="font-semibold text-sm pr-4" style={{ color: "#f2efe9" }}>{q}</h3>
+        <Icon name={open ? "ChevronUp" : "ChevronDown"} size={18} style={{ color: "#b8925a", flexShrink: 0 }} />
       </div>
       {open && (
-        <div className="px-5 pb-5 text-sm leading-relaxed" style={{ color: "#9688B8" }}>{a}</div>
+        <div className="px-5 pb-5 text-sm leading-relaxed" style={{ color: "#86837d" }}>{a}</div>
       )}
     </Card>
   );
 }
 
 const NAV_SECTIONS = [
-  { id: "ai-video", label: "📹 Видео и клипы" },
-  { id: "artist-from-zero", label: "🎤 Артисты с нуля" },
-  { id: "business-music", label: "🎬 Музыка для бизнеса" },
+  { id: "ai-video", label: "Видео и клипы" },
+  { id: "artist-from-zero", label: "Артисты с нуля" },
+  { id: "business-music", label: "Музыка для бизнеса" },
 ];
 
 function scrollTo(id: string) {
@@ -51,23 +51,23 @@ export default function Uslugi() {
   });
 
   return (
-    <div className="min-h-screen font-sans" style={{ background: "#0E0B1A", color: "#F6F1FF" }}>
+    <div className="min-h-screen font-sans" style={{ background: "#0a0a0b", color: "#f2efe9" }}>
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap'); body { font-family: 'Montserrat', sans-serif; }`}</style>
 
       {/* NAV */}
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-md border-b" style={{ background: "rgba(26,15,7,0.96)", borderColor: "rgba(255,255,255,0.08)" }}>
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-md border-b" style={{ background: "rgba(10,10,11,0.96)", borderColor: "rgba(255,255,255,0.03)" }}>
         <div className="container mx-auto px-6 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
-            <Icon name="ArrowLeft" size={16} style={{ color: "#C9974A" }} />
-            <span className="font-bold text-sm" style={{ color: "#B8ABCF" }}>На главную</span>
+            <Icon name="ArrowLeft" size={16} style={{ color: "#b8925a" }} />
+            <span className="font-bold text-sm" style={{ color: "#a9a69f" }}>На главную</span>
           </Link>
           <span className="font-extrabold text-base tracking-wider text-white">AI MUSELAB</span>
           <a
             href="https://t.me/izmailova8888"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm text-white transition-transform hover:scale-105"
-            style={{ background: "#C9974A" }}
+            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-none font-bold text-sm text-white transition-transform hover:opacity-90"
+            style={{ background: "#b8925a" }}
           >
             <Icon name="Send" size={13} />
             Telegram
@@ -75,14 +75,14 @@ export default function Uslugi() {
           <button
             className="sm:hidden p-1"
             onClick={() => setMenuOpen(!menuOpen)}
-            style={{ color: "#F3DCA8" }}
+            style={{ color: "#d8bd8a" }}
           >
             <Icon name={menuOpen ? "X" : "Menu"} size={22} />
           </button>
         </div>
 
         {/* Таб-навигация (десктоп) */}
-        <div className="hidden sm:block border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+        <div className="hidden sm:block border-t" style={{ borderColor: "rgba(255,255,255,0.03)" }}>
           <div className="container mx-auto px-6 flex gap-1 overflow-x-auto">
             {NAV_SECTIONS.map((s) => (
               <button
@@ -90,8 +90,8 @@ export default function Uslugi() {
                 onClick={() => scrollTo(s.id)}
                 className="px-4 py-2.5 text-xs font-bold whitespace-nowrap transition-all border-b-2"
                 style={{
-                  color: activeSection === s.id ? "#F3DCA8" : "#9688B8",
-                  borderBottomColor: activeSection === s.id ? "#C9974A" : "transparent",
+                  color: activeSection === s.id ? "#d8bd8a" : "#86837d",
+                  borderBottomColor: activeSection === s.id ? "#b8925a" : "transparent",
                   background: "transparent",
                 }}
               >
@@ -103,15 +103,15 @@ export default function Uslugi() {
 
         {/* Мобильное меню */}
         {menuOpen && (
-          <div className="sm:hidden border-t px-4 py-3 flex flex-col gap-1" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(26,15,7,0.98)" }}>
+          <div className="sm:hidden border-t px-4 py-3 flex flex-col gap-1" style={{ borderColor: "rgba(255,255,255,0.03)", background: "rgba(10,10,11,0.98)" }}>
             {NAV_SECTIONS.map((s) => (
               <button
                 key={s.id}
                 onClick={() => { scrollTo(s.id); setMenuOpen(false); }}
-                className="text-left px-3 py-2.5 rounded-xl text-sm font-semibold"
+                className="text-left px-3 py-2.5 rounded-sm text-sm font-semibold"
                 style={{
-                  color: activeSection === s.id ? "#F3DCA8" : "#B8ABCF",
-                  background: activeSection === s.id ? "rgba(194,65,12,0.15)" : "transparent",
+                  color: activeSection === s.id ? "#d8bd8a" : "#a9a69f",
+                  background: activeSection === s.id ? "rgba(196,160,106,0.15)" : "transparent",
                 }}
               >
                 {s.label}
@@ -121,8 +121,8 @@ export default function Uslugi() {
               href="https://t.me/izmailova8888"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-full font-bold text-sm text-white"
-              style={{ background: "#C9974A" }}
+              className="mt-2 flex items-center justify-center gap-2 px-4 py-3 rounded-none font-bold text-sm text-white"
+              style={{ background: "#b8925a" }}
             >
               <Icon name="Send" size={14} />
               Написать в Telegram
@@ -135,15 +135,15 @@ export default function Uslugi() {
       {/* ─── ВИДЕО И КЛИПЫ AI ─────────────────────────────────── */}
       {/* ══════════════════════════════════════════════════════════ */}
 
-      <section id="ai-video" className="pt-40 pb-16 px-6" style={{ background: "#120E22" }}>
+      <section id="ai-video" className="pt-40 pb-16 px-6" style={{ background: "#0f0f10" }}>
         <div className="container mx-auto max-w-3xl text-center">
-          <span className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full inline-block mb-6" style={{ background: "rgba(245,201,122,0.15)", color: "#F3DCA8", border: "1px solid rgba(245,201,122,0.3)" }}>
+          <span className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-none inline-block mb-6" style={{ background: "rgba(196,160,106,0.15)", color: "#d8bd8a", border: "1px solid rgba(196,160,106,0.3)" }}>
             Видео и клипы AI
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
             Видеоконтент и клипы с AI
           </h1>
-          <p className="text-lg" style={{ color: "#B8ABCF" }}>
+          <p className="text-lg" style={{ color: "#a9a69f" }}>
             Профессиональные музыкальные клипы, лирик-видео и визуальный контент — от идеи до финального монтажа
           </p>
         </div>
@@ -161,24 +161,24 @@ export default function Uslugi() {
               { icon: "PresentationIcon", title: "Анимированные презентации", desc: "Для выступлений, запусков, обучения.", tag: "" },
               { icon: "MonitorPlay", title: "Product demo видео", desc: "Демонстрация продукта, сервиса, приложения.", tag: "" },
             ].map((s, i) => (
-              <Card key={i} className="p-6 border-0 shadow-md relative" style={{ background: "#171327" }}>
+              <Card key={i} className="p-6 border-0 shadow-md relative" style={{ background: "#131314" }}>
                 {s.tag && (
-                  <span className="absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-full" style={{ background: "rgba(232,201,138,0.15)", color: "#C9974A" }}>{s.tag}</span>
+                  <span className="absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-none" style={{ background: "rgba(196,160,106,0.15)", color: "#b8925a" }}>{s.tag}</span>
                 )}
-                <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-4" style={{ background: "rgba(232,201,138,0.15)" }}>
-                  <Icon name={s.icon as "Video"} size={22} style={{ color: "#C9974A" }} />
+                <div className="w-11 h-11 rounded-sm flex items-center justify-center mb-4" style={{ background: "transparent", border: "1px solid rgba(196,160,106,0.35)" }}>
+                  <Icon name={s.icon as "Video"} size={22} style={{ color: "#b8925a" }} />
                 </div>
-                <h3 className="font-extrabold text-base mb-2" style={{ color: "#F6F1FF" }}>{s.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#9688B8" }}>{s.desc}</p>
+                <h3 className="font-extrabold text-base mb-2" style={{ color: "#f2efe9" }}>{s.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#86837d" }}>{s.desc}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#171327" }}>
+      <section className="py-20 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-extrabold text-center mb-14" style={{ color: "#F6F1FF" }}>Как это работает</h2>
+          <h2 className="text-3xl font-extrabold text-center mb-14" style={{ color: "#f2efe9" }}>Как это работает</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { num: "01", title: "Обсуждаем идею", desc: "Вы описываете задачу, стиль и настроение. Мы предлагаем концепцию." },
@@ -187,25 +187,25 @@ export default function Uslugi() {
               { num: "04", title: "Готовый файл", desc: "Получаете финальный видеофайл в нужном формате и разрешении." },
             ].map((step, i) => (
               <div key={i} className="text-center">
-                <div className="text-4xl font-black mb-3" style={{ color: "rgba(232,201,138,0.2)" }}>{step.num}</div>
-                <h3 className="font-extrabold mb-2" style={{ color: "#F6F1FF" }}>{step.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#9688B8" }}>{step.desc}</p>
+                <div className="text-4xl font-black mb-3" style={{ color: "rgba(196,160,106,0.2)" }}>{step.num}</div>
+                <h3 className="font-extrabold mb-2" style={{ color: "#f2efe9" }}>{step.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#86837d" }}>{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#120E22" }}>
+      <section className="py-20 px-6" style={{ background: "#0f0f10" }}>
         <div className="container mx-auto max-w-xl text-center">
           <h2 className="text-3xl font-extrabold text-white mb-4">Обсудим ваш проект?</h2>
-          <p className="mb-8" style={{ color: "#B8ABCF" }}>Стоимость и сроки — индивидуально. Напишите — ответим в течение 15 минут.</p>
+          <p className="mb-8" style={{ color: "#a9a69f" }}>Стоимость и сроки — индивидуально. Напишите — ответим в течение 15 минут.</p>
           <a
             href="https://t.me/izmailova8888"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-10 py-5 rounded-full font-bold text-white text-lg transition-transform hover:scale-105"
-            style={{ background: "#C9974A" }}
+            className="inline-flex items-center gap-2 px-10 py-5 rounded-none font-bold text-white text-lg transition-transform hover:opacity-90"
+            style={{ background: "#b8925a" }}
           >
             <Icon name="Send" size={20} />
             Написать в Telegram
@@ -217,21 +217,21 @@ export default function Uslugi() {
       {/* ─── АРТИСТЫ С НУЛЯ ───────────────────────────────────── */}
       {/* ══════════════════════════════════════════════════════════ */}
 
-      <section id="artist-from-zero" className="py-24 px-6" style={{ background: "#171327" }}>
+      <section id="artist-from-zero" className="py-24 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-3xl text-center">
-          <span className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full inline-block mb-6" style={{ background: "rgba(245,201,122,0.15)", color: "#F3DCA8", border: "1px solid rgba(245,201,122,0.3)" }}>
+          <span className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-none inline-block mb-6" style={{ background: "rgba(196,160,106,0.15)", color: "#d8bd8a", border: "1px solid rgba(196,160,106,0.3)" }}>
             Артисты с нуля
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
             Создание артиста под ключ
           </h2>
-          <p className="text-base md:text-lg leading-relaxed" style={{ color: "#B8ABCF" }}>
+          <p className="text-base md:text-lg leading-relaxed" style={{ color: "#a9a69f" }}>
             Музыкальный бренд, песни, визуальный стиль, релизы, дистрибуция и развитие артиста — от идеи до первых слушателей.
           </p>
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#171327" }}>
+      <section className="py-20 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-5xl">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
@@ -242,24 +242,24 @@ export default function Uslugi() {
               { icon: "Palette", title: "Обложки и визуальный стиль", desc: "Арт-дирекшн, обложки, айдентика.", badge: "" },
               { icon: "TrendingUp", title: "PR и продвижение", desc: "Запуск, релизная коммуникация.", badge: "Хит" },
             ].map((s) => (
-              <Card key={s.title} className="p-6 border-0 shadow-sm relative" style={{ background: "#171327" }}>
+              <Card key={s.title} className="p-6 border-0 shadow-sm relative" style={{ background: "#131314" }}>
                 {s.badge && (
-                  <span className="absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-full" style={{ background: "rgba(232,201,138,0.15)", color: "#C9974A" }}>{s.badge}</span>
+                  <span className="absolute top-4 right-4 text-xs font-bold px-2 py-1 rounded-none" style={{ background: "rgba(196,160,106,0.15)", color: "#b8925a" }}>{s.badge}</span>
                 )}
-                <div className="w-11 h-11 rounded-2xl flex items-center justify-center mb-4" style={{ background: "rgba(232,201,138,0.15)" }}>
-                  <Icon name={s.icon as "Star"} size={22} style={{ color: "#C9974A" }} />
+                <div className="w-11 h-11 rounded-sm flex items-center justify-center mb-4" style={{ background: "transparent", border: "1px solid rgba(196,160,106,0.35)" }}>
+                  <Icon name={s.icon as "Star"} size={22} style={{ color: "#b8925a" }} />
                 </div>
-                <h3 className="font-extrabold text-base mb-2" style={{ color: "#F6F1FF" }}>{s.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#9688B8" }}>{s.desc}</p>
+                <h3 className="font-extrabold text-base mb-2" style={{ color: "#f2efe9" }}>{s.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#86837d" }}>{s.desc}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#171327" }}>
+      <section className="py-20 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#F6F1FF" }}>Этапы работы</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#f2efe9" }}>Этапы работы</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { num: "01", title: "Концепция", desc: "Определяем образ, жанр, целевую аудиторию и позиционирование." },
@@ -267,26 +267,26 @@ export default function Uslugi() {
               { num: "03", title: "Релиз", desc: "Записываем, сводим, мастерим и выпускаем треки на платформы." },
               { num: "04", title: "Продвижение", desc: "PR, SMM, плейлисты, питчинг и рост аудитории." },
             ].map((step, i) => (
-              <div key={i} className="text-center p-5 rounded-2xl" style={{ background: "#0E0B1A", border: "1px solid rgba(232,201,138,0.2)" }}>
-                <div className="text-4xl font-black mb-3" style={{ color: "rgba(232,201,138,0.2)" }}>{step.num}</div>
-                <h3 className="font-extrabold text-base mb-2" style={{ color: "#F6F1FF" }}>{step.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#9688B8" }}>{step.desc}</p>
+              <div key={i} className="text-center p-5 rounded-sm" style={{ background: "#0a0a0b", border: "1px solid rgba(196,160,106,0.2)" }}>
+                <div className="text-4xl font-black mb-3" style={{ color: "rgba(196,160,106,0.2)" }}>{step.num}</div>
+                <h3 className="font-extrabold text-base mb-2" style={{ color: "#f2efe9" }}>{step.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#86837d" }}>{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#171327" }}>
+      <section className="py-20 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-xl text-center">
           <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4">Готовы запустить артиста?</h2>
-          <p className="mb-8" style={{ color: "#B8ABCF" }}>Расскажите о своей идее — обсудим формат и план работы.</p>
+          <p className="mb-8" style={{ color: "#a9a69f" }}>Расскажите о своей идее — обсудим формат и план работы.</p>
           <a
             href="https://t.me/izmailova8888"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-10 py-5 rounded-full font-bold text-white text-lg transition-transform hover:scale-105"
-            style={{ background: "#C9974A" }}
+            className="inline-flex items-center gap-2 px-10 py-5 rounded-none font-bold text-white text-lg transition-transform hover:opacity-90"
+            style={{ background: "#b8925a" }}
           >
             <Icon name="Send" size={20} />
             Запустить проект
@@ -298,26 +298,26 @@ export default function Uslugi() {
       {/* ─── МУЗЫКА ДЛЯ БИЗНЕСА ──────────────────────────────── */}
       {/* ══════════════════════════════════════════════════════════ */}
 
-      <section id="business-music" className="py-24 px-6" style={{ background: "#120E22" }}>
+      <section id="business-music" className="py-24 px-6" style={{ background: "#0f0f10" }}>
         <div className="container mx-auto max-w-3xl text-center">
-          <span className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full inline-block mb-6" style={{ background: "rgba(245,201,122,0.15)", color: "#F3DCA8", border: "1px solid rgba(245,201,122,0.3)" }}>
+          <span className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-none inline-block mb-6" style={{ background: "rgba(196,160,106,0.15)", color: "#d8bd8a", border: "1px solid rgba(196,160,106,0.3)" }}>
             Музыка для бизнеса
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
             Музыка для бизнеса, брендов и digital-проектов
           </h2>
-          <p className="text-base md:text-lg mb-5 leading-relaxed" style={{ color: "#B8ABCF" }}>
+          <p className="text-base md:text-lg mb-5 leading-relaxed" style={{ color: "#a9a69f" }}>
             Создаём музыку, которая работает на узнаваемость бренда, эмоцию аудитории и коммерческий результат: от джинглов и рекламных треков до корпоративных гимнов и саунд-дизайна.
           </p>
-          <p className="text-sm leading-relaxed px-4 py-3 rounded-xl inline-block" style={{ color: "#F3DCA8", background: "rgba(245,201,122,0.08)", border: "1px solid rgba(245,201,122,0.2)" }}>
+          <p className="text-sm leading-relaxed px-4 py-3 rounded-sm inline-block" style={{ color: "#d8bd8a", background: "rgba(196,160,106,0.08)", border: "1px solid rgba(196,160,106,0.2)" }}>
             AI Muse Lab помогает компаниям звучать профессионально, современно и узнаваемо. Мы создаём музыку под конкретную задачу бизнеса, формат площадки и стиль коммуникации.
           </p>
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#171327" }}>
+      <section className="py-20 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#F6F1FF" }}>Для кого эта услуга</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#f2efe9" }}>Для кого эта услуга</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { icon: "Building2", title: "Компании и бренды", desc: "Музыка для рекламы, презентаций, мероприятий и фирменного звучания." },
@@ -328,13 +328,13 @@ export default function Uslugi() {
               { icon: "Mic2", title: "Подкасты", desc: "Фирменные заставки, подложки, аудиобрендинг." },
               { icon: "Smartphone", title: "Приложения и игры", desc: "Музыка для интерфейсов, onboarding, рекламных материалов." },
             ].map((item) => (
-              <Card key={item.title} className="p-5 border-0 shadow-sm flex gap-4 items-start" style={{ background: "#171327" }}>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(232,201,138,0.15)" }}>
-                  <Icon name={item.icon as "Music2"} size={20} style={{ color: "#C9974A" }} />
+              <Card key={item.title} className="p-5 border-0 shadow-sm flex gap-4 items-start" style={{ background: "#131314" }}>
+                <div className="w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0" style={{ background: "transparent", border: "1px solid rgba(196,160,106,0.35)" }}>
+                  <Icon name={item.icon as "Music2"} size={20} style={{ color: "#b8925a" }} />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-sm mb-1" style={{ color: "#F6F1FF" }}>{item.title}</h3>
-                  <p className="text-xs leading-relaxed" style={{ color: "#9688B8" }}>{item.desc}</p>
+                  <h3 className="font-extrabold text-sm mb-1" style={{ color: "#f2efe9" }}>{item.title}</h3>
+                  <p className="text-xs leading-relaxed" style={{ color: "#86837d" }}>{item.desc}</p>
                 </div>
               </Card>
             ))}
@@ -342,9 +342,9 @@ export default function Uslugi() {
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#171327" }}>
+      <section className="py-20 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#F6F1FF" }}>Семь направлений услуг</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#f2efe9" }}>Семь направлений услуг</h2>
           <div className="grid md:grid-cols-2 gap-5">
             {[
               { num: "01", title: "Корпоративные гимны и бренд-песни", desc: "Трек, который передаёт ценности компании, усиливает командный дух и работает на бренд." },
@@ -355,11 +355,11 @@ export default function Uslugi() {
               { num: "06", title: "Саундтреки для презентаций и мероприятий", desc: "Музыка для форумов, бизнес-презентаций, запусков продуктов." },
               { num: "07", title: "Музыка для приложений и игр", desc: "Интерфейсная музыка, брендированные аудиоэлементы." },
             ].map((item) => (
-              <div key={item.num} className="flex gap-4 p-5 rounded-2xl" style={{ background: "#0E0B1A", border: "1px solid rgba(232,201,138,0.2)" }}>
-                <div className="text-2xl font-black flex-shrink-0" style={{ color: "rgba(232,201,138,0.2)" }}>{item.num}</div>
+              <div key={item.num} className="flex gap-4 p-5 rounded-sm" style={{ background: "#0a0a0b", border: "1px solid rgba(196,160,106,0.2)" }}>
+                <div className="text-2xl font-black flex-shrink-0" style={{ color: "rgba(196,160,106,0.2)" }}>{item.num}</div>
                 <div>
-                  <h3 className="font-extrabold text-base mb-1" style={{ color: "#F6F1FF" }}>{item.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#9688B8" }}>{item.desc}</p>
+                  <h3 className="font-extrabold text-base mb-1" style={{ color: "#f2efe9" }}>{item.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "#86837d" }}>{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -367,9 +367,9 @@ export default function Uslugi() {
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#171327" }}>
+      <section className="py-20 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#F6F1FF" }}>Пакеты и цены</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#f2efe9" }}>Пакеты и цены</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
@@ -411,36 +411,36 @@ export default function Uslugi() {
             ].map((pkg) => (
               <div
                 key={pkg.name}
-                className="rounded-2xl p-6 flex flex-col relative"
+                className="rounded-sm p-6 flex flex-col relative"
                 style={{
-                  background: pkg.highlight ? "#171327" : "#0E0B1A",
-                  border: pkg.highlight ? "2px solid #C9974A" : "1px solid rgba(232,201,138,0.2)",
-                  boxShadow: pkg.highlight ? "0 8px 32px rgba(194,65,12,0.15)" : "none",
+                  background: pkg.highlight ? "#131314" : "#0a0a0b",
+                  border: pkg.highlight ? "2px solid #b8925a" : "1px solid rgba(196,160,106,0.2)",
+                  boxShadow: pkg.highlight ? "0 8px 32px rgba(0,0,0,0.4)" : "none",
                 }}
               >
                 {pkg.badge && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap" style={{ background: "#C9974A", color: "#171327" }}>{pkg.badge}</span>
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-bold px-3 py-1 rounded-none whitespace-nowrap" style={{ background: "#b8925a", color: "#131314" }}>{pkg.badge}</span>
                 )}
-                <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "#C9974A" }}>{pkg.name}</p>
-                <p className="text-sm mb-4" style={{ color: "#9688B8" }}>{pkg.sub}</p>
-                <p className="text-3xl font-extrabold mb-5" style={{ color: "#F6F1FF" }}>{pkg.price}</p>
+                <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "#b8925a" }}>{pkg.name}</p>
+                <p className="text-sm mb-4" style={{ color: "#86837d" }}>{pkg.sub}</p>
+                <p className="text-3xl font-extrabold mb-5" style={{ color: "#f2efe9" }}>{pkg.price}</p>
                 <ul className="space-y-2 mb-6 flex-1">
                   {pkg.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#D6CCEA" }}>
-                      <Icon name="Check" size={14} style={{ color: "#C9974A", flexShrink: 0, marginTop: 2 }} /> {f}
+                    <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#cfcbc4" }}>
+                      <Icon name="Check" size={14} style={{ color: "#b8925a", flexShrink: 0, marginTop: 2 }} /> {f}
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs mb-4 italic" style={{ color: "#9688B8" }}>Подходит: {pkg.fit}</p>
+                <p className="text-xs mb-4 italic" style={{ color: "#86837d" }}>Подходит: {pkg.fit}</p>
                 <a
                   href="https://t.me/izmailova8888"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold text-sm transition-transform hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-sm font-bold text-sm transition-transform hover:opacity-90"
                   style={{
-                    background: pkg.highlight ? "#C9974A" : "transparent",
-                    color: pkg.highlight ? "#171327" : "#C9974A",
-                    border: pkg.highlight ? "none" : "2px solid #C9974A",
+                    background: pkg.highlight ? "#b8925a" : "transparent",
+                    color: pkg.highlight ? "#131314" : "#b8925a",
+                    border: pkg.highlight ? "none" : "2px solid #b8925a",
                   }}
                 >
                   Обсудить
@@ -451,9 +451,9 @@ export default function Uslugi() {
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#171327" }}>
+      <section className="py-20 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#F6F1FF" }}>Процесс работы</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#f2efe9" }}>Процесс работы</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
               { num: "01", title: "Бриф и задача", desc: "Вы рассказываете о бренде, аудитории, канале и цели." },
@@ -463,19 +463,19 @@ export default function Uslugi() {
               { num: "05", title: "Финализация и мастеринг", desc: "Готовим финальный звук в нужных форматах." },
               { num: "06", title: "Передача прав и материалов", desc: "Вы получаете файлы и пакет прав." },
             ].map((step) => (
-              <div key={step.num} className="text-center p-5 rounded-2xl" style={{ background: "#0E0B1A", border: "1px solid rgba(232,201,138,0.2)" }}>
-                <div className="text-4xl font-black mb-3" style={{ color: "rgba(232,201,138,0.2)" }}>{step.num}</div>
-                <h3 className="font-extrabold text-base mb-2" style={{ color: "#F6F1FF" }}>{step.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#9688B8" }}>{step.desc}</p>
+              <div key={step.num} className="text-center p-5 rounded-sm" style={{ background: "#0a0a0b", border: "1px solid rgba(196,160,106,0.2)" }}>
+                <div className="text-4xl font-black mb-3" style={{ color: "rgba(196,160,106,0.2)" }}>{step.num}</div>
+                <h3 className="font-extrabold text-base mb-2" style={{ color: "#f2efe9" }}>{step.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#86837d" }}>{step.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#171327" }}>
+      <section className="py-20 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#F6F1FF" }}>Частые вопросы</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-12" style={{ color: "#f2efe9" }}>Частые вопросы</h2>
           <div className="space-y-3">
             {[
               { q: "Вы передаёте коммерческие права?", a: "Да, в бизнес-пакетах обязательно." },
@@ -493,12 +493,12 @@ export default function Uslugi() {
         </div>
       </section>
 
-      <section className="py-24 px-6" style={{ background: "#171327" }}>
+      <section className="py-24 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-xl text-center">
           <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4 leading-tight">
             Нужна музыка, которая будет работать на ваш бренд?
           </h2>
-          <p className="mb-8 leading-relaxed" style={{ color: "#B8ABCF" }}>
+          <p className="mb-8 leading-relaxed" style={{ color: "#a9a69f" }}>
             Расскажите о проекте, задаче, формате и сроках — мы предложим музыкальное решение под ваш бизнес.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -506,8 +506,8 @@ export default function Uslugi() {
               href="https://t.me/izmailova8888"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-white text-base transition-transform hover:scale-105"
-              style={{ background: "#C9974A" }}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-none font-bold text-white text-base transition-transform hover:opacity-90"
+              style={{ background: "#b8925a" }}
             >
               <Icon name="MessageSquare" size={18} />
               Обсудить проект
@@ -516,20 +516,20 @@ export default function Uslugi() {
               href="https://t.me/izmailova8888"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-base transition-transform hover:scale-105"
-              style={{ background: "rgba(255,255,255,0.08)", color: "#F6F1FF", border: "1px solid rgba(255,255,255,0.2)" }}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-none font-bold text-base transition-transform hover:opacity-90"
+              style={{ background: "rgba(255,255,255,0.03)", color: "#f2efe9", border: "1px solid rgba(255,255,255,0.2)" }}
             >
               <Icon name="Send" size={18} />
               Написать в Telegram
             </a>
           </div>
-          <p className="mt-5 text-xs" style={{ color: "#6B5E91" }}>Ответим в течение 15 минут</p>
+          <p className="mt-5 text-xs" style={{ color: "#6f6c66" }}>Ответим в течение 15 минут</p>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-8 px-6 text-center text-sm" style={{ background: "#171327", color: "#6B5E91" }}>
-        <Link to="/" className="hover:underline" style={{ color: "#9688B8" }}>← Вернуться к песням на заказ</Link>
+      <footer className="py-8 px-6 text-center text-sm" style={{ background: "#131314", color: "#6f6c66" }}>
+        <Link to="/" className="hover:underline" style={{ color: "#86837d" }}>← Вернуться к песням на заказ</Link>
       </footer>
     </div>
   );

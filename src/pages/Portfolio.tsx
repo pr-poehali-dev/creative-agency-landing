@@ -168,27 +168,27 @@ export default function Portfolio() {
   });
 
   return (
-    <div style={{ background: "#0E0B1A", minHeight: "100vh" }}>
+    <div style={{ background: "#0a0a0b", minHeight: "100vh" }}>
 
       <NavBar />
 
       {/* ─── HERO ─── */}
-      <section className="py-20 px-6 text-center" style={{ background: "linear-gradient(180deg, #171327 0%, #0E0B1A 100%)" }}>
+      <section className="py-20 px-6 text-center" style={{ background: "linear-gradient(180deg, #131314 0%, #0a0a0b 100%)" }}>
         <div className="container mx-auto max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.15)" }}>
-            <Icon name="Headphones" size={14} style={{ color: "#F3DCA8" }} />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-none mb-6" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.15)" }}>
+            <Icon name="Headphones" size={14} style={{ color: "#d8bd8a" }} />
             <span className="text-sm text-white/80">Реальные работы — реальные эмоции</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-5 leading-tight">
             Примеры наших<br />
-            <span style={{ color: "#F3DCA8" }}>авторских песен</span>
+            <span style={{ color: "#d8bd8a" }}>авторских песен</span>
           </h1>
-          <p className="text-lg mb-8" style={{ color: "#B8ABCF" }}>
+          <p className="text-lg mb-8" style={{ color: "#a9a69f" }}>
             Более <strong className="text-white">100 созданных песен</strong> для счастливых клиентов по всей России
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {["Слёзы радости", "Живые тексты", "Студийное звучание"].map(tag => (
-              <span key={tag} className="px-3 py-1 rounded-full text-sm font-semibold" style={{ background: "rgba(245,201,122,0.12)", color: "#F3DCA8", border: "1px solid rgba(245,201,122,0.25)" }}>
+              <span key={tag} className="px-3 py-1 rounded-none text-sm font-semibold" style={{ background: "rgba(196,160,106,0.12)", color: "#d8bd8a", border: "1px solid rgba(196,160,106,0.25)" }}>
                 {tag}
               </span>
             ))}
@@ -197,17 +197,17 @@ export default function Portfolio() {
       </section>
 
       {/* ─── TRACKS ─── */}
-      <section className="py-16 px-6" style={{ background: "#0E0B1A" }}>
+      <section className="py-16 px-6" style={{ background: "#0a0a0b" }}>
         <div className="container mx-auto max-w-5xl">
           <div className="space-y-8">
             {tracks.map((track, i) => (
-              <Card key={i} className="overflow-hidden border-0" style={{ background: "#171327", border: "1px solid #1E1833" }}>
+              <Card key={i} className="overflow-hidden border-0" style={{ background: "#131314", border: "1px solid #1b1b1d" }}>
                 <div className="grid md:grid-cols-[220px_1fr] gap-0">
                   {/* Обложка */}
                   <div className="relative">
                     <img src={track.img} alt={`Авторская песня «${track.title}» — ${track.occasion} | AI Muse Lab`} className="w-full h-56 md:h-full object-cover" loading="lazy" decoding="async" />
                     <div className="absolute inset-0 flex items-end p-4" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }}>
-                      <span className="text-xs font-bold px-2 py-1 rounded-full" style={{ background: "#C9974A", color: "#171327" }}>
+                      <span className="text-xs font-bold px-2 py-1 rounded-none" style={{ background: "#b8925a", color: "#131314" }}>
                         {track.genre}
                       </span>
                     </div>
@@ -217,18 +217,18 @@ export default function Portfolio() {
                   <div className="p-6 flex flex-col gap-4">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <Icon name={track.icon as "Heart"} size={14} style={{ color: "#F3DCA8" }} />
-                        <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#9688B8" }}>{track.occasion}</span>
+                        <Icon name={track.icon as "Heart"} size={14} style={{ color: "#d8bd8a" }} />
+                        <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#86837d" }}>{track.occasion}</span>
                       </div>
                       <h2 className="text-xl font-extrabold text-white mb-2">«{track.title}»</h2>
-                      <p className="text-sm leading-relaxed" style={{ color: "#B8ABCF" }}>{track.desc}</p>
+                      <p className="text-sm leading-relaxed" style={{ color: "#a9a69f" }}>{track.desc}</p>
                     </div>
 
                     {/* Отзыв */}
                     {track.review && (
-                      <div className="rounded-xl px-4 py-3" style={{ background: "rgba(245,201,122,0.07)", border: "1px solid rgba(245,201,122,0.15)" }}>
-                        <p className="text-sm italic leading-relaxed" style={{ color: "#E8C98A" }}>«{track.review}»</p>
-                        <p className="text-xs mt-1 font-semibold" style={{ color: "#9688B8" }}>— {track.reviewer}</p>
+                      <div className="rounded-sm px-4 py-3" style={{ background: "rgba(196,160,106,0.07)", border: "1px solid rgba(196,160,106,0.15)" }}>
+                        <p className="text-sm italic leading-relaxed" style={{ color: "#c4a06a" }}>«{track.review}»</p>
+                        <p className="text-xs mt-1 font-semibold" style={{ color: "#86837d" }}>— {track.reviewer}</p>
                       </div>
                     )}
 
@@ -238,16 +238,16 @@ export default function Portfolio() {
                         href={track.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white transition-transform hover:scale-105"
-                        style={{ background: "#C9974A" }}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-none text-sm font-bold text-white transition-transform hover:opacity-90"
+                        style={{ background: "#b8925a" }}
                       >
                         <Icon name="Play" size={14} />
                         Слушать
                       </a>
                       <button
                         onClick={() => setOpenLyrics(openLyrics === i ? null : i)}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all"
-                        style={{ background: "rgba(255,255,255,0.06)", color: "#B8ABCF", border: "1px solid #1E1833" }}
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-none text-sm font-semibold transition-all"
+                        style={{ background: "rgba(255,255,255,0.03)", color: "#a9a69f", border: "1px solid #1b1b1d" }}
                       >
                         <Icon name="FileText" size={14} />
                         {openLyrics === i ? "Скрыть текст" : "Текст песни"}
@@ -256,8 +256,8 @@ export default function Portfolio() {
 
                     {/* Текст песни */}
                     {openLyrics === i && (
-                      <div className="rounded-xl p-4 mt-1" style={{ background: "rgba(0,0,0,0.4)", border: "1px solid #1E1833" }}>
-                        <pre className="text-xs leading-relaxed whitespace-pre-wrap font-sans" style={{ color: "#B8ABCF" }}>{track.lyrics}</pre>
+                      <div className="rounded-sm p-4 mt-1" style={{ background: "rgba(0,0,0,0.4)", border: "1px solid #1b1b1d" }}>
+                        <pre className="text-xs leading-relaxed whitespace-pre-wrap font-sans" style={{ color: "#a9a69f" }}>{track.lyrics}</pre>
                       </div>
                     )}
                   </div>
@@ -269,29 +269,29 @@ export default function Portfolio() {
       </section>
 
       {/* ─── ЖАНРЫ И ПОВОДЫ ─── */}
-      <section className="py-16 px-6" style={{ background: "#171327" }}>
+      <section className="py-16 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl font-extrabold text-center mb-12" style={{ color: "#F6F1FF" }}>
+          <h2 className="text-3xl font-extrabold text-center mb-12" style={{ color: "#f2efe9" }}>
             Все жанры и поводы
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="font-bold text-lg mb-4" style={{ color: "#F6F1FF" }}>Любой жанр и стиль</h3>
+              <h3 className="font-bold text-lg mb-4" style={{ color: "#f2efe9" }}>Любой жанр и стиль</h3>
               <div className="space-y-2">
                 {genres.map(g => (
-                  <div key={g} className="flex items-center gap-2 text-sm" style={{ color: "#6B5E91" }}>
-                    <Icon name="Check" size={14} style={{ color: "#C9974A", flexShrink: 0 }} />
+                  <div key={g} className="flex items-center gap-2 text-sm" style={{ color: "#6f6c66" }}>
+                    <Icon name="Check" size={14} style={{ color: "#b8925a", flexShrink: 0 }} />
                     {g}
                   </div>
                 ))}
               </div>
             </div>
             <div>
-              <h3 className="font-bold text-lg mb-4" style={{ color: "#F6F1FF" }}>Для любого повода</h3>
+              <h3 className="font-bold text-lg mb-4" style={{ color: "#f2efe9" }}>Для любого повода</h3>
               <div className="grid grid-cols-2 gap-2">
                 {occasions.map(o => (
-                  <div key={o.label} className="flex items-center gap-2 text-sm" style={{ color: "#6B5E91" }}>
-                    <Icon name={o.icon as "Cake"} size={14} style={{ color: "#C9974A", flexShrink: 0 }} />
+                  <div key={o.label} className="flex items-center gap-2 text-sm" style={{ color: "#6f6c66" }}>
+                    <Icon name={o.icon as "Cake"} size={14} style={{ color: "#b8925a", flexShrink: 0 }} />
                     {o.label}
                   </div>
                 ))}
@@ -302,12 +302,12 @@ export default function Portfolio() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="py-20 px-6 text-center" style={{ background: "#171327" }}>
+      <section className="py-20 px-6 text-center" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-2xl">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
             Хотите свою уникальную песню?
           </h2>
-          <p className="text-base mb-8" style={{ color: "#B8ABCF" }}>
+          <p className="text-base mb-8" style={{ color: "#a9a69f" }}>
             Расскажите историю — и через 2–3 дня у вас будет персональный шедевр, который будут переслушивать годами.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -315,8 +315,8 @@ export default function Portfolio() {
               href="https://vk.ru/artist/galaktika_mtuyntc0odg0mw"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #A855F7 0%, #EC4899 100%)" }}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-none font-bold text-white transition-transform hover:opacity-90"
+              style={{ background: "#c4a06a" }}
             >
               <Icon name="Music" size={17} />
               Все альбомы на VK Музыке
@@ -325,8 +325,8 @@ export default function Portfolio() {
               href="https://t.me/izmailova8888"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold transition-all hover:scale-105"
-              style={{ background: "rgba(255,255,255,0.08)", color: "#F3DCA8", border: "1px solid rgba(245,201,122,0.3)" }}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-none font-bold transition-all hover:opacity-90"
+              style={{ background: "rgba(255,255,255,0.03)", color: "#d8bd8a", border: "1px solid rgba(196,160,106,0.3)" }}
             >
               <Icon name="Send" size={17} />
               Написать в Telegram

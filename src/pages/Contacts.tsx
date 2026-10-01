@@ -12,7 +12,7 @@ const contacts = [
     value: "+7 981 863-66-99",
     href: "tel:+79818636699",
     desc: "Позвонить напрямую",
-    color: "#C9974A",
+    color: "#b8925a",
   },
   {
     icon: "Send",
@@ -71,19 +71,19 @@ export default function Contacts() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: "#0E0B1A", color: "#F6F1FF" }}>
+    <div className="min-h-screen flex flex-col" style={{ background: "#0a0a0b", color: "#f2efe9" }}>
       <NavBar />
 
       <main className="flex-1">
         {/* Заголовок */}
         <section className="py-20 px-6 text-center">
           <div className="container mx-auto max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6" style={{ background: "rgba(194,65,12,0.15)", color: "#F3DCA8", border: "1px solid rgba(245,201,122,0.2)" }}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-none text-xs font-semibold mb-6" style={{ background: "rgba(196,160,106,0.15)", color: "#d8bd8a", border: "1px solid rgba(196,160,106,0.2)" }}>
               <Icon name="Phone" size={13} />
               Связаться с нами
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Контакты</h1>
-            <p className="text-lg" style={{ color: "#9688B8" }}>
+            <p className="text-lg" style={{ color: "#86837d" }}>
               Выберите удобный способ — ответим быстро и с удовольствием
             </p>
           </div>
@@ -98,18 +98,18 @@ export default function Contacts() {
                 href={c.href}
                 target={c.href.startsWith("http") ? "_blank" : undefined}
                 rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="flex items-center gap-5 px-6 py-5 rounded-2xl transition-all hover:scale-[1.02] group"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+                className="flex items-center gap-5 px-6 py-5 rounded-sm transition-all hover:opacity-90 group"
+                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.03)" }}
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110" style={{ background: `${c.color}22` }}>
+                <div className="w-14 h-14 rounded-sm flex items-center justify-center flex-shrink-0 transition-transform group-hover:opacity-90" style={{ background: `${c.color}22` }}>
                   <Icon name={c.icon as "Phone"} size={26} style={{ color: c.color }} />
                 </div>
                 <div className="flex-1">
-                  <div className="text-xs font-semibold mb-0.5" style={{ color: "#9688B8" }}>{c.title}</div>
+                  <div className="text-xs font-semibold mb-0.5" style={{ color: "#86837d" }}>{c.title}</div>
                   <div className="text-xl font-bold text-white">{c.value}</div>
-                  <div className="text-sm mt-0.5" style={{ color: "#6B5E91" }}>{c.desc}</div>
+                  <div className="text-sm mt-0.5" style={{ color: "#6f6c66" }}>{c.desc}</div>
                 </div>
-                <Icon name="ChevronRight" size={20} style={{ color: "#2A2048" }} />
+                <Icon name="ChevronRight" size={20} style={{ color: "#2a2a2d" }} />
               </a>
             ))}
           </div>
@@ -118,15 +118,15 @@ export default function Contacts() {
         {/* Срочная форма */}
         <section className="pb-24 px-6">
           <div className="container mx-auto max-w-2xl">
-            <div className="rounded-2xl p-8" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}>
+            <div className="rounded-sm p-8" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.03)" }}>
 
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "rgba(194,65,12,0.2)" }}>
-                  <Icon name="Zap" size={20} style={{ color: "#F3DCA8" }} />
+                <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ background: "transparent", border: "1px solid rgba(196,160,106,0.35)" }}>
+                  <Icon name="Zap" size={20} style={{ color: "#d8bd8a" }} />
                 </div>
                 <h2 className="text-2xl font-extrabold">Срочная связь</h2>
               </div>
-              <p className="text-sm mb-6" style={{ color: "#9688B8" }}>
+              <p className="text-sm mb-6" style={{ color: "#86837d" }}>
                 Отправьте сообщение напрямую — придёт SMS или письмо на почту Юлии
               </p>
 
@@ -135,11 +135,11 @@ export default function Contacts() {
                 <button
                   type="button"
                   onClick={() => setChannel("sms")}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all"
+                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-sm text-sm font-bold transition-all"
                   style={{
-                    background: channel === "sms" ? "rgba(194,65,12,0.3)" : "rgba(255,255,255,0.05)",
-                    border: channel === "sms" ? "1px solid #C9974A" : "1px solid rgba(255,255,255,0.1)",
-                    color: channel === "sms" ? "#F3DCA8" : "#9688B8",
+                    background: channel === "sms" ? "rgba(196,160,106,0.3)" : "rgba(255,255,255,0.03)",
+                    border: channel === "sms" ? "1px solid #b8925a" : "1px solid rgba(255,255,255,0.1)",
+                    color: channel === "sms" ? "#d8bd8a" : "#86837d",
                   }}
                 >
                   <Icon name="MessageSquare" size={16} />
@@ -148,11 +148,11 @@ export default function Contacts() {
                 <button
                   type="button"
                   onClick={() => setChannel("email")}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold transition-all"
+                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-sm text-sm font-bold transition-all"
                   style={{
-                    background: channel === "email" ? "rgba(194,65,12,0.3)" : "rgba(255,255,255,0.05)",
-                    border: channel === "email" ? "1px solid #C9974A" : "1px solid rgba(255,255,255,0.1)",
-                    color: channel === "email" ? "#F3DCA8" : "#9688B8",
+                    background: channel === "email" ? "rgba(196,160,106,0.3)" : "rgba(255,255,255,0.03)",
+                    border: channel === "email" ? "1px solid #b8925a" : "1px solid rgba(255,255,255,0.1)",
+                    color: channel === "email" ? "#d8bd8a" : "#86837d",
                   }}
                 >
                   <Icon name="Mail" size={16} />
@@ -161,16 +161,16 @@ export default function Contacts() {
               </div>
 
               {status === "success" ? (
-                <div className="rounded-xl py-8 text-center" style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)" }}>
+                <div className="rounded-sm py-8 text-center" style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)" }}>
                   <Icon name="CheckCircle" size={40} style={{ color: "#22c55e", margin: "0 auto 12px" }} />
                   <p className="font-bold text-lg text-white">Сообщение отправлено!</p>
-                  <p className="text-sm mt-1" style={{ color: "#9688B8" }}>
+                  <p className="text-sm mt-1" style={{ color: "#86837d" }}>
                     {channel === "sms" ? "SMS отправлено на телефон Юлии" : "Письмо отправлено на почту Юлии"}
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
                     className="mt-4 text-xs underline"
-                    style={{ color: "#9688B8" }}
+                    style={{ color: "#86837d" }}
                   >
                     Отправить ещё
                   </button>
@@ -178,19 +178,19 @@ export default function Contacts() {
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                   <div>
-                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "#9688B8" }}>Ваше имя</label>
+                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "#86837d" }}>Ваше имя</label>
                     <input
                       type="text"
                       value={name}
                       onChange={e => setName(e.target.value)}
                       placeholder="Как к вам обращаться?"
                       required
-                      className="w-full px-4 py-3 rounded-xl text-sm text-white outline-none transition-all"
-                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+                      className="w-full px-4 py-3 rounded-sm text-sm text-white outline-none transition-all"
+                      style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.1)" }}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "#9688B8" }}>
+                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "#86837d" }}>
                       {channel === "sms" ? "Ваш телефон" : "Ваш email или телефон"}
                     </label>
                     <input
@@ -199,28 +199,28 @@ export default function Contacts() {
                       onChange={e => setContact(e.target.value)}
                       placeholder={channel === "sms" ? "+7 900 000-00-00" : "email или телефон для ответа"}
                       required
-                      className="w-full px-4 py-3 rounded-xl text-sm text-white outline-none transition-all"
-                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+                      className="w-full px-4 py-3 rounded-sm text-sm text-white outline-none transition-all"
+                      style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.1)" }}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "#9688B8" }}>Сообщение</label>
+                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "#86837d" }}>Сообщение</label>
                     <textarea
                       value={message}
                       onChange={e => setMessage(e.target.value)}
                       placeholder="Опишите вопрос или пожелание..."
                       required
                       rows={4}
-                      className="w-full px-4 py-3 rounded-xl text-sm text-white outline-none transition-all resize-none"
-                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
+                      className="w-full px-4 py-3 rounded-sm text-sm text-white outline-none transition-all resize-none"
+                      style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.1)" }}
                     />
                     {channel === "sms" && (
-                      <p className="text-xs mt-1" style={{ color: "#6B5E91" }}>SMS обрезается до 100 символов</p>
+                      <p className="text-xs mt-1" style={{ color: "#6f6c66" }}>SMS обрезается до 100 символов</p>
                     )}
                   </div>
 
                   {status === "error" && (
-                    <p className="text-sm rounded-xl px-4 py-3" style={{ background: "rgba(239,68,68,0.1)", color: "#f87171", border: "1px solid rgba(239,68,68,0.2)" }}>
+                    <p className="text-sm rounded-sm px-4 py-3" style={{ background: "rgba(239,68,68,0.1)", color: "#f87171", border: "1px solid rgba(239,68,68,0.2)" }}>
                       Ошибка отправки. Попробуйте ещё раз или напишите напрямую.
                     </p>
                   )}
@@ -228,8 +228,8 @@ export default function Contacts() {
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="flex items-center justify-center gap-2 w-full py-4 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.02] disabled:opacity-60"
-                    style={{ background: "#C9974A" }}
+                    className="flex items-center justify-center gap-2 w-full py-4 rounded-sm text-sm font-bold text-white transition-all hover:opacity-90 disabled:opacity-60"
+                    style={{ background: "#b8925a" }}
                   >
                     {status === "sending" ? (
                       <>

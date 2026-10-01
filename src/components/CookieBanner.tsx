@@ -19,21 +19,21 @@ export default function CookieBanner() {
   return (
     <div
       className="fixed bottom-0 left-0 right-0 z-[100] px-4 py-4 md:px-8"
-      style={{ background: "#171327", borderTop: "1px solid #1E1833" }}
+      style={{ background: "#131314", borderTop: "1px solid #1b1b1d" }}
     >
       <div className="container mx-auto max-w-4xl flex flex-col sm:flex-row items-center gap-4 justify-between">
-        <p className="text-xs leading-relaxed" style={{ color: "#B8ABCF" }}>
+        <p className="text-xs leading-relaxed" style={{ color: "#a9a69f" }}>
           Мы используем файлы cookie для корректной работы сайта. Продолжая пользоваться сайтом, вы
           соглашаетесь с нашей{" "}
-          <Link to="/privacy-policy" className="underline hover:opacity-80" style={{ color: "#C9974A" }}>
+          <Link to="/privacy-policy" className="underline hover:opacity-80" style={{ color: "#b8925a" }}>
             Политикой конфиденциальности
           </Link>
           .
         </p>
         <button
           onClick={accept}
-          className="shrink-0 px-6 py-2 rounded-xl text-sm font-semibold text-white transition-opacity hover:opacity-90"
-          style={{ background: "#C9974A" }}
+          className="shrink-0 px-6 py-2 rounded-sm text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          style={{ background: "#b8925a" }}
         >
           Принять
         </button>

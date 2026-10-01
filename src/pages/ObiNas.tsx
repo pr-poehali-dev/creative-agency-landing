@@ -41,31 +41,31 @@ export default function ObiNas() {
   });
 
   return (
-    <div style={{ background: "#0E0B1A", minHeight: "100vh" }}>
+    <div style={{ background: "#0a0a0b", minHeight: "100vh" }}>
 
       <NavBar />
 
       {/* ─── HERO ─── */}
-      <section className="py-20 px-6" style={{ background: "linear-gradient(180deg, #171327 0%, #0E0B1A 100%)" }}>
+      <section className="py-20 px-6" style={{ background: "linear-gradient(180deg, #131314 0%, #0a0a0b 100%)" }}>
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col lg:flex-row items-center gap-14">
 
             {/* Текст */}
             <div className="flex-1 max-w-xl">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.15)" }}>
-                <Icon name="Star" size={13} style={{ color: "#F3DCA8" }} />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-none mb-6" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.15)" }}>
+                <Icon name="Star" size={13} style={{ color: "#d8bd8a" }} />
                 <span className="text-sm text-white/80">Профессиональный композитор</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5">
                 О нас —<br />
-                <span style={{ color: "#F3DCA8" }}>AI Muse Lab</span>
+                <span style={{ color: "#d8bd8a" }}>AI Muse Lab</span>
               </h1>
-              <p className="text-lg mb-6 leading-relaxed" style={{ color: "#B8ABCF" }}>
+              <p className="text-lg mb-6 leading-relaxed" style={{ color: "#a9a69f" }}>
                 AI Muse Lab — это не просто сервис создания песен. Это команда профессионалов, которая превращает ваши истории в музыку, способную тронуть до слёз.
               </p>
               <div className="flex flex-wrap gap-3">
                 {["10+ лет опыта", "5 альбомов", "100+ песен", "Студийное качество"].map(tag => (
-                  <span key={tag} className="px-3 py-1.5 rounded-full text-sm font-semibold" style={{ background: "rgba(245,201,122,0.12)", color: "#F3DCA8", border: "1px solid rgba(245,201,122,0.25)" }}>
+                  <span key={tag} className="px-3 py-1.5 rounded-none text-sm font-semibold" style={{ background: "rgba(196,160,106,0.12)", color: "#d8bd8a", border: "1px solid rgba(196,160,106,0.25)" }}>
                     {tag}
                   </span>
                 ))}
@@ -75,16 +75,16 @@ export default function ObiNas() {
             {/* Фото */}
             <div className="flex-shrink-0 flex flex-col items-center">
               <div className="relative">
-                <div className="absolute -inset-4 rounded-3xl blur-2xl opacity-30" style={{ background: "radial-gradient(ellipse, #C9974A 0%, transparent 70%)" }} />
+                <div className="absolute -inset-4 rounded-sm blur-2xl opacity-30" style={{ background: "radial-gradient(ellipse, #b8925a 0%, transparent 70%)" }} />
                 <img
                   src={JULIA_IMG}
                   alt="Юлия Измайлова — композитор и основательница AI Muse Lab, автор-исполнитель GALAKTIKA"
-                  className="relative w-72 md:w-80 rounded-3xl object-cover shadow-2xl"
+                  className="relative w-72 md:w-80 rounded-sm object-cover shadow-2xl"
                   style={{ border: "2px solid rgba(255,255,255,0.15)", aspectRatio: "3/4", objectPosition: "top" }}
                 />
-                <div className="absolute bottom-4 left-4 right-4 rounded-2xl px-4 py-3 backdrop-blur-sm" style={{ background: "rgba(20,10,3,0.8)", border: "1px solid rgba(255,255,255,0.15)" }}>
+                <div className="absolute bottom-4 left-4 right-4 rounded-sm px-4 py-3 backdrop-blur-sm" style={{ background: "rgba(10,10,11,0.8)", border: "1px solid rgba(255,255,255,0.15)" }}>
                   <p className="text-white font-bold text-sm">Юлия Измайлова</p>
-                  <p className="text-xs mt-0.5" style={{ color: "#F3DCA8" }}>Основательница · Композитор · GALAKTIKA</p>
+                  <p className="text-xs mt-0.5" style={{ color: "#d8bd8a" }}>Основательница · Композитор · GALAKTIKA</p>
                 </div>
               </div>
             </div>
@@ -93,15 +93,15 @@ export default function ObiNas() {
       </section>
 
       {/* ─── О ЮЛИИ ─── */}
-      <section className="py-16 px-6" style={{ background: "#120E22" }}>
+      <section className="py-16 px-6" style={{ background: "#0f0f10" }}>
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">Юлия Измайлова</h2>
-            <p style={{ color: "#B8ABCF" }}>Основательница и главный композитор</p>
+            <p style={{ color: "#a9a69f" }}>Основательница и главный композитор</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-              <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#F3DCA8" }}>Образование и опыт</p>
+            <div className="rounded-sm p-6" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.03)" }}>
+              <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#d8bd8a" }}>Образование и опыт</p>
               <div className="space-y-3">
                 {[
                   "Музыкальное образование (композиция и аранжировка)",
@@ -110,15 +110,15 @@ export default function ObiNas() {
                   "Более 100 созданных персональных песен для клиентов",
                   "Опыт работы со студиями звукозаписи Санкт-Петербурга",
                 ].map(item => (
-                  <div key={item} className="flex items-start gap-3 text-sm" style={{ color: "#B8ABCF" }}>
-                    <Icon name="Check" size={14} style={{ color: "#F3DCA8", marginTop: 2, flexShrink: 0 }} />
+                  <div key={item} className="flex items-start gap-3 text-sm" style={{ color: "#a9a69f" }}>
+                    <Icon name="Check" size={14} style={{ color: "#d8bd8a", marginTop: 2, flexShrink: 0 }} />
                     {item}
                   </div>
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl p-6" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-              <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#F3DCA8" }}>Достижения</p>
+            <div className="rounded-sm p-6" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.03)" }}>
+              <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#d8bd8a" }}>Достижения</p>
               <div className="space-y-3">
                 {[
                   "Публикации на Яндекс Музыке, VK Музыке, Spotify",
@@ -126,22 +126,22 @@ export default function ObiNas() {
                   "Сотни довольных клиентов по всей России и СНГ",
                   "Экспертиза в создании эмоциональных текстов",
                 ].map(item => (
-                  <div key={item} className="flex items-start gap-3 text-sm" style={{ color: "#B8ABCF" }}>
-                    <Icon name="Music2" size={14} style={{ color: "#F3DCA8", marginTop: 2, flexShrink: 0 }} />
+                  <div key={item} className="flex items-start gap-3 text-sm" style={{ color: "#a9a69f" }}>
+                    <Icon name="Music2" size={14} style={{ color: "#d8bd8a", marginTop: 2, flexShrink: 0 }} />
                     {item}
                   </div>
                 ))}
               </div>
-              <div className="mt-5 pt-5 border-t" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
-                <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#9688B8" }}>Послушать творчество:</p>
+              <div className="mt-5 pt-5 border-t" style={{ borderColor: "rgba(255,255,255,0.03)" }}>
+                <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "#86837d" }}>Послушать творчество:</p>
                 <div className="flex flex-wrap gap-2">
-                  <a href="https://music.yandex.com/artist/2948671" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style={{ background: "rgba(255,204,0,0.15)", color: "#ffcc00", border: "1px solid rgba(255,204,0,0.3)" }}>
+                  <a href="https://music.yandex.com/artist/2948671" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-none text-xs font-semibold" style={{ background: "rgba(255,204,0,0.15)", color: "#ffcc00", border: "1px solid rgba(255,204,0,0.3)" }}>
                     <Icon name="Music" size={12} /> Яндекс Музыка
                   </a>
-                  <a href="https://vk.ru/artist/galaktika_mtuyntc0odg0mw" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style={{ background: "rgba(0,119,255,0.15)", color: "#5b9cf6", border: "1px solid rgba(0,119,255,0.3)" }}>
+                  <a href="https://vk.ru/artist/galaktika_mtuyntc0odg0mw" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-none text-xs font-semibold" style={{ background: "rgba(0,119,255,0.15)", color: "#5b9cf6", border: "1px solid rgba(0,119,255,0.3)" }}>
                     <Icon name="Music2" size={12} /> VK Музыка
                   </a>
-                  <a href="https://vk.ru/club235584480" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold" style={{ background: "rgba(255,255,255,0.08)", color: "#B8ABCF", border: "1px solid rgba(255,255,255,0.15)" }}>
+                  <a href="https://vk.ru/club235584480" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-none text-xs font-semibold" style={{ background: "rgba(255,255,255,0.03)", color: "#a9a69f", border: "1px solid rgba(255,255,255,0.15)" }}>
                     <Icon name="Users" size={12} /> ВКонтакте
                   </a>
                 </div>
@@ -152,11 +152,11 @@ export default function ObiNas() {
       </section>
 
       {/* ─── ФИЛОСОФИЯ ─── */}
-      <section className="py-16 px-6" style={{ background: "#171327" }}>
+      <section className="py-16 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-3" style={{ color: "#F6F1FF" }}>Наша философия</h2>
-            <p className="text-lg font-semibold" style={{ color: "#6B5E91" }}>Каждая песня — это не просто набор слов и нот</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-3" style={{ color: "#f2efe9" }}>Наша философия</h2>
+            <p className="text-lg font-semibold" style={{ color: "#6f6c66" }}>Каждая песня — это не просто набор слов и нот</p>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
             {[
@@ -167,16 +167,16 @@ export default function ObiNas() {
               { icon: "Heart", text: "Эмоции, которые останутся навсегда" },
               { icon: "UserCheck", text: "Личная работа автора с каждым клиентом" },
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3 p-4 rounded-2xl" style={{ background: "#171327", border: "1px solid rgba(232,201,138,0.2)" }}>
-                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(232,201,138,0.15)" }}>
-                  <Icon name={item.icon as "Heart"} size={17} style={{ color: "#C9974A" }} />
+              <div key={i} className="flex items-start gap-3 p-4 rounded-sm" style={{ background: "#131314", border: "1px solid rgba(196,160,106,0.2)" }}>
+                <div className="w-9 h-9 rounded-sm flex items-center justify-center flex-shrink-0" style={{ background: "transparent", border: "1px solid rgba(196,160,106,0.35)" }}>
+                  <Icon name={item.icon as "Heart"} size={17} style={{ color: "#b8925a" }} />
                 </div>
-                <p className="text-sm leading-relaxed pt-1" style={{ color: "#6B5E91" }}>{item.text}</p>
+                <p className="text-sm leading-relaxed pt-1" style={{ color: "#6f6c66" }}>{item.text}</p>
               </div>
             ))}
           </div>
-          <div className="rounded-2xl p-6 text-center" style={{ background: "#171327", border: "1px solid rgba(232,201,138,0.2)" }}>
-            <p className="text-base leading-relaxed" style={{ color: "#F6F1FF" }}>
+          <div className="rounded-sm p-6 text-center" style={{ background: "#131314", border: "1px solid rgba(196,160,106,0.2)" }}>
+            <p className="text-base leading-relaxed" style={{ color: "#f2efe9" }}>
               Мы не генерируем песни автоматически. Каждый трек — результат <strong>личной работы автора</strong>, который вникает в вашу историю и переносит её в музыку.
             </p>
           </div>
@@ -184,18 +184,18 @@ export default function ObiNas() {
       </section>
 
       {/* ─── КАК МЫ ИСПОЛЬЗУЕМ AI ─── */}
-      <section className="py-16 px-6" style={{ background: "#120E22" }}>
+      <section className="py-16 px-6" style={{ background: "#0f0f10" }}>
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-3">Как мы используем AI?</h2>
-            <p style={{ color: "#B8ABCF" }}>AI для нас — это инструмент, как гитара или синтезатор. Он не заменяет автора, а усиливает его возможности.</p>
+            <p style={{ color: "#a9a69f" }}>AI для нас — это инструмент, как гитара или синтезатор. Он не заменяет автора, а усиливает его возможности.</p>
           </div>
           <div className="grid sm:grid-cols-5 gap-3">
             {process.map((item, i) => (
-              <div key={i} className="flex flex-col items-center text-center p-4 rounded-2xl" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-black text-white mb-3" style={{ background: "#C9974A" }}>{item.step}</div>
+              <div key={i} className="flex flex-col items-center text-center p-4 rounded-sm" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.03)" }}>
+                <div className="w-7 h-7 rounded-none flex items-center justify-center text-xs font-black text-white mb-3" style={{ background: "#b8925a" }}>{item.step}</div>
                 <p className="font-bold text-white text-sm mb-1">{item.text}</p>
-                <p className="text-xs" style={{ color: "#9688B8" }}>{item.sub}</p>
+                <p className="text-xs" style={{ color: "#86837d" }}>{item.sub}</p>
               </div>
             ))}
           </div>
@@ -203,18 +203,18 @@ export default function ObiNas() {
       </section>
 
       {/* ─── КОМАНДА ─── */}
-      <section className="py-16 px-6" style={{ background: "#0E0B1A" }}>
+      <section className="py-16 px-6" style={{ background: "#0a0a0b" }}>
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl font-extrabold text-white text-center mb-10">Наша команда</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             {team.map((member, i) => (
-              <div key={i} className="p-5 rounded-2xl flex flex-col items-center text-center" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style={{ background: "rgba(194,65,12,0.2)" }}>
-                  <Icon name={member.icon as "Music2"} size={22} style={{ color: "#F3DCA8" }} />
+              <div key={i} className="p-5 rounded-sm flex flex-col items-center text-center" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.03)" }}>
+                <div className="w-12 h-12 rounded-sm flex items-center justify-center mb-4" style={{ background: "transparent", border: "1px solid rgba(196,160,106,0.35)" }}>
+                  <Icon name={member.icon as "Music2"} size={22} style={{ color: "#d8bd8a" }} />
                 </div>
                 <p className="font-bold text-white text-sm mb-0.5">{member.title}</p>
-                <p className="text-xs mb-2" style={{ color: "#F3DCA8" }}>{member.role}</p>
-                <p className="text-xs leading-relaxed" style={{ color: "#9688B8" }}>{member.desc}</p>
+                <p className="text-xs mb-2" style={{ color: "#d8bd8a" }}>{member.role}</p>
+                <p className="text-xs leading-relaxed" style={{ color: "#86837d" }}>{member.desc}</p>
               </div>
             ))}
           </div>
@@ -222,48 +222,48 @@ export default function ObiNas() {
       </section>
 
       {/* ─── КОНТАКТЫ ─── */}
-      <section className="py-16 px-6" style={{ background: "#171327" }}>
+      <section className="py-16 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-2xl font-extrabold mb-6" style={{ color: "#F6F1FF" }}>Где мы находимся?</h2>
-              <div className="space-y-3 text-sm" style={{ color: "#6B5E91" }}>
+              <h2 className="text-2xl font-extrabold mb-6" style={{ color: "#f2efe9" }}>Где мы находимся?</h2>
+              <div className="space-y-3 text-sm" style={{ color: "#6f6c66" }}>
                 <div className="flex items-start gap-2">
-                  <Icon name="MapPin" size={16} style={{ color: "#C9974A", marginTop: 2, flexShrink: 0 }} />
+                  <Icon name="MapPin" size={16} style={{ color: "#b8925a", marginTop: 2, flexShrink: 0 }} />
                   <div>
                     <p className="font-semibold">Санкт-Петербург, Россия</p>
                     <p>Ленинский проспект, 117, корп. 1</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Icon name="Globe" size={16} style={{ color: "#C9974A", flexShrink: 0 }} />
+                  <Icon name="Globe" size={16} style={{ color: "#b8925a", flexShrink: 0 }} />
                   <p>Работаем дистанционно по всей России и СНГ</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Icon name="Clock" size={16} style={{ color: "#C9974A", flexShrink: 0 }} />
+                  <Icon name="Clock" size={16} style={{ color: "#b8925a", flexShrink: 0 }} />
                   <p>Ответим в течение 15 минут (09:00–21:00 МСК)</p>
                 </div>
               </div>
             </div>
             <div>
-              <h2 className="text-2xl font-extrabold mb-6" style={{ color: "#F6F1FF" }}>Свяжитесь с нами</h2>
+              <h2 className="text-2xl font-extrabold mb-6" style={{ color: "#f2efe9" }}>Свяжитесь с нами</h2>
               <div className="space-y-3">
-                <a href="https://t.me/izmailova8888" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-2xl transition-all hover:scale-[1.02]" style={{ background: "#171327", border: "1px solid rgba(232,201,138,0.2)" }}>
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(34,158,217,0.15)" }}>
+                <a href="https://t.me/izmailova8888" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-sm transition-all hover:opacity-90" style={{ background: "#131314", border: "1px solid rgba(196,160,106,0.2)" }}>
+                  <div className="w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0" style={{ background: "transparent", border: "1px solid rgba(196,160,106,0.35)" }}>
                     <Icon name="Send" size={18} style={{ color: "#229ed9" }} />
                   </div>
                   <div>
-                    <p className="font-semibold text-sm" style={{ color: "#F6F1FF" }}>@izmailova8888</p>
-                    <p className="text-xs" style={{ color: "#9688B8" }}>Личный контакт Юлии</p>
+                    <p className="font-semibold text-sm" style={{ color: "#f2efe9" }}>@izmailova8888</p>
+                    <p className="text-xs" style={{ color: "#86837d" }}>Личный контакт Юлии</p>
                   </div>
                 </a>
-                <a href="https://t.me/AIMusalab_bot" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-2xl transition-all hover:scale-[1.02]" style={{ background: "#171327", border: "1px solid rgba(232,201,138,0.2)" }}>
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(34,158,217,0.15)" }}>
+                <a href="https://t.me/AIMusalab_bot" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-sm transition-all hover:opacity-90" style={{ background: "#131314", border: "1px solid rgba(196,160,106,0.2)" }}>
+                  <div className="w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0" style={{ background: "transparent", border: "1px solid rgba(196,160,106,0.35)" }}>
                     <Icon name="Bot" size={18} style={{ color: "#229ed9" }} />
                   </div>
                   <div>
-                    <p className="font-semibold text-sm" style={{ color: "#F6F1FF" }}>@AIMusalab_bot</p>
-                    <p className="text-xs" style={{ color: "#9688B8" }}>Бот для заказа</p>
+                    <p className="font-semibold text-sm" style={{ color: "#f2efe9" }}>@AIMusalab_bot</p>
+                    <p className="text-xs" style={{ color: "#86837d" }}>Бот для заказа</p>
                   </div>
                 </a>
               </div>
@@ -273,15 +273,15 @@ export default function ObiNas() {
       </section>
 
       {/* ─── ОТЗЫВЫ ─── */}
-      <section className="py-16 px-6" style={{ background: "#171327" }}>
+      <section className="py-16 px-6" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl font-extrabold text-white text-center mb-10">Почему клиенты выбирают нас?</h2>
           <div className="grid md:grid-cols-3 gap-4 mb-10">
             {reviews.map((r, i) => (
-              <div key={i} className="p-6 rounded-2xl" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <Icon name="Quote" size={24} style={{ color: "#F3DCA8", opacity: 0.5, marginBottom: 12 }} />
-                <p className="text-sm italic leading-relaxed mb-4" style={{ color: "#E8C98A" }}>«{r.text}»</p>
-                <p className="text-xs font-semibold" style={{ color: "#9688B8" }}>— {r.author}</p>
+              <div key={i} className="p-6 rounded-sm" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.03)" }}>
+                <Icon name="Quote" size={24} style={{ color: "#d8bd8a", opacity: 0.5, marginBottom: 12 }} />
+                <p className="text-sm italic leading-relaxed mb-4" style={{ color: "#c4a06a" }}>«{r.text}»</p>
+                <p className="text-xs font-semibold" style={{ color: "#86837d" }}>— {r.author}</p>
               </div>
             ))}
           </div>
@@ -290,8 +290,8 @@ export default function ObiNas() {
               href="https://t.me/izmailova8888"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
-              style={{ background: "#C9974A" }}
+              className="inline-flex items-center gap-2 px-10 py-4 rounded-none font-bold text-white transition-transform hover:opacity-90"
+              style={{ background: "#b8925a" }}
             >
               <Icon name="Music2" size={18} />
               Заказать свою песню

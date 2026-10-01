@@ -8,7 +8,7 @@ import Icon from "@/components/ui/icon";
 
 const reviews = [
   {
-    emoji: "😭",
+    emoji: "",
     name: "Евгения Левченко",
     city: "Братск",
     occasion: "Песня мужу на юбилей",
@@ -16,7 +16,7 @@ const reviews = [
     stars: 5,
   },
   {
-    emoji: "🎉",
+    emoji: "",
     name: "Алексей Власов",
     city: "Воронеж",
     occasion: "Песня на свадьбу друзьям",
@@ -24,7 +24,7 @@ const reviews = [
     stars: 5,
   },
   {
-    emoji: "✨",
+    emoji: "",
     name: "Марина",
     city: "Санкт-Петербург",
     occasion: "Песня на годовщину свадьбы",
@@ -32,7 +32,7 @@ const reviews = [
     stars: 5,
   },
   {
-    emoji: "💖",
+    emoji: "",
     name: "Наталья Демидова",
     city: "Красноярск",
     occasion: "Песня в подарок маме",
@@ -40,7 +40,7 @@ const reviews = [
     stars: 5,
   },
   {
-    emoji: "🎊",
+    emoji: "",
     name: "Ольга Смирнова",
     city: "Самара",
     occasion: "Песня мужу на день рождения",
@@ -48,7 +48,7 @@ const reviews = [
     stars: 5,
   },
   {
-    emoji: "💍",
+    emoji: "",
     name: "Ирина Шилько",
     city: "Сочи",
     occasion: "Песня жениху на свадьбу",
@@ -56,7 +56,7 @@ const reviews = [
     stars: 5,
   },
   {
-    emoji: "😢",
+    emoji: "",
     name: "Наталья Ткаченко",
     city: "Москва",
     occasion: "Песня любимому мужчине",
@@ -64,7 +64,7 @@ const reviews = [
     stars: 5,
   },
   {
-    emoji: "🎵",
+    emoji: "",
     name: "Светлана Кудрявцева",
     city: "Москва",
     occasion: "Песня мужу на годовщину",
@@ -92,38 +92,38 @@ export default function Otzyvy() {
   });
 
   return (
-    <div style={{ background: "#0E0B1A", minHeight: "100vh" }}>
+    <div style={{ background: "#0a0a0b", minHeight: "100vh" }}>
 
       <NavBar />
 
       {/* ─── HERO ─── */}
-      <section className="py-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #171327 0%, #0E0B1A 100%)" }}>
+      <section className="py-16 px-6 text-center" style={{ background: "linear-gradient(180deg, #131314 0%, #0a0a0b 100%)" }}>
         <div className="container mx-auto max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.15)" }}>
-            <Icon name="Star" size={14} style={{ color: "#F3DCA8" }} />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-none mb-6" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.15)" }}>
+            <Icon name="Star" size={14} style={{ color: "#d8bd8a" }} />
             <span className="text-sm text-white/80">Реальные истории и эмоции</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
             Отзывы наших<br />
-            <span style={{ color: "#F3DCA8" }}>клиентов</span>
+            <span style={{ color: "#d8bd8a" }}>клиентов</span>
           </h1>
-          <p className="text-lg" style={{ color: "#B8ABCF" }}>
+          <p className="text-lg" style={{ color: "#a9a69f" }}>
             Более <strong className="text-white">100 созданных песен.</strong> Сотни счастливых людей.
           </p>
         </div>
       </section>
 
       {/* ─── СТАТИСТИКА ─── */}
-      <section className="py-10 px-6" style={{ background: "#120E22" }}>
+      <section className="py-10 px-6" style={{ background: "#0f0f10" }}>
         <div className="container mx-auto max-w-5xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((s, i) => (
-              <div key={i} className="flex flex-col items-center text-center p-5 rounded-2xl" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style={{ background: "rgba(194,65,12,0.2)" }}>
-                  <Icon name={s.icon as "Star"} size={20} style={{ color: "#F3DCA8" }} />
+              <div key={i} className="flex flex-col items-center text-center p-5 rounded-sm" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.03)" }}>
+                <div className="w-10 h-10 rounded-sm flex items-center justify-center mb-3" style={{ background: "transparent", border: "1px solid rgba(196,160,106,0.35)" }}>
+                  <Icon name={s.icon as "Star"} size={20} style={{ color: "#d8bd8a" }} />
                 </div>
                 <p className="text-2xl font-extrabold text-white">{s.value}</p>
-                <p className="text-xs mt-1" style={{ color: "#9688B8" }}>{s.label}</p>
+                <p className="text-xs mt-1" style={{ color: "#86837d" }}>{s.label}</p>
               </div>
             ))}
           </div>
@@ -131,39 +131,39 @@ export default function Otzyvy() {
       </section>
 
       {/* ─── ОТЗЫВЫ ─── */}
-      <section className="py-16 px-6" style={{ background: "#0E0B1A" }}>
+      <section className="py-16 px-6" style={{ background: "#0a0a0b" }}>
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-5">
             {reviews.map((r, i) => (
               <div
                 key={i}
-                className="flex flex-col p-6 rounded-2xl"
-                style={{ background: "#171327", border: "1px solid #1E1833" }}
+                className="flex flex-col p-6 rounded-sm"
+                style={{ background: "#131314", border: "1px solid #1b1b1d" }}
               >
                 {/* Шапка */}
                 <div className="flex items-start gap-3 mb-4">
                   <div className="text-3xl flex-shrink-0">{r.emoji}</div>
                   <div className="flex-1 min-w-0">
                     <p className="font-bold text-white text-sm">{r.name}</p>
-                    <p className="text-xs" style={{ color: "#9688B8" }}>{r.city}</p>
+                    <p className="text-xs" style={{ color: "#86837d" }}>{r.city}</p>
                     <div className="flex gap-0.5 mt-1">
                       {Array.from({ length: r.stars }).map((_, si) => (
-                        <Icon key={si} name="Star" size={12} style={{ color: "#F3DCA8" }} />
+                        <Icon key={si} name="Star" size={12} style={{ color: "#d8bd8a" }} />
                       ))}
                     </div>
                   </div>
                 </div>
 
                 {/* Повод */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-4 self-start" style={{ background: "rgba(194,65,12,0.15)", border: "1px solid rgba(194,65,12,0.25)" }}>
-                  <Icon name="Music2" size={11} style={{ color: "#F3DCA8" }} />
-                  <span className="text-xs font-semibold" style={{ color: "#F3DCA8" }}>{r.occasion}</span>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none mb-4 self-start" style={{ background: "rgba(196,160,106,0.15)", border: "1px solid rgba(196,160,106,0.25)" }}>
+                  <Icon name="Music2" size={11} style={{ color: "#d8bd8a" }} />
+                  <span className="text-xs font-semibold" style={{ color: "#d8bd8a" }}>{r.occasion}</span>
                 </div>
 
                 {/* Текст отзыва */}
                 <div className="flex-1">
-                  <Icon name="Quote" size={20} style={{ color: "#F3DCA8", opacity: 0.4, marginBottom: 8 }} />
-                  <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: "#B8ABCF" }}>{r.text}</p>
+                  <Icon name="Quote" size={20} style={{ color: "#d8bd8a", opacity: 0.4, marginBottom: 8 }} />
+                  <p className="text-sm leading-relaxed whitespace-pre-line" style={{ color: "#a9a69f" }}>{r.text}</p>
                 </div>
               </div>
             ))}
@@ -172,7 +172,7 @@ export default function Otzyvy() {
       </section>
 
       {/* ─── ГДЕ ЕЩЁ ЧИТАТЬ ─── */}
-      <section className="py-12 px-6" style={{ background: "#120E22" }}>
+      <section className="py-12 px-6" style={{ background: "#0f0f10" }}>
         <div className="container mx-auto max-w-3xl text-center">
           <h2 className="text-xl font-extrabold text-white mb-6">Где ещё можно почитать отзывы?</h2>
           <div className="flex flex-wrap justify-center gap-3">
@@ -180,7 +180,7 @@ export default function Otzyvy() {
               href="https://vk.ru/club235584480"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold transition-transform hover:scale-105"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-none text-sm font-semibold transition-transform hover:opacity-90"
               style={{ background: "rgba(0,119,255,0.15)", color: "#5b9cf6", border: "1px solid rgba(0,119,255,0.3)" }}
             >
               <Icon name="Users" size={15} />
@@ -190,7 +190,7 @@ export default function Otzyvy() {
               href="https://t.me/AIMusalab_bot"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold transition-transform hover:scale-105"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-none text-sm font-semibold transition-transform hover:opacity-90"
               style={{ background: "rgba(41,182,246,0.15)", color: "#29b6f6", border: "1px solid rgba(41,182,246,0.3)" }}
             >
               <Icon name="Bot" size={15} />
@@ -201,12 +201,12 @@ export default function Otzyvy() {
       </section>
 
       {/* ─── CTA ─── */}
-      <section className="py-20 px-6 text-center" style={{ background: "#171327" }}>
+      <section className="py-20 px-6 text-center" style={{ background: "#131314" }}>
         <div className="container mx-auto max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "#F6F1FF" }}>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "#f2efe9" }}>
             Хотите стать следующим счастливым клиентом?
           </h2>
-          <p className="text-base mb-8" style={{ color: "#6B5E91" }}>
+          <p className="text-base mb-8" style={{ color: "#6f6c66" }}>
             Расскажите историю — и через 2–3 дня у вас будет персональная песня, которую будут переслушивать годами.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -214,16 +214,16 @@ export default function Otzyvy() {
               href="https://t.me/izmailova8888"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
-              style={{ background: "#C9974A" }}
+              className="inline-flex items-center gap-2 px-10 py-4 rounded-none font-bold text-white transition-transform hover:opacity-90"
+              style={{ background: "#b8925a" }}
             >
               <Icon name="Send" size={17} />
               Написать в Telegram
             </a>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-bold transition-transform hover:scale-105"
-              style={{ background: "#120E22", color: "#F3DCA8" }}
+              className="inline-flex items-center gap-2 px-10 py-4 rounded-none font-bold transition-transform hover:opacity-90"
+              style={{ background: "#0f0f10", color: "#d8bd8a" }}
             >
               <Icon name="Music2" size={17} />
               Заказать песню
